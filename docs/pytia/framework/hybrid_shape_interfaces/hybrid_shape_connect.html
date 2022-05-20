@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from pytia.framework.in_interfaces.reference import Reference
+from pytia.framework.knowledge_interfaces.real_param import RealParam
+from pytia.framework.mec_mod_interfaces.hybrid_shape import HybridShape
+
+
+class HybridShapeConnect(HybridShape):
+    def __init__(self, com_object):
+        super().__init__(com_object)
+        self.hybrid_shape_connect = com_object
+
+    @property
+    def base_curve(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_connect.BaseCurve)
+
+    @base_curve.setter
+    def base_curve(self, refernce_curve: Reference):
+        self.hybrid_shape_connect.BaseCurve = refernce_curve.com_object
+
+    @property
+    def connect_type(self) -&gt; int:
+        return self.hybrid_shape_connect.ConnectType
+
+    @connect_type.setter
+    def connect_type(self, value: int):
+        self.hybrid_shape_connect.ConnectType = value
+
+    @property
+    def first_continuity(self) -&gt; int:
+        return self.hybrid_shape_connect.FirstContinuity
+
+    @first_continuity.setter
+    def first_continuity(self, value: int):
+        self.hybrid_shape_connect.FirstContinuity = value
+
+    @property
+    def first_curve(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_connect.FirstCurve)
+
+    @first_curve.setter
+    def first_curve(self, refernce_curve: Reference):
+        self.hybrid_shape_connect.FirstCurve = refernce_curve.com_object
+
+    @property
+    def first_orientation(self) -&gt; int:
+        return self.hybrid_shape_connect.FirstOrientation
+
+    @first_orientation.setter
+    def first_orientation(self, value: int):
+        self.hybrid_shape_connect.FirstOrientation = value
+
+    @property
+    def first_point(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_connect.FirstPoint)
+
+    @first_point.setter
+    def first_point(self, refernce_curve: Reference):
+        self.hybrid_shape_connect.FirstPoint = refernce_curve.com_object
+
+    @property
+    def first_tension(self) -&gt; RealParam:
+        return RealParam(self.hybrid_shape_connect.FirstTension)
+
+    @property
+    def second_continuity(self) -&gt; int:
+        return self.hybrid_shape_connect.SecondContinuity
+
+    @second_continuity.setter
+    def second_continuity(self, value: int):
+        self.hybrid_shape_connect.SecondContinuity = value
+
+    @property
+    def second_curve(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_connect.SecondCurve)
+
+    @second_curve.setter
+    def second_curve(self, refernce_curve: Reference):
+        self.hybrid_shape_connect.SecondCurve = refernce_curve.com_object
+
+    @property
+    def second_orientation(self) -&gt; int:
+        return self.hybrid_shape_connect.SecondOrientation
+
+    @second_orientation.setter
+    def second_orientation(self, value: int):
+        self.hybrid_shape_connect.SecondOrientation = value
+
+    @property
+    def second_point(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_connect.SecondPoint)
+
+    @second_point.setter
+    def second_point(self, reference_point: Reference):
+        self.hybrid_shape_connect.SecondPoint = reference_point.com_object
+
+    @property
+    def second_tension(self) -&gt; RealParam:
+        return RealParam(self.hybrid_shape_connect.SecondTension)
+
+    @property
+    def trim(self) -&gt; bool:
+        return self.hybrid_shape_connect.Trim
+
+    @trim.setter
+    def trim(self, value: bool):
+        self.hybrid_shape_connect.Trim = value
+
+    def __repr__(self):
+        return f&#39;HybridShapeConnect(name=&#34;{self.name}&#34;)&#39;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect"><code class="flex name class">
+<span>class <span class="ident">HybridShapeConnect</span></span>
+<span>(</span><span>com_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for the framework.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HybridShapeConnect(HybridShape):
+    def __init__(self, com_object):
+        super().__init__(com_object)
+        self.hybrid_shape_connect = com_object
+
+    @property
+    def base_curve(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_connect.BaseCurve)
+
+    @base_curve.setter
+    def base_curve(self, refernce_curve: Reference):
+        self.hybrid_shape_connect.BaseCurve = refernce_curve.com_object
+
+    @property
+    def connect_type(self) -&gt; int:
+        return self.hybrid_shape_connect.ConnectType
+
+    @connect_type.setter
+    def connect_type(self, value: int):
+        self.hybrid_shape_connect.ConnectType = value
+
+    @property
+    def first_continuity(self) -&gt; int:
+        return self.hybrid_shape_connect.FirstContinuity
+
+    @first_continuity.setter
+    def first_continuity(self, value: int):
+        self.hybrid_shape_connect.FirstContinuity = value
+
+    @property
+    def first_curve(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_connect.FirstCurve)
+
+    @first_curve.setter
+    def first_curve(self, refernce_curve: Reference):
+        self.hybrid_shape_connect.FirstCurve = refernce_curve.com_object
+
+    @property
+    def first_orientation(self) -&gt; int:
+        return self.hybrid_shape_connect.FirstOrientation
+
+    @first_orientation.setter
+    def first_orientation(self, value: int):
+        self.hybrid_shape_connect.FirstOrientation = value
+
+    @property
+    def first_point(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_connect.FirstPoint)
+
+    @first_point.setter
+    def first_point(self, refernce_curve: Reference):
+        self.hybrid_shape_connect.FirstPoint = refernce_curve.com_object
+
+    @property
+    def first_tension(self) -&gt; RealParam:
+        return RealParam(self.hybrid_shape_connect.FirstTension)
+
+    @property
+    def second_continuity(self) -&gt; int:
+        return self.hybrid_shape_connect.SecondContinuity
+
+    @second_continuity.setter
+    def second_continuity(self, value: int):
+        self.hybrid_shape_connect.SecondContinuity = value
+
+    @property
+    def second_curve(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_connect.SecondCurve)
+
+    @second_curve.setter
+    def second_curve(self, refernce_curve: Reference):
+        self.hybrid_shape_connect.SecondCurve = refernce_curve.com_object
+
+    @property
+    def second_orientation(self) -&gt; int:
+        return self.hybrid_shape_connect.SecondOrientation
+
+    @second_orientation.setter
+    def second_orientation(self, value: int):
+        self.hybrid_shape_connect.SecondOrientation = value
+
+    @property
+    def second_point(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_connect.SecondPoint)
+
+    @second_point.setter
+    def second_point(self, reference_point: Reference):
+        self.hybrid_shape_connect.SecondPoint = reference_point.com_object
+
+    @property
+    def second_tension(self) -&gt; RealParam:
+        return RealParam(self.hybrid_shape_connect.SecondTension)
+
+    @property
+    def trim(self) -&gt; bool:
+        return self.hybrid_shape_connect.Trim
+
+    @trim.setter
+    def trim(self, value: bool):
+        self.hybrid_shape_connect.Trim = value
+
+    def __repr__(self):
+        return f&#39;HybridShapeConnect(name=&#34;{self.name}&#34;)&#39;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.framework.mec_mod_interfaces.hybrid_shape.HybridShape" href="../mec_mod_interfaces/hybrid_shape.html#pytia.framework.mec_mod_interfaces.hybrid_shape.HybridShape">HybridShape</a></li>
+<li><a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a></li>
+<li><a title="pytia.framework.base.Base" href="../base.html#pytia.framework.base.Base">Base</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.base_curve"><code class="name">var <span class="ident">base_curve</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def base_curve(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_connect.BaseCurve)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.connect_type"><code class="name">var <span class="ident">connect_type</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def connect_type(self) -&gt; int:
+    return self.hybrid_shape_connect.ConnectType</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.first_continuity"><code class="name">var <span class="ident">first_continuity</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def first_continuity(self) -&gt; int:
+    return self.hybrid_shape_connect.FirstContinuity</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.first_curve"><code class="name">var <span class="ident">first_curve</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def first_curve(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_connect.FirstCurve)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.first_orientation"><code class="name">var <span class="ident">first_orientation</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def first_orientation(self) -&gt; int:
+    return self.hybrid_shape_connect.FirstOrientation</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.first_point"><code class="name">var <span class="ident">first_point</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def first_point(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_connect.FirstPoint)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.first_tension"><code class="name">var <span class="ident">first_tension</span> : <a title="pytia.framework.knowledge_interfaces.real_param.RealParam" href="../knowledge_interfaces/real_param.html#pytia.framework.knowledge_interfaces.real_param.RealParam">RealParam</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def first_tension(self) -&gt; RealParam:
+    return RealParam(self.hybrid_shape_connect.FirstTension)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.second_continuity"><code class="name">var <span class="ident">second_continuity</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def second_continuity(self) -&gt; int:
+    return self.hybrid_shape_connect.SecondContinuity</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.second_curve"><code class="name">var <span class="ident">second_curve</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def second_curve(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_connect.SecondCurve)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.second_orientation"><code class="name">var <span class="ident">second_orientation</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def second_orientation(self) -&gt; int:
+    return self.hybrid_shape_connect.SecondOrientation</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.second_point"><code class="name">var <span class="ident">second_point</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def second_point(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_connect.SecondPoint)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.second_tension"><code class="name">var <span class="ident">second_tension</span> : <a title="pytia.framework.knowledge_interfaces.real_param.RealParam" href="../knowledge_interfaces/real_param.html#pytia.framework.knowledge_interfaces.real_param.RealParam">RealParam</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def second_tension(self) -&gt; RealParam:
+    return RealParam(self.hybrid_shape_connect.SecondTension)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.trim"><code class="name">var <span class="ident">trim</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def trim(self) -&gt; bool:
+    return self.hybrid_shape_connect.Trim</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces" href="index.html">pytia.framework.hybrid_shape_interfaces</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect">HybridShapeConnect</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.base_curve" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.base_curve">base_curve</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.connect_type" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.connect_type">connect_type</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.first_continuity" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.first_continuity">first_continuity</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.first_curve" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.first_curve">first_curve</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.first_orientation" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.first_orientation">first_orientation</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.first_point" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.first_point">first_point</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.first_tension" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.first_tension">first_tension</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.second_continuity" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.second_continuity">second_continuity</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.second_curve" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.second_curve">second_curve</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.second_orientation" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.second_orientation">second_orientation</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.second_point" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.second_point">second_point</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.second_tension" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.second_tension">second_tension</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.trim" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_connect.HybridShapeConnect.trim">trim</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

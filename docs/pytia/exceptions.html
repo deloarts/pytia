@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia.exceptions API documentation</title>
+<meta name="description" content="Module that holds all custom pytia exceptions." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia.exceptions</code></h1>
+</header>
+<section id="section-intro">
+<p>Module that holds all custom pytia exceptions.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+    Module that holds all custom pytia exceptions.
+&#34;&#34;&#34;
+
+import sys
+import traceback
+from typing import Optional
+
+from pytia.log import log
+
+
+class PytiaBaseError(Exception):
+    &#34;&#34;&#34;Base class for all pytia exceptions. Logs exceptions as error messages&#34;&#34;&#34;
+
+    def __init__(self, msg: str) -&gt; None:
+        super().__init__(msg)
+        if traceback.extract_tb(sys.exc_info()[2]):
+            log.exception(msg)
+        else:
+            log.error(msg)
+
+
+class PytiaNotImplementedError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for not implemented functions&#34;&#34;&#34;
+
+    def __init__(self, msg: Optional[str] = None) -&gt; None:
+        msg = &#34;Function not implemented.&#34; if msg is None else msg
+        super().__init__(msg)
+
+
+class PytiaValueError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for value errors.&#34;&#34;&#34;
+
+    def __init__(self, msg: Optional[str] = None) -&gt; None:
+        msg = &#34;Value error.&#34; if msg is None else msg
+        super().__init__(msg)
+
+
+class PytiaApplicationError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for the dispatch.&#34;&#34;&#34;
+
+
+class PytiaFailsafeError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for the failsafe decorator.&#34;&#34;&#34;
+
+
+class PytiaNotAFolderError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for strings that aren&#39;t folders.&#34;&#34;&#34;
+
+
+class PytiaFileNotFoundError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non existent files&#34;&#34;&#34;
+
+
+class PytiaFileExistsError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non existent files&#34;&#34;&#34;
+
+
+class PytiaDocumentOperationError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non existent files&#34;&#34;&#34;
+
+
+class PytiaNoDocumentOpenError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non existent files&#34;&#34;&#34;
+
+
+class PytiaWrongDocumentTypeError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for wrong document types&#34;&#34;&#34;
+
+
+class PytiaDocumentExistsError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for existing documents&#34;&#34;&#34;
+
+
+class PytiaDocumentNotOpenError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for existing documents&#34;&#34;&#34;
+
+
+class PytiaDocumentNotSavedError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for existing documents&#34;&#34;&#34;
+
+
+class PytiaDocumentNameConventionError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for parts or product with other filenames than the partnumber&#34;&#34;&#34;
+
+
+class PytiaBodyExistsError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for existing bodies&#34;&#34;&#34;
+
+
+class PytiaBodyNotFoundError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non-existing bodies&#34;&#34;&#34;
+
+
+class PytiaBodyEmptyError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for empty bodies&#34;&#34;&#34;
+
+
+class PytiaPropertyExistsError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for existing properties&#34;&#34;&#34;
+
+
+class PytiaPropertyNotFoundError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non-existing properties&#34;&#34;&#34;
+
+
+class PytiaParameterExistsError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for existing parameters&#34;&#34;&#34;
+
+
+class PytiaParameterTypeError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for parameter type errors&#34;&#34;&#34;
+
+
+class PytiaParameterNotFoundError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non-existing parameters&#34;&#34;&#34;
+
+
+class PytiaAxisSystemExistsError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for existing axis systems&#34;&#34;&#34;
+
+
+class PytiaAxisSystemNotFoundError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for missing axis systems&#34;&#34;&#34;
+
+
+class PytiaHelperError(PytiaBaseError):
+    &#34;&#34;&#34;Base class for helper functions error exceptions.&#34;&#34;&#34;
+
+
+class PytiaBOMError(PytiaBaseError):
+    &#34;&#34;&#34;Base class for BOM functions error exceptions.&#34;&#34;&#34;
+
+
+class PytiaMaterialError(PytiaBaseError):
+    &#34;&#34;&#34;Base class for material functions error exceptions.&#34;&#34;&#34;
+
+
+class PytiaMaterialNotFound(PytiaBaseError):
+    &#34;&#34;&#34;Base class for mssing materials exceptions.&#34;&#34;&#34;
+
+
+class PytiaDispatchError(PytiaBaseError):
+    &#34;&#34;&#34;Base class for dispatch error exceptions.&#34;&#34;&#34;
+
+
+class PytiaDifferentDocumentError(PytiaBaseError):
+    &#34;&#34;&#34;Base class for errors when a document has changed.&#34;&#34;&#34;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia.exceptions.PytiaApplicationError"><code class="flex name class">
+<span>class <span class="ident">PytiaApplicationError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for the dispatch.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaApplicationError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for the dispatch.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaAxisSystemExistsError"><code class="flex name class">
+<span>class <span class="ident">PytiaAxisSystemExistsError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for existing axis systems</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaAxisSystemExistsError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for existing axis systems&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaAxisSystemNotFoundError"><code class="flex name class">
+<span>class <span class="ident">PytiaAxisSystemNotFoundError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for missing axis systems</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaAxisSystemNotFoundError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for missing axis systems&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaBOMError"><code class="flex name class">
+<span>class <span class="ident">PytiaBOMError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for BOM functions error exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaBOMError(PytiaBaseError):
+    &#34;&#34;&#34;Base class for BOM functions error exceptions.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaBaseError"><code class="flex name class">
+<span>class <span class="ident">PytiaBaseError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for all pytia exceptions. Logs exceptions as error messages</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaBaseError(Exception):
+    &#34;&#34;&#34;Base class for all pytia exceptions. Logs exceptions as error messages&#34;&#34;&#34;
+
+    def __init__(self, msg: str) -&gt; None:
+        super().__init__(msg)
+        if traceback.extract_tb(sys.exc_info()[2]):
+            log.exception(msg)
+        else:
+            log.error(msg)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaApplicationError" href="#pytia.exceptions.PytiaApplicationError">PytiaApplicationError</a></li>
+<li><a title="pytia.exceptions.PytiaAxisSystemExistsError" href="#pytia.exceptions.PytiaAxisSystemExistsError">PytiaAxisSystemExistsError</a></li>
+<li><a title="pytia.exceptions.PytiaAxisSystemNotFoundError" href="#pytia.exceptions.PytiaAxisSystemNotFoundError">PytiaAxisSystemNotFoundError</a></li>
+<li><a title="pytia.exceptions.PytiaBOMError" href="#pytia.exceptions.PytiaBOMError">PytiaBOMError</a></li>
+<li><a title="pytia.exceptions.PytiaBodyEmptyError" href="#pytia.exceptions.PytiaBodyEmptyError">PytiaBodyEmptyError</a></li>
+<li><a title="pytia.exceptions.PytiaBodyExistsError" href="#pytia.exceptions.PytiaBodyExistsError">PytiaBodyExistsError</a></li>
+<li><a title="pytia.exceptions.PytiaBodyNotFoundError" href="#pytia.exceptions.PytiaBodyNotFoundError">PytiaBodyNotFoundError</a></li>
+<li><a title="pytia.exceptions.PytiaDifferentDocumentError" href="#pytia.exceptions.PytiaDifferentDocumentError">PytiaDifferentDocumentError</a></li>
+<li><a title="pytia.exceptions.PytiaDispatchError" href="#pytia.exceptions.PytiaDispatchError">PytiaDispatchError</a></li>
+<li><a title="pytia.exceptions.PytiaDocumentExistsError" href="#pytia.exceptions.PytiaDocumentExistsError">PytiaDocumentExistsError</a></li>
+<li><a title="pytia.exceptions.PytiaDocumentNameConventionError" href="#pytia.exceptions.PytiaDocumentNameConventionError">PytiaDocumentNameConventionError</a></li>
+<li><a title="pytia.exceptions.PytiaDocumentNotOpenError" href="#pytia.exceptions.PytiaDocumentNotOpenError">PytiaDocumentNotOpenError</a></li>
+<li><a title="pytia.exceptions.PytiaDocumentNotSavedError" href="#pytia.exceptions.PytiaDocumentNotSavedError">PytiaDocumentNotSavedError</a></li>
+<li><a title="pytia.exceptions.PytiaDocumentOperationError" href="#pytia.exceptions.PytiaDocumentOperationError">PytiaDocumentOperationError</a></li>
+<li><a title="pytia.exceptions.PytiaFailsafeError" href="#pytia.exceptions.PytiaFailsafeError">PytiaFailsafeError</a></li>
+<li><a title="pytia.exceptions.PytiaFileExistsError" href="#pytia.exceptions.PytiaFileExistsError">PytiaFileExistsError</a></li>
+<li><a title="pytia.exceptions.PytiaFileNotFoundError" href="#pytia.exceptions.PytiaFileNotFoundError">PytiaFileNotFoundError</a></li>
+<li><a title="pytia.exceptions.PytiaHelperError" href="#pytia.exceptions.PytiaHelperError">PytiaHelperError</a></li>
+<li><a title="pytia.exceptions.PytiaMaterialError" href="#pytia.exceptions.PytiaMaterialError">PytiaMaterialError</a></li>
+<li><a title="pytia.exceptions.PytiaMaterialNotFound" href="#pytia.exceptions.PytiaMaterialNotFound">PytiaMaterialNotFound</a></li>
+<li><a title="pytia.exceptions.PytiaNoDocumentOpenError" href="#pytia.exceptions.PytiaNoDocumentOpenError">PytiaNoDocumentOpenError</a></li>
+<li><a title="pytia.exceptions.PytiaNotAFolderError" href="#pytia.exceptions.PytiaNotAFolderError">PytiaNotAFolderError</a></li>
+<li><a title="pytia.exceptions.PytiaNotImplementedError" href="#pytia.exceptions.PytiaNotImplementedError">PytiaNotImplementedError</a></li>
+<li><a title="pytia.exceptions.PytiaParameterExistsError" href="#pytia.exceptions.PytiaParameterExistsError">PytiaParameterExistsError</a></li>
+<li><a title="pytia.exceptions.PytiaParameterNotFoundError" href="#pytia.exceptions.PytiaParameterNotFoundError">PytiaParameterNotFoundError</a></li>
+<li><a title="pytia.exceptions.PytiaParameterTypeError" href="#pytia.exceptions.PytiaParameterTypeError">PytiaParameterTypeError</a></li>
+<li><a title="pytia.exceptions.PytiaPropertyExistsError" href="#pytia.exceptions.PytiaPropertyExistsError">PytiaPropertyExistsError</a></li>
+<li><a title="pytia.exceptions.PytiaPropertyNotFoundError" href="#pytia.exceptions.PytiaPropertyNotFoundError">PytiaPropertyNotFoundError</a></li>
+<li><a title="pytia.exceptions.PytiaValueError" href="#pytia.exceptions.PytiaValueError">PytiaValueError</a></li>
+<li><a title="pytia.exceptions.PytiaWrongDocumentTypeError" href="#pytia.exceptions.PytiaWrongDocumentTypeError">PytiaWrongDocumentTypeError</a></li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaBodyEmptyError"><code class="flex name class">
+<span>class <span class="ident">PytiaBodyEmptyError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for empty bodies</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaBodyEmptyError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for empty bodies&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaBodyExistsError"><code class="flex name class">
+<span>class <span class="ident">PytiaBodyExistsError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for existing bodies</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaBodyExistsError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for existing bodies&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaBodyNotFoundError"><code class="flex name class">
+<span>class <span class="ident">PytiaBodyNotFoundError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for non-existing bodies</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaBodyNotFoundError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non-existing bodies&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaDifferentDocumentError"><code class="flex name class">
+<span>class <span class="ident">PytiaDifferentDocumentError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for errors when a document has changed.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaDifferentDocumentError(PytiaBaseError):
+    &#34;&#34;&#34;Base class for errors when a document has changed.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaDispatchError"><code class="flex name class">
+<span>class <span class="ident">PytiaDispatchError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for dispatch error exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaDispatchError(PytiaBaseError):
+    &#34;&#34;&#34;Base class for dispatch error exceptions.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaDocumentExistsError"><code class="flex name class">
+<span>class <span class="ident">PytiaDocumentExistsError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for existing documents</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaDocumentExistsError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for existing documents&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaDocumentNameConventionError"><code class="flex name class">
+<span>class <span class="ident">PytiaDocumentNameConventionError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for parts or product with other filenames than the partnumber</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaDocumentNameConventionError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for parts or product with other filenames than the partnumber&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaDocumentNotOpenError"><code class="flex name class">
+<span>class <span class="ident">PytiaDocumentNotOpenError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for existing documents</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaDocumentNotOpenError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for existing documents&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaDocumentNotSavedError"><code class="flex name class">
+<span>class <span class="ident">PytiaDocumentNotSavedError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for existing documents</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaDocumentNotSavedError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for existing documents&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaDocumentOperationError"><code class="flex name class">
+<span>class <span class="ident">PytiaDocumentOperationError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for non existent files</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaDocumentOperationError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non existent files&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaFailsafeError"><code class="flex name class">
+<span>class <span class="ident">PytiaFailsafeError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for the failsafe decorator.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaFailsafeError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for the failsafe decorator.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaFileExistsError"><code class="flex name class">
+<span>class <span class="ident">PytiaFileExistsError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for non existent files</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaFileExistsError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non existent files&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaFileNotFoundError"><code class="flex name class">
+<span>class <span class="ident">PytiaFileNotFoundError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for non existent files</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaFileNotFoundError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non existent files&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaHelperError"><code class="flex name class">
+<span>class <span class="ident">PytiaHelperError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for helper functions error exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaHelperError(PytiaBaseError):
+    &#34;&#34;&#34;Base class for helper functions error exceptions.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaMaterialError"><code class="flex name class">
+<span>class <span class="ident">PytiaMaterialError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for material functions error exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaMaterialError(PytiaBaseError):
+    &#34;&#34;&#34;Base class for material functions error exceptions.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaMaterialNotFound"><code class="flex name class">
+<span>class <span class="ident">PytiaMaterialNotFound</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for mssing materials exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaMaterialNotFound(PytiaBaseError):
+    &#34;&#34;&#34;Base class for mssing materials exceptions.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaNoDocumentOpenError"><code class="flex name class">
+<span>class <span class="ident">PytiaNoDocumentOpenError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for non existent files</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaNoDocumentOpenError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non existent files&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaNotAFolderError"><code class="flex name class">
+<span>class <span class="ident">PytiaNotAFolderError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for strings that aren't folders.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaNotAFolderError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for strings that aren&#39;t folders.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaNotImplementedError"><code class="flex name class">
+<span>class <span class="ident">PytiaNotImplementedError</span></span>
+<span>(</span><span>msg: Optional[str] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for not implemented functions</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaNotImplementedError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for not implemented functions&#34;&#34;&#34;
+
+    def __init__(self, msg: Optional[str] = None) -&gt; None:
+        msg = &#34;Function not implemented.&#34; if msg is None else msg
+        super().__init__(msg)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaParameterExistsError"><code class="flex name class">
+<span>class <span class="ident">PytiaParameterExistsError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for existing parameters</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaParameterExistsError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for existing parameters&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaParameterNotFoundError"><code class="flex name class">
+<span>class <span class="ident">PytiaParameterNotFoundError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for non-existing parameters</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaParameterNotFoundError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non-existing parameters&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaParameterTypeError"><code class="flex name class">
+<span>class <span class="ident">PytiaParameterTypeError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for parameter type errors</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaParameterTypeError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for parameter type errors&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaPropertyExistsError"><code class="flex name class">
+<span>class <span class="ident">PytiaPropertyExistsError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for existing properties</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaPropertyExistsError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for existing properties&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaPropertyNotFoundError"><code class="flex name class">
+<span>class <span class="ident">PytiaPropertyNotFoundError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for non-existing properties</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaPropertyNotFoundError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non-existing properties&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaValueError"><code class="flex name class">
+<span>class <span class="ident">PytiaValueError</span></span>
+<span>(</span><span>msg: Optional[str] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for value errors.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaValueError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for value errors.&#34;&#34;&#34;
+
+    def __init__(self, msg: Optional[str] = None) -&gt; None:
+        msg = &#34;Value error.&#34; if msg is None else msg
+        super().__init__(msg)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaWrongDocumentTypeError"><code class="flex name class">
+<span>class <span class="ident">PytiaWrongDocumentTypeError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for wrong document types</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaWrongDocumentTypeError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for wrong document types&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia" href="index.html">pytia</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaApplicationError" href="#pytia.exceptions.PytiaApplicationError">PytiaApplicationError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaAxisSystemExistsError" href="#pytia.exceptions.PytiaAxisSystemExistsError">PytiaAxisSystemExistsError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaAxisSystemNotFoundError" href="#pytia.exceptions.PytiaAxisSystemNotFoundError">PytiaAxisSystemNotFoundError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaBOMError" href="#pytia.exceptions.PytiaBOMError">PytiaBOMError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaBodyEmptyError" href="#pytia.exceptions.PytiaBodyEmptyError">PytiaBodyEmptyError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaBodyExistsError" href="#pytia.exceptions.PytiaBodyExistsError">PytiaBodyExistsError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaBodyNotFoundError" href="#pytia.exceptions.PytiaBodyNotFoundError">PytiaBodyNotFoundError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaDifferentDocumentError" href="#pytia.exceptions.PytiaDifferentDocumentError">PytiaDifferentDocumentError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaDispatchError" href="#pytia.exceptions.PytiaDispatchError">PytiaDispatchError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaDocumentExistsError" href="#pytia.exceptions.PytiaDocumentExistsError">PytiaDocumentExistsError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaDocumentNameConventionError" href="#pytia.exceptions.PytiaDocumentNameConventionError">PytiaDocumentNameConventionError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaDocumentNotOpenError" href="#pytia.exceptions.PytiaDocumentNotOpenError">PytiaDocumentNotOpenError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaDocumentNotSavedError" href="#pytia.exceptions.PytiaDocumentNotSavedError">PytiaDocumentNotSavedError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaDocumentOperationError" href="#pytia.exceptions.PytiaDocumentOperationError">PytiaDocumentOperationError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaFailsafeError" href="#pytia.exceptions.PytiaFailsafeError">PytiaFailsafeError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaFileExistsError" href="#pytia.exceptions.PytiaFileExistsError">PytiaFileExistsError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaFileNotFoundError" href="#pytia.exceptions.PytiaFileNotFoundError">PytiaFileNotFoundError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaHelperError" href="#pytia.exceptions.PytiaHelperError">PytiaHelperError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaMaterialError" href="#pytia.exceptions.PytiaMaterialError">PytiaMaterialError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaMaterialNotFound" href="#pytia.exceptions.PytiaMaterialNotFound">PytiaMaterialNotFound</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaNoDocumentOpenError" href="#pytia.exceptions.PytiaNoDocumentOpenError">PytiaNoDocumentOpenError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaNotAFolderError" href="#pytia.exceptions.PytiaNotAFolderError">PytiaNotAFolderError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaNotImplementedError" href="#pytia.exceptions.PytiaNotImplementedError">PytiaNotImplementedError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaParameterExistsError" href="#pytia.exceptions.PytiaParameterExistsError">PytiaParameterExistsError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaParameterNotFoundError" href="#pytia.exceptions.PytiaParameterNotFoundError">PytiaParameterNotFoundError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaParameterTypeError" href="#pytia.exceptions.PytiaParameterTypeError">PytiaParameterTypeError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaPropertyExistsError" href="#pytia.exceptions.PytiaPropertyExistsError">PytiaPropertyExistsError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaPropertyNotFoundError" href="#pytia.exceptions.PytiaPropertyNotFoundError">PytiaPropertyNotFoundError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaValueError" href="#pytia.exceptions.PytiaValueError">PytiaValueError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaWrongDocumentTypeError" href="#pytia.exceptions.PytiaWrongDocumentTypeError">PytiaWrongDocumentTypeError</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

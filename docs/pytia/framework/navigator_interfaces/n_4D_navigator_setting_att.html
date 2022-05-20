@@ -1,0 +1,3395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia.framework.navigator_interfaces.n_4D_navigator_setting_att API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia.framework.navigator_interfaces.n_4D_navigator_setting_att</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from pytia.framework.system_interfaces.setting_controller import SettingController
+
+
+class N4DNavigatorSettingAtt(SettingController):
+    def __init__(self, com_object):
+        super().__init__(com_object)
+        self.n_4d_navigator_setting_att = com_object
+
+    @property
+    def clearance_voxel(self) -&gt; float:
+        return self.n_4d_navigator_setting_att.ClearanceVoxel
+
+    @clearance_voxel.setter
+    def clearance_voxel(self, value: float):
+        self.n_4d_navigator_setting_att.ClearanceVoxel = value
+
+    @property
+    def dmu_clash_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUClashPreview
+
+    @dmu_clash_preview.setter
+    def dmu_clash_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUClashPreview = value
+
+    @property
+    def dmu_cut_3d_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUCut3DPreview
+
+    @dmu_cut_3d_preview.setter
+    def dmu_cut_3d_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUCut3DPreview = value
+
+    @property
+    def dmu_distance_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUDistancePreview
+
+    @dmu_distance_preview.setter
+    def dmu_distance_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUDistancePreview = value
+
+    @property
+    def dmu_free_space_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUFreeSpacePreview
+
+    @dmu_free_space_preview.setter
+    def dmu_free_space_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUFreeSpacePreview = value
+
+    @property
+    def dmu_group_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUGroupPreview
+
+    @dmu_group_preview.setter
+    def dmu_group_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUGroupPreview = value
+
+    @property
+    def dmu_group_preview_hidden_objects_display_mode(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsDisplayMode
+
+    @dmu_group_preview_hidden_objects_display_mode.setter
+    def dmu_group_preview_hidden_objects_display_mode(self, value: int):
+        self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsDisplayMode = value
+
+    @property
+    def dmu_group_preview_hidden_objects_low_int(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsLowInt
+
+    @dmu_group_preview_hidden_objects_low_int.setter
+    def dmu_group_preview_hidden_objects_low_int(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsLowInt = value
+
+    @property
+    def dmu_group_preview_hidden_objects_opacity(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsOpacity
+
+    @dmu_group_preview_hidden_objects_opacity.setter
+    def dmu_group_preview_hidden_objects_opacity(self, value: int):
+        self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsOpacity = value
+
+    @property
+    def dmu_group_preview_hidden_objects_pick(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsPick
+
+    @dmu_group_preview_hidden_objects_pick.setter
+    def dmu_group_preview_hidden_objects_pick(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsPick = value
+
+    @property
+    def dmu_merger_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUMergerPreview
+
+    @dmu_merger_preview.setter
+    def dmu_merger_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUMergerPreview = value
+
+    @property
+    def dmu_offset_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUOffsetPreview
+
+    @dmu_offset_preview.setter
+    def dmu_offset_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUOffsetPreview = value
+
+    @property
+    def dmu_review_name(self) -&gt; str:
+        return self.n_4d_navigator_setting_att.DMUReviewName
+
+    @dmu_review_name.setter
+    def dmu_review_name(self, value: str):
+        self.n_4d_navigator_setting_att.DMUReviewName = value
+
+    @property
+    def dmu_section_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUSectionPreview
+
+    @dmu_section_preview.setter
+    def dmu_section_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUSectionPreview = value
+
+    @property
+    def dmu_shuttle_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUShuttlePreview
+
+    @dmu_shuttle_preview.setter
+    def dmu_shuttle_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUShuttlePreview = value
+
+    @property
+    def dmu_silhouette_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUSilhouettePreview
+
+    @dmu_silhouette_preview.setter
+    def dmu_silhouette_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUSilhouettePreview = value
+
+    @property
+    def dmu_simplif_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUSimplifPreview
+
+    @dmu_simplif_preview.setter
+    def dmu_simplif_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUSimplifPreview = value
+
+    @property
+    def dmu_swept_vol_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUSweptVolPreview
+
+    @dmu_swept_vol_preview.setter
+    def dmu_swept_vol_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUSweptVolPreview = value
+
+    @property
+    def dmu_thickness_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUThicknessPreview
+
+    @dmu_thickness_preview.setter
+    def dmu_thickness_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUThicknessPreview = value
+
+    @property
+    def dmu_vibration_vol_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUVibrationVolPreview
+
+    @dmu_vibration_vol_preview.setter
+    def dmu_vibration_vol_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUVibrationVolPreview = value
+
+    @property
+    def dmu_wrapping_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUWrappingPreview
+
+    @dmu_wrapping_preview.setter
+    def dmu_wrapping_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUWrappingPreview = value
+
+    @property
+    def force_clearance_voxel(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.ForceClearanceVoxel
+
+    @force_clearance_voxel.setter
+    def force_clearance_voxel(self, value: bool):
+        self.n_4d_navigator_setting_att.ForceClearanceVoxel = value
+
+    @property
+    def force_voxel(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.ForceVoxel
+
+    @force_voxel.setter
+    def force_voxel(self, value: bool):
+        self.n_4d_navigator_setting_att.ForceVoxel = value
+
+    @property
+    def insert_level(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.InsertLevel
+
+    @insert_level.setter
+    def insert_level(self, value: bool):
+        self.n_4d_navigator_setting_att.InsertLevel = value
+
+    @property
+    def insert_mode(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.InsertMode
+
+    @insert_mode.setter
+    def insert_mode(self, value: int):
+        self.n_4d_navigator_setting_att.InsertMode = value
+
+    @property
+    def marker_2d_auto_naming(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.Marker2DAutoNaming
+
+    @marker_2d_auto_naming.setter
+    def marker_2d_auto_naming(self, value: bool):
+        self.n_4d_navigator_setting_att.Marker2DAutoNaming = value
+
+    @property
+    def marker_3d_auto_naming(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.Marker3DAutoNaming
+
+    @marker_3d_auto_naming.setter
+    def marker_3d_auto_naming(self, value: bool):
+        self.n_4d_navigator_setting_att.Marker3DAutoNaming = value
+
+    @property
+    def marker_auto_update(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.MarkerAutoUpdate
+
+    @marker_auto_update.setter
+    def marker_auto_update(self, value: bool):
+        self.n_4d_navigator_setting_att.MarkerAutoUpdate = value
+
+    @property
+    def marker_defaults_dashed(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.MarkerDefaultsDashed
+
+    @marker_defaults_dashed.setter
+    def marker_defaults_dashed(self, value: int):
+        self.n_4d_navigator_setting_att.MarkerDefaultsDashed = value
+
+    @property
+    def marker_defaults_font(self) -&gt; str:
+        return self.n_4d_navigator_setting_att.MarkerDefaultsFont
+
+    @marker_defaults_font.setter
+    def marker_defaults_font(self, value: str):
+        self.n_4d_navigator_setting_att.MarkerDefaultsFont = value
+
+    @property
+    def marker_defaults_size(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.MarkerDefaultsSize
+
+    @marker_defaults_size.setter
+    def marker_defaults_size(self, value: int):
+        self.n_4d_navigator_setting_att.MarkerDefaultsSize = value
+
+    @property
+    def marker_defaults_weight(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.MarkerDefaultsWeight
+
+    @marker_defaults_weight.setter
+    def marker_defaults_weight(self, value: int):
+        self.n_4d_navigator_setting_att.MarkerDefaultsWeight = value
+
+    @property
+    def marker_text_dashed(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.MarkerTextDashed
+
+    @marker_text_dashed.setter
+    def marker_text_dashed(self, value: int):
+        self.n_4d_navigator_setting_att.MarkerTextDashed = value
+
+    @property
+    def marker_text_weight(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.MarkerTextWeight
+
+    @marker_text_weight.setter
+    def marker_text_weight(self, value: int):
+        self.n_4d_navigator_setting_att.MarkerTextWeight = value
+
+    @property
+    def num_url_name(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.NumUrlName
+
+    @num_url_name.setter
+    def num_url_name(self, value: bool):
+        self.n_4d_navigator_setting_att.NumUrlName = value
+
+    @property
+    def publish_auto_launch_browser(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.PublishAutoLaunchBrowser
+
+    @publish_auto_launch_browser.setter
+    def publish_auto_launch_browser(self, value: bool):
+        self.n_4d_navigator_setting_att.PublishAutoLaunchBrowser = value
+
+    def get_clearance_voxel_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetClearanceVoxelInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_clash_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUClashPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_cut_3d_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUCut3DPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_distance_preview_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUDistancePreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_free_space_preview_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUFreeSpacePreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_group_preview_hidden_objects_color(
+        self, o_red: int, o_green: int, o_blue: int
+    ) -&gt; None:
+        return self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsColor(
+            o_red, o_green, o_blue
+        )
+
+    def get_dmu_group_preview_hidden_objects_color_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsColorInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_group_preview_hidden_objects_display_mode_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsDisplayModeInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_group_preview_hidden_objects_low_int_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return (
+            self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsLowIntInfo(
+                io_admin_level, io_locked
+            )
+        )
+
+    def get_dmu_group_preview_hidden_objects_opacity_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return (
+            self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsOpacityInfo(
+                io_admin_level, io_locked
+            )
+        )
+
+    def get_dmu_group_preview_hidden_objects_pick_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsPickInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_group_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUGroupPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_merger_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUMergerPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_offset_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUOffsetPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_review_name_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUReviewNameInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_section_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUSectionPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_shuttle_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUShuttlePreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_silhouette_preview_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUSilhouettePreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_simplif_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUSimplifPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_swept_vol_preview_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUSweptVolPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_thickness_preview_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUThicknessPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_vibration_vol_preview_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUVibrationVolPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_wrapping_preview_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUWrappingPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_force_clearance_voxel_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetForceClearanceVoxelInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_force_voxel_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetForceVoxelInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_insert_level_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetInsertLevelInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_insert_mode_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetInsertModeInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_2d_auto_naming_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarker2DAutoNamingInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_3d_auto_naming_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarker3DAutoNamingInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_auto_update_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerAutoUpdateInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_defaults_color(self, o_red: int, o_green: int, o_blue: int) -&gt; None:
+        return self.n_4d_navigator_setting_att.GetMarkerDefaultsColor(
+            o_red, o_green, o_blue
+        )
+
+    def get_marker_defaults_color_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerDefaultsColorInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_defaults_dashed_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerDefaultsDashedInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_defaults_font_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerDefaultsFontInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_defaults_size_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerDefaultsSizeInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_defaults_weight_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerDefaultsWeightInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_text_color(self, o_red: int, o_green: int, o_blue: int) -&gt; None:
+        return self.n_4d_navigator_setting_att.GetMarkerTextColor(
+            o_red, o_green, o_blue
+        )
+
+    def get_marker_text_color_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerTextColorInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_text_dashed_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerTextDashedInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_text_weight_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerTextWeightInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_num_url_name_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetNumUrlNameInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_publish_auto_launch_browser_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetPublishAutoLaunchBrowserInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_scene_defaults_color(self, o_r: int, o_g: int, o_b: int) -&gt; None:
+        return self.n_4d_navigator_setting_att.GetSceneDefaultsColor(o_r, o_g, o_b)
+
+    def get_scene_defaults_color_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetSceneDefaultsColorInfo(
+            io_admin_level, io_locked
+        )
+
+    def set_clearance_voxel_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetClearanceVoxelLock(i_locked)
+
+    def set_dmu_clash_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUClashPreviewLock(i_locked)
+
+    def set_dmu_cut_3d_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUCut3DPreviewLock(i_locked)
+
+    def set_dmu_distance_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUDistancePreviewLock(i_locked)
+
+    def set_dmu_free_space_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUFreeSpacePreviewLock(i_locked)
+
+    def set_dmu_group_preview_hidden_objects_color(
+        self, i_red: int, i_green: int, i_blue: int
+    ) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsColor(
+            i_red, i_green, i_blue
+        )
+
+    def set_dmu_group_preview_hidden_objects_color_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsColorLock(
+            i_locked
+        )
+
+    def set_dmu_group_preview_hidden_objects_display_mode_lock(
+        self, i_locked: bool
+    ) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsDisplayModeLock(
+            i_locked
+        )
+
+    def set_dmu_group_preview_hidden_objects_low_int_lock(self, i_locked: bool) -&gt; None:
+        return (
+            self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsLowIntLock(
+                i_locked
+            )
+        )
+
+    def set_dmu_group_preview_hidden_objects_opacity_lock(self, i_locked: bool) -&gt; None:
+        return (
+            self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsOpacityLock(
+                i_locked
+            )
+        )
+
+    def set_dmu_group_preview_hidden_objects_pick_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsPickLock(
+            i_locked
+        )
+
+    def set_dmu_group_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUGroupPreviewLock(i_locked)
+
+    def set_dmu_merger_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUMergerPreviewLock(i_locked)
+
+    def set_dmu_offset_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUOffsetPreviewLock(i_locked)
+
+    def set_dmu_review_name_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUReviewNameLock(i_locked)
+
+    def set_dmu_section_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUSectionPreviewLock(i_locked)
+
+    def set_dmu_shuttle_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUShuttlePreviewLock(i_locked)
+
+    def set_dmu_silhouette_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUSilhouettePreviewLock(i_locked)
+
+    def set_dmu_simplif_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUSimplifPreviewLock(i_locked)
+
+    def set_dmu_swept_vol_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUSweptVolPreviewLock(i_locked)
+
+    def set_dmu_thickness_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUThicknessPreviewLock(i_locked)
+
+    def set_dmu_vibration_vol_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUVibrationVolPreviewLock(i_locked)
+
+    def set_dmu_wrapping_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUWrappingPreviewLock(i_locked)
+
+    def set_force_clearance_voxel_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetForceClearanceVoxelLock(i_locked)
+
+    def set_force_voxel_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetForceVoxelLock(i_locked)
+
+    def set_insert_level_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetInsertLevelLock(i_locked)
+
+    def set_insert_mode_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetInsertModeLock(i_locked)
+
+    def set_marker_2d_auto_naming_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarker2DAutoNamingLock(i_locked)
+
+    def set_marker_3d_auto_naming_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarker3DAutoNamingLock(i_locked)
+
+    def set_marker_auto_update_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerAutoUpdateLock(i_locked)
+
+    def set_marker_defaults_color(self, i_red: int, i_green: int, i_blue: int) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerDefaultsColor(
+            i_red, i_green, i_blue
+        )
+
+    def set_marker_defaults_color_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerDefaultsColorLock(i_locked)
+
+    def set_marker_defaults_dashed_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerDefaultsDashedLock(i_locked)
+
+    def set_marker_defaults_font_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerDefaultsFontLock(i_locked)
+
+    def set_marker_defaults_size_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerDefaultsSizeLock(i_locked)
+
+    def set_marker_defaults_weight_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerDefaultsWeightLock(i_locked)
+
+    def set_marker_text_color(self, i_red: int, i_green: int, i_blue: int) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerTextColor(
+            i_red, i_green, i_blue
+        )
+
+    def set_marker_text_color_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerTextColorLock(i_locked)
+
+    def set_marker_text_dashed_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerTextDashedLock(i_locked)
+
+    def set_marker_text_weight_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerTextWeightLock(i_locked)
+
+    def set_num_url_name_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetNumUrlNameLock(i_locked)
+
+    def set_publish_auto_launch_browser_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetPublishAutoLaunchBrowserLock(i_locked)
+
+    def set_scene_defaults_color(self, i_r: int, i_g: int, i_b: int) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetSceneDefaultsColor(i_r, i_g, i_b)
+
+    def set_scene_defaults_color_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetSceneDefaultsColorLock(i_locked)
+
+    def __repr__(self):
+        return f&#39;N4DNavigatorSettingAtt(name=&#34;{self.name}&#34;)&#39;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt"><code class="flex name class">
+<span>class <span class="ident">N4DNavigatorSettingAtt</span></span>
+<span>(</span><span>com_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for the framework.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class N4DNavigatorSettingAtt(SettingController):
+    def __init__(self, com_object):
+        super().__init__(com_object)
+        self.n_4d_navigator_setting_att = com_object
+
+    @property
+    def clearance_voxel(self) -&gt; float:
+        return self.n_4d_navigator_setting_att.ClearanceVoxel
+
+    @clearance_voxel.setter
+    def clearance_voxel(self, value: float):
+        self.n_4d_navigator_setting_att.ClearanceVoxel = value
+
+    @property
+    def dmu_clash_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUClashPreview
+
+    @dmu_clash_preview.setter
+    def dmu_clash_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUClashPreview = value
+
+    @property
+    def dmu_cut_3d_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUCut3DPreview
+
+    @dmu_cut_3d_preview.setter
+    def dmu_cut_3d_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUCut3DPreview = value
+
+    @property
+    def dmu_distance_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUDistancePreview
+
+    @dmu_distance_preview.setter
+    def dmu_distance_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUDistancePreview = value
+
+    @property
+    def dmu_free_space_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUFreeSpacePreview
+
+    @dmu_free_space_preview.setter
+    def dmu_free_space_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUFreeSpacePreview = value
+
+    @property
+    def dmu_group_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUGroupPreview
+
+    @dmu_group_preview.setter
+    def dmu_group_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUGroupPreview = value
+
+    @property
+    def dmu_group_preview_hidden_objects_display_mode(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsDisplayMode
+
+    @dmu_group_preview_hidden_objects_display_mode.setter
+    def dmu_group_preview_hidden_objects_display_mode(self, value: int):
+        self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsDisplayMode = value
+
+    @property
+    def dmu_group_preview_hidden_objects_low_int(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsLowInt
+
+    @dmu_group_preview_hidden_objects_low_int.setter
+    def dmu_group_preview_hidden_objects_low_int(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsLowInt = value
+
+    @property
+    def dmu_group_preview_hidden_objects_opacity(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsOpacity
+
+    @dmu_group_preview_hidden_objects_opacity.setter
+    def dmu_group_preview_hidden_objects_opacity(self, value: int):
+        self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsOpacity = value
+
+    @property
+    def dmu_group_preview_hidden_objects_pick(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsPick
+
+    @dmu_group_preview_hidden_objects_pick.setter
+    def dmu_group_preview_hidden_objects_pick(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsPick = value
+
+    @property
+    def dmu_merger_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUMergerPreview
+
+    @dmu_merger_preview.setter
+    def dmu_merger_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUMergerPreview = value
+
+    @property
+    def dmu_offset_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUOffsetPreview
+
+    @dmu_offset_preview.setter
+    def dmu_offset_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUOffsetPreview = value
+
+    @property
+    def dmu_review_name(self) -&gt; str:
+        return self.n_4d_navigator_setting_att.DMUReviewName
+
+    @dmu_review_name.setter
+    def dmu_review_name(self, value: str):
+        self.n_4d_navigator_setting_att.DMUReviewName = value
+
+    @property
+    def dmu_section_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUSectionPreview
+
+    @dmu_section_preview.setter
+    def dmu_section_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUSectionPreview = value
+
+    @property
+    def dmu_shuttle_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUShuttlePreview
+
+    @dmu_shuttle_preview.setter
+    def dmu_shuttle_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUShuttlePreview = value
+
+    @property
+    def dmu_silhouette_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUSilhouettePreview
+
+    @dmu_silhouette_preview.setter
+    def dmu_silhouette_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUSilhouettePreview = value
+
+    @property
+    def dmu_simplif_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUSimplifPreview
+
+    @dmu_simplif_preview.setter
+    def dmu_simplif_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUSimplifPreview = value
+
+    @property
+    def dmu_swept_vol_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUSweptVolPreview
+
+    @dmu_swept_vol_preview.setter
+    def dmu_swept_vol_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUSweptVolPreview = value
+
+    @property
+    def dmu_thickness_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUThicknessPreview
+
+    @dmu_thickness_preview.setter
+    def dmu_thickness_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUThicknessPreview = value
+
+    @property
+    def dmu_vibration_vol_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUVibrationVolPreview
+
+    @dmu_vibration_vol_preview.setter
+    def dmu_vibration_vol_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUVibrationVolPreview = value
+
+    @property
+    def dmu_wrapping_preview(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.DMUWrappingPreview
+
+    @dmu_wrapping_preview.setter
+    def dmu_wrapping_preview(self, value: bool):
+        self.n_4d_navigator_setting_att.DMUWrappingPreview = value
+
+    @property
+    def force_clearance_voxel(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.ForceClearanceVoxel
+
+    @force_clearance_voxel.setter
+    def force_clearance_voxel(self, value: bool):
+        self.n_4d_navigator_setting_att.ForceClearanceVoxel = value
+
+    @property
+    def force_voxel(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.ForceVoxel
+
+    @force_voxel.setter
+    def force_voxel(self, value: bool):
+        self.n_4d_navigator_setting_att.ForceVoxel = value
+
+    @property
+    def insert_level(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.InsertLevel
+
+    @insert_level.setter
+    def insert_level(self, value: bool):
+        self.n_4d_navigator_setting_att.InsertLevel = value
+
+    @property
+    def insert_mode(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.InsertMode
+
+    @insert_mode.setter
+    def insert_mode(self, value: int):
+        self.n_4d_navigator_setting_att.InsertMode = value
+
+    @property
+    def marker_2d_auto_naming(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.Marker2DAutoNaming
+
+    @marker_2d_auto_naming.setter
+    def marker_2d_auto_naming(self, value: bool):
+        self.n_4d_navigator_setting_att.Marker2DAutoNaming = value
+
+    @property
+    def marker_3d_auto_naming(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.Marker3DAutoNaming
+
+    @marker_3d_auto_naming.setter
+    def marker_3d_auto_naming(self, value: bool):
+        self.n_4d_navigator_setting_att.Marker3DAutoNaming = value
+
+    @property
+    def marker_auto_update(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.MarkerAutoUpdate
+
+    @marker_auto_update.setter
+    def marker_auto_update(self, value: bool):
+        self.n_4d_navigator_setting_att.MarkerAutoUpdate = value
+
+    @property
+    def marker_defaults_dashed(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.MarkerDefaultsDashed
+
+    @marker_defaults_dashed.setter
+    def marker_defaults_dashed(self, value: int):
+        self.n_4d_navigator_setting_att.MarkerDefaultsDashed = value
+
+    @property
+    def marker_defaults_font(self) -&gt; str:
+        return self.n_4d_navigator_setting_att.MarkerDefaultsFont
+
+    @marker_defaults_font.setter
+    def marker_defaults_font(self, value: str):
+        self.n_4d_navigator_setting_att.MarkerDefaultsFont = value
+
+    @property
+    def marker_defaults_size(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.MarkerDefaultsSize
+
+    @marker_defaults_size.setter
+    def marker_defaults_size(self, value: int):
+        self.n_4d_navigator_setting_att.MarkerDefaultsSize = value
+
+    @property
+    def marker_defaults_weight(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.MarkerDefaultsWeight
+
+    @marker_defaults_weight.setter
+    def marker_defaults_weight(self, value: int):
+        self.n_4d_navigator_setting_att.MarkerDefaultsWeight = value
+
+    @property
+    def marker_text_dashed(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.MarkerTextDashed
+
+    @marker_text_dashed.setter
+    def marker_text_dashed(self, value: int):
+        self.n_4d_navigator_setting_att.MarkerTextDashed = value
+
+    @property
+    def marker_text_weight(self) -&gt; int:
+        return self.n_4d_navigator_setting_att.MarkerTextWeight
+
+    @marker_text_weight.setter
+    def marker_text_weight(self, value: int):
+        self.n_4d_navigator_setting_att.MarkerTextWeight = value
+
+    @property
+    def num_url_name(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.NumUrlName
+
+    @num_url_name.setter
+    def num_url_name(self, value: bool):
+        self.n_4d_navigator_setting_att.NumUrlName = value
+
+    @property
+    def publish_auto_launch_browser(self) -&gt; bool:
+        return self.n_4d_navigator_setting_att.PublishAutoLaunchBrowser
+
+    @publish_auto_launch_browser.setter
+    def publish_auto_launch_browser(self, value: bool):
+        self.n_4d_navigator_setting_att.PublishAutoLaunchBrowser = value
+
+    def get_clearance_voxel_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetClearanceVoxelInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_clash_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUClashPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_cut_3d_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUCut3DPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_distance_preview_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUDistancePreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_free_space_preview_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUFreeSpacePreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_group_preview_hidden_objects_color(
+        self, o_red: int, o_green: int, o_blue: int
+    ) -&gt; None:
+        return self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsColor(
+            o_red, o_green, o_blue
+        )
+
+    def get_dmu_group_preview_hidden_objects_color_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsColorInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_group_preview_hidden_objects_display_mode_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsDisplayModeInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_group_preview_hidden_objects_low_int_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return (
+            self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsLowIntInfo(
+                io_admin_level, io_locked
+            )
+        )
+
+    def get_dmu_group_preview_hidden_objects_opacity_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return (
+            self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsOpacityInfo(
+                io_admin_level, io_locked
+            )
+        )
+
+    def get_dmu_group_preview_hidden_objects_pick_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsPickInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_group_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUGroupPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_merger_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUMergerPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_offset_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUOffsetPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_review_name_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUReviewNameInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_section_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUSectionPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_shuttle_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUShuttlePreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_silhouette_preview_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUSilhouettePreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_simplif_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUSimplifPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_swept_vol_preview_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUSweptVolPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_thickness_preview_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUThicknessPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_vibration_vol_preview_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUVibrationVolPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_dmu_wrapping_preview_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetDMUWrappingPreviewInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_force_clearance_voxel_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetForceClearanceVoxelInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_force_voxel_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetForceVoxelInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_insert_level_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetInsertLevelInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_insert_mode_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetInsertModeInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_2d_auto_naming_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarker2DAutoNamingInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_3d_auto_naming_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarker3DAutoNamingInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_auto_update_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerAutoUpdateInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_defaults_color(self, o_red: int, o_green: int, o_blue: int) -&gt; None:
+        return self.n_4d_navigator_setting_att.GetMarkerDefaultsColor(
+            o_red, o_green, o_blue
+        )
+
+    def get_marker_defaults_color_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerDefaultsColorInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_defaults_dashed_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerDefaultsDashedInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_defaults_font_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerDefaultsFontInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_defaults_size_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerDefaultsSizeInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_defaults_weight_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerDefaultsWeightInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_text_color(self, o_red: int, o_green: int, o_blue: int) -&gt; None:
+        return self.n_4d_navigator_setting_att.GetMarkerTextColor(
+            o_red, o_green, o_blue
+        )
+
+    def get_marker_text_color_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerTextColorInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_text_dashed_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerTextDashedInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_marker_text_weight_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetMarkerTextWeightInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_num_url_name_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetNumUrlNameInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_publish_auto_launch_browser_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetPublishAutoLaunchBrowserInfo(
+            io_admin_level, io_locked
+        )
+
+    def get_scene_defaults_color(self, o_r: int, o_g: int, o_b: int) -&gt; None:
+        return self.n_4d_navigator_setting_att.GetSceneDefaultsColor(o_r, o_g, o_b)
+
+    def get_scene_defaults_color_info(
+        self, io_admin_level: str, io_locked: str
+    ) -&gt; bool:
+        return self.n_4d_navigator_setting_att.GetSceneDefaultsColorInfo(
+            io_admin_level, io_locked
+        )
+
+    def set_clearance_voxel_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetClearanceVoxelLock(i_locked)
+
+    def set_dmu_clash_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUClashPreviewLock(i_locked)
+
+    def set_dmu_cut_3d_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUCut3DPreviewLock(i_locked)
+
+    def set_dmu_distance_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUDistancePreviewLock(i_locked)
+
+    def set_dmu_free_space_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUFreeSpacePreviewLock(i_locked)
+
+    def set_dmu_group_preview_hidden_objects_color(
+        self, i_red: int, i_green: int, i_blue: int
+    ) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsColor(
+            i_red, i_green, i_blue
+        )
+
+    def set_dmu_group_preview_hidden_objects_color_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsColorLock(
+            i_locked
+        )
+
+    def set_dmu_group_preview_hidden_objects_display_mode_lock(
+        self, i_locked: bool
+    ) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsDisplayModeLock(
+            i_locked
+        )
+
+    def set_dmu_group_preview_hidden_objects_low_int_lock(self, i_locked: bool) -&gt; None:
+        return (
+            self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsLowIntLock(
+                i_locked
+            )
+        )
+
+    def set_dmu_group_preview_hidden_objects_opacity_lock(self, i_locked: bool) -&gt; None:
+        return (
+            self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsOpacityLock(
+                i_locked
+            )
+        )
+
+    def set_dmu_group_preview_hidden_objects_pick_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsPickLock(
+            i_locked
+        )
+
+    def set_dmu_group_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUGroupPreviewLock(i_locked)
+
+    def set_dmu_merger_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUMergerPreviewLock(i_locked)
+
+    def set_dmu_offset_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUOffsetPreviewLock(i_locked)
+
+    def set_dmu_review_name_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUReviewNameLock(i_locked)
+
+    def set_dmu_section_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUSectionPreviewLock(i_locked)
+
+    def set_dmu_shuttle_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUShuttlePreviewLock(i_locked)
+
+    def set_dmu_silhouette_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUSilhouettePreviewLock(i_locked)
+
+    def set_dmu_simplif_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUSimplifPreviewLock(i_locked)
+
+    def set_dmu_swept_vol_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUSweptVolPreviewLock(i_locked)
+
+    def set_dmu_thickness_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUThicknessPreviewLock(i_locked)
+
+    def set_dmu_vibration_vol_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUVibrationVolPreviewLock(i_locked)
+
+    def set_dmu_wrapping_preview_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetDMUWrappingPreviewLock(i_locked)
+
+    def set_force_clearance_voxel_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetForceClearanceVoxelLock(i_locked)
+
+    def set_force_voxel_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetForceVoxelLock(i_locked)
+
+    def set_insert_level_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetInsertLevelLock(i_locked)
+
+    def set_insert_mode_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetInsertModeLock(i_locked)
+
+    def set_marker_2d_auto_naming_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarker2DAutoNamingLock(i_locked)
+
+    def set_marker_3d_auto_naming_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarker3DAutoNamingLock(i_locked)
+
+    def set_marker_auto_update_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerAutoUpdateLock(i_locked)
+
+    def set_marker_defaults_color(self, i_red: int, i_green: int, i_blue: int) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerDefaultsColor(
+            i_red, i_green, i_blue
+        )
+
+    def set_marker_defaults_color_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerDefaultsColorLock(i_locked)
+
+    def set_marker_defaults_dashed_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerDefaultsDashedLock(i_locked)
+
+    def set_marker_defaults_font_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerDefaultsFontLock(i_locked)
+
+    def set_marker_defaults_size_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerDefaultsSizeLock(i_locked)
+
+    def set_marker_defaults_weight_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerDefaultsWeightLock(i_locked)
+
+    def set_marker_text_color(self, i_red: int, i_green: int, i_blue: int) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerTextColor(
+            i_red, i_green, i_blue
+        )
+
+    def set_marker_text_color_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerTextColorLock(i_locked)
+
+    def set_marker_text_dashed_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerTextDashedLock(i_locked)
+
+    def set_marker_text_weight_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetMarkerTextWeightLock(i_locked)
+
+    def set_num_url_name_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetNumUrlNameLock(i_locked)
+
+    def set_publish_auto_launch_browser_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetPublishAutoLaunchBrowserLock(i_locked)
+
+    def set_scene_defaults_color(self, i_r: int, i_g: int, i_b: int) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetSceneDefaultsColor(i_r, i_g, i_b)
+
+    def set_scene_defaults_color_lock(self, i_locked: bool) -&gt; None:
+        return self.n_4d_navigator_setting_att.SetSceneDefaultsColorLock(i_locked)
+
+    def __repr__(self):
+        return f&#39;N4DNavigatorSettingAtt(name=&#34;{self.name}&#34;)&#39;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.framework.system_interfaces.setting_controller.SettingController" href="../system_interfaces/setting_controller.html#pytia.framework.system_interfaces.setting_controller.SettingController">SettingController</a></li>
+<li><a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a></li>
+<li><a title="pytia.framework.base.Base" href="../base.html#pytia.framework.base.Base">Base</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.clearance_voxel"><code class="name">var <span class="ident">clearance_voxel</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def clearance_voxel(self) -&gt; float:
+    return self.n_4d_navigator_setting_att.ClearanceVoxel</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_clash_preview"><code class="name">var <span class="ident">dmu_clash_preview</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_clash_preview(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUClashPreview</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_cut_3d_preview"><code class="name">var <span class="ident">dmu_cut_3d_preview</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_cut_3d_preview(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUCut3DPreview</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_distance_preview"><code class="name">var <span class="ident">dmu_distance_preview</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_distance_preview(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUDistancePreview</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_free_space_preview"><code class="name">var <span class="ident">dmu_free_space_preview</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_free_space_preview(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUFreeSpacePreview</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_group_preview"><code class="name">var <span class="ident">dmu_group_preview</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_group_preview(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUGroupPreview</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_group_preview_hidden_objects_display_mode"><code class="name">var <span class="ident">dmu_group_preview_hidden_objects_display_mode</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_group_preview_hidden_objects_display_mode(self) -&gt; int:
+    return self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsDisplayMode</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_group_preview_hidden_objects_low_int"><code class="name">var <span class="ident">dmu_group_preview_hidden_objects_low_int</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_group_preview_hidden_objects_low_int(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsLowInt</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_group_preview_hidden_objects_opacity"><code class="name">var <span class="ident">dmu_group_preview_hidden_objects_opacity</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_group_preview_hidden_objects_opacity(self) -&gt; int:
+    return self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsOpacity</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_group_preview_hidden_objects_pick"><code class="name">var <span class="ident">dmu_group_preview_hidden_objects_pick</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_group_preview_hidden_objects_pick(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUGroupPreviewHiddenObjectsPick</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_merger_preview"><code class="name">var <span class="ident">dmu_merger_preview</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_merger_preview(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUMergerPreview</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_offset_preview"><code class="name">var <span class="ident">dmu_offset_preview</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_offset_preview(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUOffsetPreview</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_review_name"><code class="name">var <span class="ident">dmu_review_name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_review_name(self) -&gt; str:
+    return self.n_4d_navigator_setting_att.DMUReviewName</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_section_preview"><code class="name">var <span class="ident">dmu_section_preview</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_section_preview(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUSectionPreview</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_shuttle_preview"><code class="name">var <span class="ident">dmu_shuttle_preview</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_shuttle_preview(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUShuttlePreview</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_silhouette_preview"><code class="name">var <span class="ident">dmu_silhouette_preview</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_silhouette_preview(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUSilhouettePreview</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_simplif_preview"><code class="name">var <span class="ident">dmu_simplif_preview</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_simplif_preview(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUSimplifPreview</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_swept_vol_preview"><code class="name">var <span class="ident">dmu_swept_vol_preview</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_swept_vol_preview(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUSweptVolPreview</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_thickness_preview"><code class="name">var <span class="ident">dmu_thickness_preview</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_thickness_preview(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUThicknessPreview</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_vibration_vol_preview"><code class="name">var <span class="ident">dmu_vibration_vol_preview</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_vibration_vol_preview(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUVibrationVolPreview</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_wrapping_preview"><code class="name">var <span class="ident">dmu_wrapping_preview</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dmu_wrapping_preview(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.DMUWrappingPreview</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.force_clearance_voxel"><code class="name">var <span class="ident">force_clearance_voxel</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def force_clearance_voxel(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.ForceClearanceVoxel</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.force_voxel"><code class="name">var <span class="ident">force_voxel</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def force_voxel(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.ForceVoxel</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.insert_level"><code class="name">var <span class="ident">insert_level</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def insert_level(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.InsertLevel</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.insert_mode"><code class="name">var <span class="ident">insert_mode</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def insert_mode(self) -&gt; int:
+    return self.n_4d_navigator_setting_att.InsertMode</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_2d_auto_naming"><code class="name">var <span class="ident">marker_2d_auto_naming</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def marker_2d_auto_naming(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.Marker2DAutoNaming</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_3d_auto_naming"><code class="name">var <span class="ident">marker_3d_auto_naming</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def marker_3d_auto_naming(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.Marker3DAutoNaming</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_auto_update"><code class="name">var <span class="ident">marker_auto_update</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def marker_auto_update(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.MarkerAutoUpdate</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_defaults_dashed"><code class="name">var <span class="ident">marker_defaults_dashed</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def marker_defaults_dashed(self) -&gt; int:
+    return self.n_4d_navigator_setting_att.MarkerDefaultsDashed</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_defaults_font"><code class="name">var <span class="ident">marker_defaults_font</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def marker_defaults_font(self) -&gt; str:
+    return self.n_4d_navigator_setting_att.MarkerDefaultsFont</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_defaults_size"><code class="name">var <span class="ident">marker_defaults_size</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def marker_defaults_size(self) -&gt; int:
+    return self.n_4d_navigator_setting_att.MarkerDefaultsSize</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_defaults_weight"><code class="name">var <span class="ident">marker_defaults_weight</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def marker_defaults_weight(self) -&gt; int:
+    return self.n_4d_navigator_setting_att.MarkerDefaultsWeight</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_text_dashed"><code class="name">var <span class="ident">marker_text_dashed</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def marker_text_dashed(self) -&gt; int:
+    return self.n_4d_navigator_setting_att.MarkerTextDashed</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_text_weight"><code class="name">var <span class="ident">marker_text_weight</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def marker_text_weight(self) -&gt; int:
+    return self.n_4d_navigator_setting_att.MarkerTextWeight</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.num_url_name"><code class="name">var <span class="ident">num_url_name</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def num_url_name(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.NumUrlName</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.publish_auto_launch_browser"><code class="name">var <span class="ident">publish_auto_launch_browser</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def publish_auto_launch_browser(self) -&gt; bool:
+    return self.n_4d_navigator_setting_att.PublishAutoLaunchBrowser</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_clearance_voxel_info"><code class="name flex">
+<span>def <span class="ident">get_clearance_voxel_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_clearance_voxel_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetClearanceVoxelInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_clash_preview_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_clash_preview_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_clash_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUClashPreviewInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_cut_3d_preview_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_cut_3d_preview_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_cut_3d_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUCut3DPreviewInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_distance_preview_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_distance_preview_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_distance_preview_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUDistancePreviewInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_free_space_preview_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_free_space_preview_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_free_space_preview_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUFreeSpacePreviewInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_color"><code class="name flex">
+<span>def <span class="ident">get_dmu_group_preview_hidden_objects_color</span></span>(<span>self, o_red: int, o_green: int, o_blue: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_group_preview_hidden_objects_color(
+    self, o_red: int, o_green: int, o_blue: int
+) -&gt; None:
+    return self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsColor(
+        o_red, o_green, o_blue
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_color_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_group_preview_hidden_objects_color_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_group_preview_hidden_objects_color_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsColorInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_display_mode_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_group_preview_hidden_objects_display_mode_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_group_preview_hidden_objects_display_mode_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsDisplayModeInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_low_int_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_group_preview_hidden_objects_low_int_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_group_preview_hidden_objects_low_int_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return (
+        self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsLowIntInfo(
+            io_admin_level, io_locked
+        )
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_opacity_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_group_preview_hidden_objects_opacity_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_group_preview_hidden_objects_opacity_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return (
+        self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsOpacityInfo(
+            io_admin_level, io_locked
+        )
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_pick_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_group_preview_hidden_objects_pick_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_group_preview_hidden_objects_pick_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUGroupPreviewHiddenObjectsPickInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_group_preview_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_group_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUGroupPreviewInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_merger_preview_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_merger_preview_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_merger_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUMergerPreviewInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_offset_preview_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_offset_preview_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_offset_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUOffsetPreviewInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_review_name_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_review_name_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_review_name_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUReviewNameInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_section_preview_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_section_preview_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_section_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUSectionPreviewInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_shuttle_preview_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_shuttle_preview_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_shuttle_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUShuttlePreviewInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_silhouette_preview_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_silhouette_preview_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_silhouette_preview_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUSilhouettePreviewInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_simplif_preview_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_simplif_preview_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_simplif_preview_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUSimplifPreviewInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_swept_vol_preview_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_swept_vol_preview_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_swept_vol_preview_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUSweptVolPreviewInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_thickness_preview_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_thickness_preview_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_thickness_preview_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUThicknessPreviewInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_vibration_vol_preview_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_vibration_vol_preview_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_vibration_vol_preview_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUVibrationVolPreviewInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_wrapping_preview_info"><code class="name flex">
+<span>def <span class="ident">get_dmu_wrapping_preview_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dmu_wrapping_preview_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetDMUWrappingPreviewInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_force_clearance_voxel_info"><code class="name flex">
+<span>def <span class="ident">get_force_clearance_voxel_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_force_clearance_voxel_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetForceClearanceVoxelInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_force_voxel_info"><code class="name flex">
+<span>def <span class="ident">get_force_voxel_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_force_voxel_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetForceVoxelInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_insert_level_info"><code class="name flex">
+<span>def <span class="ident">get_insert_level_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_insert_level_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetInsertLevelInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_insert_mode_info"><code class="name flex">
+<span>def <span class="ident">get_insert_mode_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_insert_mode_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetInsertModeInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_2d_auto_naming_info"><code class="name flex">
+<span>def <span class="ident">get_marker_2d_auto_naming_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_marker_2d_auto_naming_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetMarker2DAutoNamingInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_3d_auto_naming_info"><code class="name flex">
+<span>def <span class="ident">get_marker_3d_auto_naming_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_marker_3d_auto_naming_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetMarker3DAutoNamingInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_auto_update_info"><code class="name flex">
+<span>def <span class="ident">get_marker_auto_update_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_marker_auto_update_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetMarkerAutoUpdateInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_color"><code class="name flex">
+<span>def <span class="ident">get_marker_defaults_color</span></span>(<span>self, o_red: int, o_green: int, o_blue: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_marker_defaults_color(self, o_red: int, o_green: int, o_blue: int) -&gt; None:
+    return self.n_4d_navigator_setting_att.GetMarkerDefaultsColor(
+        o_red, o_green, o_blue
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_color_info"><code class="name flex">
+<span>def <span class="ident">get_marker_defaults_color_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_marker_defaults_color_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetMarkerDefaultsColorInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_dashed_info"><code class="name flex">
+<span>def <span class="ident">get_marker_defaults_dashed_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_marker_defaults_dashed_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetMarkerDefaultsDashedInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_font_info"><code class="name flex">
+<span>def <span class="ident">get_marker_defaults_font_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_marker_defaults_font_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetMarkerDefaultsFontInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_size_info"><code class="name flex">
+<span>def <span class="ident">get_marker_defaults_size_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_marker_defaults_size_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetMarkerDefaultsSizeInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_weight_info"><code class="name flex">
+<span>def <span class="ident">get_marker_defaults_weight_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_marker_defaults_weight_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetMarkerDefaultsWeightInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_text_color"><code class="name flex">
+<span>def <span class="ident">get_marker_text_color</span></span>(<span>self, o_red: int, o_green: int, o_blue: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_marker_text_color(self, o_red: int, o_green: int, o_blue: int) -&gt; None:
+    return self.n_4d_navigator_setting_att.GetMarkerTextColor(
+        o_red, o_green, o_blue
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_text_color_info"><code class="name flex">
+<span>def <span class="ident">get_marker_text_color_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_marker_text_color_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetMarkerTextColorInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_text_dashed_info"><code class="name flex">
+<span>def <span class="ident">get_marker_text_dashed_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_marker_text_dashed_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetMarkerTextDashedInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_text_weight_info"><code class="name flex">
+<span>def <span class="ident">get_marker_text_weight_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_marker_text_weight_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetMarkerTextWeightInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_num_url_name_info"><code class="name flex">
+<span>def <span class="ident">get_num_url_name_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_num_url_name_info(self, io_admin_level: str, io_locked: str) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetNumUrlNameInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_publish_auto_launch_browser_info"><code class="name flex">
+<span>def <span class="ident">get_publish_auto_launch_browser_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_publish_auto_launch_browser_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetPublishAutoLaunchBrowserInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_scene_defaults_color"><code class="name flex">
+<span>def <span class="ident">get_scene_defaults_color</span></span>(<span>self, o_r: int, o_g: int, o_b: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_scene_defaults_color(self, o_r: int, o_g: int, o_b: int) -&gt; None:
+    return self.n_4d_navigator_setting_att.GetSceneDefaultsColor(o_r, o_g, o_b)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_scene_defaults_color_info"><code class="name flex">
+<span>def <span class="ident">get_scene_defaults_color_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_scene_defaults_color_info(
+    self, io_admin_level: str, io_locked: str
+) -&gt; bool:
+    return self.n_4d_navigator_setting_att.GetSceneDefaultsColorInfo(
+        io_admin_level, io_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_clearance_voxel_lock"><code class="name flex">
+<span>def <span class="ident">set_clearance_voxel_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_clearance_voxel_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetClearanceVoxelLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_clash_preview_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_clash_preview_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_clash_preview_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUClashPreviewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_cut_3d_preview_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_cut_3d_preview_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_cut_3d_preview_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUCut3DPreviewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_distance_preview_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_distance_preview_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_distance_preview_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUDistancePreviewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_free_space_preview_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_free_space_preview_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_free_space_preview_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUFreeSpacePreviewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_color"><code class="name flex">
+<span>def <span class="ident">set_dmu_group_preview_hidden_objects_color</span></span>(<span>self, i_red: int, i_green: int, i_blue: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_group_preview_hidden_objects_color(
+    self, i_red: int, i_green: int, i_blue: int
+) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsColor(
+        i_red, i_green, i_blue
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_color_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_group_preview_hidden_objects_color_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_group_preview_hidden_objects_color_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsColorLock(
+        i_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_display_mode_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_group_preview_hidden_objects_display_mode_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_group_preview_hidden_objects_display_mode_lock(
+    self, i_locked: bool
+) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsDisplayModeLock(
+        i_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_low_int_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_group_preview_hidden_objects_low_int_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_group_preview_hidden_objects_low_int_lock(self, i_locked: bool) -&gt; None:
+    return (
+        self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsLowIntLock(
+            i_locked
+        )
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_opacity_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_group_preview_hidden_objects_opacity_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_group_preview_hidden_objects_opacity_lock(self, i_locked: bool) -&gt; None:
+    return (
+        self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsOpacityLock(
+            i_locked
+        )
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_pick_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_group_preview_hidden_objects_pick_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_group_preview_hidden_objects_pick_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUGroupPreviewHiddenObjectsPickLock(
+        i_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_group_preview_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_group_preview_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUGroupPreviewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_merger_preview_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_merger_preview_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_merger_preview_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUMergerPreviewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_offset_preview_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_offset_preview_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_offset_preview_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUOffsetPreviewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_review_name_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_review_name_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_review_name_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUReviewNameLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_section_preview_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_section_preview_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_section_preview_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUSectionPreviewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_shuttle_preview_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_shuttle_preview_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_shuttle_preview_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUShuttlePreviewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_silhouette_preview_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_silhouette_preview_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_silhouette_preview_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUSilhouettePreviewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_simplif_preview_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_simplif_preview_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_simplif_preview_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUSimplifPreviewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_swept_vol_preview_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_swept_vol_preview_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_swept_vol_preview_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUSweptVolPreviewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_thickness_preview_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_thickness_preview_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_thickness_preview_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUThicknessPreviewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_vibration_vol_preview_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_vibration_vol_preview_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_vibration_vol_preview_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUVibrationVolPreviewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_wrapping_preview_lock"><code class="name flex">
+<span>def <span class="ident">set_dmu_wrapping_preview_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_dmu_wrapping_preview_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetDMUWrappingPreviewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_force_clearance_voxel_lock"><code class="name flex">
+<span>def <span class="ident">set_force_clearance_voxel_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_force_clearance_voxel_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetForceClearanceVoxelLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_force_voxel_lock"><code class="name flex">
+<span>def <span class="ident">set_force_voxel_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_force_voxel_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetForceVoxelLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_insert_level_lock"><code class="name flex">
+<span>def <span class="ident">set_insert_level_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_insert_level_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetInsertLevelLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_insert_mode_lock"><code class="name flex">
+<span>def <span class="ident">set_insert_mode_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_insert_mode_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetInsertModeLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_2d_auto_naming_lock"><code class="name flex">
+<span>def <span class="ident">set_marker_2d_auto_naming_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_marker_2d_auto_naming_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetMarker2DAutoNamingLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_3d_auto_naming_lock"><code class="name flex">
+<span>def <span class="ident">set_marker_3d_auto_naming_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_marker_3d_auto_naming_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetMarker3DAutoNamingLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_auto_update_lock"><code class="name flex">
+<span>def <span class="ident">set_marker_auto_update_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_marker_auto_update_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetMarkerAutoUpdateLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_color"><code class="name flex">
+<span>def <span class="ident">set_marker_defaults_color</span></span>(<span>self, i_red: int, i_green: int, i_blue: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_marker_defaults_color(self, i_red: int, i_green: int, i_blue: int) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetMarkerDefaultsColor(
+        i_red, i_green, i_blue
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_color_lock"><code class="name flex">
+<span>def <span class="ident">set_marker_defaults_color_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_marker_defaults_color_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetMarkerDefaultsColorLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_dashed_lock"><code class="name flex">
+<span>def <span class="ident">set_marker_defaults_dashed_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_marker_defaults_dashed_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetMarkerDefaultsDashedLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_font_lock"><code class="name flex">
+<span>def <span class="ident">set_marker_defaults_font_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_marker_defaults_font_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetMarkerDefaultsFontLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_size_lock"><code class="name flex">
+<span>def <span class="ident">set_marker_defaults_size_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_marker_defaults_size_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetMarkerDefaultsSizeLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_weight_lock"><code class="name flex">
+<span>def <span class="ident">set_marker_defaults_weight_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_marker_defaults_weight_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetMarkerDefaultsWeightLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_text_color"><code class="name flex">
+<span>def <span class="ident">set_marker_text_color</span></span>(<span>self, i_red: int, i_green: int, i_blue: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_marker_text_color(self, i_red: int, i_green: int, i_blue: int) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetMarkerTextColor(
+        i_red, i_green, i_blue
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_text_color_lock"><code class="name flex">
+<span>def <span class="ident">set_marker_text_color_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_marker_text_color_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetMarkerTextColorLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_text_dashed_lock"><code class="name flex">
+<span>def <span class="ident">set_marker_text_dashed_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_marker_text_dashed_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetMarkerTextDashedLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_text_weight_lock"><code class="name flex">
+<span>def <span class="ident">set_marker_text_weight_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_marker_text_weight_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetMarkerTextWeightLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_num_url_name_lock"><code class="name flex">
+<span>def <span class="ident">set_num_url_name_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_num_url_name_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetNumUrlNameLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_publish_auto_launch_browser_lock"><code class="name flex">
+<span>def <span class="ident">set_publish_auto_launch_browser_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_publish_auto_launch_browser_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetPublishAutoLaunchBrowserLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_scene_defaults_color"><code class="name flex">
+<span>def <span class="ident">set_scene_defaults_color</span></span>(<span>self, i_r: int, i_g: int, i_b: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_scene_defaults_color(self, i_r: int, i_g: int, i_b: int) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetSceneDefaultsColor(i_r, i_g, i_b)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_scene_defaults_color_lock"><code class="name flex">
+<span>def <span class="ident">set_scene_defaults_color_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_scene_defaults_color_lock(self, i_locked: bool) -&gt; None:
+    return self.n_4d_navigator_setting_att.SetSceneDefaultsColorLock(i_locked)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia.framework.navigator_interfaces" href="index.html">pytia.framework.navigator_interfaces</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt">N4DNavigatorSettingAtt</a></code></h4>
+<ul class="">
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.clearance_voxel" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.clearance_voxel">clearance_voxel</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_clash_preview" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_clash_preview">dmu_clash_preview</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_cut_3d_preview" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_cut_3d_preview">dmu_cut_3d_preview</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_distance_preview" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_distance_preview">dmu_distance_preview</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_free_space_preview" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_free_space_preview">dmu_free_space_preview</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_group_preview" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_group_preview">dmu_group_preview</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_group_preview_hidden_objects_display_mode" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_group_preview_hidden_objects_display_mode">dmu_group_preview_hidden_objects_display_mode</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_group_preview_hidden_objects_low_int" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_group_preview_hidden_objects_low_int">dmu_group_preview_hidden_objects_low_int</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_group_preview_hidden_objects_opacity" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_group_preview_hidden_objects_opacity">dmu_group_preview_hidden_objects_opacity</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_group_preview_hidden_objects_pick" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_group_preview_hidden_objects_pick">dmu_group_preview_hidden_objects_pick</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_merger_preview" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_merger_preview">dmu_merger_preview</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_offset_preview" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_offset_preview">dmu_offset_preview</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_review_name" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_review_name">dmu_review_name</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_section_preview" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_section_preview">dmu_section_preview</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_shuttle_preview" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_shuttle_preview">dmu_shuttle_preview</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_silhouette_preview" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_silhouette_preview">dmu_silhouette_preview</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_simplif_preview" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_simplif_preview">dmu_simplif_preview</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_swept_vol_preview" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_swept_vol_preview">dmu_swept_vol_preview</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_thickness_preview" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_thickness_preview">dmu_thickness_preview</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_vibration_vol_preview" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_vibration_vol_preview">dmu_vibration_vol_preview</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_wrapping_preview" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.dmu_wrapping_preview">dmu_wrapping_preview</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.force_clearance_voxel" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.force_clearance_voxel">force_clearance_voxel</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.force_voxel" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.force_voxel">force_voxel</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_clearance_voxel_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_clearance_voxel_info">get_clearance_voxel_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_clash_preview_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_clash_preview_info">get_dmu_clash_preview_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_cut_3d_preview_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_cut_3d_preview_info">get_dmu_cut_3d_preview_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_distance_preview_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_distance_preview_info">get_dmu_distance_preview_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_free_space_preview_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_free_space_preview_info">get_dmu_free_space_preview_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_color" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_color">get_dmu_group_preview_hidden_objects_color</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_color_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_color_info">get_dmu_group_preview_hidden_objects_color_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_display_mode_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_display_mode_info">get_dmu_group_preview_hidden_objects_display_mode_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_low_int_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_low_int_info">get_dmu_group_preview_hidden_objects_low_int_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_opacity_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_opacity_info">get_dmu_group_preview_hidden_objects_opacity_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_pick_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_hidden_objects_pick_info">get_dmu_group_preview_hidden_objects_pick_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_group_preview_info">get_dmu_group_preview_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_merger_preview_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_merger_preview_info">get_dmu_merger_preview_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_offset_preview_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_offset_preview_info">get_dmu_offset_preview_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_review_name_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_review_name_info">get_dmu_review_name_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_section_preview_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_section_preview_info">get_dmu_section_preview_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_shuttle_preview_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_shuttle_preview_info">get_dmu_shuttle_preview_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_silhouette_preview_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_silhouette_preview_info">get_dmu_silhouette_preview_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_simplif_preview_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_simplif_preview_info">get_dmu_simplif_preview_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_swept_vol_preview_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_swept_vol_preview_info">get_dmu_swept_vol_preview_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_thickness_preview_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_thickness_preview_info">get_dmu_thickness_preview_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_vibration_vol_preview_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_vibration_vol_preview_info">get_dmu_vibration_vol_preview_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_wrapping_preview_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_dmu_wrapping_preview_info">get_dmu_wrapping_preview_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_force_clearance_voxel_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_force_clearance_voxel_info">get_force_clearance_voxel_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_force_voxel_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_force_voxel_info">get_force_voxel_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_insert_level_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_insert_level_info">get_insert_level_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_insert_mode_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_insert_mode_info">get_insert_mode_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_2d_auto_naming_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_2d_auto_naming_info">get_marker_2d_auto_naming_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_3d_auto_naming_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_3d_auto_naming_info">get_marker_3d_auto_naming_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_auto_update_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_auto_update_info">get_marker_auto_update_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_color" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_color">get_marker_defaults_color</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_color_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_color_info">get_marker_defaults_color_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_dashed_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_dashed_info">get_marker_defaults_dashed_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_font_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_font_info">get_marker_defaults_font_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_size_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_size_info">get_marker_defaults_size_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_weight_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_defaults_weight_info">get_marker_defaults_weight_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_text_color" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_text_color">get_marker_text_color</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_text_color_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_text_color_info">get_marker_text_color_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_text_dashed_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_text_dashed_info">get_marker_text_dashed_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_text_weight_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_marker_text_weight_info">get_marker_text_weight_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_num_url_name_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_num_url_name_info">get_num_url_name_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_publish_auto_launch_browser_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_publish_auto_launch_browser_info">get_publish_auto_launch_browser_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_scene_defaults_color" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_scene_defaults_color">get_scene_defaults_color</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_scene_defaults_color_info" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.get_scene_defaults_color_info">get_scene_defaults_color_info</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.insert_level" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.insert_level">insert_level</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.insert_mode" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.insert_mode">insert_mode</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_2d_auto_naming" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_2d_auto_naming">marker_2d_auto_naming</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_3d_auto_naming" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_3d_auto_naming">marker_3d_auto_naming</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_auto_update" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_auto_update">marker_auto_update</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_defaults_dashed" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_defaults_dashed">marker_defaults_dashed</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_defaults_font" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_defaults_font">marker_defaults_font</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_defaults_size" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_defaults_size">marker_defaults_size</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_defaults_weight" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_defaults_weight">marker_defaults_weight</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_text_dashed" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_text_dashed">marker_text_dashed</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_text_weight" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.marker_text_weight">marker_text_weight</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.num_url_name" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.num_url_name">num_url_name</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.publish_auto_launch_browser" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.publish_auto_launch_browser">publish_auto_launch_browser</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_clearance_voxel_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_clearance_voxel_lock">set_clearance_voxel_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_clash_preview_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_clash_preview_lock">set_dmu_clash_preview_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_cut_3d_preview_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_cut_3d_preview_lock">set_dmu_cut_3d_preview_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_distance_preview_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_distance_preview_lock">set_dmu_distance_preview_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_free_space_preview_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_free_space_preview_lock">set_dmu_free_space_preview_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_color" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_color">set_dmu_group_preview_hidden_objects_color</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_color_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_color_lock">set_dmu_group_preview_hidden_objects_color_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_display_mode_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_display_mode_lock">set_dmu_group_preview_hidden_objects_display_mode_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_low_int_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_low_int_lock">set_dmu_group_preview_hidden_objects_low_int_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_opacity_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_opacity_lock">set_dmu_group_preview_hidden_objects_opacity_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_pick_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_hidden_objects_pick_lock">set_dmu_group_preview_hidden_objects_pick_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_group_preview_lock">set_dmu_group_preview_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_merger_preview_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_merger_preview_lock">set_dmu_merger_preview_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_offset_preview_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_offset_preview_lock">set_dmu_offset_preview_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_review_name_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_review_name_lock">set_dmu_review_name_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_section_preview_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_section_preview_lock">set_dmu_section_preview_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_shuttle_preview_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_shuttle_preview_lock">set_dmu_shuttle_preview_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_silhouette_preview_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_silhouette_preview_lock">set_dmu_silhouette_preview_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_simplif_preview_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_simplif_preview_lock">set_dmu_simplif_preview_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_swept_vol_preview_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_swept_vol_preview_lock">set_dmu_swept_vol_preview_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_thickness_preview_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_thickness_preview_lock">set_dmu_thickness_preview_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_vibration_vol_preview_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_vibration_vol_preview_lock">set_dmu_vibration_vol_preview_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_wrapping_preview_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_dmu_wrapping_preview_lock">set_dmu_wrapping_preview_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_force_clearance_voxel_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_force_clearance_voxel_lock">set_force_clearance_voxel_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_force_voxel_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_force_voxel_lock">set_force_voxel_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_insert_level_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_insert_level_lock">set_insert_level_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_insert_mode_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_insert_mode_lock">set_insert_mode_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_2d_auto_naming_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_2d_auto_naming_lock">set_marker_2d_auto_naming_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_3d_auto_naming_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_3d_auto_naming_lock">set_marker_3d_auto_naming_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_auto_update_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_auto_update_lock">set_marker_auto_update_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_color" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_color">set_marker_defaults_color</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_color_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_color_lock">set_marker_defaults_color_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_dashed_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_dashed_lock">set_marker_defaults_dashed_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_font_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_font_lock">set_marker_defaults_font_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_size_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_size_lock">set_marker_defaults_size_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_weight_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_defaults_weight_lock">set_marker_defaults_weight_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_text_color" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_text_color">set_marker_text_color</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_text_color_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_text_color_lock">set_marker_text_color_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_text_dashed_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_text_dashed_lock">set_marker_text_dashed_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_text_weight_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_marker_text_weight_lock">set_marker_text_weight_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_num_url_name_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_num_url_name_lock">set_num_url_name_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_publish_auto_launch_browser_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_publish_auto_launch_browser_lock">set_publish_auto_launch_browser_lock</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_scene_defaults_color" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_scene_defaults_color">set_scene_defaults_color</a></code></li>
+<li><code><a title="pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_scene_defaults_color_lock" href="#pytia.framework.navigator_interfaces.n_4D_navigator_setting_att.N4DNavigatorSettingAtt.set_scene_defaults_color_lock">set_scene_defaults_color_lock</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

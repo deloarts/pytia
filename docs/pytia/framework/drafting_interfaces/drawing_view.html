@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia.framework.drafting_interfaces.drawing_view API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia.framework.drafting_interfaces.drawing_view</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from typing import TYPE_CHECKING
+from pytia.framework.drafting_interfaces.drawing_arrows import DrawingArrows
+from pytia.framework.drafting_interfaces.drawing_components import DrawingComponents
+from pytia.framework.drafting_interfaces.drawing_dimensions import DrawingDimensions
+from pytia.framework.drafting_interfaces.drawing_pictures import DrawingPictures
+from pytia.framework.drafting_interfaces.drawing_tables import DrawingTables
+from pytia.framework.drafting_interfaces.drawing_texts import DrawingTexts
+from pytia.framework.drafting_interfaces.drawing_threads import DrawingThreads
+from pytia.framework.drafting_interfaces.drawing_view_generative_behavior import (
+    DrawingViewGenerativeBehavior,
+)
+from pytia.framework.drafting_interfaces.drawing_view_generative_links import (
+    DrawingViewGenerativeLinks,
+)
+from pytia.framework.drafting_interfaces.drawing_weldings import DrawingWeldings
+from pytia.framework.mec_mod_interfaces.geometric_elements import GeometricElements
+from pytia.framework.sketcher_interfaces.factory_2D import Factory2D
+from pytia.framework.system_interfaces.any_object import AnyObject
+
+if TYPE_CHECKING:
+    from pytia.framework.drafting_interfaces.drawing_text import DrawingText
+
+
+class DrawingView(AnyObject):
+    def __init__(self, com_object):
+        super().__init__(com_object)
+        self.drawing_view = com_object
+
+    @property
+    def angle(self) -&gt; float:
+        return self.drawing_view.Angle
+
+    @angle.setter
+    def angle(self, value: float):
+        self.drawing_view.Angle = value
+
+    @property
+    def arrows(self) -&gt; DrawingArrows:
+        return DrawingArrows(self.drawing_view.Arrows)
+
+    @property
+    def components(self) -&gt; DrawingComponents:
+        return DrawingComponents(self.drawing_view.Components)
+
+    @property
+    def dimensions(self) -&gt; DrawingDimensions:
+        return DrawingDimensions(self.drawing_view.Dimensions)
+
+    @property
+    def factory_2d(self) -&gt; Factory2D:
+        return Factory2D(self.drawing_view.Factory2D)
+
+    @property
+    def frame_visualization(self) -&gt; bool:
+        return self.drawing_view.FrameVisualization
+
+    @frame_visualization.setter
+    def frame_visualization(self, value: bool):
+        self.drawing_view.FrameVisualization = value
+
+    @property
+    def generative_behavior(self) -&gt; DrawingViewGenerativeBehavior:
+        return DrawingViewGenerativeBehavior(self.drawing_view.GenerativeBehavior)
+
+    @property
+    def generative_links(self) -&gt; DrawingViewGenerativeLinks:
+        return DrawingViewGenerativeLinks(self.drawing_view.GenerativeLinks)
+
+    @property
+    def geometric_elements(self) -&gt; GeometricElements:
+        return GeometricElements(self.drawing_view.GeometricElements)
+
+    @property
+    def lock_status(self) -&gt; bool:
+        return self.drawing_view.LockStatus
+
+    @lock_status.setter
+    def lock_status(self, value: bool):
+        self.drawing_view.LockStatus = value
+
+    @property
+    def pictures(self) -&gt; DrawingPictures:
+        return DrawingPictures(self.drawing_view.Pictures)
+
+    @property
+    def reference_view(self) -&gt; &#34;DrawingView&#34;:
+        return DrawingView(self.drawing_view.ReferenceView)
+
+    @reference_view.setter
+    def reference_view(self, value: &#34;DrawingView&#34;):
+        self.drawing_view.ReferenceView = value
+
+    @property
+    def scale(self) -&gt; float:
+        return self.drawing_view.Scale
+
+    @scale.setter
+    def scale(self, value: float):
+        self.drawing_view.Scale = value
+
+    @property
+    def scale2(self) -&gt; float:
+        return self.drawing_view.Scale2
+
+    @scale2.setter
+    def scale2(self, value: float):
+        self.drawing_view.Scale2 = value
+
+    @property
+    def tables(self) -&gt; DrawingTables:
+        return DrawingTables(self.drawing_view.Tables)
+
+    @property
+    def texts(self) -&gt; DrawingTexts:
+        return DrawingTexts(self.drawing_view.Texts)
+
+    @property
+    def threads(self) -&gt; DrawingThreads:
+        return DrawingThreads(self.drawing_view.Threads)
+
+    @property
+    def view_type(self) -&gt; int:
+        return self.drawing_view.ViewType
+
+    @property
+    def weldings(self) -&gt; DrawingWeldings:
+        return DrawingWeldings(self.drawing_view.Weldings)
+
+    @property
+    def x(self) -&gt; float:
+        return self.drawing_view.x
+
+    @x.setter
+    def x(self, value: float):
+        self.drawing_view.x = value
+
+    @property
+    def x_axis_data(self) -&gt; float:
+        return self.drawing_view.xAxisData
+
+    @x_axis_data.setter
+    def x_axis_data(self, value: float):
+        self.drawing_view.xAxisData = value
+
+    @property
+    def y(self) -&gt; float:
+        return self.drawing_view.y
+
+    @y.setter
+    def y(self, value: float):
+        self.drawing_view.y = value
+
+    @property
+    def y_axis_data(self) -&gt; float:
+        return self.drawing_view.yAxisData
+
+    @y_axis_data.setter
+    def y_axis_data(self, value: float):
+        self.drawing_view.yAxisData = value
+
+    def activate(self) -&gt; None:
+        return self.drawing_view.Activate()
+
+    def aligned_with_reference_view(self) -&gt; None:
+        return self.drawing_view.AlignedWithReferenceView()
+
+    def get_view_name(
+        self, i_view_name_prefix: str, i_view_name_ident: str, i_view_name_suffix: str
+    ) -&gt; None:
+        return self.drawing_view.GetViewName(
+            i_view_name_prefix, i_view_name_ident, i_view_name_suffix
+        )
+
+    def insert_view_angle(self, i_first: int, io_text: &#34;DrawingText&#34;) -&gt; None:
+        return self.drawing_view.InsertViewAngle(i_first, io_text.com_object)
+
+    def insert_view_scale(self, i_first: int, io_text: &#34;DrawingText&#34;) -&gt; None:
+        return self.drawing_view.InsertViewScale(i_first, io_text.com_object)
+
+    def is_generative(self) -&gt; bool:
+        return self.drawing_view.IsGenerative()
+
+    def isolate(self) -&gt; None:
+        return self.drawing_view.Isolate()
+
+    def save_edition(self) -&gt; None:
+        return self.drawing_view.SaveEdition()
+
+    def set_view_name(
+        self, i_view_name_prefix: str, i_view_name_ident: str, i_view_name_suffix: str
+    ) -&gt; None:
+        return self.drawing_view.SetViewName(
+            i_view_name_prefix, i_view_name_ident, i_view_name_suffix
+        )
+
+    def size(self, o_values: tuple) -&gt; float:
+        return self.drawing_view.Size(o_values)
+
+    def un_aligned_with_reference_view(self) -&gt; None:
+        return self.drawing_view.UnAlignedWithReferenceView()
+
+    def __repr__(self):
+        return f&#39;DrawingView(name=&#34;{self.name}&#34;)&#39;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView"><code class="flex name class">
+<span>class <span class="ident">DrawingView</span></span>
+<span>(</span><span>com_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for the framework.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DrawingView(AnyObject):
+    def __init__(self, com_object):
+        super().__init__(com_object)
+        self.drawing_view = com_object
+
+    @property
+    def angle(self) -&gt; float:
+        return self.drawing_view.Angle
+
+    @angle.setter
+    def angle(self, value: float):
+        self.drawing_view.Angle = value
+
+    @property
+    def arrows(self) -&gt; DrawingArrows:
+        return DrawingArrows(self.drawing_view.Arrows)
+
+    @property
+    def components(self) -&gt; DrawingComponents:
+        return DrawingComponents(self.drawing_view.Components)
+
+    @property
+    def dimensions(self) -&gt; DrawingDimensions:
+        return DrawingDimensions(self.drawing_view.Dimensions)
+
+    @property
+    def factory_2d(self) -&gt; Factory2D:
+        return Factory2D(self.drawing_view.Factory2D)
+
+    @property
+    def frame_visualization(self) -&gt; bool:
+        return self.drawing_view.FrameVisualization
+
+    @frame_visualization.setter
+    def frame_visualization(self, value: bool):
+        self.drawing_view.FrameVisualization = value
+
+    @property
+    def generative_behavior(self) -&gt; DrawingViewGenerativeBehavior:
+        return DrawingViewGenerativeBehavior(self.drawing_view.GenerativeBehavior)
+
+    @property
+    def generative_links(self) -&gt; DrawingViewGenerativeLinks:
+        return DrawingViewGenerativeLinks(self.drawing_view.GenerativeLinks)
+
+    @property
+    def geometric_elements(self) -&gt; GeometricElements:
+        return GeometricElements(self.drawing_view.GeometricElements)
+
+    @property
+    def lock_status(self) -&gt; bool:
+        return self.drawing_view.LockStatus
+
+    @lock_status.setter
+    def lock_status(self, value: bool):
+        self.drawing_view.LockStatus = value
+
+    @property
+    def pictures(self) -&gt; DrawingPictures:
+        return DrawingPictures(self.drawing_view.Pictures)
+
+    @property
+    def reference_view(self) -&gt; &#34;DrawingView&#34;:
+        return DrawingView(self.drawing_view.ReferenceView)
+
+    @reference_view.setter
+    def reference_view(self, value: &#34;DrawingView&#34;):
+        self.drawing_view.ReferenceView = value
+
+    @property
+    def scale(self) -&gt; float:
+        return self.drawing_view.Scale
+
+    @scale.setter
+    def scale(self, value: float):
+        self.drawing_view.Scale = value
+
+    @property
+    def scale2(self) -&gt; float:
+        return self.drawing_view.Scale2
+
+    @scale2.setter
+    def scale2(self, value: float):
+        self.drawing_view.Scale2 = value
+
+    @property
+    def tables(self) -&gt; DrawingTables:
+        return DrawingTables(self.drawing_view.Tables)
+
+    @property
+    def texts(self) -&gt; DrawingTexts:
+        return DrawingTexts(self.drawing_view.Texts)
+
+    @property
+    def threads(self) -&gt; DrawingThreads:
+        return DrawingThreads(self.drawing_view.Threads)
+
+    @property
+    def view_type(self) -&gt; int:
+        return self.drawing_view.ViewType
+
+    @property
+    def weldings(self) -&gt; DrawingWeldings:
+        return DrawingWeldings(self.drawing_view.Weldings)
+
+    @property
+    def x(self) -&gt; float:
+        return self.drawing_view.x
+
+    @x.setter
+    def x(self, value: float):
+        self.drawing_view.x = value
+
+    @property
+    def x_axis_data(self) -&gt; float:
+        return self.drawing_view.xAxisData
+
+    @x_axis_data.setter
+    def x_axis_data(self, value: float):
+        self.drawing_view.xAxisData = value
+
+    @property
+    def y(self) -&gt; float:
+        return self.drawing_view.y
+
+    @y.setter
+    def y(self, value: float):
+        self.drawing_view.y = value
+
+    @property
+    def y_axis_data(self) -&gt; float:
+        return self.drawing_view.yAxisData
+
+    @y_axis_data.setter
+    def y_axis_data(self, value: float):
+        self.drawing_view.yAxisData = value
+
+    def activate(self) -&gt; None:
+        return self.drawing_view.Activate()
+
+    def aligned_with_reference_view(self) -&gt; None:
+        return self.drawing_view.AlignedWithReferenceView()
+
+    def get_view_name(
+        self, i_view_name_prefix: str, i_view_name_ident: str, i_view_name_suffix: str
+    ) -&gt; None:
+        return self.drawing_view.GetViewName(
+            i_view_name_prefix, i_view_name_ident, i_view_name_suffix
+        )
+
+    def insert_view_angle(self, i_first: int, io_text: &#34;DrawingText&#34;) -&gt; None:
+        return self.drawing_view.InsertViewAngle(i_first, io_text.com_object)
+
+    def insert_view_scale(self, i_first: int, io_text: &#34;DrawingText&#34;) -&gt; None:
+        return self.drawing_view.InsertViewScale(i_first, io_text.com_object)
+
+    def is_generative(self) -&gt; bool:
+        return self.drawing_view.IsGenerative()
+
+    def isolate(self) -&gt; None:
+        return self.drawing_view.Isolate()
+
+    def save_edition(self) -&gt; None:
+        return self.drawing_view.SaveEdition()
+
+    def set_view_name(
+        self, i_view_name_prefix: str, i_view_name_ident: str, i_view_name_suffix: str
+    ) -&gt; None:
+        return self.drawing_view.SetViewName(
+            i_view_name_prefix, i_view_name_ident, i_view_name_suffix
+        )
+
+    def size(self, o_values: tuple) -&gt; float:
+        return self.drawing_view.Size(o_values)
+
+    def un_aligned_with_reference_view(self) -&gt; None:
+        return self.drawing_view.UnAlignedWithReferenceView()
+
+    def __repr__(self):
+        return f&#39;DrawingView(name=&#34;{self.name}&#34;)&#39;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a></li>
+<li><a title="pytia.framework.base.Base" href="../base.html#pytia.framework.base.Base">Base</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.angle"><code class="name">var <span class="ident">angle</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def angle(self) -&gt; float:
+    return self.drawing_view.Angle</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.arrows"><code class="name">var <span class="ident">arrows</span> : <a title="pytia.framework.drafting_interfaces.drawing_arrows.DrawingArrows" href="drawing_arrows.html#pytia.framework.drafting_interfaces.drawing_arrows.DrawingArrows">DrawingArrows</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def arrows(self) -&gt; DrawingArrows:
+    return DrawingArrows(self.drawing_view.Arrows)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.components"><code class="name">var <span class="ident">components</span> : <a title="pytia.framework.drafting_interfaces.drawing_components.DrawingComponents" href="drawing_components.html#pytia.framework.drafting_interfaces.drawing_components.DrawingComponents">DrawingComponents</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def components(self) -&gt; DrawingComponents:
+    return DrawingComponents(self.drawing_view.Components)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.dimensions"><code class="name">var <span class="ident">dimensions</span> : <a title="pytia.framework.drafting_interfaces.drawing_dimensions.DrawingDimensions" href="drawing_dimensions.html#pytia.framework.drafting_interfaces.drawing_dimensions.DrawingDimensions">DrawingDimensions</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dimensions(self) -&gt; DrawingDimensions:
+    return DrawingDimensions(self.drawing_view.Dimensions)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.factory_2d"><code class="name">var <span class="ident">factory_2d</span> : <a title="pytia.framework.sketcher_interfaces.factory_2D.Factory2D" href="../sketcher_interfaces/factory_2D.html#pytia.framework.sketcher_interfaces.factory_2D.Factory2D">Factory2D</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def factory_2d(self) -&gt; Factory2D:
+    return Factory2D(self.drawing_view.Factory2D)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.frame_visualization"><code class="name">var <span class="ident">frame_visualization</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def frame_visualization(self) -&gt; bool:
+    return self.drawing_view.FrameVisualization</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.generative_behavior"><code class="name">var <span class="ident">generative_behavior</span> : <a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior" href="drawing_view_generative_behavior.html#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior">DrawingViewGenerativeBehavior</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def generative_behavior(self) -&gt; DrawingViewGenerativeBehavior:
+    return DrawingViewGenerativeBehavior(self.drawing_view.GenerativeBehavior)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.generative_links"><code class="name">var <span class="ident">generative_links</span> : <a title="pytia.framework.drafting_interfaces.drawing_view_generative_links.DrawingViewGenerativeLinks" href="drawing_view_generative_links.html#pytia.framework.drafting_interfaces.drawing_view_generative_links.DrawingViewGenerativeLinks">DrawingViewGenerativeLinks</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def generative_links(self) -&gt; DrawingViewGenerativeLinks:
+    return DrawingViewGenerativeLinks(self.drawing_view.GenerativeLinks)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.geometric_elements"><code class="name">var <span class="ident">geometric_elements</span> : <a title="pytia.framework.mec_mod_interfaces.geometric_elements.GeometricElements" href="../mec_mod_interfaces/geometric_elements.html#pytia.framework.mec_mod_interfaces.geometric_elements.GeometricElements">GeometricElements</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def geometric_elements(self) -&gt; GeometricElements:
+    return GeometricElements(self.drawing_view.GeometricElements)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.lock_status"><code class="name">var <span class="ident">lock_status</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def lock_status(self) -&gt; bool:
+    return self.drawing_view.LockStatus</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.pictures"><code class="name">var <span class="ident">pictures</span> : <a title="pytia.framework.drafting_interfaces.drawing_pictures.DrawingPictures" href="drawing_pictures.html#pytia.framework.drafting_interfaces.drawing_pictures.DrawingPictures">DrawingPictures</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def pictures(self) -&gt; DrawingPictures:
+    return DrawingPictures(self.drawing_view.Pictures)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.reference_view"><code class="name">var <span class="ident">reference_view</span> : <a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView">DrawingView</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def reference_view(self) -&gt; &#34;DrawingView&#34;:
+    return DrawingView(self.drawing_view.ReferenceView)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.scale"><code class="name">var <span class="ident">scale</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def scale(self) -&gt; float:
+    return self.drawing_view.Scale</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.scale2"><code class="name">var <span class="ident">scale2</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def scale2(self) -&gt; float:
+    return self.drawing_view.Scale2</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.tables"><code class="name">var <span class="ident">tables</span> : <a title="pytia.framework.drafting_interfaces.drawing_tables.DrawingTables" href="drawing_tables.html#pytia.framework.drafting_interfaces.drawing_tables.DrawingTables">DrawingTables</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def tables(self) -&gt; DrawingTables:
+    return DrawingTables(self.drawing_view.Tables)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.texts"><code class="name">var <span class="ident">texts</span> : <a title="pytia.framework.drafting_interfaces.drawing_texts.DrawingTexts" href="drawing_texts.html#pytia.framework.drafting_interfaces.drawing_texts.DrawingTexts">DrawingTexts</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def texts(self) -&gt; DrawingTexts:
+    return DrawingTexts(self.drawing_view.Texts)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.threads"><code class="name">var <span class="ident">threads</span> : <a title="pytia.framework.drafting_interfaces.drawing_threads.DrawingThreads" href="drawing_threads.html#pytia.framework.drafting_interfaces.drawing_threads.DrawingThreads">DrawingThreads</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def threads(self) -&gt; DrawingThreads:
+    return DrawingThreads(self.drawing_view.Threads)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.view_type"><code class="name">var <span class="ident">view_type</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def view_type(self) -&gt; int:
+    return self.drawing_view.ViewType</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.weldings"><code class="name">var <span class="ident">weldings</span> : <a title="pytia.framework.drafting_interfaces.drawing_weldings.DrawingWeldings" href="drawing_weldings.html#pytia.framework.drafting_interfaces.drawing_weldings.DrawingWeldings">DrawingWeldings</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def weldings(self) -&gt; DrawingWeldings:
+    return DrawingWeldings(self.drawing_view.Weldings)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.x"><code class="name">var <span class="ident">x</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def x(self) -&gt; float:
+    return self.drawing_view.x</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.x_axis_data"><code class="name">var <span class="ident">x_axis_data</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def x_axis_data(self) -&gt; float:
+    return self.drawing_view.xAxisData</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.y"><code class="name">var <span class="ident">y</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def y(self) -&gt; float:
+    return self.drawing_view.y</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.y_axis_data"><code class="name">var <span class="ident">y_axis_data</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def y_axis_data(self) -&gt; float:
+    return self.drawing_view.yAxisData</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.activate"><code class="name flex">
+<span>def <span class="ident">activate</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def activate(self) -&gt; None:
+    return self.drawing_view.Activate()</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.aligned_with_reference_view"><code class="name flex">
+<span>def <span class="ident">aligned_with_reference_view</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def aligned_with_reference_view(self) -&gt; None:
+    return self.drawing_view.AlignedWithReferenceView()</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.get_view_name"><code class="name flex">
+<span>def <span class="ident">get_view_name</span></span>(<span>self, i_view_name_prefix: str, i_view_name_ident: str, i_view_name_suffix: str) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_view_name(
+    self, i_view_name_prefix: str, i_view_name_ident: str, i_view_name_suffix: str
+) -&gt; None:
+    return self.drawing_view.GetViewName(
+        i_view_name_prefix, i_view_name_ident, i_view_name_suffix
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.insert_view_angle"><code class="name flex">
+<span>def <span class="ident">insert_view_angle</span></span>(<span>self, i_first: int, io_text: DrawingText)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def insert_view_angle(self, i_first: int, io_text: &#34;DrawingText&#34;) -&gt; None:
+    return self.drawing_view.InsertViewAngle(i_first, io_text.com_object)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.insert_view_scale"><code class="name flex">
+<span>def <span class="ident">insert_view_scale</span></span>(<span>self, i_first: int, io_text: DrawingText)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def insert_view_scale(self, i_first: int, io_text: &#34;DrawingText&#34;) -&gt; None:
+    return self.drawing_view.InsertViewScale(i_first, io_text.com_object)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.is_generative"><code class="name flex">
+<span>def <span class="ident">is_generative</span></span>(<span>self) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_generative(self) -&gt; bool:
+    return self.drawing_view.IsGenerative()</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.isolate"><code class="name flex">
+<span>def <span class="ident">isolate</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isolate(self) -&gt; None:
+    return self.drawing_view.Isolate()</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.save_edition"><code class="name flex">
+<span>def <span class="ident">save_edition</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_edition(self) -&gt; None:
+    return self.drawing_view.SaveEdition()</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.set_view_name"><code class="name flex">
+<span>def <span class="ident">set_view_name</span></span>(<span>self, i_view_name_prefix: str, i_view_name_ident: str, i_view_name_suffix: str) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_view_name(
+    self, i_view_name_prefix: str, i_view_name_ident: str, i_view_name_suffix: str
+) -&gt; None:
+    return self.drawing_view.SetViewName(
+        i_view_name_prefix, i_view_name_ident, i_view_name_suffix
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.size"><code class="name flex">
+<span>def <span class="ident">size</span></span>(<span>self, o_values: tuple) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def size(self, o_values: tuple) -&gt; float:
+    return self.drawing_view.Size(o_values)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.un_aligned_with_reference_view"><code class="name flex">
+<span>def <span class="ident">un_aligned_with_reference_view</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def un_aligned_with_reference_view(self) -&gt; None:
+    return self.drawing_view.UnAlignedWithReferenceView()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia.framework.drafting_interfaces" href="index.html">pytia.framework.drafting_interfaces</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView">DrawingView</a></code></h4>
+<ul class="">
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.activate" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.activate">activate</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.aligned_with_reference_view" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.aligned_with_reference_view">aligned_with_reference_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.angle" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.angle">angle</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.arrows" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.arrows">arrows</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.components" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.components">components</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.dimensions" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.dimensions">dimensions</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.factory_2d" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.factory_2d">factory_2d</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.frame_visualization" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.frame_visualization">frame_visualization</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.generative_behavior" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.generative_behavior">generative_behavior</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.generative_links" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.generative_links">generative_links</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.geometric_elements" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.geometric_elements">geometric_elements</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.get_view_name" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.get_view_name">get_view_name</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.insert_view_angle" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.insert_view_angle">insert_view_angle</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.insert_view_scale" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.insert_view_scale">insert_view_scale</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.is_generative" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.is_generative">is_generative</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.isolate" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.isolate">isolate</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.lock_status" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.lock_status">lock_status</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.pictures" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.pictures">pictures</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.reference_view" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.reference_view">reference_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.save_edition" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.save_edition">save_edition</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.scale" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.scale">scale</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.scale2" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.scale2">scale2</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.set_view_name" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.set_view_name">set_view_name</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.size" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.size">size</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.tables" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.tables">tables</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.texts" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.texts">texts</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.threads" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.threads">threads</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.un_aligned_with_reference_view" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.un_aligned_with_reference_view">un_aligned_with_reference_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.view_type" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.view_type">view_type</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.weldings" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.weldings">weldings</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.x" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.x">x</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.x_axis_data" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.x_axis_data">x_axis_data</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.y" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.y">y</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView.y_axis_data" href="#pytia.framework.drafting_interfaces.drawing_view.DrawingView.y_axis_data">y_axis_data</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

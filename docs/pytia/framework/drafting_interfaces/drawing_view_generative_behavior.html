@@ -1,0 +1,1502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia.framework.drafting_interfaces.drawing_view_generative_behavior API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia.framework.drafting_interfaces.drawing_view_generative_behavior</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from typing import TYPE_CHECKING
+from pytia.framework.system_interfaces.any_object import AnyObject
+from pytia.framework.system_interfaces.cat_base_dispatch import CATBaseDispatch
+
+if TYPE_CHECKING:
+    from pytia.framework.drafting_interfaces.drawing_view import DrawingView
+
+
+class DrawingViewGenerativeBehavior(CATBaseDispatch):
+    def __init__(self, com_object):
+        super().__init__()
+        self.drawing_view_generative_behavior = com_object
+
+    @property
+    def color_inheritance_mode(self) -&gt; int:
+        return self.drawing_view_generative_behavior.ColorInheritanceMode
+
+    @color_inheritance_mode.setter
+    def color_inheritance_mode(self, value: int):
+        self.drawing_view_generative_behavior.ColorInheritanceMode = value
+
+    @property
+    def document(self) -&gt; AnyObject:
+        return AnyObject(self.drawing_view_generative_behavior.Document)
+
+    @document.setter
+    def document(self, document: AnyObject):
+        self.drawing_view_generative_behavior.Document = document.com_object
+
+    @property
+    def fillet_representation(self) -&gt; int:
+        return self.drawing_view_generative_behavior.FilletRepresentation
+
+    @fillet_representation.setter
+    def fillet_representation(self, value: int):
+        self.drawing_view_generative_behavior.FilletRepresentation = value
+
+    @property
+    def hidden_line_mode(self) -&gt; int:
+        return self.drawing_view_generative_behavior.HiddenLineMode
+
+    @hidden_line_mode.setter
+    def hidden_line_mode(self, value: int):
+        self.drawing_view_generative_behavior.HiddenLineMode = value
+
+    @property
+    def image_view_mode(self) -&gt; int:
+        return self.drawing_view_generative_behavior.ImageViewMode
+
+    @image_view_mode.setter
+    def image_view_mode(self, value: int):
+        self.drawing_view_generative_behavior.ImageViewMode = value
+
+    @property
+    def limit_bounding_box(self) -&gt; float:
+        return self.drawing_view_generative_behavior.LimitBoundingBox
+
+    @limit_bounding_box.setter
+    def limit_bounding_box(self, value: float):
+        self.drawing_view_generative_behavior.LimitBoundingBox = value
+
+    @property
+    def parent_view(self) -&gt; &#34;DrawingView&#34;:
+        from pytia.framework.drafting_interfaces.drawing_view import DrawingView
+
+        return DrawingView(self.drawing_view_generative_behavior.ParentView)
+
+    @property
+    def points_projection_mode(self) -&gt; int:
+        return self.drawing_view_generative_behavior.PointsProjectionMode
+
+    @points_projection_mode.setter
+    def points_projection_mode(self, value: int):
+        self.drawing_view_generative_behavior.PointsProjectionMode = value
+
+    @property
+    def points_symbol(self) -&gt; int:
+        return self.drawing_view_generative_behavior.PointsSymbol
+
+    @points_symbol.setter
+    def points_symbol(self, value: int):
+        self.drawing_view_generative_behavior.PointsSymbol = value
+
+    @property
+    def representation_mode(self) -&gt; int:
+        return self.drawing_view_generative_behavior.RepresentationMode
+
+    @representation_mode.setter
+    def representation_mode(self, value: int):
+        self.drawing_view_generative_behavior.RepresentationMode = value
+
+    def apply_breakout_to(self, i_parent_view: &#34;DrawingViewGenerativeBehavior&#34;) -&gt; None:
+        return self.drawing_view_generative_behavior.ApplyBreakoutTo(
+            i_parent_view.drawing_view_generative_behavior
+        )
+
+    def define_auxiliary_view(
+        self,
+        i_x_start_point: float,
+        i_y_start_point: float,
+        i_x_end_point: float,
+        y_end_point: float,
+        i_side_to_draw: int,
+        i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineAuxiliaryView(
+            i_x_start_point,
+            i_y_start_point,
+            i_x_end_point,
+            y_end_point,
+            i_side_to_draw,
+            i_parent_view_generative_behavior.drawing_view_generative_behavior,
+        )
+
+    def define_box_3d_view(self, i_boxable_object: AnyObject) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineBox3DView(
+            i_boxable_object.com_object
+        )
+
+    def define_breakout(
+        self, i_profil: tuple, i_plane1: tuple, i_plane2: tuple
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineBreakout(
+            i_profil, i_plane1, i_plane2
+        )
+
+    def define_broken_view(
+        self,
+        i_broken_lines_extremities: tuple,
+        i_x_direction: float,
+        i_y_direction: float,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineBrokenView(
+            i_broken_lines_extremities, i_x_direction, i_y_direction
+        )
+
+    def define_circular_clipping_view(
+        self, x_center: float, y_center: float, radius: float
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineCircularClippingView(
+            x_center, y_center, radius
+        )
+
+    def define_circular_detail_view(
+        self,
+        i_x_center: float,
+        i_y_center: float,
+        i_radius: float,
+        i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineCircularDetailView(
+            i_x_center,
+            i_y_center,
+            i_radius,
+            i_parent_view_generative_behavior.drawing_view_generative_behavior,
+        )
+
+    def define_circular_exact_clipping_view(
+        self, x_center: float, y_center: float, radius: float
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineCircularExactClippingView(
+            x_center, y_center, radius
+        )
+
+    def define_front_view(
+        self,
+        i_x1: float,
+        i_y1: float,
+        i_z1: float,
+        i_x2: float,
+        i_y2: float,
+        i_z2: float,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineFrontView(
+            i_x1, i_y1, i_z1, i_x2, i_y2, i_z2
+        )
+
+    def define_isometric_view(
+        self,
+        i_x1: float,
+        i_y1: float,
+        i_z1: float,
+        i_x2: float,
+        i_y2: float,
+        i_z2: float,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineIsometricView(
+            i_x1, i_y1, i_z1, i_x2, i_y2, i_z2
+        )
+
+    def define_polygonal_clipping_view(self, profile: tuple) -&gt; None:
+        return self.drawing_view_generative_behavior.DefinePolygonalClippingView(
+            profile
+        )
+
+    def define_polygonal_detail_view(
+        self,
+        i_profile: tuple,
+        i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefinePolygonalDetailView(
+            i_profile,
+            i_parent_view_generative_behavior.drawing_view_generative_behavior,
+        )
+
+    def define_polygonal_exact_clipping_view(self, profile: tuple) -&gt; None:
+        return self.drawing_view_generative_behavior.DefinePolygonalExactClippingView(
+            profile
+        )
+
+    def define_projection_view(
+        self,
+        i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+        i_type: int,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineProjectionView(
+            i_parent_view_generative_behavior.drawing_view_generative_behavior, i_type
+        )
+
+    def define_section_view(
+        self,
+        i_profile: tuple,
+        i_section_type: str,
+        i_profile_type: str,
+        i_side_to_draw: int,
+        i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineSectionView(
+            i_profile,
+            i_section_type,
+            i_profile_type,
+            i_side_to_draw,
+            i_parent_view_generative_behavior.drawing_view_generative_behavior,
+        )
+
+    def define_stand_alone_section(
+        self,
+        profile: tuple,
+        type_of_section: str,
+        type_of_profile: str,
+        i_plane: tuple,
+        i_side: int,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineStandAloneSection(
+            profile, type_of_section, type_of_profile, i_plane, i_side
+        )
+
+    def define_tps_section_view(
+        self,
+        i_profile: tuple,
+        i_section_type: str,
+        i_profile_type: str,
+        i_side_to_draw: int,
+        i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineTPSSectionView(
+            i_profile,
+            i_section_type,
+            i_profile_type,
+            i_side_to_draw,
+            i_parent_view_generative_behavior.drawing_view_generative_behavior,
+        )
+
+    def define_unfolded_view(
+        self,
+        i_x1: float,
+        i_y1: float,
+        i_z1: float,
+        i_x2: float,
+        i_y2: float,
+        i_z2: float,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineUnfoldedView(
+            i_x1, i_y1, i_z1, i_x2, i_y2, i_z2
+        )
+
+    def force_update(self) -&gt; None:
+        return self.drawing_view_generative_behavior.ForceUpdate()
+
+    def get_axis_system(self, o_product: AnyObject, o_axis_system: AnyObject) -&gt; None:
+        return self.drawing_view_generative_behavior.GetAxisSysteme(
+            o_product.com_object, o_axis_system.com_object
+        )
+
+    def get_gps_name(self) -&gt; str:
+        return self.drawing_view_generative_behavior.GetGPSName()
+
+    def get_projection_plane(
+        self,
+        o_x1: float,
+        o_y1: float,
+        o_z1: float,
+        o_x2: float,
+        o_y2: float,
+        o_z2: float,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.GetProjectionPlane(
+            o_x1, o_y1, o_z1, o_x2, o_y2, o_z2
+        )
+
+    def get_projection_plane_normal(
+        self, o_x_normal: float, o_y_normal: float, o_z_normal: float
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.GetProjectionPlaneNormal(
+            o_x_normal, o_y_normal, o_z_normal
+        )
+
+    def set_axis_systeme(self, i_product: AnyObject, i_axis_systeme: AnyObject) -&gt; None:
+        return self.drawing_view_generative_behavior.SetAxisSysteme(
+            i_product.com_object, i_axis_systeme.com_object
+        )
+
+    def set_gps_name(self, i_gps_name: str) -&gt; None:
+        return self.drawing_view_generative_behavior.SetGPSName(i_gps_name)
+
+    def set_projection_plane(
+        self,
+        i_x1: float,
+        i_y1: float,
+        i_z1: float,
+        i_x2: float,
+        i_y2: float,
+        i_z2: float,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.SetProjectionPlane(
+            i_x1, i_y1, i_z1, i_x2, i_y2, i_z2
+        )
+
+    def un_break(self) -&gt; None:
+        return self.drawing_view_generative_behavior.UnBreak()
+
+    def un_breakout(self) -&gt; None:
+        return self.drawing_view_generative_behavior.UnBreakout()
+
+    def un_breakout_num(self, i_breakout_number: int) -&gt; None:
+        return self.drawing_view_generative_behavior.UnBreakoutNum(i_breakout_number)
+
+    def un_clip(self) -&gt; None:
+        return self.drawing_view_generative_behavior.UnClip()
+
+    def update(self) -&gt; None:
+        return self.drawing_view_generative_behavior.Update()
+
+    def __repr__(self):
+        return f&#34;DrawingViewGenerativeBehavior()&#34;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior"><code class="flex name class">
+<span>class <span class="ident">DrawingViewGenerativeBehavior</span></span>
+<span>(</span><span>com_object)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DrawingViewGenerativeBehavior(CATBaseDispatch):
+    def __init__(self, com_object):
+        super().__init__()
+        self.drawing_view_generative_behavior = com_object
+
+    @property
+    def color_inheritance_mode(self) -&gt; int:
+        return self.drawing_view_generative_behavior.ColorInheritanceMode
+
+    @color_inheritance_mode.setter
+    def color_inheritance_mode(self, value: int):
+        self.drawing_view_generative_behavior.ColorInheritanceMode = value
+
+    @property
+    def document(self) -&gt; AnyObject:
+        return AnyObject(self.drawing_view_generative_behavior.Document)
+
+    @document.setter
+    def document(self, document: AnyObject):
+        self.drawing_view_generative_behavior.Document = document.com_object
+
+    @property
+    def fillet_representation(self) -&gt; int:
+        return self.drawing_view_generative_behavior.FilletRepresentation
+
+    @fillet_representation.setter
+    def fillet_representation(self, value: int):
+        self.drawing_view_generative_behavior.FilletRepresentation = value
+
+    @property
+    def hidden_line_mode(self) -&gt; int:
+        return self.drawing_view_generative_behavior.HiddenLineMode
+
+    @hidden_line_mode.setter
+    def hidden_line_mode(self, value: int):
+        self.drawing_view_generative_behavior.HiddenLineMode = value
+
+    @property
+    def image_view_mode(self) -&gt; int:
+        return self.drawing_view_generative_behavior.ImageViewMode
+
+    @image_view_mode.setter
+    def image_view_mode(self, value: int):
+        self.drawing_view_generative_behavior.ImageViewMode = value
+
+    @property
+    def limit_bounding_box(self) -&gt; float:
+        return self.drawing_view_generative_behavior.LimitBoundingBox
+
+    @limit_bounding_box.setter
+    def limit_bounding_box(self, value: float):
+        self.drawing_view_generative_behavior.LimitBoundingBox = value
+
+    @property
+    def parent_view(self) -&gt; &#34;DrawingView&#34;:
+        from pytia.framework.drafting_interfaces.drawing_view import DrawingView
+
+        return DrawingView(self.drawing_view_generative_behavior.ParentView)
+
+    @property
+    def points_projection_mode(self) -&gt; int:
+        return self.drawing_view_generative_behavior.PointsProjectionMode
+
+    @points_projection_mode.setter
+    def points_projection_mode(self, value: int):
+        self.drawing_view_generative_behavior.PointsProjectionMode = value
+
+    @property
+    def points_symbol(self) -&gt; int:
+        return self.drawing_view_generative_behavior.PointsSymbol
+
+    @points_symbol.setter
+    def points_symbol(self, value: int):
+        self.drawing_view_generative_behavior.PointsSymbol = value
+
+    @property
+    def representation_mode(self) -&gt; int:
+        return self.drawing_view_generative_behavior.RepresentationMode
+
+    @representation_mode.setter
+    def representation_mode(self, value: int):
+        self.drawing_view_generative_behavior.RepresentationMode = value
+
+    def apply_breakout_to(self, i_parent_view: &#34;DrawingViewGenerativeBehavior&#34;) -&gt; None:
+        return self.drawing_view_generative_behavior.ApplyBreakoutTo(
+            i_parent_view.drawing_view_generative_behavior
+        )
+
+    def define_auxiliary_view(
+        self,
+        i_x_start_point: float,
+        i_y_start_point: float,
+        i_x_end_point: float,
+        y_end_point: float,
+        i_side_to_draw: int,
+        i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineAuxiliaryView(
+            i_x_start_point,
+            i_y_start_point,
+            i_x_end_point,
+            y_end_point,
+            i_side_to_draw,
+            i_parent_view_generative_behavior.drawing_view_generative_behavior,
+        )
+
+    def define_box_3d_view(self, i_boxable_object: AnyObject) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineBox3DView(
+            i_boxable_object.com_object
+        )
+
+    def define_breakout(
+        self, i_profil: tuple, i_plane1: tuple, i_plane2: tuple
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineBreakout(
+            i_profil, i_plane1, i_plane2
+        )
+
+    def define_broken_view(
+        self,
+        i_broken_lines_extremities: tuple,
+        i_x_direction: float,
+        i_y_direction: float,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineBrokenView(
+            i_broken_lines_extremities, i_x_direction, i_y_direction
+        )
+
+    def define_circular_clipping_view(
+        self, x_center: float, y_center: float, radius: float
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineCircularClippingView(
+            x_center, y_center, radius
+        )
+
+    def define_circular_detail_view(
+        self,
+        i_x_center: float,
+        i_y_center: float,
+        i_radius: float,
+        i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineCircularDetailView(
+            i_x_center,
+            i_y_center,
+            i_radius,
+            i_parent_view_generative_behavior.drawing_view_generative_behavior,
+        )
+
+    def define_circular_exact_clipping_view(
+        self, x_center: float, y_center: float, radius: float
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineCircularExactClippingView(
+            x_center, y_center, radius
+        )
+
+    def define_front_view(
+        self,
+        i_x1: float,
+        i_y1: float,
+        i_z1: float,
+        i_x2: float,
+        i_y2: float,
+        i_z2: float,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineFrontView(
+            i_x1, i_y1, i_z1, i_x2, i_y2, i_z2
+        )
+
+    def define_isometric_view(
+        self,
+        i_x1: float,
+        i_y1: float,
+        i_z1: float,
+        i_x2: float,
+        i_y2: float,
+        i_z2: float,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineIsometricView(
+            i_x1, i_y1, i_z1, i_x2, i_y2, i_z2
+        )
+
+    def define_polygonal_clipping_view(self, profile: tuple) -&gt; None:
+        return self.drawing_view_generative_behavior.DefinePolygonalClippingView(
+            profile
+        )
+
+    def define_polygonal_detail_view(
+        self,
+        i_profile: tuple,
+        i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefinePolygonalDetailView(
+            i_profile,
+            i_parent_view_generative_behavior.drawing_view_generative_behavior,
+        )
+
+    def define_polygonal_exact_clipping_view(self, profile: tuple) -&gt; None:
+        return self.drawing_view_generative_behavior.DefinePolygonalExactClippingView(
+            profile
+        )
+
+    def define_projection_view(
+        self,
+        i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+        i_type: int,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineProjectionView(
+            i_parent_view_generative_behavior.drawing_view_generative_behavior, i_type
+        )
+
+    def define_section_view(
+        self,
+        i_profile: tuple,
+        i_section_type: str,
+        i_profile_type: str,
+        i_side_to_draw: int,
+        i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineSectionView(
+            i_profile,
+            i_section_type,
+            i_profile_type,
+            i_side_to_draw,
+            i_parent_view_generative_behavior.drawing_view_generative_behavior,
+        )
+
+    def define_stand_alone_section(
+        self,
+        profile: tuple,
+        type_of_section: str,
+        type_of_profile: str,
+        i_plane: tuple,
+        i_side: int,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineStandAloneSection(
+            profile, type_of_section, type_of_profile, i_plane, i_side
+        )
+
+    def define_tps_section_view(
+        self,
+        i_profile: tuple,
+        i_section_type: str,
+        i_profile_type: str,
+        i_side_to_draw: int,
+        i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineTPSSectionView(
+            i_profile,
+            i_section_type,
+            i_profile_type,
+            i_side_to_draw,
+            i_parent_view_generative_behavior.drawing_view_generative_behavior,
+        )
+
+    def define_unfolded_view(
+        self,
+        i_x1: float,
+        i_y1: float,
+        i_z1: float,
+        i_x2: float,
+        i_y2: float,
+        i_z2: float,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.DefineUnfoldedView(
+            i_x1, i_y1, i_z1, i_x2, i_y2, i_z2
+        )
+
+    def force_update(self) -&gt; None:
+        return self.drawing_view_generative_behavior.ForceUpdate()
+
+    def get_axis_system(self, o_product: AnyObject, o_axis_system: AnyObject) -&gt; None:
+        return self.drawing_view_generative_behavior.GetAxisSysteme(
+            o_product.com_object, o_axis_system.com_object
+        )
+
+    def get_gps_name(self) -&gt; str:
+        return self.drawing_view_generative_behavior.GetGPSName()
+
+    def get_projection_plane(
+        self,
+        o_x1: float,
+        o_y1: float,
+        o_z1: float,
+        o_x2: float,
+        o_y2: float,
+        o_z2: float,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.GetProjectionPlane(
+            o_x1, o_y1, o_z1, o_x2, o_y2, o_z2
+        )
+
+    def get_projection_plane_normal(
+        self, o_x_normal: float, o_y_normal: float, o_z_normal: float
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.GetProjectionPlaneNormal(
+            o_x_normal, o_y_normal, o_z_normal
+        )
+
+    def set_axis_systeme(self, i_product: AnyObject, i_axis_systeme: AnyObject) -&gt; None:
+        return self.drawing_view_generative_behavior.SetAxisSysteme(
+            i_product.com_object, i_axis_systeme.com_object
+        )
+
+    def set_gps_name(self, i_gps_name: str) -&gt; None:
+        return self.drawing_view_generative_behavior.SetGPSName(i_gps_name)
+
+    def set_projection_plane(
+        self,
+        i_x1: float,
+        i_y1: float,
+        i_z1: float,
+        i_x2: float,
+        i_y2: float,
+        i_z2: float,
+    ) -&gt; None:
+        return self.drawing_view_generative_behavior.SetProjectionPlane(
+            i_x1, i_y1, i_z1, i_x2, i_y2, i_z2
+        )
+
+    def un_break(self) -&gt; None:
+        return self.drawing_view_generative_behavior.UnBreak()
+
+    def un_breakout(self) -&gt; None:
+        return self.drawing_view_generative_behavior.UnBreakout()
+
+    def un_breakout_num(self, i_breakout_number: int) -&gt; None:
+        return self.drawing_view_generative_behavior.UnBreakoutNum(i_breakout_number)
+
+    def un_clip(self) -&gt; None:
+        return self.drawing_view_generative_behavior.UnClip()
+
+    def update(self) -&gt; None:
+        return self.drawing_view_generative_behavior.Update()
+
+    def __repr__(self):
+        return f&#34;DrawingViewGenerativeBehavior()&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.framework.system_interfaces.cat_base_dispatch.CATBaseDispatch" href="../system_interfaces/cat_base_dispatch.html#pytia.framework.system_interfaces.cat_base_dispatch.CATBaseDispatch">CATBaseDispatch</a></li>
+<li><a title="pytia.framework.system_interfaces.cat_base_unknown.CATBaseUnknown" href="../system_interfaces/cat_base_unknown.html#pytia.framework.system_interfaces.cat_base_unknown.CATBaseUnknown">CATBaseUnknown</a></li>
+<li><a title="pytia.framework.system_interfaces.i_dispatch.IDispatch" href="../system_interfaces/i_dispatch.html#pytia.framework.system_interfaces.i_dispatch.IDispatch">IDispatch</a></li>
+<li><a title="pytia.framework.system_interfaces.i_unknown.IUnknown" href="../system_interfaces/i_unknown.html#pytia.framework.system_interfaces.i_unknown.IUnknown">IUnknown</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.color_inheritance_mode"><code class="name">var <span class="ident">color_inheritance_mode</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def color_inheritance_mode(self) -&gt; int:
+    return self.drawing_view_generative_behavior.ColorInheritanceMode</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.document"><code class="name">var <span class="ident">document</span> : <a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def document(self) -&gt; AnyObject:
+    return AnyObject(self.drawing_view_generative_behavior.Document)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.fillet_representation"><code class="name">var <span class="ident">fillet_representation</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def fillet_representation(self) -&gt; int:
+    return self.drawing_view_generative_behavior.FilletRepresentation</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.hidden_line_mode"><code class="name">var <span class="ident">hidden_line_mode</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def hidden_line_mode(self) -&gt; int:
+    return self.drawing_view_generative_behavior.HiddenLineMode</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.image_view_mode"><code class="name">var <span class="ident">image_view_mode</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def image_view_mode(self) -&gt; int:
+    return self.drawing_view_generative_behavior.ImageViewMode</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.limit_bounding_box"><code class="name">var <span class="ident">limit_bounding_box</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def limit_bounding_box(self) -&gt; float:
+    return self.drawing_view_generative_behavior.LimitBoundingBox</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.parent_view"><code class="name">var <span class="ident">parent_view</span> : DrawingView</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def parent_view(self) -&gt; &#34;DrawingView&#34;:
+    from pytia.framework.drafting_interfaces.drawing_view import DrawingView
+
+    return DrawingView(self.drawing_view_generative_behavior.ParentView)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.points_projection_mode"><code class="name">var <span class="ident">points_projection_mode</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def points_projection_mode(self) -&gt; int:
+    return self.drawing_view_generative_behavior.PointsProjectionMode</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.points_symbol"><code class="name">var <span class="ident">points_symbol</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def points_symbol(self) -&gt; int:
+    return self.drawing_view_generative_behavior.PointsSymbol</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.representation_mode"><code class="name">var <span class="ident">representation_mode</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def representation_mode(self) -&gt; int:
+    return self.drawing_view_generative_behavior.RepresentationMode</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.apply_breakout_to"><code class="name flex">
+<span>def <span class="ident">apply_breakout_to</span></span>(<span>self, i_parent_view: <a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior">DrawingViewGenerativeBehavior</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def apply_breakout_to(self, i_parent_view: &#34;DrawingViewGenerativeBehavior&#34;) -&gt; None:
+    return self.drawing_view_generative_behavior.ApplyBreakoutTo(
+        i_parent_view.drawing_view_generative_behavior
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_auxiliary_view"><code class="name flex">
+<span>def <span class="ident">define_auxiliary_view</span></span>(<span>self, i_x_start_point: float, i_y_start_point: float, i_x_end_point: float, y_end_point: float, i_side_to_draw: int, i_parent_view_generative_behavior: <a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior">DrawingViewGenerativeBehavior</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_auxiliary_view(
+    self,
+    i_x_start_point: float,
+    i_y_start_point: float,
+    i_x_end_point: float,
+    y_end_point: float,
+    i_side_to_draw: int,
+    i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+) -&gt; None:
+    return self.drawing_view_generative_behavior.DefineAuxiliaryView(
+        i_x_start_point,
+        i_y_start_point,
+        i_x_end_point,
+        y_end_point,
+        i_side_to_draw,
+        i_parent_view_generative_behavior.drawing_view_generative_behavior,
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_box_3d_view"><code class="name flex">
+<span>def <span class="ident">define_box_3d_view</span></span>(<span>self, i_boxable_object: <a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_box_3d_view(self, i_boxable_object: AnyObject) -&gt; None:
+    return self.drawing_view_generative_behavior.DefineBox3DView(
+        i_boxable_object.com_object
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_breakout"><code class="name flex">
+<span>def <span class="ident">define_breakout</span></span>(<span>self, i_profil: tuple, i_plane1: tuple, i_plane2: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_breakout(
+    self, i_profil: tuple, i_plane1: tuple, i_plane2: tuple
+) -&gt; None:
+    return self.drawing_view_generative_behavior.DefineBreakout(
+        i_profil, i_plane1, i_plane2
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_broken_view"><code class="name flex">
+<span>def <span class="ident">define_broken_view</span></span>(<span>self, i_broken_lines_extremities: tuple, i_x_direction: float, i_y_direction: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_broken_view(
+    self,
+    i_broken_lines_extremities: tuple,
+    i_x_direction: float,
+    i_y_direction: float,
+) -&gt; None:
+    return self.drawing_view_generative_behavior.DefineBrokenView(
+        i_broken_lines_extremities, i_x_direction, i_y_direction
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_circular_clipping_view"><code class="name flex">
+<span>def <span class="ident">define_circular_clipping_view</span></span>(<span>self, x_center: float, y_center: float, radius: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_circular_clipping_view(
+    self, x_center: float, y_center: float, radius: float
+) -&gt; None:
+    return self.drawing_view_generative_behavior.DefineCircularClippingView(
+        x_center, y_center, radius
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_circular_detail_view"><code class="name flex">
+<span>def <span class="ident">define_circular_detail_view</span></span>(<span>self, i_x_center: float, i_y_center: float, i_radius: float, i_parent_view_generative_behavior: <a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior">DrawingViewGenerativeBehavior</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_circular_detail_view(
+    self,
+    i_x_center: float,
+    i_y_center: float,
+    i_radius: float,
+    i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+) -&gt; None:
+    return self.drawing_view_generative_behavior.DefineCircularDetailView(
+        i_x_center,
+        i_y_center,
+        i_radius,
+        i_parent_view_generative_behavior.drawing_view_generative_behavior,
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_circular_exact_clipping_view"><code class="name flex">
+<span>def <span class="ident">define_circular_exact_clipping_view</span></span>(<span>self, x_center: float, y_center: float, radius: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_circular_exact_clipping_view(
+    self, x_center: float, y_center: float, radius: float
+) -&gt; None:
+    return self.drawing_view_generative_behavior.DefineCircularExactClippingView(
+        x_center, y_center, radius
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_front_view"><code class="name flex">
+<span>def <span class="ident">define_front_view</span></span>(<span>self, i_x1: float, i_y1: float, i_z1: float, i_x2: float, i_y2: float, i_z2: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_front_view(
+    self,
+    i_x1: float,
+    i_y1: float,
+    i_z1: float,
+    i_x2: float,
+    i_y2: float,
+    i_z2: float,
+) -&gt; None:
+    return self.drawing_view_generative_behavior.DefineFrontView(
+        i_x1, i_y1, i_z1, i_x2, i_y2, i_z2
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_isometric_view"><code class="name flex">
+<span>def <span class="ident">define_isometric_view</span></span>(<span>self, i_x1: float, i_y1: float, i_z1: float, i_x2: float, i_y2: float, i_z2: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_isometric_view(
+    self,
+    i_x1: float,
+    i_y1: float,
+    i_z1: float,
+    i_x2: float,
+    i_y2: float,
+    i_z2: float,
+) -&gt; None:
+    return self.drawing_view_generative_behavior.DefineIsometricView(
+        i_x1, i_y1, i_z1, i_x2, i_y2, i_z2
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_polygonal_clipping_view"><code class="name flex">
+<span>def <span class="ident">define_polygonal_clipping_view</span></span>(<span>self, profile: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_polygonal_clipping_view(self, profile: tuple) -&gt; None:
+    return self.drawing_view_generative_behavior.DefinePolygonalClippingView(
+        profile
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_polygonal_detail_view"><code class="name flex">
+<span>def <span class="ident">define_polygonal_detail_view</span></span>(<span>self, i_profile: tuple, i_parent_view_generative_behavior: <a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior">DrawingViewGenerativeBehavior</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_polygonal_detail_view(
+    self,
+    i_profile: tuple,
+    i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+) -&gt; None:
+    return self.drawing_view_generative_behavior.DefinePolygonalDetailView(
+        i_profile,
+        i_parent_view_generative_behavior.drawing_view_generative_behavior,
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_polygonal_exact_clipping_view"><code class="name flex">
+<span>def <span class="ident">define_polygonal_exact_clipping_view</span></span>(<span>self, profile: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_polygonal_exact_clipping_view(self, profile: tuple) -&gt; None:
+    return self.drawing_view_generative_behavior.DefinePolygonalExactClippingView(
+        profile
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_projection_view"><code class="name flex">
+<span>def <span class="ident">define_projection_view</span></span>(<span>self, i_parent_view_generative_behavior: <a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior">DrawingViewGenerativeBehavior</a>, i_type: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_projection_view(
+    self,
+    i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+    i_type: int,
+) -&gt; None:
+    return self.drawing_view_generative_behavior.DefineProjectionView(
+        i_parent_view_generative_behavior.drawing_view_generative_behavior, i_type
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_section_view"><code class="name flex">
+<span>def <span class="ident">define_section_view</span></span>(<span>self, i_profile: tuple, i_section_type: str, i_profile_type: str, i_side_to_draw: int, i_parent_view_generative_behavior: <a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior">DrawingViewGenerativeBehavior</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_section_view(
+    self,
+    i_profile: tuple,
+    i_section_type: str,
+    i_profile_type: str,
+    i_side_to_draw: int,
+    i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+) -&gt; None:
+    return self.drawing_view_generative_behavior.DefineSectionView(
+        i_profile,
+        i_section_type,
+        i_profile_type,
+        i_side_to_draw,
+        i_parent_view_generative_behavior.drawing_view_generative_behavior,
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_stand_alone_section"><code class="name flex">
+<span>def <span class="ident">define_stand_alone_section</span></span>(<span>self, profile: tuple, type_of_section: str, type_of_profile: str, i_plane: tuple, i_side: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_stand_alone_section(
+    self,
+    profile: tuple,
+    type_of_section: str,
+    type_of_profile: str,
+    i_plane: tuple,
+    i_side: int,
+) -&gt; None:
+    return self.drawing_view_generative_behavior.DefineStandAloneSection(
+        profile, type_of_section, type_of_profile, i_plane, i_side
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_tps_section_view"><code class="name flex">
+<span>def <span class="ident">define_tps_section_view</span></span>(<span>self, i_profile: tuple, i_section_type: str, i_profile_type: str, i_side_to_draw: int, i_parent_view_generative_behavior: <a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior">DrawingViewGenerativeBehavior</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_tps_section_view(
+    self,
+    i_profile: tuple,
+    i_section_type: str,
+    i_profile_type: str,
+    i_side_to_draw: int,
+    i_parent_view_generative_behavior: &#34;DrawingViewGenerativeBehavior&#34;,
+) -&gt; None:
+    return self.drawing_view_generative_behavior.DefineTPSSectionView(
+        i_profile,
+        i_section_type,
+        i_profile_type,
+        i_side_to_draw,
+        i_parent_view_generative_behavior.drawing_view_generative_behavior,
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_unfolded_view"><code class="name flex">
+<span>def <span class="ident">define_unfolded_view</span></span>(<span>self, i_x1: float, i_y1: float, i_z1: float, i_x2: float, i_y2: float, i_z2: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def define_unfolded_view(
+    self,
+    i_x1: float,
+    i_y1: float,
+    i_z1: float,
+    i_x2: float,
+    i_y2: float,
+    i_z2: float,
+) -&gt; None:
+    return self.drawing_view_generative_behavior.DefineUnfoldedView(
+        i_x1, i_y1, i_z1, i_x2, i_y2, i_z2
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.force_update"><code class="name flex">
+<span>def <span class="ident">force_update</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def force_update(self) -&gt; None:
+    return self.drawing_view_generative_behavior.ForceUpdate()</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.get_axis_system"><code class="name flex">
+<span>def <span class="ident">get_axis_system</span></span>(<span>self, o_product: <a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a>, o_axis_system: <a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_axis_system(self, o_product: AnyObject, o_axis_system: AnyObject) -&gt; None:
+    return self.drawing_view_generative_behavior.GetAxisSysteme(
+        o_product.com_object, o_axis_system.com_object
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.get_gps_name"><code class="name flex">
+<span>def <span class="ident">get_gps_name</span></span>(<span>self) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_gps_name(self) -&gt; str:
+    return self.drawing_view_generative_behavior.GetGPSName()</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.get_projection_plane"><code class="name flex">
+<span>def <span class="ident">get_projection_plane</span></span>(<span>self, o_x1: float, o_y1: float, o_z1: float, o_x2: float, o_y2: float, o_z2: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_projection_plane(
+    self,
+    o_x1: float,
+    o_y1: float,
+    o_z1: float,
+    o_x2: float,
+    o_y2: float,
+    o_z2: float,
+) -&gt; None:
+    return self.drawing_view_generative_behavior.GetProjectionPlane(
+        o_x1, o_y1, o_z1, o_x2, o_y2, o_z2
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.get_projection_plane_normal"><code class="name flex">
+<span>def <span class="ident">get_projection_plane_normal</span></span>(<span>self, o_x_normal: float, o_y_normal: float, o_z_normal: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_projection_plane_normal(
+    self, o_x_normal: float, o_y_normal: float, o_z_normal: float
+) -&gt; None:
+    return self.drawing_view_generative_behavior.GetProjectionPlaneNormal(
+        o_x_normal, o_y_normal, o_z_normal
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.set_axis_systeme"><code class="name flex">
+<span>def <span class="ident">set_axis_systeme</span></span>(<span>self, i_product: <a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a>, i_axis_systeme: <a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_axis_systeme(self, i_product: AnyObject, i_axis_systeme: AnyObject) -&gt; None:
+    return self.drawing_view_generative_behavior.SetAxisSysteme(
+        i_product.com_object, i_axis_systeme.com_object
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.set_gps_name"><code class="name flex">
+<span>def <span class="ident">set_gps_name</span></span>(<span>self, i_gps_name: str) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_gps_name(self, i_gps_name: str) -&gt; None:
+    return self.drawing_view_generative_behavior.SetGPSName(i_gps_name)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.set_projection_plane"><code class="name flex">
+<span>def <span class="ident">set_projection_plane</span></span>(<span>self, i_x1: float, i_y1: float, i_z1: float, i_x2: float, i_y2: float, i_z2: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_projection_plane(
+    self,
+    i_x1: float,
+    i_y1: float,
+    i_z1: float,
+    i_x2: float,
+    i_y2: float,
+    i_z2: float,
+) -&gt; None:
+    return self.drawing_view_generative_behavior.SetProjectionPlane(
+        i_x1, i_y1, i_z1, i_x2, i_y2, i_z2
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.un_break"><code class="name flex">
+<span>def <span class="ident">un_break</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def un_break(self) -&gt; None:
+    return self.drawing_view_generative_behavior.UnBreak()</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.un_breakout"><code class="name flex">
+<span>def <span class="ident">un_breakout</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def un_breakout(self) -&gt; None:
+    return self.drawing_view_generative_behavior.UnBreakout()</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.un_breakout_num"><code class="name flex">
+<span>def <span class="ident">un_breakout_num</span></span>(<span>self, i_breakout_number: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def un_breakout_num(self, i_breakout_number: int) -&gt; None:
+    return self.drawing_view_generative_behavior.UnBreakoutNum(i_breakout_number)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.un_clip"><code class="name flex">
+<span>def <span class="ident">un_clip</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def un_clip(self) -&gt; None:
+    return self.drawing_view_generative_behavior.UnClip()</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.update"><code class="name flex">
+<span>def <span class="ident">update</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update(self) -&gt; None:
+    return self.drawing_view_generative_behavior.Update()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia.framework.drafting_interfaces" href="index.html">pytia.framework.drafting_interfaces</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior">DrawingViewGenerativeBehavior</a></code></h4>
+<ul class="">
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.apply_breakout_to" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.apply_breakout_to">apply_breakout_to</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.color_inheritance_mode" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.color_inheritance_mode">color_inheritance_mode</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_auxiliary_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_auxiliary_view">define_auxiliary_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_box_3d_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_box_3d_view">define_box_3d_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_breakout" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_breakout">define_breakout</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_broken_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_broken_view">define_broken_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_circular_clipping_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_circular_clipping_view">define_circular_clipping_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_circular_detail_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_circular_detail_view">define_circular_detail_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_circular_exact_clipping_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_circular_exact_clipping_view">define_circular_exact_clipping_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_front_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_front_view">define_front_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_isometric_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_isometric_view">define_isometric_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_polygonal_clipping_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_polygonal_clipping_view">define_polygonal_clipping_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_polygonal_detail_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_polygonal_detail_view">define_polygonal_detail_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_polygonal_exact_clipping_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_polygonal_exact_clipping_view">define_polygonal_exact_clipping_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_projection_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_projection_view">define_projection_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_section_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_section_view">define_section_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_stand_alone_section" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_stand_alone_section">define_stand_alone_section</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_tps_section_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_tps_section_view">define_tps_section_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_unfolded_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.define_unfolded_view">define_unfolded_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.document" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.document">document</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.fillet_representation" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.fillet_representation">fillet_representation</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.force_update" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.force_update">force_update</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.get_axis_system" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.get_axis_system">get_axis_system</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.get_gps_name" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.get_gps_name">get_gps_name</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.get_projection_plane" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.get_projection_plane">get_projection_plane</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.get_projection_plane_normal" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.get_projection_plane_normal">get_projection_plane_normal</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.hidden_line_mode" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.hidden_line_mode">hidden_line_mode</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.image_view_mode" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.image_view_mode">image_view_mode</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.limit_bounding_box" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.limit_bounding_box">limit_bounding_box</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.parent_view" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.parent_view">parent_view</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.points_projection_mode" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.points_projection_mode">points_projection_mode</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.points_symbol" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.points_symbol">points_symbol</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.representation_mode" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.representation_mode">representation_mode</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.set_axis_systeme" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.set_axis_systeme">set_axis_systeme</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.set_gps_name" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.set_gps_name">set_gps_name</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.set_projection_plane" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.set_projection_plane">set_projection_plane</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.un_break" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.un_break">un_break</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.un_breakout" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.un_breakout">un_breakout</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.un_breakout_num" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.un_breakout_num">un_breakout_num</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.un_clip" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.un_clip">un_clip</a></code></li>
+<li><code><a title="pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.update" href="#pytia.framework.drafting_interfaces.drawing_view_generative_behavior.DrawingViewGenerativeBehavior.update">update</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

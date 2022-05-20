@@ -1,0 +1,35 @@
+{
+    "cSpell.words": [
+        "asctime",
+        "brep",
+        "CATBSTR",
+        "CATIA",
+        "catscript",
+        "CNEXT",
+        "Coeff",
+        "coeffcient",
+        "COMPUTERNAME",
+        "Extremum",
+        "levelname",
+        "measurables",
+        "partnumber",
+        "pdoc",
+        "psutil",
+        "pycatia",
+        "pylint",
+        "pylintrc",
+        "pyproject",
+        "pytest",
+        "pytia",
+        "rcfile",
+        "Relimited",
+        "SHEETMETAL",
+        "traceback",
+        "virtualenvs"
+    ],
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}

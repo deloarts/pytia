@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia.wrapper.documents.part_documents API documentation</title>
+<meta name="description" content="Wrapper module for handling part documents." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia.wrapper.documents.part_documents</code></h1>
+</header>
+<section id="section-intro">
+<p>Wrapper module for handling part documents.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+    Wrapper module for handling part documents.
+&#34;&#34;&#34;
+
+from pytia import __version__
+from pytia.const import FILE_EXTENSION_PART, GET_ITEM_MATERIAL_MANAGER
+from pytia.exceptions import PytiaDocumentNameConventionError
+from pytia.framework.cat_mat_interfaces.material import Material
+from pytia.framework.cat_mat_interfaces.material_manager import MaterialManager
+from pytia.framework.mec_mod_interfaces.part import Part
+from pytia.framework.product_structure_interfaces.product import Product
+from pytia.log import log
+from pytia.wrapper.axis_systems import PyAxisSystems
+from pytia.wrapper.bodies.bodies import PyBodies
+from pytia.wrapper.bodies.hybrid_bodies import PyHybridBodies
+from pytia.wrapper.documents.base import PyBaseDocument
+from pytia.wrapper.parameters import PyPartParameters
+from pytia.wrapper.properties import PyProperties
+
+
+class PyPartDocument(PyBaseDocument):
+    &#34;&#34;&#34;The wrapper class for CATIA PartDocument (MecModInterfaces Framework)&#34;&#34;&#34;
+
+    def __init__(self, strict_naming: bool = True) -&gt; None:
+        &#34;&#34;&#34;
+        Inits the base class with CATPart document type. Even
+
+        Args:
+            strict_naming (bool, optional): If set to True the partnumber and the filename must \
+                always match. Defaults to True.
+        &#34;&#34;&#34;
+        self.strict = strict_naming
+        super().__init__(doc_type=FILE_EXTENSION_PART)
+        self._part: Part
+        self._product: Product
+        self._parameters: PyPartParameters
+        self._properties: PyProperties
+        self._bodies: PyBodies
+        self._hybrid_bodies: PyHybridBodies
+        self._axis_systems: PyAxisSystems
+        self._material_manager: MaterialManager
+
+    def __bind(self) -&gt; None:
+        &#34;&#34;&#34;Binds properties to the class object.&#34;&#34;&#34;
+        self._part = Part(self.document.part.com_object)  # type: ignore
+        self._product = Product(self.document.product.com_object)  # type: ignore
+        self._parameters = PyPartParameters(self._part)
+        self._properties = PyProperties(self._product)
+        self._bodies = PyBodies(self._part)
+        self._hybrid_bodies = PyHybridBodies(self._part)
+        self._axis_systems = PyAxisSystems(self._part)
+        self._material_manager = MaterialManager(
+            self._part.get_item(GET_ITEM_MATERIAL_MANAGER).com_object
+        )
+
+    @property
+    def part(self) -&gt; Part:
+        &#34;&#34;&#34;Returns the catia part object for this part.&#34;&#34;&#34;
+        return self._part
+
+    @property
+    def product(self) -&gt; Product:
+        &#34;&#34;&#34;Returns the catia product object for this part.&#34;&#34;&#34;
+        return self._product
+
+    @property
+    def properties(self) -&gt; PyProperties:
+        &#34;&#34;&#34;Returns the properties-wrapper object for this part.&#34;&#34;&#34;
+        return self._properties
+
+    @property
+    def parameters(self) -&gt; PyPartParameters:
+        &#34;&#34;&#34;Returns the parameters-wrapper object for this part.&#34;&#34;&#34;
+        return self._parameters
+
+    @property
+    def bodies(self) -&gt; PyBodies:
+        &#34;&#34;&#34;Returns the bodies-wrapper object for this part.&#34;&#34;&#34;
+        return self._bodies
+
+    @property
+    def hybrid_bodies(self) -&gt; PyHybridBodies:
+        &#34;&#34;&#34;Returns the hybrid bodies-wrapper object for this part.&#34;&#34;&#34;
+        return self._hybrid_bodies
+
+    @property
+    def axis_systems(self) -&gt; PyAxisSystems:
+        &#34;&#34;&#34;Returns the axis systems-wrapper object for this part.&#34;&#34;&#34;
+        return self._axis_systems
+
+    @property
+    def material(self) -&gt; Material:
+        &#34;&#34;&#34;Returns the catia material object of this part.&#34;&#34;&#34;
+        return self._material_manager.get_material_on_part(self._part)
+
+    @material.setter
+    def material(self, material: Material) -&gt; None:
+        &#34;&#34;&#34;
+        Applies the given catia material object to this part.
+
+        Args:
+            material (Material): The catia material object.
+        &#34;&#34;&#34;
+        self._material_manager.apply_material_on_part(
+            self._part, material, i_link_mode=True
+        )
+
+    def open(self, path: str) -&gt; None:
+        &#34;&#34;&#34;
+        Opens the part document from the given path.
+
+        Args:
+            path (str): The full path to the part document.
+
+        Raises:
+            PytiaDocumentNameConventionError: Raised when strict mode is enabled and the filename \
+                does not match the partnumber.
+        &#34;&#34;&#34;
+        super().open(path)
+        self.__bind()
+
+        if self.strict and self.product.name not in self.document.name:
+            raise PytiaDocumentNameConventionError(
+                f&#34;Failed to open document {self.document.name}: Partnumber does not match filename.&#34;
+            )
+
+    def current(self) -&gt; None:
+        &#34;&#34;&#34;
+        Sets the currently open document (ActiveDocument) as PartDocument.
+
+        Raises:
+            PytiaDocumentNameConventionError: Raised when strict mode is enabled and the filename \
+                does not match the partnumber.
+        &#34;&#34;&#34;
+        super().current()
+        self.__bind()
+
+        if self.strict and self.product.name not in self.document.name:
+            raise PytiaDocumentNameConventionError(
+                f&#34;Failed to set document {self.document.name} as active document: Partnumber does &#34;
+                f&#34;not match filename.&#34;
+            )
+
+    def new(self, name: str) -&gt; None:
+        &#34;&#34;&#34;
+        Creates a new PartDocument and sets it as ActiveDocument.
+        Filename, PartNumber and MainBody will be set to the given name.
+
+        Args:
+            name (str): The name (filename and partnumber) of the new part.
+        &#34;&#34;&#34;
+        super().new(name)
+        self.__bind()
+
+        old_name = self.document.name
+        self.product.part_number = name
+        self.part.main_body.name = name
+
+        log.info(f&#34;Renamed document {old_name!r} to {self.document.name!r}&#34;)
+
+    def new_from(self, path: str, name: str) -&gt; None:
+        &#34;&#34;&#34;
+        Creates a new PartDocument from an existing one and sets it as ActiveDocument.
+        Filename, PartNumber and MainBody will be set to the given name.
+
+        Args:
+            path (str): The full path to the source part document
+            name (str): The name (filename and partnumber) of the new part.
+        &#34;&#34;&#34;
+        super().new_from(path=path, name=name)
+        self.__bind()
+
+        old_name = self.document.name
+        self.product.part_number = name
+        self.part.main_body.name = name
+
+        log.info(f&#34;Renamed document {old_name!r} to {self.document.name!r}&#34;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument"><code class="flex name class">
+<span>class <span class="ident">PyPartDocument</span></span>
+<span>(</span><span>strict_naming: bool = True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The wrapper class for CATIA PartDocument (MecModInterfaces Framework)</p>
+<p>Inits the base class with CATPart document type. Even</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>strict_naming</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>If set to True the partnumber and the filename must
+always match. Defaults to True.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PyPartDocument(PyBaseDocument):
+    &#34;&#34;&#34;The wrapper class for CATIA PartDocument (MecModInterfaces Framework)&#34;&#34;&#34;
+
+    def __init__(self, strict_naming: bool = True) -&gt; None:
+        &#34;&#34;&#34;
+        Inits the base class with CATPart document type. Even
+
+        Args:
+            strict_naming (bool, optional): If set to True the partnumber and the filename must \
+                always match. Defaults to True.
+        &#34;&#34;&#34;
+        self.strict = strict_naming
+        super().__init__(doc_type=FILE_EXTENSION_PART)
+        self._part: Part
+        self._product: Product
+        self._parameters: PyPartParameters
+        self._properties: PyProperties
+        self._bodies: PyBodies
+        self._hybrid_bodies: PyHybridBodies
+        self._axis_systems: PyAxisSystems
+        self._material_manager: MaterialManager
+
+    def __bind(self) -&gt; None:
+        &#34;&#34;&#34;Binds properties to the class object.&#34;&#34;&#34;
+        self._part = Part(self.document.part.com_object)  # type: ignore
+        self._product = Product(self.document.product.com_object)  # type: ignore
+        self._parameters = PyPartParameters(self._part)
+        self._properties = PyProperties(self._product)
+        self._bodies = PyBodies(self._part)
+        self._hybrid_bodies = PyHybridBodies(self._part)
+        self._axis_systems = PyAxisSystems(self._part)
+        self._material_manager = MaterialManager(
+            self._part.get_item(GET_ITEM_MATERIAL_MANAGER).com_object
+        )
+
+    @property
+    def part(self) -&gt; Part:
+        &#34;&#34;&#34;Returns the catia part object for this part.&#34;&#34;&#34;
+        return self._part
+
+    @property
+    def product(self) -&gt; Product:
+        &#34;&#34;&#34;Returns the catia product object for this part.&#34;&#34;&#34;
+        return self._product
+
+    @property
+    def properties(self) -&gt; PyProperties:
+        &#34;&#34;&#34;Returns the properties-wrapper object for this part.&#34;&#34;&#34;
+        return self._properties
+
+    @property
+    def parameters(self) -&gt; PyPartParameters:
+        &#34;&#34;&#34;Returns the parameters-wrapper object for this part.&#34;&#34;&#34;
+        return self._parameters
+
+    @property
+    def bodies(self) -&gt; PyBodies:
+        &#34;&#34;&#34;Returns the bodies-wrapper object for this part.&#34;&#34;&#34;
+        return self._bodies
+
+    @property
+    def hybrid_bodies(self) -&gt; PyHybridBodies:
+        &#34;&#34;&#34;Returns the hybrid bodies-wrapper object for this part.&#34;&#34;&#34;
+        return self._hybrid_bodies
+
+    @property
+    def axis_systems(self) -&gt; PyAxisSystems:
+        &#34;&#34;&#34;Returns the axis systems-wrapper object for this part.&#34;&#34;&#34;
+        return self._axis_systems
+
+    @property
+    def material(self) -&gt; Material:
+        &#34;&#34;&#34;Returns the catia material object of this part.&#34;&#34;&#34;
+        return self._material_manager.get_material_on_part(self._part)
+
+    @material.setter
+    def material(self, material: Material) -&gt; None:
+        &#34;&#34;&#34;
+        Applies the given catia material object to this part.
+
+        Args:
+            material (Material): The catia material object.
+        &#34;&#34;&#34;
+        self._material_manager.apply_material_on_part(
+            self._part, material, i_link_mode=True
+        )
+
+    def open(self, path: str) -&gt; None:
+        &#34;&#34;&#34;
+        Opens the part document from the given path.
+
+        Args:
+            path (str): The full path to the part document.
+
+        Raises:
+            PytiaDocumentNameConventionError: Raised when strict mode is enabled and the filename \
+                does not match the partnumber.
+        &#34;&#34;&#34;
+        super().open(path)
+        self.__bind()
+
+        if self.strict and self.product.name not in self.document.name:
+            raise PytiaDocumentNameConventionError(
+                f&#34;Failed to open document {self.document.name}: Partnumber does not match filename.&#34;
+            )
+
+    def current(self) -&gt; None:
+        &#34;&#34;&#34;
+        Sets the currently open document (ActiveDocument) as PartDocument.
+
+        Raises:
+            PytiaDocumentNameConventionError: Raised when strict mode is enabled and the filename \
+                does not match the partnumber.
+        &#34;&#34;&#34;
+        super().current()
+        self.__bind()
+
+        if self.strict and self.product.name not in self.document.name:
+            raise PytiaDocumentNameConventionError(
+                f&#34;Failed to set document {self.document.name} as active document: Partnumber does &#34;
+                f&#34;not match filename.&#34;
+            )
+
+    def new(self, name: str) -&gt; None:
+        &#34;&#34;&#34;
+        Creates a new PartDocument and sets it as ActiveDocument.
+        Filename, PartNumber and MainBody will be set to the given name.
+
+        Args:
+            name (str): The name (filename and partnumber) of the new part.
+        &#34;&#34;&#34;
+        super().new(name)
+        self.__bind()
+
+        old_name = self.document.name
+        self.product.part_number = name
+        self.part.main_body.name = name
+
+        log.info(f&#34;Renamed document {old_name!r} to {self.document.name!r}&#34;)
+
+    def new_from(self, path: str, name: str) -&gt; None:
+        &#34;&#34;&#34;
+        Creates a new PartDocument from an existing one and sets it as ActiveDocument.
+        Filename, PartNumber and MainBody will be set to the given name.
+
+        Args:
+            path (str): The full path to the source part document
+            name (str): The name (filename and partnumber) of the new part.
+        &#34;&#34;&#34;
+        super().new_from(path=path, name=name)
+        self.__bind()
+
+        old_name = self.document.name
+        self.product.part_number = name
+        self.part.main_body.name = name
+
+        log.info(f&#34;Renamed document {old_name!r} to {self.document.name!r}&#34;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.wrapper.documents.base.PyBaseDocument" href="base.html#pytia.wrapper.documents.base.PyBaseDocument">PyBaseDocument</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.axis_systems"><code class="name">var <span class="ident">axis_systems</span> : <a title="pytia.wrapper.axis_systems.PyAxisSystems" href="../axis_systems.html#pytia.wrapper.axis_systems.PyAxisSystems">PyAxisSystems</a></code></dt>
+<dd>
+<div class="desc"><p>Returns the axis systems-wrapper object for this part.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def axis_systems(self) -&gt; PyAxisSystems:
+    &#34;&#34;&#34;Returns the axis systems-wrapper object for this part.&#34;&#34;&#34;
+    return self._axis_systems</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.bodies"><code class="name">var <span class="ident">bodies</span> : <a title="pytia.wrapper.bodies.bodies.PyBodies" href="../bodies/bodies.html#pytia.wrapper.bodies.bodies.PyBodies">PyBodies</a></code></dt>
+<dd>
+<div class="desc"><p>Returns the bodies-wrapper object for this part.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def bodies(self) -&gt; PyBodies:
+    &#34;&#34;&#34;Returns the bodies-wrapper object for this part.&#34;&#34;&#34;
+    return self._bodies</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.hybrid_bodies"><code class="name">var <span class="ident">hybrid_bodies</span> : <a title="pytia.wrapper.bodies.hybrid_bodies.PyHybridBodies" href="../bodies/hybrid_bodies.html#pytia.wrapper.bodies.hybrid_bodies.PyHybridBodies">PyHybridBodies</a></code></dt>
+<dd>
+<div class="desc"><p>Returns the hybrid bodies-wrapper object for this part.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def hybrid_bodies(self) -&gt; PyHybridBodies:
+    &#34;&#34;&#34;Returns the hybrid bodies-wrapper object for this part.&#34;&#34;&#34;
+    return self._hybrid_bodies</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.material"><code class="name">var <span class="ident">material</span> : <a title="pytia.framework.cat_mat_interfaces.material.Material" href="../../framework/cat_mat_interfaces/material.html#pytia.framework.cat_mat_interfaces.material.Material">Material</a></code></dt>
+<dd>
+<div class="desc"><p>Returns the catia material object of this part.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def material(self) -&gt; Material:
+    &#34;&#34;&#34;Returns the catia material object of this part.&#34;&#34;&#34;
+    return self._material_manager.get_material_on_part(self._part)</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.parameters"><code class="name">var <span class="ident">parameters</span> : <a title="pytia.wrapper.parameters.PyPartParameters" href="../parameters.html#pytia.wrapper.parameters.PyPartParameters">PyPartParameters</a></code></dt>
+<dd>
+<div class="desc"><p>Returns the parameters-wrapper object for this part.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def parameters(self) -&gt; PyPartParameters:
+    &#34;&#34;&#34;Returns the parameters-wrapper object for this part.&#34;&#34;&#34;
+    return self._parameters</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.part"><code class="name">var <span class="ident">part</span> : <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a></code></dt>
+<dd>
+<div class="desc"><p>Returns the catia part object for this part.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def part(self) -&gt; Part:
+    &#34;&#34;&#34;Returns the catia part object for this part.&#34;&#34;&#34;
+    return self._part</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.product"><code class="name">var <span class="ident">product</span> : <a title="pytia.framework.product_structure_interfaces.product.Product" href="../../framework/product_structure_interfaces/product.html#pytia.framework.product_structure_interfaces.product.Product">Product</a></code></dt>
+<dd>
+<div class="desc"><p>Returns the catia product object for this part.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def product(self) -&gt; Product:
+    &#34;&#34;&#34;Returns the catia product object for this part.&#34;&#34;&#34;
+    return self._product</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.properties"><code class="name">var <span class="ident">properties</span> : <a title="pytia.wrapper.properties.PyProperties" href="../properties.html#pytia.wrapper.properties.PyProperties">PyProperties</a></code></dt>
+<dd>
+<div class="desc"><p>Returns the properties-wrapper object for this part.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def properties(self) -&gt; PyProperties:
+    &#34;&#34;&#34;Returns the properties-wrapper object for this part.&#34;&#34;&#34;
+    return self._properties</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.current"><code class="name flex">
+<span>def <span class="ident">current</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the currently open document (ActiveDocument) as PartDocument.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaDocumentNameConventionError</code></dt>
+<dd>Raised when strict mode is enabled and the filename
+does not match the partnumber.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def current(self) -&gt; None:
+    &#34;&#34;&#34;
+    Sets the currently open document (ActiveDocument) as PartDocument.
+
+    Raises:
+        PytiaDocumentNameConventionError: Raised when strict mode is enabled and the filename \
+            does not match the partnumber.
+    &#34;&#34;&#34;
+    super().current()
+    self.__bind()
+
+    if self.strict and self.product.name not in self.document.name:
+        raise PytiaDocumentNameConventionError(
+            f&#34;Failed to set document {self.document.name} as active document: Partnumber does &#34;
+            f&#34;not match filename.&#34;
+        )</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.new"><code class="name flex">
+<span>def <span class="ident">new</span></span>(<span>self, name: str) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a new PartDocument and sets it as ActiveDocument.
+Filename, PartNumber and MainBody will be set to the given name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name (filename and partnumber) of the new part.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def new(self, name: str) -&gt; None:
+    &#34;&#34;&#34;
+    Creates a new PartDocument and sets it as ActiveDocument.
+    Filename, PartNumber and MainBody will be set to the given name.
+
+    Args:
+        name (str): The name (filename and partnumber) of the new part.
+    &#34;&#34;&#34;
+    super().new(name)
+    self.__bind()
+
+    old_name = self.document.name
+    self.product.part_number = name
+    self.part.main_body.name = name
+
+    log.info(f&#34;Renamed document {old_name!r} to {self.document.name!r}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.new_from"><code class="name flex">
+<span>def <span class="ident">new_from</span></span>(<span>self, path: str, name: str) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a new PartDocument from an existing one and sets it as ActiveDocument.
+Filename, PartNumber and MainBody will be set to the given name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
+<dd>The full path to the source part document</dd>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name (filename and partnumber) of the new part.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def new_from(self, path: str, name: str) -&gt; None:
+    &#34;&#34;&#34;
+    Creates a new PartDocument from an existing one and sets it as ActiveDocument.
+    Filename, PartNumber and MainBody will be set to the given name.
+
+    Args:
+        path (str): The full path to the source part document
+        name (str): The name (filename and partnumber) of the new part.
+    &#34;&#34;&#34;
+    super().new_from(path=path, name=name)
+    self.__bind()
+
+    old_name = self.document.name
+    self.product.part_number = name
+    self.part.main_body.name = name
+
+    log.info(f&#34;Renamed document {old_name!r} to {self.document.name!r}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.open"><code class="name flex">
+<span>def <span class="ident">open</span></span>(<span>self, path: str) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Opens the part document from the given path.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
+<dd>The full path to the part document.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaDocumentNameConventionError</code></dt>
+<dd>Raised when strict mode is enabled and the filename
+does not match the partnumber.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def open(self, path: str) -&gt; None:
+    &#34;&#34;&#34;
+    Opens the part document from the given path.
+
+    Args:
+        path (str): The full path to the part document.
+
+    Raises:
+        PytiaDocumentNameConventionError: Raised when strict mode is enabled and the filename \
+            does not match the partnumber.
+    &#34;&#34;&#34;
+    super().open(path)
+    self.__bind()
+
+    if self.strict and self.product.name not in self.document.name:
+        raise PytiaDocumentNameConventionError(
+            f&#34;Failed to open document {self.document.name}: Partnumber does not match filename.&#34;
+        )</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pytia.wrapper.documents.base.PyBaseDocument" href="base.html#pytia.wrapper.documents.base.PyBaseDocument">PyBaseDocument</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pytia.wrapper.documents.base.PyBaseDocument.anything_open" href="base.html#pytia.wrapper.documents.base.PyBaseDocument.anything_open">anything_open</a></code></li>
+<li><code><a title="pytia.wrapper.documents.base.PyBaseDocument.close" href="base.html#pytia.wrapper.documents.base.PyBaseDocument.close">close</a></code></li>
+<li><code><a title="pytia.wrapper.documents.base.PyBaseDocument.delete_objects" href="base.html#pytia.wrapper.documents.base.PyBaseDocument.delete_objects">delete_objects</a></code></li>
+<li><code><a title="pytia.wrapper.documents.base.PyBaseDocument.filename_is_unique" href="base.html#pytia.wrapper.documents.base.PyBaseDocument.filename_is_unique">filename_is_unique</a></code></li>
+<li><code><a title="pytia.wrapper.documents.base.PyBaseDocument.load" href="base.html#pytia.wrapper.documents.base.PyBaseDocument.load">load</a></code></li>
+<li><code><a title="pytia.wrapper.documents.base.PyBaseDocument.remove_selection" href="base.html#pytia.wrapper.documents.base.PyBaseDocument.remove_selection">remove_selection</a></code></li>
+<li><code><a title="pytia.wrapper.documents.base.PyBaseDocument.save" href="base.html#pytia.wrapper.documents.base.PyBaseDocument.save">save</a></code></li>
+<li><code><a title="pytia.wrapper.documents.base.PyBaseDocument.save_as" href="base.html#pytia.wrapper.documents.base.PyBaseDocument.save_as">save_as</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia.wrapper.documents" href="index.html">pytia.wrapper.documents</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia.wrapper.documents.part_documents.PyPartDocument" href="#pytia.wrapper.documents.part_documents.PyPartDocument">PyPartDocument</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pytia.wrapper.documents.part_documents.PyPartDocument.axis_systems" href="#pytia.wrapper.documents.part_documents.PyPartDocument.axis_systems">axis_systems</a></code></li>
+<li><code><a title="pytia.wrapper.documents.part_documents.PyPartDocument.bodies" href="#pytia.wrapper.documents.part_documents.PyPartDocument.bodies">bodies</a></code></li>
+<li><code><a title="pytia.wrapper.documents.part_documents.PyPartDocument.current" href="#pytia.wrapper.documents.part_documents.PyPartDocument.current">current</a></code></li>
+<li><code><a title="pytia.wrapper.documents.part_documents.PyPartDocument.hybrid_bodies" href="#pytia.wrapper.documents.part_documents.PyPartDocument.hybrid_bodies">hybrid_bodies</a></code></li>
+<li><code><a title="pytia.wrapper.documents.part_documents.PyPartDocument.material" href="#pytia.wrapper.documents.part_documents.PyPartDocument.material">material</a></code></li>
+<li><code><a title="pytia.wrapper.documents.part_documents.PyPartDocument.new" href="#pytia.wrapper.documents.part_documents.PyPartDocument.new">new</a></code></li>
+<li><code><a title="pytia.wrapper.documents.part_documents.PyPartDocument.new_from" href="#pytia.wrapper.documents.part_documents.PyPartDocument.new_from">new_from</a></code></li>
+<li><code><a title="pytia.wrapper.documents.part_documents.PyPartDocument.open" href="#pytia.wrapper.documents.part_documents.PyPartDocument.open">open</a></code></li>
+<li><code><a title="pytia.wrapper.documents.part_documents.PyPartDocument.parameters" href="#pytia.wrapper.documents.part_documents.PyPartDocument.parameters">parameters</a></code></li>
+<li><code><a title="pytia.wrapper.documents.part_documents.PyPartDocument.part" href="#pytia.wrapper.documents.part_documents.PyPartDocument.part">part</a></code></li>
+<li><code><a title="pytia.wrapper.documents.part_documents.PyPartDocument.product" href="#pytia.wrapper.documents.part_documents.PyPartDocument.product">product</a></code></li>
+<li><code><a title="pytia.wrapper.documents.part_documents.PyPartDocument.properties" href="#pytia.wrapper.documents.part_documents.PyPartDocument.properties">properties</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

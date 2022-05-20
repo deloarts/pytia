@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia.wrapper.properties API documentation</title>
+<meta name="description" content="Wrapper module for CATIA properties." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia.wrapper.properties</code></h1>
+</header>
+<section id="section-intro">
+<p>Wrapper module for CATIA properties.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+    Wrapper module for CATIA properties.
+&#34;&#34;&#34;
+
+import functools
+from typing import List
+
+from pytia import __version__
+from pytia.const import ENV_NO_PROPS, PROP_VERSION
+from pytia.exceptions import PytiaPropertyExistsError, PytiaPropertyNotFoundError
+from pytia.framework.knowledge_interfaces.parameters import Parameters
+from pytia.framework.knowledge_interfaces.str_param import StrParam
+from pytia.framework.product_structure_interfaces.product import Product
+from pytia.log import log
+
+
+class PyProperties:
+    &#34;&#34;&#34;The wrapper class for CATIA UserRefProperties. (ProductStructureInterfaces Framework)&#34;&#34;&#34;
+
+    def __init__(self, product: Product) -&gt; None:
+        self._product = product
+        self._user_ref_properties = self._product.user_ref_properties
+        self.write_version()
+
+    def __call__(self) -&gt; Parameters:
+        return self._user_ref_properties
+
+    def __repr__(self) -&gt; str:
+        return f&#34;PyProperties({self._product.name})&#34;
+
+    @property
+    def properties(
+        self,
+    ) -&gt; List[StrParam]:
+        &#34;&#34;&#34;Returns a list of all properties.&#34;&#34;&#34;
+        output = []
+        for i in range(1, self._user_ref_properties.count + 1):
+            output.append(self._user_ref_properties.item(i))
+        return output
+
+    @property
+    def names(self) -&gt; List[str]:
+        &#34;&#34;&#34;Returns a list all UserRefProperties names.&#34;&#34;&#34;
+        output = []
+        for i in range(1, self._user_ref_properties.count + 1):
+            output.append(self._user_ref_properties.item(i).name)
+        return output
+
+    @staticmethod
+    def _unique(func):
+        &#34;&#34;&#34;
+        Decorator that makes sure that no properties with the same name are created.
+
+        Raises the PytiaPropertyExistsError if a property with the given name argument
+        already exists.
+        &#34;&#34;&#34;
+
+        @functools.wraps(func)
+        def _unique_wrapper(self, name, *args, **kwargs):
+            if self.exists(name=name):
+                raise PytiaPropertyExistsError(
+                    f&#34;Failed creating property {name!r}: Already exists in {self._product.name!r}&#34;
+                )
+            return func(self, name, *args, **kwargs)
+
+        return _unique_wrapper
+
+    def exists(self, name: str | List[str]) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns True if a property of the given name already exists in the product.
+
+        Returns True if all properties of the given list exists in the product.
+        &#34;&#34;&#34;
+
+        def name_exists(name):
+            for i in range(1, self._user_ref_properties.count + 1):
+                if self._user_ref_properties.item(i).name == name:
+                    return True
+            return False
+
+        if isinstance(name, str):
+            return name_exists(name)
+
+        return all(name_exists(n) for n in name)
+
+    def get_by_name(self, name: str) -&gt; StrParam:
+        &#34;&#34;&#34;
+        Returns a UserRefProperty by its name.
+
+        Raises the PytiaPropertyNotFound exception if the property does not exist.
+        &#34;&#34;&#34;
+        if self.exists(name=name):
+            return StrParam(self._user_ref_properties.item(name))
+
+        raise PytiaPropertyNotFoundError(
+            f&#34;Property {name!r} not found in {self._product.name!r}&#34;
+        )
+
+    def set_value(self, name: str, value: str) -&gt; None:
+        &#34;&#34;&#34;
+        Sets the value of an user ref property.
+
+        Raises the PytiaPropertyNotFound exception if the property does not exist.
+        &#34;&#34;&#34;
+        prop = self.get_by_name(name)
+        prop.value = value
+
+    @_unique
+    def create(self, name: str, value: str = &#34;&#34;) -&gt; StrParam:
+        &#34;&#34;&#34;
+        Creates a CATIA UserRefProperty of type STRING.
+
+        Raises the PytiaPropertyExistsError if the property already exists.
+        &#34;&#34;&#34;
+        parameter = self._user_ref_properties.create_string(name, value)
+        parameter.rename(name)
+        log.info(
+            f&#34;Created property {name!r} ({value}, STRING) in {self._product.name!r}&#34;
+        )
+        return parameter
+
+    def create_multi(
+        self, names: List[str], skip_existing: bool = True
+    ) -&gt; List[StrParam]:
+        &#34;&#34;&#34;
+        Creates all properties from the given list without a value.
+
+        Raises the PytiaPropertyExistsError at least one property already exists, doesn&#39;t create
+        any Property if the error is raised.
+
+        Doesn&#39;t raise an error if skip_existing is True.
+        &#34;&#34;&#34;
+        name_list = []
+        props = []
+        for name in names:
+            if self.exists(name):
+                if not skip_existing:
+                    raise PytiaPropertyExistsError(
+                        f&#34;Failed creating property {name!r}: &#34;
+                        f&#34;Already exists in {self._product.name!r}&#34;
+                    )
+            else:
+                name_list.append(name)
+
+        for name in name_list:
+            props.append(self.create(name=name))
+
+        return props
+
+    def write_version(self) -&gt; None:
+        &#34;&#34;&#34;
+        Writes the pytia version as user ref property.
+
+        Omits this if the environment variable PYTIA_NO_PROPS is set to 1.
+        &#34;&#34;&#34;
+        if ENV_NO_PROPS:
+            log.info(
+                f&#34;Omitting creation of property {PROP_VERSION!r}:&#34;
+                f&#34;{ENV_NO_PROPS!r} environment variable is set.&#34;
+            )
+        else:
+            if self.exists(name=PROP_VERSION):
+                self.set_value(name=PROP_VERSION, value=__version__)
+            else:
+                self.create(name=PROP_VERSION, value=__version__)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia.wrapper.properties.PyProperties"><code class="flex name class">
+<span>class <span class="ident">PyProperties</span></span>
+<span>(</span><span>product: <a title="pytia.framework.product_structure_interfaces.product.Product" href="../framework/product_structure_interfaces/product.html#pytia.framework.product_structure_interfaces.product.Product">Product</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The wrapper class for CATIA UserRefProperties. (ProductStructureInterfaces Framework)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PyProperties:
+    &#34;&#34;&#34;The wrapper class for CATIA UserRefProperties. (ProductStructureInterfaces Framework)&#34;&#34;&#34;
+
+    def __init__(self, product: Product) -&gt; None:
+        self._product = product
+        self._user_ref_properties = self._product.user_ref_properties
+        self.write_version()
+
+    def __call__(self) -&gt; Parameters:
+        return self._user_ref_properties
+
+    def __repr__(self) -&gt; str:
+        return f&#34;PyProperties({self._product.name})&#34;
+
+    @property
+    def properties(
+        self,
+    ) -&gt; List[StrParam]:
+        &#34;&#34;&#34;Returns a list of all properties.&#34;&#34;&#34;
+        output = []
+        for i in range(1, self._user_ref_properties.count + 1):
+            output.append(self._user_ref_properties.item(i))
+        return output
+
+    @property
+    def names(self) -&gt; List[str]:
+        &#34;&#34;&#34;Returns a list all UserRefProperties names.&#34;&#34;&#34;
+        output = []
+        for i in range(1, self._user_ref_properties.count + 1):
+            output.append(self._user_ref_properties.item(i).name)
+        return output
+
+    @staticmethod
+    def _unique(func):
+        &#34;&#34;&#34;
+        Decorator that makes sure that no properties with the same name are created.
+
+        Raises the PytiaPropertyExistsError if a property with the given name argument
+        already exists.
+        &#34;&#34;&#34;
+
+        @functools.wraps(func)
+        def _unique_wrapper(self, name, *args, **kwargs):
+            if self.exists(name=name):
+                raise PytiaPropertyExistsError(
+                    f&#34;Failed creating property {name!r}: Already exists in {self._product.name!r}&#34;
+                )
+            return func(self, name, *args, **kwargs)
+
+        return _unique_wrapper
+
+    def exists(self, name: str | List[str]) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns True if a property of the given name already exists in the product.
+
+        Returns True if all properties of the given list exists in the product.
+        &#34;&#34;&#34;
+
+        def name_exists(name):
+            for i in range(1, self._user_ref_properties.count + 1):
+                if self._user_ref_properties.item(i).name == name:
+                    return True
+            return False
+
+        if isinstance(name, str):
+            return name_exists(name)
+
+        return all(name_exists(n) for n in name)
+
+    def get_by_name(self, name: str) -&gt; StrParam:
+        &#34;&#34;&#34;
+        Returns a UserRefProperty by its name.
+
+        Raises the PytiaPropertyNotFound exception if the property does not exist.
+        &#34;&#34;&#34;
+        if self.exists(name=name):
+            return StrParam(self._user_ref_properties.item(name))
+
+        raise PytiaPropertyNotFoundError(
+            f&#34;Property {name!r} not found in {self._product.name!r}&#34;
+        )
+
+    def set_value(self, name: str, value: str) -&gt; None:
+        &#34;&#34;&#34;
+        Sets the value of an user ref property.
+
+        Raises the PytiaPropertyNotFound exception if the property does not exist.
+        &#34;&#34;&#34;
+        prop = self.get_by_name(name)
+        prop.value = value
+
+    @_unique
+    def create(self, name: str, value: str = &#34;&#34;) -&gt; StrParam:
+        &#34;&#34;&#34;
+        Creates a CATIA UserRefProperty of type STRING.
+
+        Raises the PytiaPropertyExistsError if the property already exists.
+        &#34;&#34;&#34;
+        parameter = self._user_ref_properties.create_string(name, value)
+        parameter.rename(name)
+        log.info(
+            f&#34;Created property {name!r} ({value}, STRING) in {self._product.name!r}&#34;
+        )
+        return parameter
+
+    def create_multi(
+        self, names: List[str], skip_existing: bool = True
+    ) -&gt; List[StrParam]:
+        &#34;&#34;&#34;
+        Creates all properties from the given list without a value.
+
+        Raises the PytiaPropertyExistsError at least one property already exists, doesn&#39;t create
+        any Property if the error is raised.
+
+        Doesn&#39;t raise an error if skip_existing is True.
+        &#34;&#34;&#34;
+        name_list = []
+        props = []
+        for name in names:
+            if self.exists(name):
+                if not skip_existing:
+                    raise PytiaPropertyExistsError(
+                        f&#34;Failed creating property {name!r}: &#34;
+                        f&#34;Already exists in {self._product.name!r}&#34;
+                    )
+            else:
+                name_list.append(name)
+
+        for name in name_list:
+            props.append(self.create(name=name))
+
+        return props
+
+    def write_version(self) -&gt; None:
+        &#34;&#34;&#34;
+        Writes the pytia version as user ref property.
+
+        Omits this if the environment variable PYTIA_NO_PROPS is set to 1.
+        &#34;&#34;&#34;
+        if ENV_NO_PROPS:
+            log.info(
+                f&#34;Omitting creation of property {PROP_VERSION!r}:&#34;
+                f&#34;{ENV_NO_PROPS!r} environment variable is set.&#34;
+            )
+        else:
+            if self.exists(name=PROP_VERSION):
+                self.set_value(name=PROP_VERSION, value=__version__)
+            else:
+                self.create(name=PROP_VERSION, value=__version__)</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia.wrapper.properties.PyProperties.names"><code class="name">var <span class="ident">names</span> : List[str]</code></dt>
+<dd>
+<div class="desc"><p>Returns a list all UserRefProperties names.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def names(self) -&gt; List[str]:
+    &#34;&#34;&#34;Returns a list all UserRefProperties names.&#34;&#34;&#34;
+    output = []
+    for i in range(1, self._user_ref_properties.count + 1):
+        output.append(self._user_ref_properties.item(i).name)
+    return output</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.properties.PyProperties.properties"><code class="name">var <span class="ident">properties</span> : List[<a title="pytia.framework.knowledge_interfaces.str_param.StrParam" href="../framework/knowledge_interfaces/str_param.html#pytia.framework.knowledge_interfaces.str_param.StrParam">StrParam</a>]</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of all properties.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def properties(
+    self,
+) -&gt; List[StrParam]:
+    &#34;&#34;&#34;Returns a list of all properties.&#34;&#34;&#34;
+    output = []
+    for i in range(1, self._user_ref_properties.count + 1):
+        output.append(self._user_ref_properties.item(i))
+    return output</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pytia.wrapper.properties.PyProperties.create"><code class="name flex">
+<span>def <span class="ident">create</span></span>(<span>self, name: str, value: str = '') ‑> <a title="pytia.framework.knowledge_interfaces.str_param.StrParam" href="../framework/knowledge_interfaces/str_param.html#pytia.framework.knowledge_interfaces.str_param.StrParam">StrParam</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a CATIA UserRefProperty of type STRING.</p>
+<p>Raises the PytiaPropertyExistsError if the property already exists.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@_unique
+def create(self, name: str, value: str = &#34;&#34;) -&gt; StrParam:
+    &#34;&#34;&#34;
+    Creates a CATIA UserRefProperty of type STRING.
+
+    Raises the PytiaPropertyExistsError if the property already exists.
+    &#34;&#34;&#34;
+    parameter = self._user_ref_properties.create_string(name, value)
+    parameter.rename(name)
+    log.info(
+        f&#34;Created property {name!r} ({value}, STRING) in {self._product.name!r}&#34;
+    )
+    return parameter</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.properties.PyProperties.create_multi"><code class="name flex">
+<span>def <span class="ident">create_multi</span></span>(<span>self, names: List[str], skip_existing: bool = True) ‑> List[<a title="pytia.framework.knowledge_interfaces.str_param.StrParam" href="../framework/knowledge_interfaces/str_param.html#pytia.framework.knowledge_interfaces.str_param.StrParam">StrParam</a>]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates all properties from the given list without a value.</p>
+<p>Raises the PytiaPropertyExistsError at least one property already exists, doesn't create
+any Property if the error is raised.</p>
+<p>Doesn't raise an error if skip_existing is True.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_multi(
+    self, names: List[str], skip_existing: bool = True
+) -&gt; List[StrParam]:
+    &#34;&#34;&#34;
+    Creates all properties from the given list without a value.
+
+    Raises the PytiaPropertyExistsError at least one property already exists, doesn&#39;t create
+    any Property if the error is raised.
+
+    Doesn&#39;t raise an error if skip_existing is True.
+    &#34;&#34;&#34;
+    name_list = []
+    props = []
+    for name in names:
+        if self.exists(name):
+            if not skip_existing:
+                raise PytiaPropertyExistsError(
+                    f&#34;Failed creating property {name!r}: &#34;
+                    f&#34;Already exists in {self._product.name!r}&#34;
+                )
+        else:
+            name_list.append(name)
+
+    for name in name_list:
+        props.append(self.create(name=name))
+
+    return props</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.properties.PyProperties.exists"><code class="name flex">
+<span>def <span class="ident">exists</span></span>(<span>self, name: Union[str, List[str]]) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns True if a property of the given name already exists in the product.</p>
+<p>Returns True if all properties of the given list exists in the product.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exists(self, name: str | List[str]) -&gt; bool:
+    &#34;&#34;&#34;
+    Returns True if a property of the given name already exists in the product.
+
+    Returns True if all properties of the given list exists in the product.
+    &#34;&#34;&#34;
+
+    def name_exists(name):
+        for i in range(1, self._user_ref_properties.count + 1):
+            if self._user_ref_properties.item(i).name == name:
+                return True
+        return False
+
+    if isinstance(name, str):
+        return name_exists(name)
+
+    return all(name_exists(n) for n in name)</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.properties.PyProperties.get_by_name"><code class="name flex">
+<span>def <span class="ident">get_by_name</span></span>(<span>self, name: str) ‑> <a title="pytia.framework.knowledge_interfaces.str_param.StrParam" href="../framework/knowledge_interfaces/str_param.html#pytia.framework.knowledge_interfaces.str_param.StrParam">StrParam</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a UserRefProperty by its name.</p>
+<p>Raises the PytiaPropertyNotFound exception if the property does not exist.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_by_name(self, name: str) -&gt; StrParam:
+    &#34;&#34;&#34;
+    Returns a UserRefProperty by its name.
+
+    Raises the PytiaPropertyNotFound exception if the property does not exist.
+    &#34;&#34;&#34;
+    if self.exists(name=name):
+        return StrParam(self._user_ref_properties.item(name))
+
+    raise PytiaPropertyNotFoundError(
+        f&#34;Property {name!r} not found in {self._product.name!r}&#34;
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.properties.PyProperties.set_value"><code class="name flex">
+<span>def <span class="ident">set_value</span></span>(<span>self, name: str, value: str) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the value of an user ref property.</p>
+<p>Raises the PytiaPropertyNotFound exception if the property does not exist.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_value(self, name: str, value: str) -&gt; None:
+    &#34;&#34;&#34;
+    Sets the value of an user ref property.
+
+    Raises the PytiaPropertyNotFound exception if the property does not exist.
+    &#34;&#34;&#34;
+    prop = self.get_by_name(name)
+    prop.value = value</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.properties.PyProperties.write_version"><code class="name flex">
+<span>def <span class="ident">write_version</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Writes the pytia version as user ref property.</p>
+<p>Omits this if the environment variable PYTIA_NO_PROPS is set to 1.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def write_version(self) -&gt; None:
+    &#34;&#34;&#34;
+    Writes the pytia version as user ref property.
+
+    Omits this if the environment variable PYTIA_NO_PROPS is set to 1.
+    &#34;&#34;&#34;
+    if ENV_NO_PROPS:
+        log.info(
+            f&#34;Omitting creation of property {PROP_VERSION!r}:&#34;
+            f&#34;{ENV_NO_PROPS!r} environment variable is set.&#34;
+        )
+    else:
+        if self.exists(name=PROP_VERSION):
+            self.set_value(name=PROP_VERSION, value=__version__)
+        else:
+            self.create(name=PROP_VERSION, value=__version__)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia.wrapper" href="index.html">pytia.wrapper</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia.wrapper.properties.PyProperties" href="#pytia.wrapper.properties.PyProperties">PyProperties</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pytia.wrapper.properties.PyProperties.create" href="#pytia.wrapper.properties.PyProperties.create">create</a></code></li>
+<li><code><a title="pytia.wrapper.properties.PyProperties.create_multi" href="#pytia.wrapper.properties.PyProperties.create_multi">create_multi</a></code></li>
+<li><code><a title="pytia.wrapper.properties.PyProperties.exists" href="#pytia.wrapper.properties.PyProperties.exists">exists</a></code></li>
+<li><code><a title="pytia.wrapper.properties.PyProperties.get_by_name" href="#pytia.wrapper.properties.PyProperties.get_by_name">get_by_name</a></code></li>
+<li><code><a title="pytia.wrapper.properties.PyProperties.names" href="#pytia.wrapper.properties.PyProperties.names">names</a></code></li>
+<li><code><a title="pytia.wrapper.properties.PyProperties.properties" href="#pytia.wrapper.properties.PyProperties.properties">properties</a></code></li>
+<li><code><a title="pytia.wrapper.properties.PyProperties.set_value" href="#pytia.wrapper.properties.PyProperties.set_value">set_value</a></code></li>
+<li><code><a title="pytia.wrapper.properties.PyProperties.write_version" href="#pytia.wrapper.properties.PyProperties.write_version">write_version</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

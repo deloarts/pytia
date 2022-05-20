@@ -1,0 +1,1545 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia.framework.tps_interfaces.fta_infra_setting_att API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia.framework.tps_interfaces.fta_infra_setting_att</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from pytia.framework.system_interfaces.setting_controller import SettingController
+
+
+class FtaInfraSettingAtt(SettingController):
+    def __init__(self, com_object):
+        super().__init__(com_object)
+        self.fta_infra_setting_att = com_object
+
+    @property
+    def allow_distortions(self) -&gt; bool:
+        return self.fta_infra_setting_att.AllowDistortions
+
+    @allow_distortions.setter
+    def allow_distortions(self, value: bool):
+        self.fta_infra_setting_att.AllowDistortions = value
+
+    @property
+    def grid_display(self) -&gt; bool:
+        return self.fta_infra_setting_att.GridDisplay
+
+    @grid_display.setter
+    def grid_display(self, value: bool):
+        self.fta_infra_setting_att.GridDisplay = value
+
+    @property
+    def grid_primary_spacing(self) -&gt; float:
+        return self.fta_infra_setting_att.GridPrimarySpacing
+
+    @grid_primary_spacing.setter
+    def grid_primary_spacing(self, value: float):
+        self.fta_infra_setting_att.GridPrimarySpacing = value
+
+    @property
+    def grid_secondary_step(self) -&gt; int:
+        return self.fta_infra_setting_att.GridSecondaryStep
+
+    @grid_secondary_step.setter
+    def grid_secondary_step(self, value: int):
+        self.fta_infra_setting_att.GridSecondaryStep = value
+
+    @property
+    def grid_snap_point(self) -&gt; bool:
+        return self.fta_infra_setting_att.GridSnapPoint
+
+    @grid_snap_point.setter
+    def grid_snap_point(self, value: bool):
+        self.fta_infra_setting_att.GridSnapPoint = value
+
+    @property
+    def grid_v_primary_spacing(self) -&gt; float:
+        return self.fta_infra_setting_att.GridVPrimarySpacing
+
+    @grid_v_primary_spacing.setter
+    def grid_v_primary_spacing(self, value: float):
+        self.fta_infra_setting_att.GridVPrimarySpacing = value
+
+    @property
+    def grid_v_secondary_step(self) -&gt; int:
+        return self.fta_infra_setting_att.GridVSecondaryStep
+
+    @grid_v_secondary_step.setter
+    def grid_v_secondary_step(self, value: int):
+        self.fta_infra_setting_att.GridVSecondaryStep = value
+
+    @property
+    def leader_associativity(self) -&gt; int:
+        return self.fta_infra_setting_att.LeaderAssociativity
+
+    @leader_associativity.setter
+    def leader_associativity(self, value: int):
+        self.fta_infra_setting_att.LeaderAssociativity = value
+
+    @property
+    def man_ref_siz(self) -&gt; float:
+        return self.fta_infra_setting_att.ManRefSiz
+
+    @man_ref_siz.setter
+    def man_ref_siz(self, value: float):
+        self.fta_infra_setting_att.ManRefSiz = value
+
+    @property
+    def man_zoo_cap(self) -&gt; bool:
+        return self.fta_infra_setting_att.ManZooCap
+
+    @man_zoo_cap.setter
+    def man_zoo_cap(self, value: bool):
+        self.fta_infra_setting_att.ManZooCap = value
+
+    @property
+    def move_after_creation(self) -&gt; bool:
+        return self.fta_infra_setting_att.MoveAfterCreation
+
+    @move_after_creation.setter
+    def move_after_creation(self, value: bool):
+        self.fta_infra_setting_att.MoveAfterCreation = value
+
+    @property
+    def save_in_cgr(self) -&gt; bool:
+        return self.fta_infra_setting_att.SaveInCGR
+
+    @save_in_cgr.setter
+    def save_in_cgr(self, value: bool):
+        self.fta_infra_setting_att.SaveInCGR = value
+
+    @property
+    def standard(self) -&gt; str:
+        return self.fta_infra_setting_att.Standard
+
+    @standard.setter
+    def standard(self, value: str):
+        self.fta_infra_setting_att.Standard = value
+
+    @property
+    def under_feature(self) -&gt; bool:
+        return self.fta_infra_setting_att.UnderFeature
+
+    @under_feature.setter
+    def under_feature(self, value: bool):
+        self.fta_infra_setting_att.UnderFeature = value
+
+    @property
+    def under_set(self) -&gt; bool:
+        return self.fta_infra_setting_att.UnderSet
+
+    @under_set.setter
+    def under_set(self, value: bool):
+        self.fta_infra_setting_att.UnderSet = value
+
+    @property
+    def under_view(self) -&gt; bool:
+        return self.fta_infra_setting_att.UnderView
+
+    @under_view.setter
+    def under_view(self, value: bool):
+        self.fta_infra_setting_att.UnderView = value
+
+    @property
+    def view_associativity(self) -&gt; bool:
+        return self.fta_infra_setting_att.ViewAssociativity
+
+    @view_associativity.setter
+    def view_associativity(self, value: bool):
+        self.fta_infra_setting_att.ViewAssociativity = value
+
+    @property
+    def view_profile(self) -&gt; bool:
+        return self.fta_infra_setting_att.ViewProfile
+
+    @view_profile.setter
+    def view_profile(self, value: bool):
+        self.fta_infra_setting_att.ViewProfile = value
+
+    @property
+    def view_referential(self) -&gt; bool:
+        return self.fta_infra_setting_att.ViewReferential
+
+    @view_referential.setter
+    def view_referential(self, value: bool):
+        self.fta_infra_setting_att.ViewReferential = value
+
+    @property
+    def view_referential_zoomable(self) -&gt; bool:
+        return self.fta_infra_setting_att.ViewReferentialZoomable
+
+    @view_referential_zoomable.setter
+    def view_referential_zoomable(self, value: bool):
+        self.fta_infra_setting_att.ViewReferentialZoomable = value
+
+    def get_allow_distortions_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetAllowDistortionsInfo(admin_level, o_locked)
+
+    def get_grid_display_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetGridDisplayInfo(admin_level, o_locked)
+
+    def get_grid_primary_spacing_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetGridPrimarySpacingInfo(
+            admin_level, o_locked
+        )
+
+    def get_grid_secondary_step_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetGridSecondaryStepInfo(
+            admin_level, o_locked
+        )
+
+    def get_grid_snap_point_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetGridSnapPointInfo(admin_level, o_locked)
+
+    def get_grid_v_primary_spacing_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetGridVPrimarySpacingInfo(
+            admin_level, o_locked
+        )
+
+    def get_grid_v_secondary_step_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetGridVSecondaryStepInfo(
+            admin_level, o_locked
+        )
+
+    def get_leader_associativity_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetLeaderAssociativityInfo(
+            admin_level, o_locked
+        )
+
+    def get_man_ref_size_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetManRefSizInfo(admin_level, o_locked)
+
+    def get_man_zoo_cap_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetManZooCapInfo(admin_level, o_locked)
+
+    def get_move_after_creation_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetMoveAfterCreationInfo(
+            admin_level, o_locked
+        )
+
+    def get_save_in_cgr_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetSaveInCGRInfo(admin_level, o_locked)
+
+    def get_standard_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetStandardInfo(admin_level, o_locked)
+
+    def get_under_feature_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetUnderFeatureInfo(admin_level, o_locked)
+
+    def get_under_set_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetUnderSetInfo(admin_level, o_locked)
+
+    def get_under_view_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetUnderViewInfo(admin_level, o_locked)
+
+    def get_view_associativity_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetViewAssociativityInfo(
+            admin_level, o_locked
+        )
+
+    def get_view_profile_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetViewProfileInfo(admin_level, o_locked)
+
+    def get_view_referential_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetViewReferentialInfo(admin_level, o_locked)
+
+    def get_view_referential_zoomable_info(
+        self, admin_level: str, o_locked: str
+    ) -&gt; bool:
+        return self.fta_infra_setting_att.GetViewReferentialZoomableInfo(
+            admin_level, o_locked
+        )
+
+    def set_allow_distortions_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetAllowDistortionsLock(i_locked)
+
+    def set_grid_display_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetGridDisplayLock(i_locked)
+
+    def set_grid_primary_spacing_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetGridPrimarySpacingLock(i_locked)
+
+    def set_grid_secondary_step_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetGridSecondaryStepLock(i_locked)
+
+    def set_grid_snap_point_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetGridSnapPointLock(i_locked)
+
+    def set_grid_v_primary_spacing_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetGridVPrimarySpacingLock(i_locked)
+
+    def set_grid_v_secondary_step_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetGridVSecondaryStepLock(i_locked)
+
+    def set_leader_associativity_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetLeaderAssociativityLock(i_locked)
+
+    def set_man_ref_size_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetManRefSizLock(i_locked)
+
+    def set_man_zoo_cap_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetManZooCapLock(i_locked)
+
+    def set_move_after_creation_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetMoveAfterCreationLock(i_locked)
+
+    def set_save_in_cgr_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetSaveInCGRLock(i_locked)
+
+    def set_standard_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetStandardLock(i_locked)
+
+    def set_under_feature_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetUnderFeatureLock(i_locked)
+
+    def set_under_set_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetUnderSetLock(i_locked)
+
+    def set_under_view_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetUnderViewLock(i_locked)
+
+    def set_view_associativity_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetViewAssociativityLock(i_locked)
+
+    def set_view_profile_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetViewProfileLock(i_locked)
+
+    def set_view_referential_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetViewReferentialLock(i_locked)
+
+    def set_view_referential_zoomable_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetViewReferentialZoomableLock(i_locked)
+
+    def __repr__(self):
+        return f&#39;FtaInfraSettingAtt(name=&#34;{self.name}&#34;)&#39;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt"><code class="flex name class">
+<span>class <span class="ident">FtaInfraSettingAtt</span></span>
+<span>(</span><span>com_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for the framework.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FtaInfraSettingAtt(SettingController):
+    def __init__(self, com_object):
+        super().__init__(com_object)
+        self.fta_infra_setting_att = com_object
+
+    @property
+    def allow_distortions(self) -&gt; bool:
+        return self.fta_infra_setting_att.AllowDistortions
+
+    @allow_distortions.setter
+    def allow_distortions(self, value: bool):
+        self.fta_infra_setting_att.AllowDistortions = value
+
+    @property
+    def grid_display(self) -&gt; bool:
+        return self.fta_infra_setting_att.GridDisplay
+
+    @grid_display.setter
+    def grid_display(self, value: bool):
+        self.fta_infra_setting_att.GridDisplay = value
+
+    @property
+    def grid_primary_spacing(self) -&gt; float:
+        return self.fta_infra_setting_att.GridPrimarySpacing
+
+    @grid_primary_spacing.setter
+    def grid_primary_spacing(self, value: float):
+        self.fta_infra_setting_att.GridPrimarySpacing = value
+
+    @property
+    def grid_secondary_step(self) -&gt; int:
+        return self.fta_infra_setting_att.GridSecondaryStep
+
+    @grid_secondary_step.setter
+    def grid_secondary_step(self, value: int):
+        self.fta_infra_setting_att.GridSecondaryStep = value
+
+    @property
+    def grid_snap_point(self) -&gt; bool:
+        return self.fta_infra_setting_att.GridSnapPoint
+
+    @grid_snap_point.setter
+    def grid_snap_point(self, value: bool):
+        self.fta_infra_setting_att.GridSnapPoint = value
+
+    @property
+    def grid_v_primary_spacing(self) -&gt; float:
+        return self.fta_infra_setting_att.GridVPrimarySpacing
+
+    @grid_v_primary_spacing.setter
+    def grid_v_primary_spacing(self, value: float):
+        self.fta_infra_setting_att.GridVPrimarySpacing = value
+
+    @property
+    def grid_v_secondary_step(self) -&gt; int:
+        return self.fta_infra_setting_att.GridVSecondaryStep
+
+    @grid_v_secondary_step.setter
+    def grid_v_secondary_step(self, value: int):
+        self.fta_infra_setting_att.GridVSecondaryStep = value
+
+    @property
+    def leader_associativity(self) -&gt; int:
+        return self.fta_infra_setting_att.LeaderAssociativity
+
+    @leader_associativity.setter
+    def leader_associativity(self, value: int):
+        self.fta_infra_setting_att.LeaderAssociativity = value
+
+    @property
+    def man_ref_siz(self) -&gt; float:
+        return self.fta_infra_setting_att.ManRefSiz
+
+    @man_ref_siz.setter
+    def man_ref_siz(self, value: float):
+        self.fta_infra_setting_att.ManRefSiz = value
+
+    @property
+    def man_zoo_cap(self) -&gt; bool:
+        return self.fta_infra_setting_att.ManZooCap
+
+    @man_zoo_cap.setter
+    def man_zoo_cap(self, value: bool):
+        self.fta_infra_setting_att.ManZooCap = value
+
+    @property
+    def move_after_creation(self) -&gt; bool:
+        return self.fta_infra_setting_att.MoveAfterCreation
+
+    @move_after_creation.setter
+    def move_after_creation(self, value: bool):
+        self.fta_infra_setting_att.MoveAfterCreation = value
+
+    @property
+    def save_in_cgr(self) -&gt; bool:
+        return self.fta_infra_setting_att.SaveInCGR
+
+    @save_in_cgr.setter
+    def save_in_cgr(self, value: bool):
+        self.fta_infra_setting_att.SaveInCGR = value
+
+    @property
+    def standard(self) -&gt; str:
+        return self.fta_infra_setting_att.Standard
+
+    @standard.setter
+    def standard(self, value: str):
+        self.fta_infra_setting_att.Standard = value
+
+    @property
+    def under_feature(self) -&gt; bool:
+        return self.fta_infra_setting_att.UnderFeature
+
+    @under_feature.setter
+    def under_feature(self, value: bool):
+        self.fta_infra_setting_att.UnderFeature = value
+
+    @property
+    def under_set(self) -&gt; bool:
+        return self.fta_infra_setting_att.UnderSet
+
+    @under_set.setter
+    def under_set(self, value: bool):
+        self.fta_infra_setting_att.UnderSet = value
+
+    @property
+    def under_view(self) -&gt; bool:
+        return self.fta_infra_setting_att.UnderView
+
+    @under_view.setter
+    def under_view(self, value: bool):
+        self.fta_infra_setting_att.UnderView = value
+
+    @property
+    def view_associativity(self) -&gt; bool:
+        return self.fta_infra_setting_att.ViewAssociativity
+
+    @view_associativity.setter
+    def view_associativity(self, value: bool):
+        self.fta_infra_setting_att.ViewAssociativity = value
+
+    @property
+    def view_profile(self) -&gt; bool:
+        return self.fta_infra_setting_att.ViewProfile
+
+    @view_profile.setter
+    def view_profile(self, value: bool):
+        self.fta_infra_setting_att.ViewProfile = value
+
+    @property
+    def view_referential(self) -&gt; bool:
+        return self.fta_infra_setting_att.ViewReferential
+
+    @view_referential.setter
+    def view_referential(self, value: bool):
+        self.fta_infra_setting_att.ViewReferential = value
+
+    @property
+    def view_referential_zoomable(self) -&gt; bool:
+        return self.fta_infra_setting_att.ViewReferentialZoomable
+
+    @view_referential_zoomable.setter
+    def view_referential_zoomable(self, value: bool):
+        self.fta_infra_setting_att.ViewReferentialZoomable = value
+
+    def get_allow_distortions_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetAllowDistortionsInfo(admin_level, o_locked)
+
+    def get_grid_display_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetGridDisplayInfo(admin_level, o_locked)
+
+    def get_grid_primary_spacing_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetGridPrimarySpacingInfo(
+            admin_level, o_locked
+        )
+
+    def get_grid_secondary_step_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetGridSecondaryStepInfo(
+            admin_level, o_locked
+        )
+
+    def get_grid_snap_point_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetGridSnapPointInfo(admin_level, o_locked)
+
+    def get_grid_v_primary_spacing_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetGridVPrimarySpacingInfo(
+            admin_level, o_locked
+        )
+
+    def get_grid_v_secondary_step_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetGridVSecondaryStepInfo(
+            admin_level, o_locked
+        )
+
+    def get_leader_associativity_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetLeaderAssociativityInfo(
+            admin_level, o_locked
+        )
+
+    def get_man_ref_size_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetManRefSizInfo(admin_level, o_locked)
+
+    def get_man_zoo_cap_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetManZooCapInfo(admin_level, o_locked)
+
+    def get_move_after_creation_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetMoveAfterCreationInfo(
+            admin_level, o_locked
+        )
+
+    def get_save_in_cgr_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetSaveInCGRInfo(admin_level, o_locked)
+
+    def get_standard_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetStandardInfo(admin_level, o_locked)
+
+    def get_under_feature_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetUnderFeatureInfo(admin_level, o_locked)
+
+    def get_under_set_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetUnderSetInfo(admin_level, o_locked)
+
+    def get_under_view_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetUnderViewInfo(admin_level, o_locked)
+
+    def get_view_associativity_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetViewAssociativityInfo(
+            admin_level, o_locked
+        )
+
+    def get_view_profile_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetViewProfileInfo(admin_level, o_locked)
+
+    def get_view_referential_info(self, admin_level: str, o_locked: str) -&gt; bool:
+        return self.fta_infra_setting_att.GetViewReferentialInfo(admin_level, o_locked)
+
+    def get_view_referential_zoomable_info(
+        self, admin_level: str, o_locked: str
+    ) -&gt; bool:
+        return self.fta_infra_setting_att.GetViewReferentialZoomableInfo(
+            admin_level, o_locked
+        )
+
+    def set_allow_distortions_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetAllowDistortionsLock(i_locked)
+
+    def set_grid_display_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetGridDisplayLock(i_locked)
+
+    def set_grid_primary_spacing_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetGridPrimarySpacingLock(i_locked)
+
+    def set_grid_secondary_step_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetGridSecondaryStepLock(i_locked)
+
+    def set_grid_snap_point_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetGridSnapPointLock(i_locked)
+
+    def set_grid_v_primary_spacing_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetGridVPrimarySpacingLock(i_locked)
+
+    def set_grid_v_secondary_step_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetGridVSecondaryStepLock(i_locked)
+
+    def set_leader_associativity_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetLeaderAssociativityLock(i_locked)
+
+    def set_man_ref_size_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetManRefSizLock(i_locked)
+
+    def set_man_zoo_cap_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetManZooCapLock(i_locked)
+
+    def set_move_after_creation_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetMoveAfterCreationLock(i_locked)
+
+    def set_save_in_cgr_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetSaveInCGRLock(i_locked)
+
+    def set_standard_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetStandardLock(i_locked)
+
+    def set_under_feature_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetUnderFeatureLock(i_locked)
+
+    def set_under_set_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetUnderSetLock(i_locked)
+
+    def set_under_view_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetUnderViewLock(i_locked)
+
+    def set_view_associativity_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetViewAssociativityLock(i_locked)
+
+    def set_view_profile_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetViewProfileLock(i_locked)
+
+    def set_view_referential_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetViewReferentialLock(i_locked)
+
+    def set_view_referential_zoomable_lock(self, i_locked: bool) -&gt; None:
+        return self.fta_infra_setting_att.SetViewReferentialZoomableLock(i_locked)
+
+    def __repr__(self):
+        return f&#39;FtaInfraSettingAtt(name=&#34;{self.name}&#34;)&#39;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.framework.system_interfaces.setting_controller.SettingController" href="../system_interfaces/setting_controller.html#pytia.framework.system_interfaces.setting_controller.SettingController">SettingController</a></li>
+<li><a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a></li>
+<li><a title="pytia.framework.base.Base" href="../base.html#pytia.framework.base.Base">Base</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.allow_distortions"><code class="name">var <span class="ident">allow_distortions</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def allow_distortions(self) -&gt; bool:
+    return self.fta_infra_setting_att.AllowDistortions</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_display"><code class="name">var <span class="ident">grid_display</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def grid_display(self) -&gt; bool:
+    return self.fta_infra_setting_att.GridDisplay</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_primary_spacing"><code class="name">var <span class="ident">grid_primary_spacing</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def grid_primary_spacing(self) -&gt; float:
+    return self.fta_infra_setting_att.GridPrimarySpacing</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_secondary_step"><code class="name">var <span class="ident">grid_secondary_step</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def grid_secondary_step(self) -&gt; int:
+    return self.fta_infra_setting_att.GridSecondaryStep</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_snap_point"><code class="name">var <span class="ident">grid_snap_point</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def grid_snap_point(self) -&gt; bool:
+    return self.fta_infra_setting_att.GridSnapPoint</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_v_primary_spacing"><code class="name">var <span class="ident">grid_v_primary_spacing</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def grid_v_primary_spacing(self) -&gt; float:
+    return self.fta_infra_setting_att.GridVPrimarySpacing</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_v_secondary_step"><code class="name">var <span class="ident">grid_v_secondary_step</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def grid_v_secondary_step(self) -&gt; int:
+    return self.fta_infra_setting_att.GridVSecondaryStep</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.leader_associativity"><code class="name">var <span class="ident">leader_associativity</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def leader_associativity(self) -&gt; int:
+    return self.fta_infra_setting_att.LeaderAssociativity</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.man_ref_siz"><code class="name">var <span class="ident">man_ref_siz</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def man_ref_siz(self) -&gt; float:
+    return self.fta_infra_setting_att.ManRefSiz</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.man_zoo_cap"><code class="name">var <span class="ident">man_zoo_cap</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def man_zoo_cap(self) -&gt; bool:
+    return self.fta_infra_setting_att.ManZooCap</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.move_after_creation"><code class="name">var <span class="ident">move_after_creation</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def move_after_creation(self) -&gt; bool:
+    return self.fta_infra_setting_att.MoveAfterCreation</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.save_in_cgr"><code class="name">var <span class="ident">save_in_cgr</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def save_in_cgr(self) -&gt; bool:
+    return self.fta_infra_setting_att.SaveInCGR</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.standard"><code class="name">var <span class="ident">standard</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def standard(self) -&gt; str:
+    return self.fta_infra_setting_att.Standard</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.under_feature"><code class="name">var <span class="ident">under_feature</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def under_feature(self) -&gt; bool:
+    return self.fta_infra_setting_att.UnderFeature</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.under_set"><code class="name">var <span class="ident">under_set</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def under_set(self) -&gt; bool:
+    return self.fta_infra_setting_att.UnderSet</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.under_view"><code class="name">var <span class="ident">under_view</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def under_view(self) -&gt; bool:
+    return self.fta_infra_setting_att.UnderView</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.view_associativity"><code class="name">var <span class="ident">view_associativity</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def view_associativity(self) -&gt; bool:
+    return self.fta_infra_setting_att.ViewAssociativity</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.view_profile"><code class="name">var <span class="ident">view_profile</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def view_profile(self) -&gt; bool:
+    return self.fta_infra_setting_att.ViewProfile</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.view_referential"><code class="name">var <span class="ident">view_referential</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def view_referential(self) -&gt; bool:
+    return self.fta_infra_setting_att.ViewReferential</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.view_referential_zoomable"><code class="name">var <span class="ident">view_referential_zoomable</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def view_referential_zoomable(self) -&gt; bool:
+    return self.fta_infra_setting_att.ViewReferentialZoomable</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_allow_distortions_info"><code class="name flex">
+<span>def <span class="ident">get_allow_distortions_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_allow_distortions_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetAllowDistortionsInfo(admin_level, o_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_display_info"><code class="name flex">
+<span>def <span class="ident">get_grid_display_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_grid_display_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetGridDisplayInfo(admin_level, o_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_primary_spacing_info"><code class="name flex">
+<span>def <span class="ident">get_grid_primary_spacing_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_grid_primary_spacing_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetGridPrimarySpacingInfo(
+        admin_level, o_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_secondary_step_info"><code class="name flex">
+<span>def <span class="ident">get_grid_secondary_step_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_grid_secondary_step_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetGridSecondaryStepInfo(
+        admin_level, o_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_snap_point_info"><code class="name flex">
+<span>def <span class="ident">get_grid_snap_point_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_grid_snap_point_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetGridSnapPointInfo(admin_level, o_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_v_primary_spacing_info"><code class="name flex">
+<span>def <span class="ident">get_grid_v_primary_spacing_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_grid_v_primary_spacing_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetGridVPrimarySpacingInfo(
+        admin_level, o_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_v_secondary_step_info"><code class="name flex">
+<span>def <span class="ident">get_grid_v_secondary_step_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_grid_v_secondary_step_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetGridVSecondaryStepInfo(
+        admin_level, o_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_leader_associativity_info"><code class="name flex">
+<span>def <span class="ident">get_leader_associativity_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_leader_associativity_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetLeaderAssociativityInfo(
+        admin_level, o_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_man_ref_size_info"><code class="name flex">
+<span>def <span class="ident">get_man_ref_size_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_man_ref_size_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetManRefSizInfo(admin_level, o_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_man_zoo_cap_info"><code class="name flex">
+<span>def <span class="ident">get_man_zoo_cap_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_man_zoo_cap_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetManZooCapInfo(admin_level, o_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_move_after_creation_info"><code class="name flex">
+<span>def <span class="ident">get_move_after_creation_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_move_after_creation_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetMoveAfterCreationInfo(
+        admin_level, o_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_save_in_cgr_info"><code class="name flex">
+<span>def <span class="ident">get_save_in_cgr_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_save_in_cgr_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetSaveInCGRInfo(admin_level, o_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_standard_info"><code class="name flex">
+<span>def <span class="ident">get_standard_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_standard_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetStandardInfo(admin_level, o_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_under_feature_info"><code class="name flex">
+<span>def <span class="ident">get_under_feature_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_under_feature_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetUnderFeatureInfo(admin_level, o_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_under_set_info"><code class="name flex">
+<span>def <span class="ident">get_under_set_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_under_set_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetUnderSetInfo(admin_level, o_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_under_view_info"><code class="name flex">
+<span>def <span class="ident">get_under_view_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_under_view_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetUnderViewInfo(admin_level, o_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_view_associativity_info"><code class="name flex">
+<span>def <span class="ident">get_view_associativity_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_view_associativity_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetViewAssociativityInfo(
+        admin_level, o_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_view_profile_info"><code class="name flex">
+<span>def <span class="ident">get_view_profile_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_view_profile_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetViewProfileInfo(admin_level, o_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_view_referential_info"><code class="name flex">
+<span>def <span class="ident">get_view_referential_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_view_referential_info(self, admin_level: str, o_locked: str) -&gt; bool:
+    return self.fta_infra_setting_att.GetViewReferentialInfo(admin_level, o_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_view_referential_zoomable_info"><code class="name flex">
+<span>def <span class="ident">get_view_referential_zoomable_info</span></span>(<span>self, admin_level: str, o_locked: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_view_referential_zoomable_info(
+    self, admin_level: str, o_locked: str
+) -&gt; bool:
+    return self.fta_infra_setting_att.GetViewReferentialZoomableInfo(
+        admin_level, o_locked
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_allow_distortions_lock"><code class="name flex">
+<span>def <span class="ident">set_allow_distortions_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_allow_distortions_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetAllowDistortionsLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_display_lock"><code class="name flex">
+<span>def <span class="ident">set_grid_display_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_grid_display_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetGridDisplayLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_primary_spacing_lock"><code class="name flex">
+<span>def <span class="ident">set_grid_primary_spacing_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_grid_primary_spacing_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetGridPrimarySpacingLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_secondary_step_lock"><code class="name flex">
+<span>def <span class="ident">set_grid_secondary_step_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_grid_secondary_step_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetGridSecondaryStepLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_snap_point_lock"><code class="name flex">
+<span>def <span class="ident">set_grid_snap_point_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_grid_snap_point_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetGridSnapPointLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_v_primary_spacing_lock"><code class="name flex">
+<span>def <span class="ident">set_grid_v_primary_spacing_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_grid_v_primary_spacing_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetGridVPrimarySpacingLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_v_secondary_step_lock"><code class="name flex">
+<span>def <span class="ident">set_grid_v_secondary_step_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_grid_v_secondary_step_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetGridVSecondaryStepLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_leader_associativity_lock"><code class="name flex">
+<span>def <span class="ident">set_leader_associativity_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_leader_associativity_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetLeaderAssociativityLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_man_ref_size_lock"><code class="name flex">
+<span>def <span class="ident">set_man_ref_size_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_man_ref_size_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetManRefSizLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_man_zoo_cap_lock"><code class="name flex">
+<span>def <span class="ident">set_man_zoo_cap_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_man_zoo_cap_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetManZooCapLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_move_after_creation_lock"><code class="name flex">
+<span>def <span class="ident">set_move_after_creation_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_move_after_creation_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetMoveAfterCreationLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_save_in_cgr_lock"><code class="name flex">
+<span>def <span class="ident">set_save_in_cgr_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_save_in_cgr_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetSaveInCGRLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_standard_lock"><code class="name flex">
+<span>def <span class="ident">set_standard_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_standard_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetStandardLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_under_feature_lock"><code class="name flex">
+<span>def <span class="ident">set_under_feature_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_under_feature_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetUnderFeatureLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_under_set_lock"><code class="name flex">
+<span>def <span class="ident">set_under_set_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_under_set_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetUnderSetLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_under_view_lock"><code class="name flex">
+<span>def <span class="ident">set_under_view_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_under_view_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetUnderViewLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_view_associativity_lock"><code class="name flex">
+<span>def <span class="ident">set_view_associativity_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_view_associativity_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetViewAssociativityLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_view_profile_lock"><code class="name flex">
+<span>def <span class="ident">set_view_profile_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_view_profile_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetViewProfileLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_view_referential_lock"><code class="name flex">
+<span>def <span class="ident">set_view_referential_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_view_referential_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetViewReferentialLock(i_locked)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_view_referential_zoomable_lock"><code class="name flex">
+<span>def <span class="ident">set_view_referential_zoomable_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_view_referential_zoomable_lock(self, i_locked: bool) -&gt; None:
+    return self.fta_infra_setting_att.SetViewReferentialZoomableLock(i_locked)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia.framework.tps_interfaces" href="index.html">pytia.framework.tps_interfaces</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt">FtaInfraSettingAtt</a></code></h4>
+<ul class="">
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.allow_distortions" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.allow_distortions">allow_distortions</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_allow_distortions_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_allow_distortions_info">get_allow_distortions_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_display_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_display_info">get_grid_display_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_primary_spacing_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_primary_spacing_info">get_grid_primary_spacing_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_secondary_step_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_secondary_step_info">get_grid_secondary_step_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_snap_point_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_snap_point_info">get_grid_snap_point_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_v_primary_spacing_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_v_primary_spacing_info">get_grid_v_primary_spacing_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_v_secondary_step_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_grid_v_secondary_step_info">get_grid_v_secondary_step_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_leader_associativity_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_leader_associativity_info">get_leader_associativity_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_man_ref_size_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_man_ref_size_info">get_man_ref_size_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_man_zoo_cap_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_man_zoo_cap_info">get_man_zoo_cap_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_move_after_creation_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_move_after_creation_info">get_move_after_creation_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_save_in_cgr_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_save_in_cgr_info">get_save_in_cgr_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_standard_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_standard_info">get_standard_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_under_feature_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_under_feature_info">get_under_feature_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_under_set_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_under_set_info">get_under_set_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_under_view_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_under_view_info">get_under_view_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_view_associativity_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_view_associativity_info">get_view_associativity_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_view_profile_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_view_profile_info">get_view_profile_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_view_referential_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_view_referential_info">get_view_referential_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_view_referential_zoomable_info" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.get_view_referential_zoomable_info">get_view_referential_zoomable_info</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_display" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_display">grid_display</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_primary_spacing" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_primary_spacing">grid_primary_spacing</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_secondary_step" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_secondary_step">grid_secondary_step</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_snap_point" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_snap_point">grid_snap_point</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_v_primary_spacing" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_v_primary_spacing">grid_v_primary_spacing</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_v_secondary_step" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.grid_v_secondary_step">grid_v_secondary_step</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.leader_associativity" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.leader_associativity">leader_associativity</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.man_ref_siz" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.man_ref_siz">man_ref_siz</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.man_zoo_cap" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.man_zoo_cap">man_zoo_cap</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.move_after_creation" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.move_after_creation">move_after_creation</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.save_in_cgr" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.save_in_cgr">save_in_cgr</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_allow_distortions_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_allow_distortions_lock">set_allow_distortions_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_display_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_display_lock">set_grid_display_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_primary_spacing_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_primary_spacing_lock">set_grid_primary_spacing_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_secondary_step_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_secondary_step_lock">set_grid_secondary_step_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_snap_point_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_snap_point_lock">set_grid_snap_point_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_v_primary_spacing_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_v_primary_spacing_lock">set_grid_v_primary_spacing_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_v_secondary_step_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_grid_v_secondary_step_lock">set_grid_v_secondary_step_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_leader_associativity_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_leader_associativity_lock">set_leader_associativity_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_man_ref_size_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_man_ref_size_lock">set_man_ref_size_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_man_zoo_cap_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_man_zoo_cap_lock">set_man_zoo_cap_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_move_after_creation_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_move_after_creation_lock">set_move_after_creation_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_save_in_cgr_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_save_in_cgr_lock">set_save_in_cgr_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_standard_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_standard_lock">set_standard_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_under_feature_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_under_feature_lock">set_under_feature_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_under_set_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_under_set_lock">set_under_set_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_under_view_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_under_view_lock">set_under_view_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_view_associativity_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_view_associativity_lock">set_view_associativity_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_view_profile_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_view_profile_lock">set_view_profile_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_view_referential_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_view_referential_lock">set_view_referential_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_view_referential_zoomable_lock" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.set_view_referential_zoomable_lock">set_view_referential_zoomable_lock</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.standard" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.standard">standard</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.under_feature" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.under_feature">under_feature</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.under_set" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.under_set">under_set</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.under_view" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.under_view">under_view</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.view_associativity" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.view_associativity">view_associativity</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.view_profile" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.view_profile">view_profile</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.view_referential" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.view_referential">view_referential</a></code></li>
+<li><code><a title="pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.view_referential_zoomable" href="#pytia.framework.tps_interfaces.fta_infra_setting_att.FtaInfraSettingAtt.view_referential_zoomable">view_referential_zoomable</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
