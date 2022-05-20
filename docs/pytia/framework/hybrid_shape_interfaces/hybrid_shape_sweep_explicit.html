@@ -1,0 +1,1422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from pytia.framework.hybrid_shape_interfaces.hybrid_shape_direction import (
+    HybridShapeDirection,
+)
+from pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep import (
+    HybridShapeSweep,
+)
+from pytia.framework.in_interfaces.reference import Reference
+from pytia.framework.knowledge_interfaces.angle import Angle
+from pytia.framework.knowledge_interfaces.length import Length
+
+
+class HybridShapeSweepExplicit(HybridShapeSweep):
+    def __init__(self, com_object):
+        super().__init__(com_object)
+        self.hybrid_shape_sweep_explicit = com_object
+
+    @property
+    def angle_law(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.AngleLaw)
+
+    @angle_law.setter
+    def angle_law(self, reference_law: Reference):
+        self.hybrid_shape_sweep_explicit.AngleLaw = reference_law.com_object
+
+    @property
+    def angle_law_inversion(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.AngleLawInversion
+
+    @angle_law_inversion.setter
+    def angle_law_inversion(self, value: int):
+        self.hybrid_shape_sweep_explicit.AngleLawInversion = value
+
+    @property
+    def angle_law_type(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.AngleLawType
+
+    @angle_law_type.setter
+    def angle_law_type(self, value: int):
+        self.hybrid_shape_sweep_explicit.AngleLawType = value
+
+    @property
+    def canonical_detection(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.CanonicalDetection
+
+    @canonical_detection.setter
+    def canonical_detection(self, value: int):
+        self.hybrid_shape_sweep_explicit.CanonicalDetection = value
+
+    @property
+    def context(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.Context
+
+    @context.setter
+    def context(self, value: int):
+        self.hybrid_shape_sweep_explicit.Context = value
+
+    @property
+    def first_guide_crv(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.FirstGuideCrv)
+
+    @first_guide_crv.setter
+    def first_guide_crv(self, reference_curve: Reference):
+        self.hybrid_shape_sweep_explicit.FirstGuideCrv = reference_curve.com_object
+
+    @property
+    def guide_deviation(self) -&gt; Length:
+        return Length(self.hybrid_shape_sweep_explicit.GuideDeviation)
+
+    @property
+    def guide_deviation_activity(self) -&gt; bool:
+        return self.hybrid_shape_sweep_explicit.GuideDeviationActivity
+
+    @guide_deviation_activity.setter
+    def guide_deviation_activity(self, value: bool):
+        self.hybrid_shape_sweep_explicit.GuideDeviationActivity = value
+
+    @property
+    def guide_projection(self) -&gt; bool:
+        return self.hybrid_shape_sweep_explicit.GuideProjection
+
+    @guide_projection.setter
+    def guide_projection(self, value: bool):
+        self.hybrid_shape_sweep_explicit.GuideProjection = value
+
+    @property
+    def mode(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.Mode
+
+    @mode.setter
+    def mode(self, value: int):
+        self.hybrid_shape_sweep_explicit.Mode = value
+
+    @property
+    def position_mode(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.PositionMode
+
+    @position_mode.setter
+    def position_mode(self, value: int):
+        self.hybrid_shape_sweep_explicit.PositionMode = value
+
+    @property
+    def positioned_profile(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.PositionedProfile)
+
+    @positioned_profile.setter
+    def positioned_profile(self, reference_profile: Reference):
+        self.hybrid_shape_sweep_explicit.PositionedProfile = (
+            reference_profile.com_object
+        )
+
+    @property
+    def profile(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.Profile)
+
+    @profile.setter
+    def profile(self, reference_profile: Reference):
+        self.hybrid_shape_sweep_explicit.Profile = reference_profile.com_object
+
+    @property
+    def profile_x_axis_computation_mode(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.ProfileXAxisComputationMode
+
+    @profile_x_axis_computation_mode.setter
+    def profile_x_axis_computation_mode(self, value: int):
+        self.hybrid_shape_sweep_explicit.ProfileXAxisComputationMode = value
+
+    @property
+    def pulling_direction(self) -&gt; HybridShapeDirection:
+        return HybridShapeDirection(self.hybrid_shape_sweep_explicit.PullingDirection)
+
+    @pulling_direction.setter
+    def pulling_direction(self, direction: HybridShapeDirection):
+        self.hybrid_shape_sweep_explicit.PullingDirection = direction.com_object
+
+    @property
+    def reference(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.Reference)
+
+    @reference.setter
+    def reference(self, reference: Reference):
+        self.hybrid_shape_sweep_explicit.Reference = reference.com_object
+
+    @property
+    def second_guide_crv(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.SecondGuideCrv)
+
+    @second_guide_crv.setter
+    def second_guide_crv(self, reference_curve: Reference):
+        self.hybrid_shape_sweep_explicit.SecondGuideCrv = reference_curve.com_object
+
+    @property
+    def smooth_activity(self) -&gt; bool:
+        return self.hybrid_shape_sweep_explicit.SmoothActivity
+
+    @smooth_activity.setter
+    def smooth_activity(self, value: bool):
+        self.hybrid_shape_sweep_explicit.SmoothActivity = value
+
+    @property
+    def smooth_angle_threshold(self) -&gt; Angle:
+        return Angle(self.hybrid_shape_sweep_explicit.SmoothAngleThreshold)
+
+    @property
+    def solution_no(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.SolutionNo
+
+    @solution_no.setter
+    def solution_no(self, value: int):
+        self.hybrid_shape_sweep_explicit.SolutionNo = value
+
+    @property
+    def spine(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.Spine)
+
+    @spine.setter
+    def spine(self, reference_spine: Reference):
+        self.hybrid_shape_sweep_explicit.Spine = reference_spine.com_object
+
+    @property
+    def sub_type(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.SubType
+
+    @sub_type.setter
+    def sub_type(self, value: int):
+        self.hybrid_shape_sweep_explicit.SubType = value
+
+    def get_angle_ref(self, ii: int) -&gt; Angle:
+        return Angle(self.hybrid_shape_sweep_explicit.GetAngleRef(ii))
+
+    def get_fitting_points(
+        self, op_ia_elem_a: Reference, op_ia_elem_b: Reference
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.GetFittingPoints(
+            op_ia_elem_a.com_object, op_ia_elem_b.com_object
+        )
+
+    def get_longitudinal_relimiters(
+        self, op_ia_elem_a: Reference, op_ia_elem_b: Reference
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.GetLongitudinalRelimiters(
+            op_ia_elem_a.com_object, op_ia_elem_b.com_object
+        )
+
+    def get_nb_angle(self, o_ang: int) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.GetNbAngle(o_ang)
+
+    def get_nb_guide(self, o_num: int) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.GetNbGuide(o_num)
+
+    def get_nb_pos_angle(self, o_pos_ang: int) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.GetNbPosAngle(o_pos_ang)
+
+    def get_nb_pos_coord(self, o_pos_coord: int) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.GetNbPosCoord(o_pos_coord)
+
+    def get_pos_angle(self, ii: int) -&gt; Angle:
+        return Angle(self.hybrid_shape_sweep_explicit.GetPosAngle(ii))
+
+    def get_pos_coord(self, ii: int) -&gt; Length:
+        return Length(self.hybrid_shape_sweep_explicit.GetPosCoord(ii))
+
+    def get_pos_direction(self, ii: int) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.GetPosDirection(ii))
+
+    def get_pos_point(self, ii: int) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.GetPosPoint(ii))
+
+    def get_pos_swap_axes(self, ii: int) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.GetPosSwapAxes(ii)
+
+    def get_relimiters(
+        self,
+        op_ia_elem1: Reference,
+        op_orient1: int,
+        op_ia_elem2: Reference,
+        op_orient2: int,
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.GetRelimiters(
+            op_ia_elem1.com_object, op_orient1, op_ia_elem2.com_object, op_orient2
+        )
+
+    def is_sketch_axis_used_as_default(self, o_boolean: bool) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.IsSketchAxisUsedAsDefault(o_boolean)
+
+    def remove_angle(self) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.RemoveAngle()
+
+    def remove_fitting_points(self) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.RemoveFittingPoints()
+
+    def remove_guide(self) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.RemoveGuide()
+
+    def set_angle_ref(self, ii: int, elem: float) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetAngleRef(ii, elem)
+
+    def set_fitting_points(
+        self, ip_ia_elem_a: Reference, ip_ia_elem_b: Reference
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetFittingPoints(
+            ip_ia_elem_a.com_object, ip_ia_elem_b.com_object
+        )
+
+    def set_guide_deviation(self, i_length: float) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetGuideDeviation(i_length)
+
+    def set_longitudinal_relimiters(
+        self, ip_ia_elem_a: Reference, ip_ia_elem_b: Reference
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetLongitudinalRelimiters(
+            ip_ia_elem_a.com_object, ip_ia_elem_b.com_object
+        )
+
+    def set_pos_angle(self, ii: int, elem: float) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetPosAngle(ii, elem)
+
+    def set_pos_coord(self, ii: int, elem: float) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetPosCoord(ii, elem)
+
+    def set_pos_direction(self, ii: int, elem: Reference) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetPosDirection(ii, elem.com_object)
+
+    def set_pos_point(self, ii: int, elem: Reference) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetPosPoint(ii, elem.com_object)
+
+    def set_pos_swap_axes(self, ii: int, elem: int) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetPosSwapAxes(ii, elem)
+
+    def set_relimiters(
+        self,
+        ip_ia_elem1: Reference,
+        ip_orient1: int,
+        ip_ia_elem2: Reference,
+        ip_orient2: int,
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetRelimiters(
+            ip_ia_elem1.com_object, ip_orient1, ip_ia_elem2.com_object, ip_orient2
+        )
+
+    def set_smooth_angle_threshold(self, i_angle: float) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetSmoothAngleThreshold(i_angle)
+
+    def use_sketch_axis_as_default(self, i_boolean: bool) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.UseSketchAxisAsDefault(i_boolean)
+
+    def __repr__(self):
+        return f&#39;HybridShapeSweepExplicit(name=&#34;{self.name}&#34;)&#39;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit"><code class="flex name class">
+<span>class <span class="ident">HybridShapeSweepExplicit</span></span>
+<span>(</span><span>com_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for the framework.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HybridShapeSweepExplicit(HybridShapeSweep):
+    def __init__(self, com_object):
+        super().__init__(com_object)
+        self.hybrid_shape_sweep_explicit = com_object
+
+    @property
+    def angle_law(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.AngleLaw)
+
+    @angle_law.setter
+    def angle_law(self, reference_law: Reference):
+        self.hybrid_shape_sweep_explicit.AngleLaw = reference_law.com_object
+
+    @property
+    def angle_law_inversion(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.AngleLawInversion
+
+    @angle_law_inversion.setter
+    def angle_law_inversion(self, value: int):
+        self.hybrid_shape_sweep_explicit.AngleLawInversion = value
+
+    @property
+    def angle_law_type(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.AngleLawType
+
+    @angle_law_type.setter
+    def angle_law_type(self, value: int):
+        self.hybrid_shape_sweep_explicit.AngleLawType = value
+
+    @property
+    def canonical_detection(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.CanonicalDetection
+
+    @canonical_detection.setter
+    def canonical_detection(self, value: int):
+        self.hybrid_shape_sweep_explicit.CanonicalDetection = value
+
+    @property
+    def context(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.Context
+
+    @context.setter
+    def context(self, value: int):
+        self.hybrid_shape_sweep_explicit.Context = value
+
+    @property
+    def first_guide_crv(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.FirstGuideCrv)
+
+    @first_guide_crv.setter
+    def first_guide_crv(self, reference_curve: Reference):
+        self.hybrid_shape_sweep_explicit.FirstGuideCrv = reference_curve.com_object
+
+    @property
+    def guide_deviation(self) -&gt; Length:
+        return Length(self.hybrid_shape_sweep_explicit.GuideDeviation)
+
+    @property
+    def guide_deviation_activity(self) -&gt; bool:
+        return self.hybrid_shape_sweep_explicit.GuideDeviationActivity
+
+    @guide_deviation_activity.setter
+    def guide_deviation_activity(self, value: bool):
+        self.hybrid_shape_sweep_explicit.GuideDeviationActivity = value
+
+    @property
+    def guide_projection(self) -&gt; bool:
+        return self.hybrid_shape_sweep_explicit.GuideProjection
+
+    @guide_projection.setter
+    def guide_projection(self, value: bool):
+        self.hybrid_shape_sweep_explicit.GuideProjection = value
+
+    @property
+    def mode(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.Mode
+
+    @mode.setter
+    def mode(self, value: int):
+        self.hybrid_shape_sweep_explicit.Mode = value
+
+    @property
+    def position_mode(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.PositionMode
+
+    @position_mode.setter
+    def position_mode(self, value: int):
+        self.hybrid_shape_sweep_explicit.PositionMode = value
+
+    @property
+    def positioned_profile(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.PositionedProfile)
+
+    @positioned_profile.setter
+    def positioned_profile(self, reference_profile: Reference):
+        self.hybrid_shape_sweep_explicit.PositionedProfile = (
+            reference_profile.com_object
+        )
+
+    @property
+    def profile(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.Profile)
+
+    @profile.setter
+    def profile(self, reference_profile: Reference):
+        self.hybrid_shape_sweep_explicit.Profile = reference_profile.com_object
+
+    @property
+    def profile_x_axis_computation_mode(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.ProfileXAxisComputationMode
+
+    @profile_x_axis_computation_mode.setter
+    def profile_x_axis_computation_mode(self, value: int):
+        self.hybrid_shape_sweep_explicit.ProfileXAxisComputationMode = value
+
+    @property
+    def pulling_direction(self) -&gt; HybridShapeDirection:
+        return HybridShapeDirection(self.hybrid_shape_sweep_explicit.PullingDirection)
+
+    @pulling_direction.setter
+    def pulling_direction(self, direction: HybridShapeDirection):
+        self.hybrid_shape_sweep_explicit.PullingDirection = direction.com_object
+
+    @property
+    def reference(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.Reference)
+
+    @reference.setter
+    def reference(self, reference: Reference):
+        self.hybrid_shape_sweep_explicit.Reference = reference.com_object
+
+    @property
+    def second_guide_crv(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.SecondGuideCrv)
+
+    @second_guide_crv.setter
+    def second_guide_crv(self, reference_curve: Reference):
+        self.hybrid_shape_sweep_explicit.SecondGuideCrv = reference_curve.com_object
+
+    @property
+    def smooth_activity(self) -&gt; bool:
+        return self.hybrid_shape_sweep_explicit.SmoothActivity
+
+    @smooth_activity.setter
+    def smooth_activity(self, value: bool):
+        self.hybrid_shape_sweep_explicit.SmoothActivity = value
+
+    @property
+    def smooth_angle_threshold(self) -&gt; Angle:
+        return Angle(self.hybrid_shape_sweep_explicit.SmoothAngleThreshold)
+
+    @property
+    def solution_no(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.SolutionNo
+
+    @solution_no.setter
+    def solution_no(self, value: int):
+        self.hybrid_shape_sweep_explicit.SolutionNo = value
+
+    @property
+    def spine(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.Spine)
+
+    @spine.setter
+    def spine(self, reference_spine: Reference):
+        self.hybrid_shape_sweep_explicit.Spine = reference_spine.com_object
+
+    @property
+    def sub_type(self) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.SubType
+
+    @sub_type.setter
+    def sub_type(self, value: int):
+        self.hybrid_shape_sweep_explicit.SubType = value
+
+    def get_angle_ref(self, ii: int) -&gt; Angle:
+        return Angle(self.hybrid_shape_sweep_explicit.GetAngleRef(ii))
+
+    def get_fitting_points(
+        self, op_ia_elem_a: Reference, op_ia_elem_b: Reference
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.GetFittingPoints(
+            op_ia_elem_a.com_object, op_ia_elem_b.com_object
+        )
+
+    def get_longitudinal_relimiters(
+        self, op_ia_elem_a: Reference, op_ia_elem_b: Reference
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.GetLongitudinalRelimiters(
+            op_ia_elem_a.com_object, op_ia_elem_b.com_object
+        )
+
+    def get_nb_angle(self, o_ang: int) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.GetNbAngle(o_ang)
+
+    def get_nb_guide(self, o_num: int) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.GetNbGuide(o_num)
+
+    def get_nb_pos_angle(self, o_pos_ang: int) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.GetNbPosAngle(o_pos_ang)
+
+    def get_nb_pos_coord(self, o_pos_coord: int) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.GetNbPosCoord(o_pos_coord)
+
+    def get_pos_angle(self, ii: int) -&gt; Angle:
+        return Angle(self.hybrid_shape_sweep_explicit.GetPosAngle(ii))
+
+    def get_pos_coord(self, ii: int) -&gt; Length:
+        return Length(self.hybrid_shape_sweep_explicit.GetPosCoord(ii))
+
+    def get_pos_direction(self, ii: int) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.GetPosDirection(ii))
+
+    def get_pos_point(self, ii: int) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_explicit.GetPosPoint(ii))
+
+    def get_pos_swap_axes(self, ii: int) -&gt; int:
+        return self.hybrid_shape_sweep_explicit.GetPosSwapAxes(ii)
+
+    def get_relimiters(
+        self,
+        op_ia_elem1: Reference,
+        op_orient1: int,
+        op_ia_elem2: Reference,
+        op_orient2: int,
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.GetRelimiters(
+            op_ia_elem1.com_object, op_orient1, op_ia_elem2.com_object, op_orient2
+        )
+
+    def is_sketch_axis_used_as_default(self, o_boolean: bool) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.IsSketchAxisUsedAsDefault(o_boolean)
+
+    def remove_angle(self) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.RemoveAngle()
+
+    def remove_fitting_points(self) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.RemoveFittingPoints()
+
+    def remove_guide(self) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.RemoveGuide()
+
+    def set_angle_ref(self, ii: int, elem: float) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetAngleRef(ii, elem)
+
+    def set_fitting_points(
+        self, ip_ia_elem_a: Reference, ip_ia_elem_b: Reference
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetFittingPoints(
+            ip_ia_elem_a.com_object, ip_ia_elem_b.com_object
+        )
+
+    def set_guide_deviation(self, i_length: float) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetGuideDeviation(i_length)
+
+    def set_longitudinal_relimiters(
+        self, ip_ia_elem_a: Reference, ip_ia_elem_b: Reference
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetLongitudinalRelimiters(
+            ip_ia_elem_a.com_object, ip_ia_elem_b.com_object
+        )
+
+    def set_pos_angle(self, ii: int, elem: float) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetPosAngle(ii, elem)
+
+    def set_pos_coord(self, ii: int, elem: float) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetPosCoord(ii, elem)
+
+    def set_pos_direction(self, ii: int, elem: Reference) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetPosDirection(ii, elem.com_object)
+
+    def set_pos_point(self, ii: int, elem: Reference) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetPosPoint(ii, elem.com_object)
+
+    def set_pos_swap_axes(self, ii: int, elem: int) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetPosSwapAxes(ii, elem)
+
+    def set_relimiters(
+        self,
+        ip_ia_elem1: Reference,
+        ip_orient1: int,
+        ip_ia_elem2: Reference,
+        ip_orient2: int,
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetRelimiters(
+            ip_ia_elem1.com_object, ip_orient1, ip_ia_elem2.com_object, ip_orient2
+        )
+
+    def set_smooth_angle_threshold(self, i_angle: float) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.SetSmoothAngleThreshold(i_angle)
+
+    def use_sketch_axis_as_default(self, i_boolean: bool) -&gt; None:
+        return self.hybrid_shape_sweep_explicit.UseSketchAxisAsDefault(i_boolean)
+
+    def __repr__(self):
+        return f&#39;HybridShapeSweepExplicit(name=&#34;{self.name}&#34;)&#39;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep.HybridShapeSweep" href="hybrid_shape_sweep.html#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep.HybridShapeSweep">HybridShapeSweep</a></li>
+<li><a title="pytia.framework.mec_mod_interfaces.hybrid_shape.HybridShape" href="../mec_mod_interfaces/hybrid_shape.html#pytia.framework.mec_mod_interfaces.hybrid_shape.HybridShape">HybridShape</a></li>
+<li><a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a></li>
+<li><a title="pytia.framework.base.Base" href="../base.html#pytia.framework.base.Base">Base</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.angle_law"><code class="name">var <span class="ident">angle_law</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def angle_law(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_explicit.AngleLaw)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.angle_law_inversion"><code class="name">var <span class="ident">angle_law_inversion</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def angle_law_inversion(self) -&gt; int:
+    return self.hybrid_shape_sweep_explicit.AngleLawInversion</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.angle_law_type"><code class="name">var <span class="ident">angle_law_type</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def angle_law_type(self) -&gt; int:
+    return self.hybrid_shape_sweep_explicit.AngleLawType</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.canonical_detection"><code class="name">var <span class="ident">canonical_detection</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def canonical_detection(self) -&gt; int:
+    return self.hybrid_shape_sweep_explicit.CanonicalDetection</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.context"><code class="name">var <span class="ident">context</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def context(self) -&gt; int:
+    return self.hybrid_shape_sweep_explicit.Context</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.first_guide_crv"><code class="name">var <span class="ident">first_guide_crv</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def first_guide_crv(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_explicit.FirstGuideCrv)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.guide_deviation"><code class="name">var <span class="ident">guide_deviation</span> : <a title="pytia.framework.knowledge_interfaces.length.Length" href="../knowledge_interfaces/length.html#pytia.framework.knowledge_interfaces.length.Length">Length</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def guide_deviation(self) -&gt; Length:
+    return Length(self.hybrid_shape_sweep_explicit.GuideDeviation)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.guide_deviation_activity"><code class="name">var <span class="ident">guide_deviation_activity</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def guide_deviation_activity(self) -&gt; bool:
+    return self.hybrid_shape_sweep_explicit.GuideDeviationActivity</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.guide_projection"><code class="name">var <span class="ident">guide_projection</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def guide_projection(self) -&gt; bool:
+    return self.hybrid_shape_sweep_explicit.GuideProjection</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.mode"><code class="name">var <span class="ident">mode</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def mode(self) -&gt; int:
+    return self.hybrid_shape_sweep_explicit.Mode</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.position_mode"><code class="name">var <span class="ident">position_mode</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def position_mode(self) -&gt; int:
+    return self.hybrid_shape_sweep_explicit.PositionMode</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.positioned_profile"><code class="name">var <span class="ident">positioned_profile</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def positioned_profile(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_explicit.PositionedProfile)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.profile"><code class="name">var <span class="ident">profile</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def profile(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_explicit.Profile)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.profile_x_axis_computation_mode"><code class="name">var <span class="ident">profile_x_axis_computation_mode</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def profile_x_axis_computation_mode(self) -&gt; int:
+    return self.hybrid_shape_sweep_explicit.ProfileXAxisComputationMode</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.pulling_direction"><code class="name">var <span class="ident">pulling_direction</span> : <a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_direction.HybridShapeDirection" href="hybrid_shape_direction.html#pytia.framework.hybrid_shape_interfaces.hybrid_shape_direction.HybridShapeDirection">HybridShapeDirection</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def pulling_direction(self) -&gt; HybridShapeDirection:
+    return HybridShapeDirection(self.hybrid_shape_sweep_explicit.PullingDirection)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.reference"><code class="name">var <span class="ident">reference</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def reference(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_explicit.Reference)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.second_guide_crv"><code class="name">var <span class="ident">second_guide_crv</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def second_guide_crv(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_explicit.SecondGuideCrv)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.smooth_activity"><code class="name">var <span class="ident">smooth_activity</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def smooth_activity(self) -&gt; bool:
+    return self.hybrid_shape_sweep_explicit.SmoothActivity</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.smooth_angle_threshold"><code class="name">var <span class="ident">smooth_angle_threshold</span> : <a title="pytia.framework.knowledge_interfaces.angle.Angle" href="../knowledge_interfaces/angle.html#pytia.framework.knowledge_interfaces.angle.Angle">Angle</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def smooth_angle_threshold(self) -&gt; Angle:
+    return Angle(self.hybrid_shape_sweep_explicit.SmoothAngleThreshold)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.solution_no"><code class="name">var <span class="ident">solution_no</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def solution_no(self) -&gt; int:
+    return self.hybrid_shape_sweep_explicit.SolutionNo</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.spine"><code class="name">var <span class="ident">spine</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def spine(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_explicit.Spine)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.sub_type"><code class="name">var <span class="ident">sub_type</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def sub_type(self) -&gt; int:
+    return self.hybrid_shape_sweep_explicit.SubType</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_angle_ref"><code class="name flex">
+<span>def <span class="ident">get_angle_ref</span></span>(<span>self, ii: int) ‑> <a title="pytia.framework.knowledge_interfaces.angle.Angle" href="../knowledge_interfaces/angle.html#pytia.framework.knowledge_interfaces.angle.Angle">Angle</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_angle_ref(self, ii: int) -&gt; Angle:
+    return Angle(self.hybrid_shape_sweep_explicit.GetAngleRef(ii))</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_fitting_points"><code class="name flex">
+<span>def <span class="ident">get_fitting_points</span></span>(<span>self, op_ia_elem_a: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, op_ia_elem_b: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_fitting_points(
+    self, op_ia_elem_a: Reference, op_ia_elem_b: Reference
+) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.GetFittingPoints(
+        op_ia_elem_a.com_object, op_ia_elem_b.com_object
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_longitudinal_relimiters"><code class="name flex">
+<span>def <span class="ident">get_longitudinal_relimiters</span></span>(<span>self, op_ia_elem_a: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, op_ia_elem_b: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_longitudinal_relimiters(
+    self, op_ia_elem_a: Reference, op_ia_elem_b: Reference
+) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.GetLongitudinalRelimiters(
+        op_ia_elem_a.com_object, op_ia_elem_b.com_object
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_nb_angle"><code class="name flex">
+<span>def <span class="ident">get_nb_angle</span></span>(<span>self, o_ang: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_nb_angle(self, o_ang: int) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.GetNbAngle(o_ang)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_nb_guide"><code class="name flex">
+<span>def <span class="ident">get_nb_guide</span></span>(<span>self, o_num: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_nb_guide(self, o_num: int) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.GetNbGuide(o_num)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_nb_pos_angle"><code class="name flex">
+<span>def <span class="ident">get_nb_pos_angle</span></span>(<span>self, o_pos_ang: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_nb_pos_angle(self, o_pos_ang: int) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.GetNbPosAngle(o_pos_ang)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_nb_pos_coord"><code class="name flex">
+<span>def <span class="ident">get_nb_pos_coord</span></span>(<span>self, o_pos_coord: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_nb_pos_coord(self, o_pos_coord: int) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.GetNbPosCoord(o_pos_coord)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_pos_angle"><code class="name flex">
+<span>def <span class="ident">get_pos_angle</span></span>(<span>self, ii: int) ‑> <a title="pytia.framework.knowledge_interfaces.angle.Angle" href="../knowledge_interfaces/angle.html#pytia.framework.knowledge_interfaces.angle.Angle">Angle</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_pos_angle(self, ii: int) -&gt; Angle:
+    return Angle(self.hybrid_shape_sweep_explicit.GetPosAngle(ii))</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_pos_coord"><code class="name flex">
+<span>def <span class="ident">get_pos_coord</span></span>(<span>self, ii: int) ‑> <a title="pytia.framework.knowledge_interfaces.length.Length" href="../knowledge_interfaces/length.html#pytia.framework.knowledge_interfaces.length.Length">Length</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_pos_coord(self, ii: int) -&gt; Length:
+    return Length(self.hybrid_shape_sweep_explicit.GetPosCoord(ii))</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_pos_direction"><code class="name flex">
+<span>def <span class="ident">get_pos_direction</span></span>(<span>self, ii: int) ‑> <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_pos_direction(self, ii: int) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_explicit.GetPosDirection(ii))</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_pos_point"><code class="name flex">
+<span>def <span class="ident">get_pos_point</span></span>(<span>self, ii: int) ‑> <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_pos_point(self, ii: int) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_explicit.GetPosPoint(ii))</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_pos_swap_axes"><code class="name flex">
+<span>def <span class="ident">get_pos_swap_axes</span></span>(<span>self, ii: int) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_pos_swap_axes(self, ii: int) -&gt; int:
+    return self.hybrid_shape_sweep_explicit.GetPosSwapAxes(ii)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_relimiters"><code class="name flex">
+<span>def <span class="ident">get_relimiters</span></span>(<span>self, op_ia_elem1: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, op_orient1: int, op_ia_elem2: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, op_orient2: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_relimiters(
+    self,
+    op_ia_elem1: Reference,
+    op_orient1: int,
+    op_ia_elem2: Reference,
+    op_orient2: int,
+) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.GetRelimiters(
+        op_ia_elem1.com_object, op_orient1, op_ia_elem2.com_object, op_orient2
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.is_sketch_axis_used_as_default"><code class="name flex">
+<span>def <span class="ident">is_sketch_axis_used_as_default</span></span>(<span>self, o_boolean: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_sketch_axis_used_as_default(self, o_boolean: bool) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.IsSketchAxisUsedAsDefault(o_boolean)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.remove_angle"><code class="name flex">
+<span>def <span class="ident">remove_angle</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_angle(self) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.RemoveAngle()</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.remove_fitting_points"><code class="name flex">
+<span>def <span class="ident">remove_fitting_points</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_fitting_points(self) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.RemoveFittingPoints()</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.remove_guide"><code class="name flex">
+<span>def <span class="ident">remove_guide</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_guide(self) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.RemoveGuide()</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_angle_ref"><code class="name flex">
+<span>def <span class="ident">set_angle_ref</span></span>(<span>self, ii: int, elem: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_angle_ref(self, ii: int, elem: float) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.SetAngleRef(ii, elem)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_fitting_points"><code class="name flex">
+<span>def <span class="ident">set_fitting_points</span></span>(<span>self, ip_ia_elem_a: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, ip_ia_elem_b: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_fitting_points(
+    self, ip_ia_elem_a: Reference, ip_ia_elem_b: Reference
+) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.SetFittingPoints(
+        ip_ia_elem_a.com_object, ip_ia_elem_b.com_object
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_guide_deviation"><code class="name flex">
+<span>def <span class="ident">set_guide_deviation</span></span>(<span>self, i_length: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_guide_deviation(self, i_length: float) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.SetGuideDeviation(i_length)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_longitudinal_relimiters"><code class="name flex">
+<span>def <span class="ident">set_longitudinal_relimiters</span></span>(<span>self, ip_ia_elem_a: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, ip_ia_elem_b: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_longitudinal_relimiters(
+    self, ip_ia_elem_a: Reference, ip_ia_elem_b: Reference
+) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.SetLongitudinalRelimiters(
+        ip_ia_elem_a.com_object, ip_ia_elem_b.com_object
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_pos_angle"><code class="name flex">
+<span>def <span class="ident">set_pos_angle</span></span>(<span>self, ii: int, elem: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_pos_angle(self, ii: int, elem: float) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.SetPosAngle(ii, elem)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_pos_coord"><code class="name flex">
+<span>def <span class="ident">set_pos_coord</span></span>(<span>self, ii: int, elem: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_pos_coord(self, ii: int, elem: float) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.SetPosCoord(ii, elem)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_pos_direction"><code class="name flex">
+<span>def <span class="ident">set_pos_direction</span></span>(<span>self, ii: int, elem: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_pos_direction(self, ii: int, elem: Reference) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.SetPosDirection(ii, elem.com_object)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_pos_point"><code class="name flex">
+<span>def <span class="ident">set_pos_point</span></span>(<span>self, ii: int, elem: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_pos_point(self, ii: int, elem: Reference) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.SetPosPoint(ii, elem.com_object)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_pos_swap_axes"><code class="name flex">
+<span>def <span class="ident">set_pos_swap_axes</span></span>(<span>self, ii: int, elem: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_pos_swap_axes(self, ii: int, elem: int) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.SetPosSwapAxes(ii, elem)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_relimiters"><code class="name flex">
+<span>def <span class="ident">set_relimiters</span></span>(<span>self, ip_ia_elem1: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, ip_orient1: int, ip_ia_elem2: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, ip_orient2: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_relimiters(
+    self,
+    ip_ia_elem1: Reference,
+    ip_orient1: int,
+    ip_ia_elem2: Reference,
+    ip_orient2: int,
+) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.SetRelimiters(
+        ip_ia_elem1.com_object, ip_orient1, ip_ia_elem2.com_object, ip_orient2
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_smooth_angle_threshold"><code class="name flex">
+<span>def <span class="ident">set_smooth_angle_threshold</span></span>(<span>self, i_angle: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_smooth_angle_threshold(self, i_angle: float) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.SetSmoothAngleThreshold(i_angle)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.use_sketch_axis_as_default"><code class="name flex">
+<span>def <span class="ident">use_sketch_axis_as_default</span></span>(<span>self, i_boolean: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def use_sketch_axis_as_default(self, i_boolean: bool) -&gt; None:
+    return self.hybrid_shape_sweep_explicit.UseSketchAxisAsDefault(i_boolean)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces" href="index.html">pytia.framework.hybrid_shape_interfaces</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit">HybridShapeSweepExplicit</a></code></h4>
+<ul class="">
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.angle_law" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.angle_law">angle_law</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.angle_law_inversion" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.angle_law_inversion">angle_law_inversion</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.angle_law_type" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.angle_law_type">angle_law_type</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.canonical_detection" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.canonical_detection">canonical_detection</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.context" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.context">context</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.first_guide_crv" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.first_guide_crv">first_guide_crv</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_angle_ref" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_angle_ref">get_angle_ref</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_fitting_points" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_fitting_points">get_fitting_points</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_longitudinal_relimiters" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_longitudinal_relimiters">get_longitudinal_relimiters</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_nb_angle" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_nb_angle">get_nb_angle</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_nb_guide" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_nb_guide">get_nb_guide</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_nb_pos_angle" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_nb_pos_angle">get_nb_pos_angle</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_nb_pos_coord" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_nb_pos_coord">get_nb_pos_coord</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_pos_angle" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_pos_angle">get_pos_angle</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_pos_coord" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_pos_coord">get_pos_coord</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_pos_direction" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_pos_direction">get_pos_direction</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_pos_point" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_pos_point">get_pos_point</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_pos_swap_axes" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_pos_swap_axes">get_pos_swap_axes</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_relimiters" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.get_relimiters">get_relimiters</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.guide_deviation" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.guide_deviation">guide_deviation</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.guide_deviation_activity" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.guide_deviation_activity">guide_deviation_activity</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.guide_projection" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.guide_projection">guide_projection</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.is_sketch_axis_used_as_default" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.is_sketch_axis_used_as_default">is_sketch_axis_used_as_default</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.mode" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.mode">mode</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.position_mode" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.position_mode">position_mode</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.positioned_profile" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.positioned_profile">positioned_profile</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.profile" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.profile">profile</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.profile_x_axis_computation_mode" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.profile_x_axis_computation_mode">profile_x_axis_computation_mode</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.pulling_direction" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.pulling_direction">pulling_direction</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.reference" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.reference">reference</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.remove_angle" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.remove_angle">remove_angle</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.remove_fitting_points" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.remove_fitting_points">remove_fitting_points</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.remove_guide" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.remove_guide">remove_guide</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.second_guide_crv" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.second_guide_crv">second_guide_crv</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_angle_ref" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_angle_ref">set_angle_ref</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_fitting_points" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_fitting_points">set_fitting_points</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_guide_deviation" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_guide_deviation">set_guide_deviation</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_longitudinal_relimiters" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_longitudinal_relimiters">set_longitudinal_relimiters</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_pos_angle" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_pos_angle">set_pos_angle</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_pos_coord" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_pos_coord">set_pos_coord</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_pos_direction" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_pos_direction">set_pos_direction</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_pos_point" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_pos_point">set_pos_point</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_pos_swap_axes" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_pos_swap_axes">set_pos_swap_axes</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_relimiters" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_relimiters">set_relimiters</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_smooth_angle_threshold" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.set_smooth_angle_threshold">set_smooth_angle_threshold</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.smooth_activity" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.smooth_activity">smooth_activity</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.smooth_angle_threshold" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.smooth_angle_threshold">smooth_angle_threshold</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.solution_no" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.solution_no">solution_no</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.spine" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.spine">spine</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.sub_type" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.sub_type">sub_type</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.use_sketch_axis_as_default" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_explicit.HybridShapeSweepExplicit.use_sketch_axis_as_default">use_sketch_axis_as_default</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

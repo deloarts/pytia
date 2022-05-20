@@ -1,0 +1,1452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia.wrapper.parameters API documentation</title>
+<meta name="description" content="Wrapper module CATIA parameters." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia.wrapper.parameters</code></h1>
+</header>
+<section id="section-intro">
+<p>Wrapper module CATIA parameters.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+    Wrapper module CATIA parameters.
+&#34;&#34;&#34;
+import functools
+from typing import Any, List, Optional, Type
+
+from pytia.exceptions import (
+    PytiaParameterExistsError,
+    PytiaParameterNotFoundError,
+    PytiaParameterTypeError,
+)
+from pytia.framework.knowledge_interfaces.bool_param import BoolParam
+from pytia.framework.knowledge_interfaces.dimension import Dimension
+from pytia.framework.knowledge_interfaces.int_param import IntParam
+from pytia.framework.knowledge_interfaces.parameter import Parameter
+from pytia.framework.knowledge_interfaces.parameters import Parameters
+from pytia.framework.knowledge_interfaces.real_param import RealParam
+from pytia.framework.knowledge_interfaces.str_param import StrParam
+from pytia.framework.mec_mod_interfaces.part import Part
+from pytia.log import log
+
+LENGTH = &#34;LENGTH&#34;
+ANGLE = &#34;ANGLE&#34;
+UNIT = {LENGTH: &#34;mm&#34;, ANGLE: &#34;deg&#34;}
+
+
+class PyPartParameters:
+    &#34;&#34;&#34;The wrapper class for CATIA Parameters and Dimensions (KnowledgeInterfaces Framework)&#34;&#34;&#34;
+
+    def __init__(self, part: Part) -&gt; None:
+        &#34;&#34;&#34;
+        Inits the wrapper class for CATIA parameters.
+
+        Args:
+            part (Part): The part which contains the parameters.
+        &#34;&#34;&#34;
+        self._part = part
+        self._parameters = self._part.parameters
+
+    def __call__(self) -&gt; Parameters:
+        return self._parameters
+
+    def __repr__(self) -&gt; str:
+        return f&#34;PyPartParameters({self._part.name})&#34;
+
+    @property
+    def parameters(
+        self,
+    ) -&gt; List[BoolParam | IntParam | RealParam | StrParam | Dimension]:
+        &#34;&#34;&#34;Returns a list of all parameters.&#34;&#34;&#34;
+        output = []
+        for i in range(1, self._parameters.count + 1):
+            output.append(self._parameters.item(i))
+        return output
+
+    @property
+    def names(self) -&gt; List[str]:
+        &#34;&#34;&#34;Returns a list all parameter names.&#34;&#34;&#34;
+        output = []
+        for i in range(1, self._parameters.count + 1):
+            output.append(self._parameters.item(i).name)
+        return output
+
+    @staticmethod
+    def _unique(func):
+        &#34;&#34;&#34;Makes sure that no parameters with the same name are created.&#34;&#34;&#34;
+
+        @functools.wraps(func)
+        def _unique_wrapper(self, name, *args, **kwargs):
+            if self.exists(name=name):
+                # We have to raise an exception when a parameter name matches any existing one.
+                # The problem is, that CATIA doesn&#39;t warn the user when two parameters have the
+                # same local name, instead the latter one will get a number as postfix, e.g.:
+                #   First parameter local name: foo
+                #   Second parameter local name: foo.1
+                # Bad thing: We have no way of getting that postfixed local name, so when this
+                # happens and we access the parameter by name (foo) later, we won&#39;t ever know which
+                # parameter we get.
+                raise PytiaParameterExistsError(
+                    f&#34;Failed creating parameter {name!r}: Already exists in {self._part.name!r}&#34;
+                )
+            return func(self, name, *args, **kwargs)
+
+        return _unique_wrapper
+
+    def exists(self, name: str) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns wether a parameter of the given name already exists in the part, or not.
+
+        Args:
+            name (str): The name of the parameter to check.
+
+        Returns:
+            bool: True if the parameter exists, otherwise False.
+        &#34;&#34;&#34;
+        for i in range(1, self._parameters.count + 1):
+            if self._parameters.item(i).name == name:
+                return True
+        return False
+
+    def get(
+        self,
+        name: str,
+        of_type: Optional[Type[bool] | Type[int] | Type[float] | Type[str]] = None,
+    ) -&gt; BoolParam | IntParam | RealParam | StrParam | Dimension:
+        &#34;&#34;&#34;
+        Returns a parameter with the given name.
+
+        Args:
+            name (str): The name of the parameter to retrieve.
+            of_type (Optional[Type[bool]  |  Type[int]  |  Type[float]  |  Type[str]], optional): \
+                The type of the parameter. Defaults to None. If None, no type checking will be used.
+
+        Raises:
+            PytiaParameterTypeError: Raised when the type of the parameter does not match.
+            PytiaParameterNotFoundError: Raised when the parameter does not exist.
+
+        Returns:
+            BoolParam | IntParam | RealParam | StrParam | Dimension: _description_
+        &#34;&#34;&#34;
+        if self.exists(name=name):
+            native_value = self._parameters.item(name).value  # type: ignore
+            parameter = self._parameters.item(name)
+
+            # Return the parameter with its type
+            if self.is_bool(parameter) and of_type in [bool, None]:
+                log.debug(f&#34;Parameter {name!r} is of type BoolParam.&#34;)
+                return BoolParam(parameter)
+            if self.is_int(parameter) and of_type in [int, None]:
+                log.debug(f&#34;Parameter {name!r} is of type IntParam.&#34;)
+                return IntParam(parameter)
+            if self.is_real(parameter) and of_type in [float, None]:
+                log.debug(f&#34;Parameter {name!r} is of type RealParam.&#34;)
+                return RealParam(parameter)
+            if self.is_dimension(parameter) and of_type in [float, None]:
+                log.debug(f&#34;Parameter {name!r} is of type Dimension.&#34;)
+                return Dimension(parameter)
+            if self.is_str(parameter) and of_type in [str, None]:
+                log.debug(f&#34;Parameter {name!r} is of type StrParam.&#34;)
+                return StrParam(parameter)
+            raise PytiaParameterTypeError(
+                f&#34;Parameter {name!r} has invalid type {type(native_value)!r}&#34;
+            )
+        raise PytiaParameterNotFoundError(
+            f&#34;Parameter {name!r} not found in {self._part.name!r}&#34;
+        )
+
+    @_unique
+    def create_length(self, name: str, value: float) -&gt; Dimension:
+        &#34;&#34;&#34;
+        Creates a CATIA LENGTH parameter in millimeter with the given name and value.
+
+        Args:
+            name (str): The name of the length parameter.
+            value (float): The value of the length parameter.
+
+        Raises:
+            PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+        Returns:
+            Dimension: The length parameter as Dimension.
+        &#34;&#34;&#34;
+        return self._create_dimension(name=name, value=value, param_type=LENGTH)
+
+    @_unique
+    def create_angle(self, name: str, value: float) -&gt; Dimension:
+        &#34;&#34;&#34;
+        Creates a CATIA ANGLE parameter in degrees with the given name and value.
+
+        Args:
+            name (str): The name of the angle parameter.
+            value (float): The value of the angle parameter.
+
+        Raises:
+            PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+        Returns:
+            Dimension: The angle parameter as Dimension.
+        &#34;&#34;&#34;
+        return self._create_dimension(name=name, value=value, param_type=ANGLE)
+
+    @_unique
+    def create_bool(self, name: str, value: bool) -&gt; BoolParam:
+        &#34;&#34;&#34;
+        Creates a CATIA boolean parameter.
+
+        Args:
+            name (str): The name of the boolean parameter.
+            value (float): The value of the boolean parameter.
+
+        Raises:
+            PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+        Returns:
+            BoolParam: The boolean parameter.
+        &#34;&#34;&#34;
+        parameter = self._parameters.create_boolean(name, value)
+        parameter.rename(name)
+        log.info(
+            f&#34;Created parameter {name!r} ({value}, BOOLEAN) in {self._part.name!r}&#34;
+        )
+        return parameter
+
+    @_unique
+    def create_int(self, name: str, value: int) -&gt; IntParam:
+        &#34;&#34;&#34;
+        Creates a CATIA integer parameter.
+
+        Args:
+            name (str): The name of the integer parameter.
+            value (float): The value of the integer parameter.
+
+        Raises:
+            PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+        Returns:
+            IntParam: The integer parameter.
+        &#34;&#34;&#34;
+        parameter = self._parameters.create_integer(name, value)
+        parameter.rename(name)
+        log.info(
+            f&#34;Created parameter {name!r} ({value}, INTEGER) in {self._part.name!r}&#34;
+        )
+        return parameter
+
+    @_unique
+    def create_real(self, name: str, value: float) -&gt; RealParam:
+        &#34;&#34;&#34;
+        Creates a CATIA real parameter.
+
+        Args:
+            name (str): The name of the real parameter.
+            value (float): The value of the real parameter.
+
+        Raises:
+            PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+        Returns:
+            RealParam: The real parameter.
+        &#34;&#34;&#34;
+        parameter = self._parameters.create_real(name, value)
+        parameter.rename(name)
+        log.info(f&#34;Created parameter {name!r} ({value}, REAL) in {self._part.name!r}&#34;)
+        return parameter
+
+    @_unique
+    def create_string(self, name: str, value: str) -&gt; StrParam:
+        &#34;&#34;&#34;
+        Creates a CATIA string parameter.
+
+        Args:
+            name (str): The name of the string parameter.
+            value (float): The value of the string parameter.
+
+        Raises:
+            PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+        Returns:
+            StrParam: The string parameter.
+        &#34;&#34;&#34;
+        parameter = self._parameters.create_string(name, value)
+        parameter.rename(name)
+        log.info(f&#34;Created parameter {name!r} ({value}, STRING) in {self._part.name!r}&#34;)
+        return parameter
+
+    @_unique
+    def _create_dimension(self, name: str, value: Any, param_type: str) -&gt; Dimension:
+        &#34;&#34;&#34;
+        Creates a dimension parameter.
+
+        Args:
+            name (str): The name of the dimension parameter.
+            value (Any): The value of the dimension parameter.
+            param_type (str): The type of the dimension parameter (LENGTH or ANGLE).
+
+        Raises:
+            PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+        Returns:
+            Dimension: The newly created dimension.
+        &#34;&#34;&#34;
+        dimension = self._parameters.create_dimension(name, param_type, 0)
+        dimension.rename(name)
+        dimension.valuate_from_string(f&#34;{value}{UNIT[param_type]}&#34;)
+        # Use Parameter.Rename to set the Name.
+        # This only applies to the name, the local name is set when creating the
+        # parameter and cannot be changed later.
+        log.info(
+            f&#34;Created dimension {name!r} ({value!r}, {param_type}, {UNIT[param_type]}) in {self._part.name!r}&#34;
+        )
+        return dimension
+
+    @staticmethod
+    def is_dimension(parameter: Parameter) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns True if the given parameter is of type Dimension.
+
+        Args:
+            parameter (Parameter): The parameter to check.
+
+        Returns:
+            bool: True if the given parameter is of type Dimension.
+        &#34;&#34;&#34;
+        try:
+            # Parameters of type Dimension and Real are both floats.
+            # But only the Dimension parameter has a unit property.
+            # To determine if we have a Dimension or a Real we try
+            # to get the unit property. If it succeeds it&#39;s a Dimension.
+            # pylint: disable=W0104
+            parameter.unit.name  # type: ignore
+            # pylint: enable=W0104
+            return True
+        except:  # pylint: disable=W0702
+            return False
+
+    @staticmethod
+    def is_bool(parameter: Parameter) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns True if the given parameter is of type BoolParam.
+
+        Args:
+            parameter (Parameter): The parameter to check.
+
+        Returns:
+            bool: True if the given parameter is of type BoolParam.
+        &#34;&#34;&#34;
+        return isinstance(parameter.value, bool)  # type: ignore
+
+    @staticmethod
+    def is_int(parameter: Parameter) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns True if the given parameter is of type IntParam.
+
+        Args:
+            parameter (Parameter): The parameter to check.
+
+        Returns:
+            bool: True if the given parameter is of type IntParam.
+        &#34;&#34;&#34;
+        return isinstance(parameter.value, int)  # type: ignore
+
+    @staticmethod
+    def is_real(parameter: Parameter) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns True if the given parameter is of type RealParam.
+
+        Args:
+            parameter (Parameter): The parameter to check.
+
+        Returns:
+            bool: True if the given parameter is of type RealParam.
+        &#34;&#34;&#34;
+        try:
+            # Parameters of type Dimension and Real are both floats.
+            # But only the Dimension parameter has a unit property.
+            # To determine if we have a Dimension or a Real we try
+            # to get the unit property. If it fails it&#39;s a Real.
+            # pylint: disable=W0104
+            parameter.unit.name  # type: ignore
+            # pylint: enable=W0104
+            return False
+        except:  # pylint: disable=W0702
+            return isinstance(parameter.value, float)  # type: ignore
+
+    @staticmethod
+    def is_str(parameter: Parameter) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns True if the given parameter is of type StrParam.
+
+        Args:
+            parameter (Parameter): The parameter to check.
+
+        Returns:
+            bool: True if the given parameter is of type StrParam.
+        &#34;&#34;&#34;
+        return isinstance(parameter.value, str)  # type: ignore</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia.wrapper.parameters.PyPartParameters"><code class="flex name class">
+<span>class <span class="ident">PyPartParameters</span></span>
+<span>(</span><span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The wrapper class for CATIA Parameters and Dimensions (KnowledgeInterfaces Framework)</p>
+<p>Inits the wrapper class for CATIA parameters.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>part</code></strong> :&ensp;<code>Part</code></dt>
+<dd>The part which contains the parameters.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PyPartParameters:
+    &#34;&#34;&#34;The wrapper class for CATIA Parameters and Dimensions (KnowledgeInterfaces Framework)&#34;&#34;&#34;
+
+    def __init__(self, part: Part) -&gt; None:
+        &#34;&#34;&#34;
+        Inits the wrapper class for CATIA parameters.
+
+        Args:
+            part (Part): The part which contains the parameters.
+        &#34;&#34;&#34;
+        self._part = part
+        self._parameters = self._part.parameters
+
+    def __call__(self) -&gt; Parameters:
+        return self._parameters
+
+    def __repr__(self) -&gt; str:
+        return f&#34;PyPartParameters({self._part.name})&#34;
+
+    @property
+    def parameters(
+        self,
+    ) -&gt; List[BoolParam | IntParam | RealParam | StrParam | Dimension]:
+        &#34;&#34;&#34;Returns a list of all parameters.&#34;&#34;&#34;
+        output = []
+        for i in range(1, self._parameters.count + 1):
+            output.append(self._parameters.item(i))
+        return output
+
+    @property
+    def names(self) -&gt; List[str]:
+        &#34;&#34;&#34;Returns a list all parameter names.&#34;&#34;&#34;
+        output = []
+        for i in range(1, self._parameters.count + 1):
+            output.append(self._parameters.item(i).name)
+        return output
+
+    @staticmethod
+    def _unique(func):
+        &#34;&#34;&#34;Makes sure that no parameters with the same name are created.&#34;&#34;&#34;
+
+        @functools.wraps(func)
+        def _unique_wrapper(self, name, *args, **kwargs):
+            if self.exists(name=name):
+                # We have to raise an exception when a parameter name matches any existing one.
+                # The problem is, that CATIA doesn&#39;t warn the user when two parameters have the
+                # same local name, instead the latter one will get a number as postfix, e.g.:
+                #   First parameter local name: foo
+                #   Second parameter local name: foo.1
+                # Bad thing: We have no way of getting that postfixed local name, so when this
+                # happens and we access the parameter by name (foo) later, we won&#39;t ever know which
+                # parameter we get.
+                raise PytiaParameterExistsError(
+                    f&#34;Failed creating parameter {name!r}: Already exists in {self._part.name!r}&#34;
+                )
+            return func(self, name, *args, **kwargs)
+
+        return _unique_wrapper
+
+    def exists(self, name: str) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns wether a parameter of the given name already exists in the part, or not.
+
+        Args:
+            name (str): The name of the parameter to check.
+
+        Returns:
+            bool: True if the parameter exists, otherwise False.
+        &#34;&#34;&#34;
+        for i in range(1, self._parameters.count + 1):
+            if self._parameters.item(i).name == name:
+                return True
+        return False
+
+    def get(
+        self,
+        name: str,
+        of_type: Optional[Type[bool] | Type[int] | Type[float] | Type[str]] = None,
+    ) -&gt; BoolParam | IntParam | RealParam | StrParam | Dimension:
+        &#34;&#34;&#34;
+        Returns a parameter with the given name.
+
+        Args:
+            name (str): The name of the parameter to retrieve.
+            of_type (Optional[Type[bool]  |  Type[int]  |  Type[float]  |  Type[str]], optional): \
+                The type of the parameter. Defaults to None. If None, no type checking will be used.
+
+        Raises:
+            PytiaParameterTypeError: Raised when the type of the parameter does not match.
+            PytiaParameterNotFoundError: Raised when the parameter does not exist.
+
+        Returns:
+            BoolParam | IntParam | RealParam | StrParam | Dimension: _description_
+        &#34;&#34;&#34;
+        if self.exists(name=name):
+            native_value = self._parameters.item(name).value  # type: ignore
+            parameter = self._parameters.item(name)
+
+            # Return the parameter with its type
+            if self.is_bool(parameter) and of_type in [bool, None]:
+                log.debug(f&#34;Parameter {name!r} is of type BoolParam.&#34;)
+                return BoolParam(parameter)
+            if self.is_int(parameter) and of_type in [int, None]:
+                log.debug(f&#34;Parameter {name!r} is of type IntParam.&#34;)
+                return IntParam(parameter)
+            if self.is_real(parameter) and of_type in [float, None]:
+                log.debug(f&#34;Parameter {name!r} is of type RealParam.&#34;)
+                return RealParam(parameter)
+            if self.is_dimension(parameter) and of_type in [float, None]:
+                log.debug(f&#34;Parameter {name!r} is of type Dimension.&#34;)
+                return Dimension(parameter)
+            if self.is_str(parameter) and of_type in [str, None]:
+                log.debug(f&#34;Parameter {name!r} is of type StrParam.&#34;)
+                return StrParam(parameter)
+            raise PytiaParameterTypeError(
+                f&#34;Parameter {name!r} has invalid type {type(native_value)!r}&#34;
+            )
+        raise PytiaParameterNotFoundError(
+            f&#34;Parameter {name!r} not found in {self._part.name!r}&#34;
+        )
+
+    @_unique
+    def create_length(self, name: str, value: float) -&gt; Dimension:
+        &#34;&#34;&#34;
+        Creates a CATIA LENGTH parameter in millimeter with the given name and value.
+
+        Args:
+            name (str): The name of the length parameter.
+            value (float): The value of the length parameter.
+
+        Raises:
+            PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+        Returns:
+            Dimension: The length parameter as Dimension.
+        &#34;&#34;&#34;
+        return self._create_dimension(name=name, value=value, param_type=LENGTH)
+
+    @_unique
+    def create_angle(self, name: str, value: float) -&gt; Dimension:
+        &#34;&#34;&#34;
+        Creates a CATIA ANGLE parameter in degrees with the given name and value.
+
+        Args:
+            name (str): The name of the angle parameter.
+            value (float): The value of the angle parameter.
+
+        Raises:
+            PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+        Returns:
+            Dimension: The angle parameter as Dimension.
+        &#34;&#34;&#34;
+        return self._create_dimension(name=name, value=value, param_type=ANGLE)
+
+    @_unique
+    def create_bool(self, name: str, value: bool) -&gt; BoolParam:
+        &#34;&#34;&#34;
+        Creates a CATIA boolean parameter.
+
+        Args:
+            name (str): The name of the boolean parameter.
+            value (float): The value of the boolean parameter.
+
+        Raises:
+            PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+        Returns:
+            BoolParam: The boolean parameter.
+        &#34;&#34;&#34;
+        parameter = self._parameters.create_boolean(name, value)
+        parameter.rename(name)
+        log.info(
+            f&#34;Created parameter {name!r} ({value}, BOOLEAN) in {self._part.name!r}&#34;
+        )
+        return parameter
+
+    @_unique
+    def create_int(self, name: str, value: int) -&gt; IntParam:
+        &#34;&#34;&#34;
+        Creates a CATIA integer parameter.
+
+        Args:
+            name (str): The name of the integer parameter.
+            value (float): The value of the integer parameter.
+
+        Raises:
+            PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+        Returns:
+            IntParam: The integer parameter.
+        &#34;&#34;&#34;
+        parameter = self._parameters.create_integer(name, value)
+        parameter.rename(name)
+        log.info(
+            f&#34;Created parameter {name!r} ({value}, INTEGER) in {self._part.name!r}&#34;
+        )
+        return parameter
+
+    @_unique
+    def create_real(self, name: str, value: float) -&gt; RealParam:
+        &#34;&#34;&#34;
+        Creates a CATIA real parameter.
+
+        Args:
+            name (str): The name of the real parameter.
+            value (float): The value of the real parameter.
+
+        Raises:
+            PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+        Returns:
+            RealParam: The real parameter.
+        &#34;&#34;&#34;
+        parameter = self._parameters.create_real(name, value)
+        parameter.rename(name)
+        log.info(f&#34;Created parameter {name!r} ({value}, REAL) in {self._part.name!r}&#34;)
+        return parameter
+
+    @_unique
+    def create_string(self, name: str, value: str) -&gt; StrParam:
+        &#34;&#34;&#34;
+        Creates a CATIA string parameter.
+
+        Args:
+            name (str): The name of the string parameter.
+            value (float): The value of the string parameter.
+
+        Raises:
+            PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+        Returns:
+            StrParam: The string parameter.
+        &#34;&#34;&#34;
+        parameter = self._parameters.create_string(name, value)
+        parameter.rename(name)
+        log.info(f&#34;Created parameter {name!r} ({value}, STRING) in {self._part.name!r}&#34;)
+        return parameter
+
+    @_unique
+    def _create_dimension(self, name: str, value: Any, param_type: str) -&gt; Dimension:
+        &#34;&#34;&#34;
+        Creates a dimension parameter.
+
+        Args:
+            name (str): The name of the dimension parameter.
+            value (Any): The value of the dimension parameter.
+            param_type (str): The type of the dimension parameter (LENGTH or ANGLE).
+
+        Raises:
+            PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+        Returns:
+            Dimension: The newly created dimension.
+        &#34;&#34;&#34;
+        dimension = self._parameters.create_dimension(name, param_type, 0)
+        dimension.rename(name)
+        dimension.valuate_from_string(f&#34;{value}{UNIT[param_type]}&#34;)
+        # Use Parameter.Rename to set the Name.
+        # This only applies to the name, the local name is set when creating the
+        # parameter and cannot be changed later.
+        log.info(
+            f&#34;Created dimension {name!r} ({value!r}, {param_type}, {UNIT[param_type]}) in {self._part.name!r}&#34;
+        )
+        return dimension
+
+    @staticmethod
+    def is_dimension(parameter: Parameter) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns True if the given parameter is of type Dimension.
+
+        Args:
+            parameter (Parameter): The parameter to check.
+
+        Returns:
+            bool: True if the given parameter is of type Dimension.
+        &#34;&#34;&#34;
+        try:
+            # Parameters of type Dimension and Real are both floats.
+            # But only the Dimension parameter has a unit property.
+            # To determine if we have a Dimension or a Real we try
+            # to get the unit property. If it succeeds it&#39;s a Dimension.
+            # pylint: disable=W0104
+            parameter.unit.name  # type: ignore
+            # pylint: enable=W0104
+            return True
+        except:  # pylint: disable=W0702
+            return False
+
+    @staticmethod
+    def is_bool(parameter: Parameter) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns True if the given parameter is of type BoolParam.
+
+        Args:
+            parameter (Parameter): The parameter to check.
+
+        Returns:
+            bool: True if the given parameter is of type BoolParam.
+        &#34;&#34;&#34;
+        return isinstance(parameter.value, bool)  # type: ignore
+
+    @staticmethod
+    def is_int(parameter: Parameter) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns True if the given parameter is of type IntParam.
+
+        Args:
+            parameter (Parameter): The parameter to check.
+
+        Returns:
+            bool: True if the given parameter is of type IntParam.
+        &#34;&#34;&#34;
+        return isinstance(parameter.value, int)  # type: ignore
+
+    @staticmethod
+    def is_real(parameter: Parameter) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns True if the given parameter is of type RealParam.
+
+        Args:
+            parameter (Parameter): The parameter to check.
+
+        Returns:
+            bool: True if the given parameter is of type RealParam.
+        &#34;&#34;&#34;
+        try:
+            # Parameters of type Dimension and Real are both floats.
+            # But only the Dimension parameter has a unit property.
+            # To determine if we have a Dimension or a Real we try
+            # to get the unit property. If it fails it&#39;s a Real.
+            # pylint: disable=W0104
+            parameter.unit.name  # type: ignore
+            # pylint: enable=W0104
+            return False
+        except:  # pylint: disable=W0702
+            return isinstance(parameter.value, float)  # type: ignore
+
+    @staticmethod
+    def is_str(parameter: Parameter) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns True if the given parameter is of type StrParam.
+
+        Args:
+            parameter (Parameter): The parameter to check.
+
+        Returns:
+            bool: True if the given parameter is of type StrParam.
+        &#34;&#34;&#34;
+        return isinstance(parameter.value, str)  # type: ignore</code></pre>
+</details>
+<h3>Static methods</h3>
+<dl>
+<dt id="pytia.wrapper.parameters.PyPartParameters.is_bool"><code class="name flex">
+<span>def <span class="ident">is_bool</span></span>(<span>parameter: <a title="pytia.framework.knowledge_interfaces.parameter.Parameter" href="../framework/knowledge_interfaces/parameter.html#pytia.framework.knowledge_interfaces.parameter.Parameter">Parameter</a>) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns True if the given parameter is of type BoolParam.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>parameter</code></strong> :&ensp;<code>Parameter</code></dt>
+<dd>The parameter to check.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the given parameter is of type BoolParam.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def is_bool(parameter: Parameter) -&gt; bool:
+    &#34;&#34;&#34;
+    Returns True if the given parameter is of type BoolParam.
+
+    Args:
+        parameter (Parameter): The parameter to check.
+
+    Returns:
+        bool: True if the given parameter is of type BoolParam.
+    &#34;&#34;&#34;
+    return isinstance(parameter.value, bool)  # type: ignore</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.parameters.PyPartParameters.is_dimension"><code class="name flex">
+<span>def <span class="ident">is_dimension</span></span>(<span>parameter: <a title="pytia.framework.knowledge_interfaces.parameter.Parameter" href="../framework/knowledge_interfaces/parameter.html#pytia.framework.knowledge_interfaces.parameter.Parameter">Parameter</a>) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns True if the given parameter is of type Dimension.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>parameter</code></strong> :&ensp;<code>Parameter</code></dt>
+<dd>The parameter to check.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the given parameter is of type Dimension.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def is_dimension(parameter: Parameter) -&gt; bool:
+    &#34;&#34;&#34;
+    Returns True if the given parameter is of type Dimension.
+
+    Args:
+        parameter (Parameter): The parameter to check.
+
+    Returns:
+        bool: True if the given parameter is of type Dimension.
+    &#34;&#34;&#34;
+    try:
+        # Parameters of type Dimension and Real are both floats.
+        # But only the Dimension parameter has a unit property.
+        # To determine if we have a Dimension or a Real we try
+        # to get the unit property. If it succeeds it&#39;s a Dimension.
+        # pylint: disable=W0104
+        parameter.unit.name  # type: ignore
+        # pylint: enable=W0104
+        return True
+    except:  # pylint: disable=W0702
+        return False</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.parameters.PyPartParameters.is_int"><code class="name flex">
+<span>def <span class="ident">is_int</span></span>(<span>parameter: <a title="pytia.framework.knowledge_interfaces.parameter.Parameter" href="../framework/knowledge_interfaces/parameter.html#pytia.framework.knowledge_interfaces.parameter.Parameter">Parameter</a>) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns True if the given parameter is of type IntParam.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>parameter</code></strong> :&ensp;<code>Parameter</code></dt>
+<dd>The parameter to check.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the given parameter is of type IntParam.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def is_int(parameter: Parameter) -&gt; bool:
+    &#34;&#34;&#34;
+    Returns True if the given parameter is of type IntParam.
+
+    Args:
+        parameter (Parameter): The parameter to check.
+
+    Returns:
+        bool: True if the given parameter is of type IntParam.
+    &#34;&#34;&#34;
+    return isinstance(parameter.value, int)  # type: ignore</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.parameters.PyPartParameters.is_real"><code class="name flex">
+<span>def <span class="ident">is_real</span></span>(<span>parameter: <a title="pytia.framework.knowledge_interfaces.parameter.Parameter" href="../framework/knowledge_interfaces/parameter.html#pytia.framework.knowledge_interfaces.parameter.Parameter">Parameter</a>) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns True if the given parameter is of type RealParam.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>parameter</code></strong> :&ensp;<code>Parameter</code></dt>
+<dd>The parameter to check.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the given parameter is of type RealParam.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def is_real(parameter: Parameter) -&gt; bool:
+    &#34;&#34;&#34;
+    Returns True if the given parameter is of type RealParam.
+
+    Args:
+        parameter (Parameter): The parameter to check.
+
+    Returns:
+        bool: True if the given parameter is of type RealParam.
+    &#34;&#34;&#34;
+    try:
+        # Parameters of type Dimension and Real are both floats.
+        # But only the Dimension parameter has a unit property.
+        # To determine if we have a Dimension or a Real we try
+        # to get the unit property. If it fails it&#39;s a Real.
+        # pylint: disable=W0104
+        parameter.unit.name  # type: ignore
+        # pylint: enable=W0104
+        return False
+    except:  # pylint: disable=W0702
+        return isinstance(parameter.value, float)  # type: ignore</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.parameters.PyPartParameters.is_str"><code class="name flex">
+<span>def <span class="ident">is_str</span></span>(<span>parameter: <a title="pytia.framework.knowledge_interfaces.parameter.Parameter" href="../framework/knowledge_interfaces/parameter.html#pytia.framework.knowledge_interfaces.parameter.Parameter">Parameter</a>) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns True if the given parameter is of type StrParam.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>parameter</code></strong> :&ensp;<code>Parameter</code></dt>
+<dd>The parameter to check.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the given parameter is of type StrParam.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def is_str(parameter: Parameter) -&gt; bool:
+    &#34;&#34;&#34;
+    Returns True if the given parameter is of type StrParam.
+
+    Args:
+        parameter (Parameter): The parameter to check.
+
+    Returns:
+        bool: True if the given parameter is of type StrParam.
+    &#34;&#34;&#34;
+    return isinstance(parameter.value, str)  # type: ignore</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia.wrapper.parameters.PyPartParameters.names"><code class="name">var <span class="ident">names</span> : List[str]</code></dt>
+<dd>
+<div class="desc"><p>Returns a list all parameter names.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def names(self) -&gt; List[str]:
+    &#34;&#34;&#34;Returns a list all parameter names.&#34;&#34;&#34;
+    output = []
+    for i in range(1, self._parameters.count + 1):
+        output.append(self._parameters.item(i).name)
+    return output</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.parameters.PyPartParameters.parameters"><code class="name">var <span class="ident">parameters</span> : List[<a title="pytia.framework.knowledge_interfaces.bool_param.BoolParam" href="../framework/knowledge_interfaces/bool_param.html#pytia.framework.knowledge_interfaces.bool_param.BoolParam">BoolParam</a> | <a title="pytia.framework.knowledge_interfaces.int_param.IntParam" href="../framework/knowledge_interfaces/int_param.html#pytia.framework.knowledge_interfaces.int_param.IntParam">IntParam</a> | <a title="pytia.framework.knowledge_interfaces.real_param.RealParam" href="../framework/knowledge_interfaces/real_param.html#pytia.framework.knowledge_interfaces.real_param.RealParam">RealParam</a> | <a title="pytia.framework.knowledge_interfaces.str_param.StrParam" href="../framework/knowledge_interfaces/str_param.html#pytia.framework.knowledge_interfaces.str_param.StrParam">StrParam</a> | <a title="pytia.framework.knowledge_interfaces.dimension.Dimension" href="../framework/knowledge_interfaces/dimension.html#pytia.framework.knowledge_interfaces.dimension.Dimension">Dimension</a>]</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of all parameters.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def parameters(
+    self,
+) -&gt; List[BoolParam | IntParam | RealParam | StrParam | Dimension]:
+    &#34;&#34;&#34;Returns a list of all parameters.&#34;&#34;&#34;
+    output = []
+    for i in range(1, self._parameters.count + 1):
+        output.append(self._parameters.item(i))
+    return output</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pytia.wrapper.parameters.PyPartParameters.create_angle"><code class="name flex">
+<span>def <span class="ident">create_angle</span></span>(<span>self, name: str, value: float) ‑> <a title="pytia.framework.knowledge_interfaces.dimension.Dimension" href="../framework/knowledge_interfaces/dimension.html#pytia.framework.knowledge_interfaces.dimension.Dimension">Dimension</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a CATIA ANGLE parameter in degrees with the given name and value.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the angle parameter.</dd>
+<dt><strong><code>value</code></strong> :&ensp;<code>float</code></dt>
+<dd>The value of the angle parameter.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaParameterExistsError</code></dt>
+<dd>Raised when a parameter with the given name already exists.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dimension</code></dt>
+<dd>The angle parameter as Dimension.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@_unique
+def create_angle(self, name: str, value: float) -&gt; Dimension:
+    &#34;&#34;&#34;
+    Creates a CATIA ANGLE parameter in degrees with the given name and value.
+
+    Args:
+        name (str): The name of the angle parameter.
+        value (float): The value of the angle parameter.
+
+    Raises:
+        PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+    Returns:
+        Dimension: The angle parameter as Dimension.
+    &#34;&#34;&#34;
+    return self._create_dimension(name=name, value=value, param_type=ANGLE)</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.parameters.PyPartParameters.create_bool"><code class="name flex">
+<span>def <span class="ident">create_bool</span></span>(<span>self, name: str, value: bool) ‑> <a title="pytia.framework.knowledge_interfaces.bool_param.BoolParam" href="../framework/knowledge_interfaces/bool_param.html#pytia.framework.knowledge_interfaces.bool_param.BoolParam">BoolParam</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a CATIA boolean parameter.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the boolean parameter.</dd>
+<dt><strong><code>value</code></strong> :&ensp;<code>float</code></dt>
+<dd>The value of the boolean parameter.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaParameterExistsError</code></dt>
+<dd>Raised when a parameter with the given name already exists.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>BoolParam</code></dt>
+<dd>The boolean parameter.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@_unique
+def create_bool(self, name: str, value: bool) -&gt; BoolParam:
+    &#34;&#34;&#34;
+    Creates a CATIA boolean parameter.
+
+    Args:
+        name (str): The name of the boolean parameter.
+        value (float): The value of the boolean parameter.
+
+    Raises:
+        PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+    Returns:
+        BoolParam: The boolean parameter.
+    &#34;&#34;&#34;
+    parameter = self._parameters.create_boolean(name, value)
+    parameter.rename(name)
+    log.info(
+        f&#34;Created parameter {name!r} ({value}, BOOLEAN) in {self._part.name!r}&#34;
+    )
+    return parameter</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.parameters.PyPartParameters.create_int"><code class="name flex">
+<span>def <span class="ident">create_int</span></span>(<span>self, name: str, value: int) ‑> <a title="pytia.framework.knowledge_interfaces.int_param.IntParam" href="../framework/knowledge_interfaces/int_param.html#pytia.framework.knowledge_interfaces.int_param.IntParam">IntParam</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a CATIA integer parameter.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the integer parameter.</dd>
+<dt><strong><code>value</code></strong> :&ensp;<code>float</code></dt>
+<dd>The value of the integer parameter.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaParameterExistsError</code></dt>
+<dd>Raised when a parameter with the given name already exists.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>IntParam</code></dt>
+<dd>The integer parameter.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@_unique
+def create_int(self, name: str, value: int) -&gt; IntParam:
+    &#34;&#34;&#34;
+    Creates a CATIA integer parameter.
+
+    Args:
+        name (str): The name of the integer parameter.
+        value (float): The value of the integer parameter.
+
+    Raises:
+        PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+    Returns:
+        IntParam: The integer parameter.
+    &#34;&#34;&#34;
+    parameter = self._parameters.create_integer(name, value)
+    parameter.rename(name)
+    log.info(
+        f&#34;Created parameter {name!r} ({value}, INTEGER) in {self._part.name!r}&#34;
+    )
+    return parameter</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.parameters.PyPartParameters.create_length"><code class="name flex">
+<span>def <span class="ident">create_length</span></span>(<span>self, name: str, value: float) ‑> <a title="pytia.framework.knowledge_interfaces.dimension.Dimension" href="../framework/knowledge_interfaces/dimension.html#pytia.framework.knowledge_interfaces.dimension.Dimension">Dimension</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a CATIA LENGTH parameter in millimeter with the given name and value.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the length parameter.</dd>
+<dt><strong><code>value</code></strong> :&ensp;<code>float</code></dt>
+<dd>The value of the length parameter.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaParameterExistsError</code></dt>
+<dd>Raised when a parameter with the given name already exists.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dimension</code></dt>
+<dd>The length parameter as Dimension.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@_unique
+def create_length(self, name: str, value: float) -&gt; Dimension:
+    &#34;&#34;&#34;
+    Creates a CATIA LENGTH parameter in millimeter with the given name and value.
+
+    Args:
+        name (str): The name of the length parameter.
+        value (float): The value of the length parameter.
+
+    Raises:
+        PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+    Returns:
+        Dimension: The length parameter as Dimension.
+    &#34;&#34;&#34;
+    return self._create_dimension(name=name, value=value, param_type=LENGTH)</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.parameters.PyPartParameters.create_real"><code class="name flex">
+<span>def <span class="ident">create_real</span></span>(<span>self, name: str, value: float) ‑> <a title="pytia.framework.knowledge_interfaces.real_param.RealParam" href="../framework/knowledge_interfaces/real_param.html#pytia.framework.knowledge_interfaces.real_param.RealParam">RealParam</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a CATIA real parameter.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the real parameter.</dd>
+<dt><strong><code>value</code></strong> :&ensp;<code>float</code></dt>
+<dd>The value of the real parameter.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaParameterExistsError</code></dt>
+<dd>Raised when a parameter with the given name already exists.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>RealParam</code></dt>
+<dd>The real parameter.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@_unique
+def create_real(self, name: str, value: float) -&gt; RealParam:
+    &#34;&#34;&#34;
+    Creates a CATIA real parameter.
+
+    Args:
+        name (str): The name of the real parameter.
+        value (float): The value of the real parameter.
+
+    Raises:
+        PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+    Returns:
+        RealParam: The real parameter.
+    &#34;&#34;&#34;
+    parameter = self._parameters.create_real(name, value)
+    parameter.rename(name)
+    log.info(f&#34;Created parameter {name!r} ({value}, REAL) in {self._part.name!r}&#34;)
+    return parameter</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.parameters.PyPartParameters.create_string"><code class="name flex">
+<span>def <span class="ident">create_string</span></span>(<span>self, name: str, value: str) ‑> <a title="pytia.framework.knowledge_interfaces.str_param.StrParam" href="../framework/knowledge_interfaces/str_param.html#pytia.framework.knowledge_interfaces.str_param.StrParam">StrParam</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a CATIA string parameter.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the string parameter.</dd>
+<dt><strong><code>value</code></strong> :&ensp;<code>float</code></dt>
+<dd>The value of the string parameter.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaParameterExistsError</code></dt>
+<dd>Raised when a parameter with the given name already exists.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>StrParam</code></dt>
+<dd>The string parameter.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@_unique
+def create_string(self, name: str, value: str) -&gt; StrParam:
+    &#34;&#34;&#34;
+    Creates a CATIA string parameter.
+
+    Args:
+        name (str): The name of the string parameter.
+        value (float): The value of the string parameter.
+
+    Raises:
+        PytiaParameterExistsError: Raised when a parameter with the given name already exists.
+
+    Returns:
+        StrParam: The string parameter.
+    &#34;&#34;&#34;
+    parameter = self._parameters.create_string(name, value)
+    parameter.rename(name)
+    log.info(f&#34;Created parameter {name!r} ({value}, STRING) in {self._part.name!r}&#34;)
+    return parameter</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.parameters.PyPartParameters.exists"><code class="name flex">
+<span>def <span class="ident">exists</span></span>(<span>self, name: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns wether a parameter of the given name already exists in the part, or not.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the parameter to check.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the parameter exists, otherwise False.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exists(self, name: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Returns wether a parameter of the given name already exists in the part, or not.
+
+    Args:
+        name (str): The name of the parameter to check.
+
+    Returns:
+        bool: True if the parameter exists, otherwise False.
+    &#34;&#34;&#34;
+    for i in range(1, self._parameters.count + 1):
+        if self._parameters.item(i).name == name:
+            return True
+    return False</code></pre>
+</details>
+</dd>
+<dt id="pytia.wrapper.parameters.PyPartParameters.get"><code class="name flex">
+<span>def <span class="ident">get</span></span>(<span>self, name: str, of_type: Union[Type[bool], Type[int], Type[float], Type[str], ForwardRef(None)] = None) ‑> <a title="pytia.framework.knowledge_interfaces.bool_param.BoolParam" href="../framework/knowledge_interfaces/bool_param.html#pytia.framework.knowledge_interfaces.bool_param.BoolParam">BoolParam</a> | <a title="pytia.framework.knowledge_interfaces.int_param.IntParam" href="../framework/knowledge_interfaces/int_param.html#pytia.framework.knowledge_interfaces.int_param.IntParam">IntParam</a> | <a title="pytia.framework.knowledge_interfaces.real_param.RealParam" href="../framework/knowledge_interfaces/real_param.html#pytia.framework.knowledge_interfaces.real_param.RealParam">RealParam</a> | <a title="pytia.framework.knowledge_interfaces.str_param.StrParam" href="../framework/knowledge_interfaces/str_param.html#pytia.framework.knowledge_interfaces.str_param.StrParam">StrParam</a> | <a title="pytia.framework.knowledge_interfaces.dimension.Dimension" href="../framework/knowledge_interfaces/dimension.html#pytia.framework.knowledge_interfaces.dimension.Dimension">Dimension</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a parameter with the given name.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the parameter to retrieve.</dd>
+</dl>
+<p>of_type (Optional[Type[bool]
+|
+Type[int]
+|
+Type[float]
+|
+Type[str]], optional):
+The type of the parameter. Defaults to None. If None, no type checking will be used.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaParameterTypeError</code></dt>
+<dd>Raised when the type of the parameter does not match.</dd>
+<dt><code>PytiaParameterNotFoundError</code></dt>
+<dd>Raised when the parameter does not exist.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>BoolParam | IntParam | RealParam | StrParam | Dimension: <em>description</em></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get(
+    self,
+    name: str,
+    of_type: Optional[Type[bool] | Type[int] | Type[float] | Type[str]] = None,
+) -&gt; BoolParam | IntParam | RealParam | StrParam | Dimension:
+    &#34;&#34;&#34;
+    Returns a parameter with the given name.
+
+    Args:
+        name (str): The name of the parameter to retrieve.
+        of_type (Optional[Type[bool]  |  Type[int]  |  Type[float]  |  Type[str]], optional): \
+            The type of the parameter. Defaults to None. If None, no type checking will be used.
+
+    Raises:
+        PytiaParameterTypeError: Raised when the type of the parameter does not match.
+        PytiaParameterNotFoundError: Raised when the parameter does not exist.
+
+    Returns:
+        BoolParam | IntParam | RealParam | StrParam | Dimension: _description_
+    &#34;&#34;&#34;
+    if self.exists(name=name):
+        native_value = self._parameters.item(name).value  # type: ignore
+        parameter = self._parameters.item(name)
+
+        # Return the parameter with its type
+        if self.is_bool(parameter) and of_type in [bool, None]:
+            log.debug(f&#34;Parameter {name!r} is of type BoolParam.&#34;)
+            return BoolParam(parameter)
+        if self.is_int(parameter) and of_type in [int, None]:
+            log.debug(f&#34;Parameter {name!r} is of type IntParam.&#34;)
+            return IntParam(parameter)
+        if self.is_real(parameter) and of_type in [float, None]:
+            log.debug(f&#34;Parameter {name!r} is of type RealParam.&#34;)
+            return RealParam(parameter)
+        if self.is_dimension(parameter) and of_type in [float, None]:
+            log.debug(f&#34;Parameter {name!r} is of type Dimension.&#34;)
+            return Dimension(parameter)
+        if self.is_str(parameter) and of_type in [str, None]:
+            log.debug(f&#34;Parameter {name!r} is of type StrParam.&#34;)
+            return StrParam(parameter)
+        raise PytiaParameterTypeError(
+            f&#34;Parameter {name!r} has invalid type {type(native_value)!r}&#34;
+        )
+    raise PytiaParameterNotFoundError(
+        f&#34;Parameter {name!r} not found in {self._part.name!r}&#34;
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia.wrapper" href="index.html">pytia.wrapper</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia.wrapper.parameters.PyPartParameters" href="#pytia.wrapper.parameters.PyPartParameters">PyPartParameters</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pytia.wrapper.parameters.PyPartParameters.create_angle" href="#pytia.wrapper.parameters.PyPartParameters.create_angle">create_angle</a></code></li>
+<li><code><a title="pytia.wrapper.parameters.PyPartParameters.create_bool" href="#pytia.wrapper.parameters.PyPartParameters.create_bool">create_bool</a></code></li>
+<li><code><a title="pytia.wrapper.parameters.PyPartParameters.create_int" href="#pytia.wrapper.parameters.PyPartParameters.create_int">create_int</a></code></li>
+<li><code><a title="pytia.wrapper.parameters.PyPartParameters.create_length" href="#pytia.wrapper.parameters.PyPartParameters.create_length">create_length</a></code></li>
+<li><code><a title="pytia.wrapper.parameters.PyPartParameters.create_real" href="#pytia.wrapper.parameters.PyPartParameters.create_real">create_real</a></code></li>
+<li><code><a title="pytia.wrapper.parameters.PyPartParameters.create_string" href="#pytia.wrapper.parameters.PyPartParameters.create_string">create_string</a></code></li>
+<li><code><a title="pytia.wrapper.parameters.PyPartParameters.exists" href="#pytia.wrapper.parameters.PyPartParameters.exists">exists</a></code></li>
+<li><code><a title="pytia.wrapper.parameters.PyPartParameters.get" href="#pytia.wrapper.parameters.PyPartParameters.get">get</a></code></li>
+<li><code><a title="pytia.wrapper.parameters.PyPartParameters.is_bool" href="#pytia.wrapper.parameters.PyPartParameters.is_bool">is_bool</a></code></li>
+<li><code><a title="pytia.wrapper.parameters.PyPartParameters.is_dimension" href="#pytia.wrapper.parameters.PyPartParameters.is_dimension">is_dimension</a></code></li>
+<li><code><a title="pytia.wrapper.parameters.PyPartParameters.is_int" href="#pytia.wrapper.parameters.PyPartParameters.is_int">is_int</a></code></li>
+<li><code><a title="pytia.wrapper.parameters.PyPartParameters.is_real" href="#pytia.wrapper.parameters.PyPartParameters.is_real">is_real</a></code></li>
+<li><code><a title="pytia.wrapper.parameters.PyPartParameters.is_str" href="#pytia.wrapper.parameters.PyPartParameters.is_str">is_str</a></code></li>
+<li><code><a title="pytia.wrapper.parameters.PyPartParameters.names" href="#pytia.wrapper.parameters.PyPartParameters.names">names</a></code></li>
+<li><code><a title="pytia.wrapper.parameters.PyPartParameters.parameters" href="#pytia.wrapper.parameters.PyPartParameters.parameters">parameters</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

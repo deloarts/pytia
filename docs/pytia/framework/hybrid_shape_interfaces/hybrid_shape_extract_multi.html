@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from pytia.framework.in_interfaces.reference import Reference
+from pytia.framework.mec_mod_interfaces.hybrid_shape import HybridShape
+
+
+class HybridShapeExtractMulti(HybridShape):
+    def __init__(self, com_object):
+        super().__init__(com_object)
+        self.hybrid_shape_extract_multi = com_object
+
+    def add_constraint(
+        self,
+        i_constraint: Reference,
+        i_type: int,
+        i_complementaire: bool,
+        i_is_federated: bool,
+        i_crvtre_thsld: float,
+        i_pos: int,
+    ) -&gt; None:
+        return self.hybrid_shape_extract_multi.AddConstraint(
+            i_constraint.com_object,
+            i_type,
+            i_complementaire,
+            i_is_federated,
+            i_crvtre_thsld,
+            i_pos,
+        )
+
+    def add_constraint_tolerant(
+        self,
+        i_constraint: Reference,
+        i_type: int,
+        i_complementaire: bool,
+        i_is_federated: bool,
+        i_distre_thsld: float,
+        i_angtre_thsld: float,
+        i_crvtre_thsld: float,
+        i_pos: int,
+    ) -&gt; None:
+        return self.hybrid_shape_extract_multi.AddConstraintTolerant(
+            i_constraint.com_object,
+            i_type,
+            i_complementaire,
+            i_is_federated,
+            i_distre_thsld,
+            i_angtre_thsld,
+            i_crvtre_thsld,
+            i_pos,
+        )
+
+    def get_angular_threshold(self, i_pos: int) -&gt; float:
+        return self.hybrid_shape_extract_multi.GetAngularThreshold(i_pos)
+
+    def get_angular_threshold_activity(self, i_pos: int) -&gt; bool:
+        return self.hybrid_shape_extract_multi.GetAngularThresholdActivity(i_pos)
+
+    def get_complementary_extract_multi(self, i_pos: int) -&gt; bool:
+        return self.hybrid_shape_extract_multi.GetComplementaryExtractMulti(i_pos)
+
+    def get_curvature_threshold(self, i_pos: int) -&gt; float:
+        return self.hybrid_shape_extract_multi.GetCurvatureThreshold(i_pos)
+
+    def get_curvature_threshold_activity(self, i_pos: int) -&gt; bool:
+        return self.hybrid_shape_extract_multi.GetCurvatureThresholdActivity(i_pos)
+
+    def get_distance_threshold(self, i_pos: int) -&gt; float:
+        return self.hybrid_shape_extract_multi.GetDistanceThreshold(i_pos)
+
+    def get_distance_threshold_activity(self, i_pos: int) -&gt; bool:
+        return self.hybrid_shape_extract_multi.GetDistanceThresholdActivity(i_pos)
+
+    def get_element(self, i_pos: int) -&gt; Reference:
+        return Reference(self.hybrid_shape_extract_multi.GetElement(i_pos))
+
+    def get_is_federated(self, i_pos: int) -&gt; bool:
+        return self.hybrid_shape_extract_multi.GetIsFederated(i_pos)
+
+    def get_list_of_constraints(self, o_list_of_extracted_constraints: tuple) -&gt; None:
+        return self.hybrid_shape_extract_multi.GetListOfConstraints(
+            o_list_of_extracted_constraints
+        )
+
+    def get_nb_constraints(self, o_nb_constraints: int) -&gt; None:
+        return self.hybrid_shape_extract_multi.GetNbConstraints(o_nb_constraints)
+
+    def get_propagation_type(self, i_pos: int) -&gt; int:
+        return self.hybrid_shape_extract_multi.GetPropagationType(i_pos)
+
+    def get_support(self, i_pos: int) -&gt; Reference:
+        return Reference(self.hybrid_shape_extract_multi.GetSupport(i_pos))
+
+    def remove_element(self, i_position: int) -&gt; None:
+        return self.hybrid_shape_extract_multi.RemoveElement(i_position)
+
+    def replace_element(
+        self, i_extract_to_replace: Reference, i_new_extract: Reference, i_pos: int
+    ) -&gt; None:
+        return self.hybrid_shape_extract_multi.ReplaceElement(
+            i_extract_to_replace.com_object, i_new_extract.com_object, i_pos
+        )
+
+    def set_angular_threshold(self, i_pos: int, i_angtre_thsld: float) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetAngularThreshold(
+            i_pos, i_angtre_thsld
+        )
+
+    def set_angular_threshold_activity(
+        self, i_pos: int, i_angtre_thsld_activity: bool
+    ) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetAngularThresholdActivity(
+            i_pos, i_angtre_thsld_activity
+        )
+
+    def set_complementary_extract_multi(
+        self, i_pos: int, i_complementaire: bool
+    ) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetComplementaryExtractMulti(
+            i_pos, i_complementaire
+        )
+
+    def set_curvature_threshold(self, i_pos: int, i_crvtre_thsld: float) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetCurvatureThreshold(
+            i_pos, i_crvtre_thsld
+        )
+
+    def set_curvature_threshold_activity(
+        self, i_pos: int, i_crvtre_thsld_activity: bool
+    ) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetCurvatureThresholdActivity(
+            i_pos, i_crvtre_thsld_activity
+        )
+
+    def set_distance_threshold(self, i_pos: int, i_distre_thsld: float) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetDistanceThreshold(
+            i_pos, i_distre_thsld
+        )
+
+    def set_distance_threshold_activity(
+        self, i_pos: int, i_distre_thsld_activity: bool
+    ) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetDistanceThresholdActivity(
+            i_pos, i_distre_thsld_activity
+        )
+
+    def set_element(self, i_pos: int, i_elem: Reference) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetElement(i_pos, i_elem.com_object)
+
+    def set_is_federated(self, i_pos: int, i_is_federated: bool) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetIsFederated(i_pos, i_is_federated)
+
+    def set_propagation_type(self, i_pos: int, i_type_propag: int) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetPropagationType(i_pos, i_type_propag)
+
+    def set_support(self, i_pos: int, i_support: Reference) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetSupport(i_pos, i_support.com_object)
+
+    def __repr__(self):
+        return f&#39;HybridShapeExtractMulti(name=&#34;{self.name}&#34;)&#39;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti"><code class="flex name class">
+<span>class <span class="ident">HybridShapeExtractMulti</span></span>
+<span>(</span><span>com_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for the framework.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HybridShapeExtractMulti(HybridShape):
+    def __init__(self, com_object):
+        super().__init__(com_object)
+        self.hybrid_shape_extract_multi = com_object
+
+    def add_constraint(
+        self,
+        i_constraint: Reference,
+        i_type: int,
+        i_complementaire: bool,
+        i_is_federated: bool,
+        i_crvtre_thsld: float,
+        i_pos: int,
+    ) -&gt; None:
+        return self.hybrid_shape_extract_multi.AddConstraint(
+            i_constraint.com_object,
+            i_type,
+            i_complementaire,
+            i_is_federated,
+            i_crvtre_thsld,
+            i_pos,
+        )
+
+    def add_constraint_tolerant(
+        self,
+        i_constraint: Reference,
+        i_type: int,
+        i_complementaire: bool,
+        i_is_federated: bool,
+        i_distre_thsld: float,
+        i_angtre_thsld: float,
+        i_crvtre_thsld: float,
+        i_pos: int,
+    ) -&gt; None:
+        return self.hybrid_shape_extract_multi.AddConstraintTolerant(
+            i_constraint.com_object,
+            i_type,
+            i_complementaire,
+            i_is_federated,
+            i_distre_thsld,
+            i_angtre_thsld,
+            i_crvtre_thsld,
+            i_pos,
+        )
+
+    def get_angular_threshold(self, i_pos: int) -&gt; float:
+        return self.hybrid_shape_extract_multi.GetAngularThreshold(i_pos)
+
+    def get_angular_threshold_activity(self, i_pos: int) -&gt; bool:
+        return self.hybrid_shape_extract_multi.GetAngularThresholdActivity(i_pos)
+
+    def get_complementary_extract_multi(self, i_pos: int) -&gt; bool:
+        return self.hybrid_shape_extract_multi.GetComplementaryExtractMulti(i_pos)
+
+    def get_curvature_threshold(self, i_pos: int) -&gt; float:
+        return self.hybrid_shape_extract_multi.GetCurvatureThreshold(i_pos)
+
+    def get_curvature_threshold_activity(self, i_pos: int) -&gt; bool:
+        return self.hybrid_shape_extract_multi.GetCurvatureThresholdActivity(i_pos)
+
+    def get_distance_threshold(self, i_pos: int) -&gt; float:
+        return self.hybrid_shape_extract_multi.GetDistanceThreshold(i_pos)
+
+    def get_distance_threshold_activity(self, i_pos: int) -&gt; bool:
+        return self.hybrid_shape_extract_multi.GetDistanceThresholdActivity(i_pos)
+
+    def get_element(self, i_pos: int) -&gt; Reference:
+        return Reference(self.hybrid_shape_extract_multi.GetElement(i_pos))
+
+    def get_is_federated(self, i_pos: int) -&gt; bool:
+        return self.hybrid_shape_extract_multi.GetIsFederated(i_pos)
+
+    def get_list_of_constraints(self, o_list_of_extracted_constraints: tuple) -&gt; None:
+        return self.hybrid_shape_extract_multi.GetListOfConstraints(
+            o_list_of_extracted_constraints
+        )
+
+    def get_nb_constraints(self, o_nb_constraints: int) -&gt; None:
+        return self.hybrid_shape_extract_multi.GetNbConstraints(o_nb_constraints)
+
+    def get_propagation_type(self, i_pos: int) -&gt; int:
+        return self.hybrid_shape_extract_multi.GetPropagationType(i_pos)
+
+    def get_support(self, i_pos: int) -&gt; Reference:
+        return Reference(self.hybrid_shape_extract_multi.GetSupport(i_pos))
+
+    def remove_element(self, i_position: int) -&gt; None:
+        return self.hybrid_shape_extract_multi.RemoveElement(i_position)
+
+    def replace_element(
+        self, i_extract_to_replace: Reference, i_new_extract: Reference, i_pos: int
+    ) -&gt; None:
+        return self.hybrid_shape_extract_multi.ReplaceElement(
+            i_extract_to_replace.com_object, i_new_extract.com_object, i_pos
+        )
+
+    def set_angular_threshold(self, i_pos: int, i_angtre_thsld: float) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetAngularThreshold(
+            i_pos, i_angtre_thsld
+        )
+
+    def set_angular_threshold_activity(
+        self, i_pos: int, i_angtre_thsld_activity: bool
+    ) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetAngularThresholdActivity(
+            i_pos, i_angtre_thsld_activity
+        )
+
+    def set_complementary_extract_multi(
+        self, i_pos: int, i_complementaire: bool
+    ) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetComplementaryExtractMulti(
+            i_pos, i_complementaire
+        )
+
+    def set_curvature_threshold(self, i_pos: int, i_crvtre_thsld: float) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetCurvatureThreshold(
+            i_pos, i_crvtre_thsld
+        )
+
+    def set_curvature_threshold_activity(
+        self, i_pos: int, i_crvtre_thsld_activity: bool
+    ) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetCurvatureThresholdActivity(
+            i_pos, i_crvtre_thsld_activity
+        )
+
+    def set_distance_threshold(self, i_pos: int, i_distre_thsld: float) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetDistanceThreshold(
+            i_pos, i_distre_thsld
+        )
+
+    def set_distance_threshold_activity(
+        self, i_pos: int, i_distre_thsld_activity: bool
+    ) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetDistanceThresholdActivity(
+            i_pos, i_distre_thsld_activity
+        )
+
+    def set_element(self, i_pos: int, i_elem: Reference) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetElement(i_pos, i_elem.com_object)
+
+    def set_is_federated(self, i_pos: int, i_is_federated: bool) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetIsFederated(i_pos, i_is_federated)
+
+    def set_propagation_type(self, i_pos: int, i_type_propag: int) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetPropagationType(i_pos, i_type_propag)
+
+    def set_support(self, i_pos: int, i_support: Reference) -&gt; None:
+        return self.hybrid_shape_extract_multi.SetSupport(i_pos, i_support.com_object)
+
+    def __repr__(self):
+        return f&#39;HybridShapeExtractMulti(name=&#34;{self.name}&#34;)&#39;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.framework.mec_mod_interfaces.hybrid_shape.HybridShape" href="../mec_mod_interfaces/hybrid_shape.html#pytia.framework.mec_mod_interfaces.hybrid_shape.HybridShape">HybridShape</a></li>
+<li><a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a></li>
+<li><a title="pytia.framework.base.Base" href="../base.html#pytia.framework.base.Base">Base</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.add_constraint"><code class="name flex">
+<span>def <span class="ident">add_constraint</span></span>(<span>self, i_constraint: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, i_type: int, i_complementaire: bool, i_is_federated: bool, i_crvtre_thsld: float, i_pos: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_constraint(
+    self,
+    i_constraint: Reference,
+    i_type: int,
+    i_complementaire: bool,
+    i_is_federated: bool,
+    i_crvtre_thsld: float,
+    i_pos: int,
+) -&gt; None:
+    return self.hybrid_shape_extract_multi.AddConstraint(
+        i_constraint.com_object,
+        i_type,
+        i_complementaire,
+        i_is_federated,
+        i_crvtre_thsld,
+        i_pos,
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.add_constraint_tolerant"><code class="name flex">
+<span>def <span class="ident">add_constraint_tolerant</span></span>(<span>self, i_constraint: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, i_type: int, i_complementaire: bool, i_is_federated: bool, i_distre_thsld: float, i_angtre_thsld: float, i_crvtre_thsld: float, i_pos: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_constraint_tolerant(
+    self,
+    i_constraint: Reference,
+    i_type: int,
+    i_complementaire: bool,
+    i_is_federated: bool,
+    i_distre_thsld: float,
+    i_angtre_thsld: float,
+    i_crvtre_thsld: float,
+    i_pos: int,
+) -&gt; None:
+    return self.hybrid_shape_extract_multi.AddConstraintTolerant(
+        i_constraint.com_object,
+        i_type,
+        i_complementaire,
+        i_is_federated,
+        i_distre_thsld,
+        i_angtre_thsld,
+        i_crvtre_thsld,
+        i_pos,
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_angular_threshold"><code class="name flex">
+<span>def <span class="ident">get_angular_threshold</span></span>(<span>self, i_pos: int) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_angular_threshold(self, i_pos: int) -&gt; float:
+    return self.hybrid_shape_extract_multi.GetAngularThreshold(i_pos)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_angular_threshold_activity"><code class="name flex">
+<span>def <span class="ident">get_angular_threshold_activity</span></span>(<span>self, i_pos: int) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_angular_threshold_activity(self, i_pos: int) -&gt; bool:
+    return self.hybrid_shape_extract_multi.GetAngularThresholdActivity(i_pos)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_complementary_extract_multi"><code class="name flex">
+<span>def <span class="ident">get_complementary_extract_multi</span></span>(<span>self, i_pos: int) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_complementary_extract_multi(self, i_pos: int) -&gt; bool:
+    return self.hybrid_shape_extract_multi.GetComplementaryExtractMulti(i_pos)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_curvature_threshold"><code class="name flex">
+<span>def <span class="ident">get_curvature_threshold</span></span>(<span>self, i_pos: int) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_curvature_threshold(self, i_pos: int) -&gt; float:
+    return self.hybrid_shape_extract_multi.GetCurvatureThreshold(i_pos)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_curvature_threshold_activity"><code class="name flex">
+<span>def <span class="ident">get_curvature_threshold_activity</span></span>(<span>self, i_pos: int) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_curvature_threshold_activity(self, i_pos: int) -&gt; bool:
+    return self.hybrid_shape_extract_multi.GetCurvatureThresholdActivity(i_pos)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_distance_threshold"><code class="name flex">
+<span>def <span class="ident">get_distance_threshold</span></span>(<span>self, i_pos: int) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_distance_threshold(self, i_pos: int) -&gt; float:
+    return self.hybrid_shape_extract_multi.GetDistanceThreshold(i_pos)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_distance_threshold_activity"><code class="name flex">
+<span>def <span class="ident">get_distance_threshold_activity</span></span>(<span>self, i_pos: int) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_distance_threshold_activity(self, i_pos: int) -&gt; bool:
+    return self.hybrid_shape_extract_multi.GetDistanceThresholdActivity(i_pos)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_element"><code class="name flex">
+<span>def <span class="ident">get_element</span></span>(<span>self, i_pos: int) ‑> <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_element(self, i_pos: int) -&gt; Reference:
+    return Reference(self.hybrid_shape_extract_multi.GetElement(i_pos))</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_is_federated"><code class="name flex">
+<span>def <span class="ident">get_is_federated</span></span>(<span>self, i_pos: int) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_is_federated(self, i_pos: int) -&gt; bool:
+    return self.hybrid_shape_extract_multi.GetIsFederated(i_pos)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_list_of_constraints"><code class="name flex">
+<span>def <span class="ident">get_list_of_constraints</span></span>(<span>self, o_list_of_extracted_constraints: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_list_of_constraints(self, o_list_of_extracted_constraints: tuple) -&gt; None:
+    return self.hybrid_shape_extract_multi.GetListOfConstraints(
+        o_list_of_extracted_constraints
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_nb_constraints"><code class="name flex">
+<span>def <span class="ident">get_nb_constraints</span></span>(<span>self, o_nb_constraints: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_nb_constraints(self, o_nb_constraints: int) -&gt; None:
+    return self.hybrid_shape_extract_multi.GetNbConstraints(o_nb_constraints)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_propagation_type"><code class="name flex">
+<span>def <span class="ident">get_propagation_type</span></span>(<span>self, i_pos: int) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_propagation_type(self, i_pos: int) -&gt; int:
+    return self.hybrid_shape_extract_multi.GetPropagationType(i_pos)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_support"><code class="name flex">
+<span>def <span class="ident">get_support</span></span>(<span>self, i_pos: int) ‑> <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_support(self, i_pos: int) -&gt; Reference:
+    return Reference(self.hybrid_shape_extract_multi.GetSupport(i_pos))</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.remove_element"><code class="name flex">
+<span>def <span class="ident">remove_element</span></span>(<span>self, i_position: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_element(self, i_position: int) -&gt; None:
+    return self.hybrid_shape_extract_multi.RemoveElement(i_position)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.replace_element"><code class="name flex">
+<span>def <span class="ident">replace_element</span></span>(<span>self, i_extract_to_replace: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, i_new_extract: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, i_pos: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def replace_element(
+    self, i_extract_to_replace: Reference, i_new_extract: Reference, i_pos: int
+) -&gt; None:
+    return self.hybrid_shape_extract_multi.ReplaceElement(
+        i_extract_to_replace.com_object, i_new_extract.com_object, i_pos
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_angular_threshold"><code class="name flex">
+<span>def <span class="ident">set_angular_threshold</span></span>(<span>self, i_pos: int, i_angtre_thsld: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_angular_threshold(self, i_pos: int, i_angtre_thsld: float) -&gt; None:
+    return self.hybrid_shape_extract_multi.SetAngularThreshold(
+        i_pos, i_angtre_thsld
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_angular_threshold_activity"><code class="name flex">
+<span>def <span class="ident">set_angular_threshold_activity</span></span>(<span>self, i_pos: int, i_angtre_thsld_activity: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_angular_threshold_activity(
+    self, i_pos: int, i_angtre_thsld_activity: bool
+) -&gt; None:
+    return self.hybrid_shape_extract_multi.SetAngularThresholdActivity(
+        i_pos, i_angtre_thsld_activity
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_complementary_extract_multi"><code class="name flex">
+<span>def <span class="ident">set_complementary_extract_multi</span></span>(<span>self, i_pos: int, i_complementaire: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_complementary_extract_multi(
+    self, i_pos: int, i_complementaire: bool
+) -&gt; None:
+    return self.hybrid_shape_extract_multi.SetComplementaryExtractMulti(
+        i_pos, i_complementaire
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_curvature_threshold"><code class="name flex">
+<span>def <span class="ident">set_curvature_threshold</span></span>(<span>self, i_pos: int, i_crvtre_thsld: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_curvature_threshold(self, i_pos: int, i_crvtre_thsld: float) -&gt; None:
+    return self.hybrid_shape_extract_multi.SetCurvatureThreshold(
+        i_pos, i_crvtre_thsld
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_curvature_threshold_activity"><code class="name flex">
+<span>def <span class="ident">set_curvature_threshold_activity</span></span>(<span>self, i_pos: int, i_crvtre_thsld_activity: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_curvature_threshold_activity(
+    self, i_pos: int, i_crvtre_thsld_activity: bool
+) -&gt; None:
+    return self.hybrid_shape_extract_multi.SetCurvatureThresholdActivity(
+        i_pos, i_crvtre_thsld_activity
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_distance_threshold"><code class="name flex">
+<span>def <span class="ident">set_distance_threshold</span></span>(<span>self, i_pos: int, i_distre_thsld: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_distance_threshold(self, i_pos: int, i_distre_thsld: float) -&gt; None:
+    return self.hybrid_shape_extract_multi.SetDistanceThreshold(
+        i_pos, i_distre_thsld
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_distance_threshold_activity"><code class="name flex">
+<span>def <span class="ident">set_distance_threshold_activity</span></span>(<span>self, i_pos: int, i_distre_thsld_activity: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_distance_threshold_activity(
+    self, i_pos: int, i_distre_thsld_activity: bool
+) -&gt; None:
+    return self.hybrid_shape_extract_multi.SetDistanceThresholdActivity(
+        i_pos, i_distre_thsld_activity
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_element"><code class="name flex">
+<span>def <span class="ident">set_element</span></span>(<span>self, i_pos: int, i_elem: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_element(self, i_pos: int, i_elem: Reference) -&gt; None:
+    return self.hybrid_shape_extract_multi.SetElement(i_pos, i_elem.com_object)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_is_federated"><code class="name flex">
+<span>def <span class="ident">set_is_federated</span></span>(<span>self, i_pos: int, i_is_federated: bool) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_is_federated(self, i_pos: int, i_is_federated: bool) -&gt; None:
+    return self.hybrid_shape_extract_multi.SetIsFederated(i_pos, i_is_federated)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_propagation_type"><code class="name flex">
+<span>def <span class="ident">set_propagation_type</span></span>(<span>self, i_pos: int, i_type_propag: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_propagation_type(self, i_pos: int, i_type_propag: int) -&gt; None:
+    return self.hybrid_shape_extract_multi.SetPropagationType(i_pos, i_type_propag)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_support"><code class="name flex">
+<span>def <span class="ident">set_support</span></span>(<span>self, i_pos: int, i_support: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_support(self, i_pos: int, i_support: Reference) -&gt; None:
+    return self.hybrid_shape_extract_multi.SetSupport(i_pos, i_support.com_object)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces" href="index.html">pytia.framework.hybrid_shape_interfaces</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti">HybridShapeExtractMulti</a></code></h4>
+<ul class="">
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.add_constraint" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.add_constraint">add_constraint</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.add_constraint_tolerant" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.add_constraint_tolerant">add_constraint_tolerant</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_angular_threshold" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_angular_threshold">get_angular_threshold</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_angular_threshold_activity" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_angular_threshold_activity">get_angular_threshold_activity</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_complementary_extract_multi" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_complementary_extract_multi">get_complementary_extract_multi</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_curvature_threshold" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_curvature_threshold">get_curvature_threshold</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_curvature_threshold_activity" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_curvature_threshold_activity">get_curvature_threshold_activity</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_distance_threshold" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_distance_threshold">get_distance_threshold</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_distance_threshold_activity" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_distance_threshold_activity">get_distance_threshold_activity</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_element" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_element">get_element</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_is_federated" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_is_federated">get_is_federated</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_list_of_constraints" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_list_of_constraints">get_list_of_constraints</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_nb_constraints" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_nb_constraints">get_nb_constraints</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_propagation_type" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_propagation_type">get_propagation_type</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_support" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.get_support">get_support</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.remove_element" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.remove_element">remove_element</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.replace_element" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.replace_element">replace_element</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_angular_threshold" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_angular_threshold">set_angular_threshold</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_angular_threshold_activity" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_angular_threshold_activity">set_angular_threshold_activity</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_complementary_extract_multi" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_complementary_extract_multi">set_complementary_extract_multi</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_curvature_threshold" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_curvature_threshold">set_curvature_threshold</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_curvature_threshold_activity" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_curvature_threshold_activity">set_curvature_threshold_activity</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_distance_threshold" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_distance_threshold">set_distance_threshold</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_distance_threshold_activity" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_distance_threshold_activity">set_distance_threshold_activity</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_element" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_element">set_element</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_is_federated" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_is_federated">set_is_federated</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_propagation_type" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_propagation_type">set_propagation_type</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_support" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extract_multi.HybridShapeExtractMulti.set_support">set_support</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1094 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep import (
+    HybridShapeSweep,
+)
+from pytia.framework.in_interfaces.reference import Reference
+from pytia.framework.knowledge_interfaces.angle import Angle
+from pytia.framework.knowledge_interfaces.length import Length
+
+
+class HybridShapeSweepConic(HybridShapeSweep):
+    def __init__(self, com_object):
+        super().__init__(com_object)
+        self.hybrid_shape_sweep_conic = com_object
+
+    @property
+    def canonical_detection(self) -&gt; int:
+        return self.hybrid_shape_sweep_conic.CanonicalDetection
+
+    @canonical_detection.setter
+    def canonical_detection(self, value: int):
+        self.hybrid_shape_sweep_conic.CanonicalDetection = value
+
+    @property
+    def fifth_guide_crv(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_conic.FifthGuideCrv)
+
+    @fifth_guide_crv.setter
+    def fifth_guide_crv(self, reference_curve: Reference):
+        self.hybrid_shape_sweep_conic.FifthGuideCrv = reference_curve.com_object
+
+    @property
+    def first_guide_crv(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_conic.FirstGuideCrv)
+
+    @first_guide_crv.setter
+    def first_guide_crv(self, reference_curve: Reference):
+        self.hybrid_shape_sweep_conic.FirstGuideCrv = reference_curve.com_object
+
+    @property
+    def fourth_guide_crv(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_conic.FourthGuideCrv)
+
+    @fourth_guide_crv.setter
+    def fourth_guide_crv(self, reference_curve: Reference):
+        self.hybrid_shape_sweep_conic.FourthGuideCrv = reference_curve.com_object
+
+    @property
+    def guide_deviation(self) -&gt; Length:
+        return Length(self.hybrid_shape_sweep_conic.GuideDeviation)
+
+    @property
+    def guide_deviation_activity(self) -&gt; bool:
+        return self.hybrid_shape_sweep_conic.GuideDeviationActivity
+
+    @guide_deviation_activity.setter
+    def guide_deviation_activity(self, value: bool):
+        self.hybrid_shape_sweep_conic.GuideDeviationActivity = value
+
+    @property
+    def parameter(self) -&gt; float:
+        return self.hybrid_shape_sweep_conic.Parameter
+
+    @parameter.setter
+    def parameter(self, value: float):
+        self.hybrid_shape_sweep_conic.Parameter = value
+
+    @property
+    def parameter_law(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_conic.ParameterLaw)
+
+    @parameter_law.setter
+    def parameter_law(self, reference_law: Reference):
+        self.hybrid_shape_sweep_conic.ParameterLaw = reference_law.com_object
+
+    @property
+    def parameter_law_inversion(self) -&gt; bool:
+        return self.hybrid_shape_sweep_conic.ParameterLawInversion
+
+    @parameter_law_inversion.setter
+    def parameter_law_inversion(self, value: bool):
+        self.hybrid_shape_sweep_conic.ParameterLawInversion = value
+
+    @property
+    def parameter_law_type(self) -&gt; int:
+        return self.hybrid_shape_sweep_conic.ParameterLawType
+
+    @parameter_law_type.setter
+    def parameter_law_type(self, value: int):
+        self.hybrid_shape_sweep_conic.ParameterLawType = value
+
+    @property
+    def second_guide_crv(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_conic.SecondGuideCrv)
+
+    @second_guide_crv.setter
+    def second_guide_crv(self, reference_curve: Reference):
+        self.hybrid_shape_sweep_conic.SecondGuideCrv = reference_curve.com_object
+
+    @property
+    def smooth_activity(self) -&gt; bool:
+        return self.hybrid_shape_sweep_conic.SmoothActivity
+
+    @smooth_activity.setter
+    def smooth_activity(self, value: bool):
+        self.hybrid_shape_sweep_conic.SmoothActivity = value
+
+    @property
+    def smooth_angle_threshold(self) -&gt; Angle:
+        return Angle(self.hybrid_shape_sweep_conic.SmoothAngleThreshold)
+
+    @property
+    def spine(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_conic.Spine)
+
+    @spine.setter
+    def spine(self, reference_spine: Reference):
+        self.hybrid_shape_sweep_conic.Spine = reference_spine.com_object
+
+    @property
+    def third_guide_crv(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_conic.ThirdGuideCrv)
+
+    @third_guide_crv.setter
+    def third_guide_crv(self, reference_curve: Reference):
+        self.hybrid_shape_sweep_conic.ThirdGuideCrv = reference_curve.com_object
+
+    def get_longitudinal_relimiters(
+        self, op_ia_elem1: Reference, op_ia_elem2: Reference
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.GetLongitudinalRelimiters(
+            op_ia_elem1.com_object, op_ia_elem2.com_object
+        )
+
+    def get_nb_guides(self, o_num: int) -&gt; None:
+        return self.hybrid_shape_sweep_conic.GetNbGuides(o_num)
+
+    def get_parameter_law(
+        self, o_param_start: float, o_param_end: float, o_law_type: int
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.GetParameterLaw(
+            o_param_start, o_param_end, o_law_type
+        )
+
+    def get_relimiters(
+        self,
+        op_ia_elem1: Reference,
+        op_orient1: int,
+        op_ia_elem2: Reference,
+        op_orient2: int,
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.GetRelimiters(
+            op_ia_elem1.com_object, op_orient1, op_ia_elem2.com_object, op_orient2
+        )
+
+    def get_tangency(
+        self,
+        op_ia_elem: Reference,
+        op_ia_angle_start: Angle,
+        op_ia_angle_end: Angle,
+        o_law_type: int,
+        i_index: int,
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.GetTangency(
+            op_ia_elem.com_object,
+            op_ia_angle_start.com_object,
+            op_ia_angle_end.com_object,
+            o_law_type,
+            i_index,
+        )
+
+    def get_tangency_angle_law_inversion(self, i_index: int, o_inversion: int) -&gt; None:
+        return self.hybrid_shape_sweep_conic.GetTangencyAngleLawInversion(
+            i_index, o_inversion
+        )
+
+    def get_tangency_law(
+        self, op_ia_elem: Reference, op_ia_law: Reference, i_index: int
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.GetTangencyLaw(
+            op_ia_elem.com_object, op_ia_law.com_object, i_index
+        )
+
+    def remove_guide(self, i_index: int) -&gt; None:
+        return self.hybrid_shape_sweep_conic.RemoveGuide(i_index)
+
+    def remove_parameter(self) -&gt; None:
+        return self.hybrid_shape_sweep_conic.RemoveParameter()
+
+    def remove_tangency(self, i_index: int) -&gt; None:
+        return self.hybrid_shape_sweep_conic.RemoveTangency(i_index)
+
+    def set_guide_deviation(self, i_length: float) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetGuideDeviation(i_length)
+
+    def set_longitudinal_relimiters(
+        self, ip_ia_elem1: Reference, ip_ia_elem2: Reference
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetLongitudinalRelimiters(
+            ip_ia_elem1.com_object, ip_ia_elem2.com_object
+        )
+
+    def set_parameter_law(
+        self, i_param_start: float, i_param_end: float, i_law_type: int
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetParameterLaw(
+            i_param_start, i_param_end, i_law_type
+        )
+
+    def set_relimiters(
+        self,
+        ip_ia_elem1: Reference,
+        ip_orient1: int,
+        ip_ia_elem2: Reference,
+        ip_orient2: int,
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetRelimiters(
+            ip_ia_elem1.com_object, ip_orient1, ip_ia_elem2.com_object, ip_orient2
+        )
+
+    def set_smooth_angle_threshold(self, i_angle: float) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetSmoothAngleThreshold(i_angle)
+
+    def set_tangency(
+        self,
+        ip_ia_elem: Reference,
+        i_angle_start: float,
+        i_angle_end: float,
+        ilaw_type: int,
+        i_index: int,
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetTangency(
+            ip_ia_elem.com_object, i_angle_start, i_angle_end, ilaw_type, i_index
+        )
+
+    def set_tangency_angle_law_inversion(self, i_index: int, i_inversion: int) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetTangencyAngleLawInversion(
+            i_index, i_inversion
+        )
+
+    def set_tangency_law(
+        self, ip_ia_elem: Reference, ip_ia_law: Reference, i_index: int
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetTangencyLaw(
+            ip_ia_elem.com_object, ip_ia_law.com_object, i_index
+        )
+
+    def __repr__(self):
+        return f&#39;HybridShapeSweepConic(name=&#34;{self.name}&#34;)&#39;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic"><code class="flex name class">
+<span>class <span class="ident">HybridShapeSweepConic</span></span>
+<span>(</span><span>com_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for the framework.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HybridShapeSweepConic(HybridShapeSweep):
+    def __init__(self, com_object):
+        super().__init__(com_object)
+        self.hybrid_shape_sweep_conic = com_object
+
+    @property
+    def canonical_detection(self) -&gt; int:
+        return self.hybrid_shape_sweep_conic.CanonicalDetection
+
+    @canonical_detection.setter
+    def canonical_detection(self, value: int):
+        self.hybrid_shape_sweep_conic.CanonicalDetection = value
+
+    @property
+    def fifth_guide_crv(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_conic.FifthGuideCrv)
+
+    @fifth_guide_crv.setter
+    def fifth_guide_crv(self, reference_curve: Reference):
+        self.hybrid_shape_sweep_conic.FifthGuideCrv = reference_curve.com_object
+
+    @property
+    def first_guide_crv(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_conic.FirstGuideCrv)
+
+    @first_guide_crv.setter
+    def first_guide_crv(self, reference_curve: Reference):
+        self.hybrid_shape_sweep_conic.FirstGuideCrv = reference_curve.com_object
+
+    @property
+    def fourth_guide_crv(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_conic.FourthGuideCrv)
+
+    @fourth_guide_crv.setter
+    def fourth_guide_crv(self, reference_curve: Reference):
+        self.hybrid_shape_sweep_conic.FourthGuideCrv = reference_curve.com_object
+
+    @property
+    def guide_deviation(self) -&gt; Length:
+        return Length(self.hybrid_shape_sweep_conic.GuideDeviation)
+
+    @property
+    def guide_deviation_activity(self) -&gt; bool:
+        return self.hybrid_shape_sweep_conic.GuideDeviationActivity
+
+    @guide_deviation_activity.setter
+    def guide_deviation_activity(self, value: bool):
+        self.hybrid_shape_sweep_conic.GuideDeviationActivity = value
+
+    @property
+    def parameter(self) -&gt; float:
+        return self.hybrid_shape_sweep_conic.Parameter
+
+    @parameter.setter
+    def parameter(self, value: float):
+        self.hybrid_shape_sweep_conic.Parameter = value
+
+    @property
+    def parameter_law(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_conic.ParameterLaw)
+
+    @parameter_law.setter
+    def parameter_law(self, reference_law: Reference):
+        self.hybrid_shape_sweep_conic.ParameterLaw = reference_law.com_object
+
+    @property
+    def parameter_law_inversion(self) -&gt; bool:
+        return self.hybrid_shape_sweep_conic.ParameterLawInversion
+
+    @parameter_law_inversion.setter
+    def parameter_law_inversion(self, value: bool):
+        self.hybrid_shape_sweep_conic.ParameterLawInversion = value
+
+    @property
+    def parameter_law_type(self) -&gt; int:
+        return self.hybrid_shape_sweep_conic.ParameterLawType
+
+    @parameter_law_type.setter
+    def parameter_law_type(self, value: int):
+        self.hybrid_shape_sweep_conic.ParameterLawType = value
+
+    @property
+    def second_guide_crv(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_conic.SecondGuideCrv)
+
+    @second_guide_crv.setter
+    def second_guide_crv(self, reference_curve: Reference):
+        self.hybrid_shape_sweep_conic.SecondGuideCrv = reference_curve.com_object
+
+    @property
+    def smooth_activity(self) -&gt; bool:
+        return self.hybrid_shape_sweep_conic.SmoothActivity
+
+    @smooth_activity.setter
+    def smooth_activity(self, value: bool):
+        self.hybrid_shape_sweep_conic.SmoothActivity = value
+
+    @property
+    def smooth_angle_threshold(self) -&gt; Angle:
+        return Angle(self.hybrid_shape_sweep_conic.SmoothAngleThreshold)
+
+    @property
+    def spine(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_conic.Spine)
+
+    @spine.setter
+    def spine(self, reference_spine: Reference):
+        self.hybrid_shape_sweep_conic.Spine = reference_spine.com_object
+
+    @property
+    def third_guide_crv(self) -&gt; Reference:
+        return Reference(self.hybrid_shape_sweep_conic.ThirdGuideCrv)
+
+    @third_guide_crv.setter
+    def third_guide_crv(self, reference_curve: Reference):
+        self.hybrid_shape_sweep_conic.ThirdGuideCrv = reference_curve.com_object
+
+    def get_longitudinal_relimiters(
+        self, op_ia_elem1: Reference, op_ia_elem2: Reference
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.GetLongitudinalRelimiters(
+            op_ia_elem1.com_object, op_ia_elem2.com_object
+        )
+
+    def get_nb_guides(self, o_num: int) -&gt; None:
+        return self.hybrid_shape_sweep_conic.GetNbGuides(o_num)
+
+    def get_parameter_law(
+        self, o_param_start: float, o_param_end: float, o_law_type: int
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.GetParameterLaw(
+            o_param_start, o_param_end, o_law_type
+        )
+
+    def get_relimiters(
+        self,
+        op_ia_elem1: Reference,
+        op_orient1: int,
+        op_ia_elem2: Reference,
+        op_orient2: int,
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.GetRelimiters(
+            op_ia_elem1.com_object, op_orient1, op_ia_elem2.com_object, op_orient2
+        )
+
+    def get_tangency(
+        self,
+        op_ia_elem: Reference,
+        op_ia_angle_start: Angle,
+        op_ia_angle_end: Angle,
+        o_law_type: int,
+        i_index: int,
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.GetTangency(
+            op_ia_elem.com_object,
+            op_ia_angle_start.com_object,
+            op_ia_angle_end.com_object,
+            o_law_type,
+            i_index,
+        )
+
+    def get_tangency_angle_law_inversion(self, i_index: int, o_inversion: int) -&gt; None:
+        return self.hybrid_shape_sweep_conic.GetTangencyAngleLawInversion(
+            i_index, o_inversion
+        )
+
+    def get_tangency_law(
+        self, op_ia_elem: Reference, op_ia_law: Reference, i_index: int
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.GetTangencyLaw(
+            op_ia_elem.com_object, op_ia_law.com_object, i_index
+        )
+
+    def remove_guide(self, i_index: int) -&gt; None:
+        return self.hybrid_shape_sweep_conic.RemoveGuide(i_index)
+
+    def remove_parameter(self) -&gt; None:
+        return self.hybrid_shape_sweep_conic.RemoveParameter()
+
+    def remove_tangency(self, i_index: int) -&gt; None:
+        return self.hybrid_shape_sweep_conic.RemoveTangency(i_index)
+
+    def set_guide_deviation(self, i_length: float) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetGuideDeviation(i_length)
+
+    def set_longitudinal_relimiters(
+        self, ip_ia_elem1: Reference, ip_ia_elem2: Reference
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetLongitudinalRelimiters(
+            ip_ia_elem1.com_object, ip_ia_elem2.com_object
+        )
+
+    def set_parameter_law(
+        self, i_param_start: float, i_param_end: float, i_law_type: int
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetParameterLaw(
+            i_param_start, i_param_end, i_law_type
+        )
+
+    def set_relimiters(
+        self,
+        ip_ia_elem1: Reference,
+        ip_orient1: int,
+        ip_ia_elem2: Reference,
+        ip_orient2: int,
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetRelimiters(
+            ip_ia_elem1.com_object, ip_orient1, ip_ia_elem2.com_object, ip_orient2
+        )
+
+    def set_smooth_angle_threshold(self, i_angle: float) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetSmoothAngleThreshold(i_angle)
+
+    def set_tangency(
+        self,
+        ip_ia_elem: Reference,
+        i_angle_start: float,
+        i_angle_end: float,
+        ilaw_type: int,
+        i_index: int,
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetTangency(
+            ip_ia_elem.com_object, i_angle_start, i_angle_end, ilaw_type, i_index
+        )
+
+    def set_tangency_angle_law_inversion(self, i_index: int, i_inversion: int) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetTangencyAngleLawInversion(
+            i_index, i_inversion
+        )
+
+    def set_tangency_law(
+        self, ip_ia_elem: Reference, ip_ia_law: Reference, i_index: int
+    ) -&gt; None:
+        return self.hybrid_shape_sweep_conic.SetTangencyLaw(
+            ip_ia_elem.com_object, ip_ia_law.com_object, i_index
+        )
+
+    def __repr__(self):
+        return f&#39;HybridShapeSweepConic(name=&#34;{self.name}&#34;)&#39;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep.HybridShapeSweep" href="hybrid_shape_sweep.html#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep.HybridShapeSweep">HybridShapeSweep</a></li>
+<li><a title="pytia.framework.mec_mod_interfaces.hybrid_shape.HybridShape" href="../mec_mod_interfaces/hybrid_shape.html#pytia.framework.mec_mod_interfaces.hybrid_shape.HybridShape">HybridShape</a></li>
+<li><a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a></li>
+<li><a title="pytia.framework.base.Base" href="../base.html#pytia.framework.base.Base">Base</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.canonical_detection"><code class="name">var <span class="ident">canonical_detection</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def canonical_detection(self) -&gt; int:
+    return self.hybrid_shape_sweep_conic.CanonicalDetection</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.fifth_guide_crv"><code class="name">var <span class="ident">fifth_guide_crv</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def fifth_guide_crv(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_conic.FifthGuideCrv)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.first_guide_crv"><code class="name">var <span class="ident">first_guide_crv</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def first_guide_crv(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_conic.FirstGuideCrv)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.fourth_guide_crv"><code class="name">var <span class="ident">fourth_guide_crv</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def fourth_guide_crv(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_conic.FourthGuideCrv)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.guide_deviation"><code class="name">var <span class="ident">guide_deviation</span> : <a title="pytia.framework.knowledge_interfaces.length.Length" href="../knowledge_interfaces/length.html#pytia.framework.knowledge_interfaces.length.Length">Length</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def guide_deviation(self) -&gt; Length:
+    return Length(self.hybrid_shape_sweep_conic.GuideDeviation)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.guide_deviation_activity"><code class="name">var <span class="ident">guide_deviation_activity</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def guide_deviation_activity(self) -&gt; bool:
+    return self.hybrid_shape_sweep_conic.GuideDeviationActivity</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.parameter"><code class="name">var <span class="ident">parameter</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def parameter(self) -&gt; float:
+    return self.hybrid_shape_sweep_conic.Parameter</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.parameter_law"><code class="name">var <span class="ident">parameter_law</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def parameter_law(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_conic.ParameterLaw)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.parameter_law_inversion"><code class="name">var <span class="ident">parameter_law_inversion</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def parameter_law_inversion(self) -&gt; bool:
+    return self.hybrid_shape_sweep_conic.ParameterLawInversion</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.parameter_law_type"><code class="name">var <span class="ident">parameter_law_type</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def parameter_law_type(self) -&gt; int:
+    return self.hybrid_shape_sweep_conic.ParameterLawType</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.second_guide_crv"><code class="name">var <span class="ident">second_guide_crv</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def second_guide_crv(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_conic.SecondGuideCrv)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.smooth_activity"><code class="name">var <span class="ident">smooth_activity</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def smooth_activity(self) -&gt; bool:
+    return self.hybrid_shape_sweep_conic.SmoothActivity</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.smooth_angle_threshold"><code class="name">var <span class="ident">smooth_angle_threshold</span> : <a title="pytia.framework.knowledge_interfaces.angle.Angle" href="../knowledge_interfaces/angle.html#pytia.framework.knowledge_interfaces.angle.Angle">Angle</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def smooth_angle_threshold(self) -&gt; Angle:
+    return Angle(self.hybrid_shape_sweep_conic.SmoothAngleThreshold)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.spine"><code class="name">var <span class="ident">spine</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def spine(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_conic.Spine)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.third_guide_crv"><code class="name">var <span class="ident">third_guide_crv</span> : <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def third_guide_crv(self) -&gt; Reference:
+    return Reference(self.hybrid_shape_sweep_conic.ThirdGuideCrv)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_longitudinal_relimiters"><code class="name flex">
+<span>def <span class="ident">get_longitudinal_relimiters</span></span>(<span>self, op_ia_elem1: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, op_ia_elem2: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_longitudinal_relimiters(
+    self, op_ia_elem1: Reference, op_ia_elem2: Reference
+) -&gt; None:
+    return self.hybrid_shape_sweep_conic.GetLongitudinalRelimiters(
+        op_ia_elem1.com_object, op_ia_elem2.com_object
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_nb_guides"><code class="name flex">
+<span>def <span class="ident">get_nb_guides</span></span>(<span>self, o_num: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_nb_guides(self, o_num: int) -&gt; None:
+    return self.hybrid_shape_sweep_conic.GetNbGuides(o_num)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_parameter_law"><code class="name flex">
+<span>def <span class="ident">get_parameter_law</span></span>(<span>self, o_param_start: float, o_param_end: float, o_law_type: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_parameter_law(
+    self, o_param_start: float, o_param_end: float, o_law_type: int
+) -&gt; None:
+    return self.hybrid_shape_sweep_conic.GetParameterLaw(
+        o_param_start, o_param_end, o_law_type
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_relimiters"><code class="name flex">
+<span>def <span class="ident">get_relimiters</span></span>(<span>self, op_ia_elem1: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, op_orient1: int, op_ia_elem2: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, op_orient2: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_relimiters(
+    self,
+    op_ia_elem1: Reference,
+    op_orient1: int,
+    op_ia_elem2: Reference,
+    op_orient2: int,
+) -&gt; None:
+    return self.hybrid_shape_sweep_conic.GetRelimiters(
+        op_ia_elem1.com_object, op_orient1, op_ia_elem2.com_object, op_orient2
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_tangency"><code class="name flex">
+<span>def <span class="ident">get_tangency</span></span>(<span>self, op_ia_elem: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, op_ia_angle_start: <a title="pytia.framework.knowledge_interfaces.angle.Angle" href="../knowledge_interfaces/angle.html#pytia.framework.knowledge_interfaces.angle.Angle">Angle</a>, op_ia_angle_end: <a title="pytia.framework.knowledge_interfaces.angle.Angle" href="../knowledge_interfaces/angle.html#pytia.framework.knowledge_interfaces.angle.Angle">Angle</a>, o_law_type: int, i_index: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_tangency(
+    self,
+    op_ia_elem: Reference,
+    op_ia_angle_start: Angle,
+    op_ia_angle_end: Angle,
+    o_law_type: int,
+    i_index: int,
+) -&gt; None:
+    return self.hybrid_shape_sweep_conic.GetTangency(
+        op_ia_elem.com_object,
+        op_ia_angle_start.com_object,
+        op_ia_angle_end.com_object,
+        o_law_type,
+        i_index,
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_tangency_angle_law_inversion"><code class="name flex">
+<span>def <span class="ident">get_tangency_angle_law_inversion</span></span>(<span>self, i_index: int, o_inversion: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_tangency_angle_law_inversion(self, i_index: int, o_inversion: int) -&gt; None:
+    return self.hybrid_shape_sweep_conic.GetTangencyAngleLawInversion(
+        i_index, o_inversion
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_tangency_law"><code class="name flex">
+<span>def <span class="ident">get_tangency_law</span></span>(<span>self, op_ia_elem: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, op_ia_law: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, i_index: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_tangency_law(
+    self, op_ia_elem: Reference, op_ia_law: Reference, i_index: int
+) -&gt; None:
+    return self.hybrid_shape_sweep_conic.GetTangencyLaw(
+        op_ia_elem.com_object, op_ia_law.com_object, i_index
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.remove_guide"><code class="name flex">
+<span>def <span class="ident">remove_guide</span></span>(<span>self, i_index: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_guide(self, i_index: int) -&gt; None:
+    return self.hybrid_shape_sweep_conic.RemoveGuide(i_index)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.remove_parameter"><code class="name flex">
+<span>def <span class="ident">remove_parameter</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_parameter(self) -&gt; None:
+    return self.hybrid_shape_sweep_conic.RemoveParameter()</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.remove_tangency"><code class="name flex">
+<span>def <span class="ident">remove_tangency</span></span>(<span>self, i_index: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_tangency(self, i_index: int) -&gt; None:
+    return self.hybrid_shape_sweep_conic.RemoveTangency(i_index)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_guide_deviation"><code class="name flex">
+<span>def <span class="ident">set_guide_deviation</span></span>(<span>self, i_length: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_guide_deviation(self, i_length: float) -&gt; None:
+    return self.hybrid_shape_sweep_conic.SetGuideDeviation(i_length)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_longitudinal_relimiters"><code class="name flex">
+<span>def <span class="ident">set_longitudinal_relimiters</span></span>(<span>self, ip_ia_elem1: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, ip_ia_elem2: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_longitudinal_relimiters(
+    self, ip_ia_elem1: Reference, ip_ia_elem2: Reference
+) -&gt; None:
+    return self.hybrid_shape_sweep_conic.SetLongitudinalRelimiters(
+        ip_ia_elem1.com_object, ip_ia_elem2.com_object
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_parameter_law"><code class="name flex">
+<span>def <span class="ident">set_parameter_law</span></span>(<span>self, i_param_start: float, i_param_end: float, i_law_type: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_parameter_law(
+    self, i_param_start: float, i_param_end: float, i_law_type: int
+) -&gt; None:
+    return self.hybrid_shape_sweep_conic.SetParameterLaw(
+        i_param_start, i_param_end, i_law_type
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_relimiters"><code class="name flex">
+<span>def <span class="ident">set_relimiters</span></span>(<span>self, ip_ia_elem1: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, ip_orient1: int, ip_ia_elem2: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, ip_orient2: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_relimiters(
+    self,
+    ip_ia_elem1: Reference,
+    ip_orient1: int,
+    ip_ia_elem2: Reference,
+    ip_orient2: int,
+) -&gt; None:
+    return self.hybrid_shape_sweep_conic.SetRelimiters(
+        ip_ia_elem1.com_object, ip_orient1, ip_ia_elem2.com_object, ip_orient2
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_smooth_angle_threshold"><code class="name flex">
+<span>def <span class="ident">set_smooth_angle_threshold</span></span>(<span>self, i_angle: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_smooth_angle_threshold(self, i_angle: float) -&gt; None:
+    return self.hybrid_shape_sweep_conic.SetSmoothAngleThreshold(i_angle)</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_tangency"><code class="name flex">
+<span>def <span class="ident">set_tangency</span></span>(<span>self, ip_ia_elem: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, i_angle_start: float, i_angle_end: float, ilaw_type: int, i_index: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_tangency(
+    self,
+    ip_ia_elem: Reference,
+    i_angle_start: float,
+    i_angle_end: float,
+    ilaw_type: int,
+    i_index: int,
+) -&gt; None:
+    return self.hybrid_shape_sweep_conic.SetTangency(
+        ip_ia_elem.com_object, i_angle_start, i_angle_end, ilaw_type, i_index
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_tangency_angle_law_inversion"><code class="name flex">
+<span>def <span class="ident">set_tangency_angle_law_inversion</span></span>(<span>self, i_index: int, i_inversion: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_tangency_angle_law_inversion(self, i_index: int, i_inversion: int) -&gt; None:
+    return self.hybrid_shape_sweep_conic.SetTangencyAngleLawInversion(
+        i_index, i_inversion
+    )</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_tangency_law"><code class="name flex">
+<span>def <span class="ident">set_tangency_law</span></span>(<span>self, ip_ia_elem: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, ip_ia_law: <a title="pytia.framework.in_interfaces.reference.Reference" href="../in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, i_index: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_tangency_law(
+    self, ip_ia_elem: Reference, ip_ia_law: Reference, i_index: int
+) -&gt; None:
+    return self.hybrid_shape_sweep_conic.SetTangencyLaw(
+        ip_ia_elem.com_object, ip_ia_law.com_object, i_index
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces" href="index.html">pytia.framework.hybrid_shape_interfaces</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic">HybridShapeSweepConic</a></code></h4>
+<ul class="">
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.canonical_detection" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.canonical_detection">canonical_detection</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.fifth_guide_crv" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.fifth_guide_crv">fifth_guide_crv</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.first_guide_crv" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.first_guide_crv">first_guide_crv</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.fourth_guide_crv" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.fourth_guide_crv">fourth_guide_crv</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_longitudinal_relimiters" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_longitudinal_relimiters">get_longitudinal_relimiters</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_nb_guides" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_nb_guides">get_nb_guides</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_parameter_law" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_parameter_law">get_parameter_law</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_relimiters" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_relimiters">get_relimiters</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_tangency" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_tangency">get_tangency</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_tangency_angle_law_inversion" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_tangency_angle_law_inversion">get_tangency_angle_law_inversion</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_tangency_law" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.get_tangency_law">get_tangency_law</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.guide_deviation" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.guide_deviation">guide_deviation</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.guide_deviation_activity" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.guide_deviation_activity">guide_deviation_activity</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.parameter" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.parameter">parameter</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.parameter_law" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.parameter_law">parameter_law</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.parameter_law_inversion" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.parameter_law_inversion">parameter_law_inversion</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.parameter_law_type" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.parameter_law_type">parameter_law_type</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.remove_guide" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.remove_guide">remove_guide</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.remove_parameter" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.remove_parameter">remove_parameter</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.remove_tangency" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.remove_tangency">remove_tangency</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.second_guide_crv" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.second_guide_crv">second_guide_crv</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_guide_deviation" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_guide_deviation">set_guide_deviation</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_longitudinal_relimiters" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_longitudinal_relimiters">set_longitudinal_relimiters</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_parameter_law" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_parameter_law">set_parameter_law</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_relimiters" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_relimiters">set_relimiters</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_smooth_angle_threshold" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_smooth_angle_threshold">set_smooth_angle_threshold</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_tangency" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_tangency">set_tangency</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_tangency_angle_law_inversion" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_tangency_angle_law_inversion">set_tangency_angle_law_inversion</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_tangency_law" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.set_tangency_law">set_tangency_law</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.smooth_activity" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.smooth_activity">smooth_activity</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.smooth_angle_threshold" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.smooth_angle_threshold">smooth_angle_threshold</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.spine" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.spine">spine</a></code></li>
+<li><code><a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.third_guide_crv" href="#pytia.framework.hybrid_shape_interfaces.hybrid_shape_sweep_conic.HybridShapeSweepConic.third_guide_crv">third_guide_crv</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
