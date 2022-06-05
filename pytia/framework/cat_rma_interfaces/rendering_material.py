@@ -1,3 +1,4 @@
+from pytia.exceptions import PytiaApplicationError
 from pytia.framework.system_interfaces.any_object import AnyObject
 
 
@@ -12,6 +13,13 @@ class RenderingMaterial(AnyObject):
 
     @adaptive_coeff.setter
     def adaptive_coeff(self, value: int):
+        min_coeff = 1
+        max_coeff = 8
+        if not min_coeff <= value <= max_coeff:
+            raise PytiaApplicationError(
+                f"Adaptive coefficient must be between {min_coeff} and {max_coeff}, "
+                f"but is {value}."
+            )
         self.rendering_material.AdaptiveCoeff = value
 
     @property
@@ -20,6 +28,13 @@ class RenderingMaterial(AnyObject):
 
     @ambient_coefficient.setter
     def ambient_coefficient(self, value: float):
+        min_coeff = 0
+        max_coeff = 1
+        if not min_coeff <= value <= max_coeff:
+            raise PytiaApplicationError(
+                f"Ambient coefficient must be between {min_coeff} and {max_coeff}, "
+                f"but is {value}."
+            )
         self.rendering_material.AmbientCoefficient = value
 
     @property
@@ -28,6 +43,12 @@ class RenderingMaterial(AnyObject):
 
     @bump.setter
     def bump(self, value: float):
+        min_value = -10
+        max_value = 10
+        if not min_value <= value <= max_value:
+            raise PytiaApplicationError(
+                f"Bump must be between {min_value} and {max_value}, " f"but is {value}."
+            )
         self.rendering_material.Bump = value
 
     @property
@@ -36,6 +57,13 @@ class RenderingMaterial(AnyObject):
 
     @chessboard_joint_height.setter
     def chessboard_joint_height(self, value: float):
+        min_height = 0
+        max_height = 100
+        if not min_height <= value <= max_height:
+            raise PytiaApplicationError(
+                f"Chessboard joint height must be between {min_height} and {max_height}, "
+                f"but is {value}."
+            )
         self.rendering_material.ChessboardJointHeight = value
 
     @property
@@ -44,6 +72,13 @@ class RenderingMaterial(AnyObject):
 
     @chessboard_joint_width.setter
     def chessboard_joint_width(self, value: float):
+        min_width = 0
+        max_width = 100
+        if not min_width <= value <= max_width:
+            raise PytiaApplicationError(
+                f"Chessboard joint width must be between {min_width} and {max_width}, "
+                f"but is {value}."
+            )
         self.rendering_material.ChessboardJointWidth = value
 
     @property
@@ -52,6 +87,13 @@ class RenderingMaterial(AnyObject):
 
     @chessboard_offset.setter
     def chessboard_offset(self, value: float):
+        min_offset = 0
+        max_offset = 0.5
+        if not min_offset <= value <= max_offset:
+            raise PytiaApplicationError(
+                f"Chessboard offset must be between {min_offset} and {max_offset}, "
+                f"but is {value}."
+            )
         self.rendering_material.ChessboardOffset = value
 
     @property
@@ -60,6 +102,13 @@ class RenderingMaterial(AnyObject):
 
     @chessboard_tile_height.setter
     def chessboard_tile_height(self, value: float):
+        min_height = 0
+        max_height = 100
+        if not min_height <= value <= max_height:
+            raise PytiaApplicationError(
+                f"Chessboard tile height must be between {min_height} and {max_height}, "
+                f"but is {value}."
+            )
         self.rendering_material.ChessboardTileHeight = value
 
     @property
@@ -68,6 +117,13 @@ class RenderingMaterial(AnyObject):
 
     @chessboard_tile_width.setter
     def chessboard_tile_width(self, value: float):
+        min_width = 0
+        max_width = 100
+        if not min_width <= value <= max_width:
+            raise PytiaApplicationError(
+                f"Chessboard tile width must be between {min_width} and {max_width}, "
+                f"but is {value}."
+            )
         self.rendering_material.ChessboardTileWidth = value
 
     @property
@@ -84,6 +140,13 @@ class RenderingMaterial(AnyObject):
 
     @diffuse_coefficient.setter
     def diffuse_coefficient(self, value: float):
+        min_coeff = 0
+        max_coeff = 1
+        if not min_coeff <= value <= max_coeff:
+            raise PytiaApplicationError(
+                f"Diffuse coefficient must be between {min_coeff} and {max_coeff}, "
+                f"but is {value}."
+            )
         self.rendering_material.DiffuseCoefficient = value
 
     @property
@@ -116,6 +179,13 @@ class RenderingMaterial(AnyObject):
 
     @mapping_type.setter
     def mapping_type(self, value: int):
+        min_mapping = 0
+        max_mapping = 5
+        if not min_mapping <= value <= max_mapping:
+            raise PytiaApplicationError(
+                f"Mapping type must be between {min_mapping} and {max_mapping}, "
+                f"but is {value}."
+            )
         self.rendering_material.MappingType = value
 
     @property
@@ -124,6 +194,13 @@ class RenderingMaterial(AnyObject):
 
     @orientation.setter
     def orientation(self, value: float):
+        min_orient = -360
+        max_orient = 360
+        if not min_orient <= value <= max_orient:
+            raise PytiaApplicationError(
+                f"Orientation must be between {min_orient} and {max_orient}, "
+                f"but is {value}."
+            )
         self.rendering_material.Orientation = value
 
     @property
@@ -156,6 +233,13 @@ class RenderingMaterial(AnyObject):
 
     @reflection_height.setter
     def reflection_height(self, value: float):
+        min_height = 0
+        max_height = 1
+        if not min_height <= value <= max_height:
+            raise PytiaApplicationError(
+                f"Reflection height must be between {min_height} and {max_height}, "
+                f"but is {value}."
+            )
         self.rendering_material.ReflectionHeight = value
 
     @property
@@ -164,6 +248,13 @@ class RenderingMaterial(AnyObject):
 
     @reflection_length.setter
     def reflection_length(self, value: float):
+        min_length = 0
+        max_length = 1
+        if not min_length <= value <= max_length:
+            raise PytiaApplicationError(
+                f"Reflection length must be between {min_length} and {max_length}, "
+                f"but is {value}."
+            )
         self.rendering_material.ReflectionLength = value
 
     @property
@@ -172,6 +263,13 @@ class RenderingMaterial(AnyObject):
 
     @reflection_mode.setter
     def reflection_mode(self, value: int):
+        min_mode = 0
+        max_mode = 4
+        if not min_mode <= value <= max_mode:
+            raise PytiaApplicationError(
+                f"Reflection mode must be between {min_mode} and {max_mode}, "
+                f"but is {value}."
+            )
         self.rendering_material.ReflectionMode = value
 
     @property
@@ -180,6 +278,13 @@ class RenderingMaterial(AnyObject):
 
     @reflectivity_coefficient.setter
     def reflectivity_coefficient(self, value: float):
+        min_coeff = 0
+        max_coeff = 4
+        if not min_coeff <= value <= max_coeff:
+            raise PytiaApplicationError(
+                f"Reflectivity coefficient must be between {min_coeff} and {max_coeff}, "
+                f"but is {value}."
+            )
         self.rendering_material.ReflectivityCoefficient = value
 
     @property
@@ -188,6 +293,13 @@ class RenderingMaterial(AnyObject):
 
     @refraction_coefficient.setter
     def refraction_coefficient(self, value: float):
+        min_coeff = 1
+        max_coeff = 2
+        if not min_coeff <= value <= max_coeff:
+            raise PytiaApplicationError(
+                f"Refraction coefficient must be between {min_coeff} and {max_coeff}, "
+                f"but is {value}."
+            )
         self.rendering_material.RefractionCoefficient = value
 
     @property
@@ -212,6 +324,13 @@ class RenderingMaterial(AnyObject):
 
     @scale_u.setter
     def scale_u(self, value: float):
+        min_scale = 0
+        max_scale = 100
+        if not min_scale <= value <= max_scale:
+            raise PytiaApplicationError(
+                f"Scale U must be between {min_scale} and {max_scale}, "
+                f"but is {value}."
+            )
         self.rendering_material.ScaleU = value
 
     @property
@@ -220,6 +339,13 @@ class RenderingMaterial(AnyObject):
 
     @scale_v.setter
     def scale_v(self, value: float):
+        min_scale = 0
+        max_scale = 100
+        if not min_scale <= value <= max_scale:
+            raise PytiaApplicationError(
+                f"Scale V must be between {min_scale} and {max_scale}, "
+                f"but is {value}."
+            )
         self.rendering_material.ScaleV = value
 
     @property
@@ -228,6 +354,13 @@ class RenderingMaterial(AnyObject):
 
     @specular_coefficient.setter
     def specular_coefficient(self, value: float):
+        min_coeff = 0
+        max_coeff = 1
+        if not min_coeff <= value <= max_coeff:
+            raise PytiaApplicationError(
+                f"Specular coefficient must be between {min_coeff} and {max_coeff}, "
+                f"but is {value}."
+            )
         self.rendering_material.SpecularCoefficient = value
 
     @property
@@ -236,6 +369,13 @@ class RenderingMaterial(AnyObject):
 
     @specular_exponent.setter
     def specular_exponent(self, value: float):
+        min_expo = 0
+        max_expo = 1
+        if not min_expo <= value <= max_expo:
+            raise PytiaApplicationError(
+                f"Specular exponent must be between {min_expo} and {max_expo}, "
+                f"but is {value}."
+            )
         self.rendering_material.SpecularExponent = value
 
     @property
@@ -244,6 +384,13 @@ class RenderingMaterial(AnyObject):
 
     @texture_amplitude.setter
     def texture_amplitude(self, value: float):
+        min_amp = 0
+        max_amp = 1
+        if not min_amp <= value <= max_amp:
+            raise PytiaApplicationError(
+                f"Texture amplitude must be between {min_amp} and {max_amp}, "
+                f"but is {value}."
+            )
         self.rendering_material.TextureAmplitude = value
 
     @property
@@ -252,6 +399,13 @@ class RenderingMaterial(AnyObject):
 
     @texture_complexity.setter
     def texture_complexity(self, value: int):
+        min_cplx = 0
+        max_cplx = 10
+        if not min_cplx <= value <= max_cplx:
+            raise PytiaApplicationError(
+                f"Texture complexity must be between {min_cplx} and {max_cplx}, "
+                f"but is {value}."
+            )
         self.rendering_material.TextureComplexity = value
 
     @property
@@ -260,6 +414,13 @@ class RenderingMaterial(AnyObject):
 
     @texture_gain.setter
     def texture_gain(self, value: float):
+        min_gain = 0
+        max_gain = 2
+        if not min_gain <= value <= max_gain:
+            raise PytiaApplicationError(
+                f"Texture gain must be between {min_gain} and {max_gain}, "
+                f"but is {value}."
+            )
         self.rendering_material.TextureGain = value
 
     @property
@@ -276,6 +437,13 @@ class RenderingMaterial(AnyObject):
 
     @texture_perturbation.setter
     def texture_perturbation(self, value: float):
+        min_pet = 0
+        max_pet = 10
+        if not min_pet <= value <= max_pet:
+            raise PytiaApplicationError(
+                f"Texture perturbation must be between {min_pet} and {max_pet}, "
+                f"but is {value}."
+            )
         self.rendering_material.TexturePerturbation = value
 
     @property
@@ -292,6 +460,13 @@ class RenderingMaterial(AnyObject):
 
     @texture_type.setter
     def texture_type(self, value: int):
+        min_type = 0
+        max_type = 6
+        if not min_type <= value <= max_type:
+            raise PytiaApplicationError(
+                f"Texture type must be between {min_type} and {max_type}, "
+                f"but is {value}."
+            )
         self.rendering_material.TextureType = value
 
     @property
@@ -308,6 +483,13 @@ class RenderingMaterial(AnyObject):
 
     @transparency_coefficient.setter
     def transparency_coefficient(self, value: float):
+        min_coeff = 0
+        max_coeff = 1
+        if not min_coeff <= value <= max_coeff:
+            raise PytiaApplicationError(
+                f"Transparency coefficient must be between {min_coeff} and {max_coeff}, "
+                f"but is {value}."
+            )
         self.rendering_material.TransparencyCoefficient = value
 
     def get3_d_texture_color(
