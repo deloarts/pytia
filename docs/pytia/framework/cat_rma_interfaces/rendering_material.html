@@ -1,445 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1"
-    />
-    <meta name="generator" content="pdoc 0.10.0" />
-    <title>
-      pytia.framework.cat_rma_interfaces.rendering_material API documentation
-    </title>
-    <meta name="description" content="" />
-    <link
-      rel="preload stylesheet"
-      as="style"
-      href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css"
-      integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs="
-      crossorigin
-    />
-    <link
-      rel="preload stylesheet"
-      as="style"
-      href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css"
-      integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg="
-      crossorigin
-    />
-    <link
-      rel="stylesheet preload"
-      as="style"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css"
-      crossorigin
-    />
-    <style>
-      :root {
-        --highlight-color: #fe9;
-      }
-      .flex {
-        display: flex !important;
-      }
-      body {
-        line-height: 1.5em;
-      }
-      #content {
-        padding: 20px;
-      }
-      #sidebar {
-        padding: 30px;
-        overflow: hidden;
-      }
-      #sidebar > *:last-child {
-        margin-bottom: 2cm;
-      }
-      .http-server-breadcrumbs {
-        font-size: 130%;
-        margin: 0 0 15px 0;
-      }
-      #footer {
-        font-size: 0.75em;
-        padding: 5px 30px;
-        border-top: 1px solid #ddd;
-        text-align: right;
-      }
-      #footer p {
-        margin: 0 0 0 1em;
-        display: inline-block;
-      }
-      #footer p:last-child {
-        margin-right: 30px;
-      }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5 {
-        font-weight: 300;
-      }
-      h1 {
-        font-size: 2.5em;
-        line-height: 1.1em;
-      }
-      h2 {
-        font-size: 1.75em;
-        margin: 1em 0 0.5em 0;
-      }
-      h3 {
-        font-size: 1.4em;
-        margin: 25px 0 10px 0;
-      }
-      h4 {
-        margin: 0;
-        font-size: 105%;
-      }
-      h1:target,
-      h2:target,
-      h3:target,
-      h4:target,
-      h5:target,
-      h6:target {
-        background: var(--highlight-color);
-        padding: 0.2em 0;
-      }
-      a {
-        color: #058;
-        text-decoration: none;
-        transition: color 0.3s ease-in-out;
-      }
-      a:hover {
-        color: #e82;
-      }
-      .title code {
-        font-weight: bold;
-      }
-      h2[id^="header-"] {
-        margin-top: 2em;
-      }
-      .ident {
-        color: #900;
-      }
-      pre code {
-        background: #f8f8f8;
-        font-size: 0.8em;
-        line-height: 1.4em;
-      }
-      code {
-        background: #f2f2f1;
-        padding: 1px 4px;
-        overflow-wrap: break-word;
-      }
-      h1 code {
-        background: transparent;
-      }
-      pre {
-        background: #f8f8f8;
-        border: 0;
-        border-top: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
-        margin: 1em 0;
-        padding: 1ex;
-      }
-      #http-server-module-list {
-        display: flex;
-        flex-flow: column;
-      }
-      #http-server-module-list div {
-        display: flex;
-      }
-      #http-server-module-list dt {
-        min-width: 10%;
-      }
-      #http-server-module-list p {
-        margin-top: 0;
-      }
-      .toc ul,
-      #index {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-      #index code {
-        background: transparent;
-      }
-      #index h3 {
-        border-bottom: 1px solid #ddd;
-      }
-      #index ul {
-        padding: 0;
-      }
-      #index h4 {
-        margin-top: 0.6em;
-        font-weight: bold;
-      }
-      @media (min-width: 200ex) {
-        #index .two-column {
-          column-count: 2;
-        }
-      }
-      @media (min-width: 300ex) {
-        #index .two-column {
-          column-count: 3;
-        }
-      }
-      dl {
-        margin-bottom: 2em;
-      }
-      dl dl:last-child {
-        margin-bottom: 4em;
-      }
-      dd {
-        margin: 0 0 1em 3em;
-      }
-      #header-classes + dl > dd {
-        margin-bottom: 3em;
-      }
-      dd dd {
-        margin-left: 2em;
-      }
-      dd p {
-        margin: 10px 0;
-      }
-      .name {
-        background: #eee;
-        font-weight: bold;
-        font-size: 0.85em;
-        padding: 5px 10px;
-        display: inline-block;
-        min-width: 40%;
-      }
-      .name:hover {
-        background: #e0e0e0;
-      }
-      dt:target .name {
-        background: var(--highlight-color);
-      }
-      .name > span:first-child {
-        white-space: nowrap;
-      }
-      .name.class > span:nth-child(2) {
-        margin-left: 0.4em;
-      }
-      .inherited {
-        color: #999;
-        border-left: 5px solid #eee;
-        padding-left: 1em;
-      }
-      .inheritance em {
-        font-style: normal;
-        font-weight: bold;
-      }
-      .desc h2 {
-        font-weight: 400;
-        font-size: 1.25em;
-      }
-      .desc h3 {
-        font-size: 1em;
-      }
-      .desc dt code {
-        background: inherit;
-      }
-      .source summary,
-      .git-link-div {
-        color: #666;
-        text-align: right;
-        font-weight: 400;
-        font-size: 0.8em;
-        text-transform: uppercase;
-      }
-      .source summary > * {
-        white-space: nowrap;
-        cursor: pointer;
-      }
-      .git-link {
-        color: inherit;
-        margin-left: 1em;
-      }
-      .source pre {
-        max-height: 500px;
-        overflow: auto;
-        margin: 0;
-      }
-      .source pre code {
-        font-size: 12px;
-        overflow: visible;
-      }
-      .hlist {
-        list-style: none;
-      }
-      .hlist li {
-        display: inline;
-      }
-      .hlist li:after {
-        content: ",\2002";
-      }
-      .hlist li:last-child:after {
-        content: none;
-      }
-      .hlist .hlist {
-        display: inline;
-        padding-left: 1em;
-      }
-      img {
-        max-width: 100%;
-      }
-      td {
-        padding: 0 0.5em;
-      }
-      .admonition {
-        padding: 0.1em 0.5em;
-        margin-bottom: 1em;
-      }
-      .admonition-title {
-        font-weight: bold;
-      }
-      .admonition.note,
-      .admonition.info,
-      .admonition.important {
-        background: #aef;
-      }
-      .admonition.todo,
-      .admonition.versionadded,
-      .admonition.tip,
-      .admonition.hint {
-        background: #dfd;
-      }
-      .admonition.warning,
-      .admonition.versionchanged,
-      .admonition.deprecated {
-        background: #fd4;
-      }
-      .admonition.error,
-      .admonition.danger,
-      .admonition.caution {
-        background: lightpink;
-      }
-    </style>
-    <style media="screen and (min-width: 700px)">
-      @media screen and (min-width: 700px) {
-        #sidebar {
-          width: 30%;
-          height: 100vh;
-          overflow: auto;
-          position: sticky;
-          top: 0;
-        }
-        #content {
-          width: 70%;
-          max-width: 100ch;
-          padding: 3em 4em;
-          border-left: 1px solid #ddd;
-        }
-        pre code {
-          font-size: 1em;
-        }
-        .item .name {
-          font-size: 1em;
-        }
-        main {
-          display: flex;
-          flex-direction: row-reverse;
-          justify-content: flex-end;
-        }
-        .toc ul ul,
-        #index ul {
-          padding-left: 1.5em;
-        }
-        .toc > ul > li {
-          margin-top: 0.5em;
-        }
-      }
-    </style>
-    <style media="print">
-      @media print {
-        #sidebar h1 {
-          page-break-before: always;
-        }
-        .source {
-          display: none;
-        }
-      }
-      @media print {
-        * {
-          background: transparent !important;
-          color: #000 !important;
-          box-shadow: none !important;
-          text-shadow: none !important;
-        }
-        a[href]:after {
-          content: " (" attr(href) ")";
-          font-size: 90%;
-        }
-        a[href][title]:after {
-          content: none;
-        }
-        abbr[title]:after {
-          content: " (" attr(title) ")";
-        }
-        .ir a:after,
-        a[href^="javascript:"]:after,
-        a[href^="#"]:after {
-          content: "";
-        }
-        pre,
-        blockquote {
-          border: 1px solid #999;
-          page-break-inside: avoid;
-        }
-        thead {
-          display: table-header-group;
-        }
-        tr,
-        img {
-          page-break-inside: avoid;
-        }
-        img {
-          max-width: 100% !important;
-        }
-        @page {
-          margin: 0.5cm;
-        }
-        p,
-        h2,
-        h3 {
-          orphans: 3;
-          widows: 3;
-        }
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-          page-break-after: avoid;
-        }
-      }
-    </style>
-    <script
-      defer
-      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"
-      integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8="
-      crossorigin
-    ></script>
-    <script>
-      window.addEventListener("DOMContentLoaded", () =>
-        hljs.initHighlighting()
-      );
-    </script>
-  </head>
-  <body>
-    <main>
-      <article id="content">
-        <header>
-          <h1 class="title">
-            Module
-            <code>pytia.framework.cat_rma_interfaces.rendering_material</code>
-          </h1>
-        </header>
-        <section id="section-intro">
-          <details class="source">
-            <summary>
-              <span>Expand source code</span>
-            </summary>
-            <pre><code class="python">from pytia.framework.system_interfaces.any_object import AnyObject
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia.framework.cat_rma_interfaces.rendering_material API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia.framework.cat_rma_interfaces.rendering_material</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from pytia.exceptions import PytiaApplicationError
+from pytia.framework.system_interfaces.any_object import AnyObject
 
 
 class RenderingMaterial(AnyObject):
@@ -453,6 +41,13 @@ class RenderingMaterial(AnyObject):
 
     @adaptive_coeff.setter
     def adaptive_coeff(self, value: int):
+        min_coeff = 1
+        max_coeff = 8
+        if not min_coeff &lt;= value &lt;= max_coeff:
+            raise PytiaApplicationError(
+                f&#34;Adaptive coefficient must be between {min_coeff} and {max_coeff}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.AdaptiveCoeff = value
 
     @property
@@ -461,6 +56,13 @@ class RenderingMaterial(AnyObject):
 
     @ambient_coefficient.setter
     def ambient_coefficient(self, value: float):
+        min_coeff = 0
+        max_coeff = 1
+        if not min_coeff &lt;= value &lt;= max_coeff:
+            raise PytiaApplicationError(
+                f&#34;Ambient coefficient must be between {min_coeff} and {max_coeff}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.AmbientCoefficient = value
 
     @property
@@ -469,6 +71,12 @@ class RenderingMaterial(AnyObject):
 
     @bump.setter
     def bump(self, value: float):
+        min_value = -10
+        max_value = 10
+        if not min_value &lt;= value &lt;= max_value:
+            raise PytiaApplicationError(
+                f&#34;Bump must be between {min_value} and {max_value}, &#34; f&#34;but is {value}.&#34;
+            )
         self.rendering_material.Bump = value
 
     @property
@@ -477,6 +85,13 @@ class RenderingMaterial(AnyObject):
 
     @chessboard_joint_height.setter
     def chessboard_joint_height(self, value: float):
+        min_height = 0
+        max_height = 100
+        if not min_height &lt;= value &lt;= max_height:
+            raise PytiaApplicationError(
+                f&#34;Chessboard joint height must be between {min_height} and {max_height}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ChessboardJointHeight = value
 
     @property
@@ -485,6 +100,13 @@ class RenderingMaterial(AnyObject):
 
     @chessboard_joint_width.setter
     def chessboard_joint_width(self, value: float):
+        min_width = 0
+        max_width = 100
+        if not min_width &lt;= value &lt;= max_width:
+            raise PytiaApplicationError(
+                f&#34;Chessboard joint width must be between {min_width} and {max_width}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ChessboardJointWidth = value
 
     @property
@@ -493,6 +115,13 @@ class RenderingMaterial(AnyObject):
 
     @chessboard_offset.setter
     def chessboard_offset(self, value: float):
+        min_offset = 0
+        max_offset = 0.5
+        if not min_offset &lt;= value &lt;= max_offset:
+            raise PytiaApplicationError(
+                f&#34;Chessboard offset must be between {min_offset} and {max_offset}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ChessboardOffset = value
 
     @property
@@ -501,6 +130,13 @@ class RenderingMaterial(AnyObject):
 
     @chessboard_tile_height.setter
     def chessboard_tile_height(self, value: float):
+        min_height = 0
+        max_height = 100
+        if not min_height &lt;= value &lt;= max_height:
+            raise PytiaApplicationError(
+                f&#34;Chessboard tile height must be between {min_height} and {max_height}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ChessboardTileHeight = value
 
     @property
@@ -509,6 +145,13 @@ class RenderingMaterial(AnyObject):
 
     @chessboard_tile_width.setter
     def chessboard_tile_width(self, value: float):
+        min_width = 0
+        max_width = 100
+        if not min_width &lt;= value &lt;= max_width:
+            raise PytiaApplicationError(
+                f&#34;Chessboard tile width must be between {min_width} and {max_width}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ChessboardTileWidth = value
 
     @property
@@ -525,6 +168,13 @@ class RenderingMaterial(AnyObject):
 
     @diffuse_coefficient.setter
     def diffuse_coefficient(self, value: float):
+        min_coeff = 0
+        max_coeff = 1
+        if not min_coeff &lt;= value &lt;= max_coeff:
+            raise PytiaApplicationError(
+                f&#34;Diffuse coefficient must be between {min_coeff} and {max_coeff}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.DiffuseCoefficient = value
 
     @property
@@ -557,6 +207,13 @@ class RenderingMaterial(AnyObject):
 
     @mapping_type.setter
     def mapping_type(self, value: int):
+        min_mapping = 0
+        max_mapping = 5
+        if not min_mapping &lt;= value &lt;= max_mapping:
+            raise PytiaApplicationError(
+                f&#34;Mapping type must be between {min_mapping} and {max_mapping}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.MappingType = value
 
     @property
@@ -565,6 +222,13 @@ class RenderingMaterial(AnyObject):
 
     @orientation.setter
     def orientation(self, value: float):
+        min_orient = -360
+        max_orient = 360
+        if not min_orient &lt;= value &lt;= max_orient:
+            raise PytiaApplicationError(
+                f&#34;Orientation must be between {min_orient} and {max_orient}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.Orientation = value
 
     @property
@@ -597,6 +261,13 @@ class RenderingMaterial(AnyObject):
 
     @reflection_height.setter
     def reflection_height(self, value: float):
+        min_height = 0
+        max_height = 1
+        if not min_height &lt;= value &lt;= max_height:
+            raise PytiaApplicationError(
+                f&#34;Reflection height must be between {min_height} and {max_height}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ReflectionHeight = value
 
     @property
@@ -605,6 +276,13 @@ class RenderingMaterial(AnyObject):
 
     @reflection_length.setter
     def reflection_length(self, value: float):
+        min_length = 0
+        max_length = 1
+        if not min_length &lt;= value &lt;= max_length:
+            raise PytiaApplicationError(
+                f&#34;Reflection length must be between {min_length} and {max_length}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ReflectionLength = value
 
     @property
@@ -613,6 +291,13 @@ class RenderingMaterial(AnyObject):
 
     @reflection_mode.setter
     def reflection_mode(self, value: int):
+        min_mode = 0
+        max_mode = 4
+        if not min_mode &lt;= value &lt;= max_mode:
+            raise PytiaApplicationError(
+                f&#34;Reflection mode must be between {min_mode} and {max_mode}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ReflectionMode = value
 
     @property
@@ -621,6 +306,13 @@ class RenderingMaterial(AnyObject):
 
     @reflectivity_coefficient.setter
     def reflectivity_coefficient(self, value: float):
+        min_coeff = 0
+        max_coeff = 4
+        if not min_coeff &lt;= value &lt;= max_coeff:
+            raise PytiaApplicationError(
+                f&#34;Reflectivity coefficient must be between {min_coeff} and {max_coeff}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ReflectivityCoefficient = value
 
     @property
@@ -629,6 +321,13 @@ class RenderingMaterial(AnyObject):
 
     @refraction_coefficient.setter
     def refraction_coefficient(self, value: float):
+        min_coeff = 1
+        max_coeff = 2
+        if not min_coeff &lt;= value &lt;= max_coeff:
+            raise PytiaApplicationError(
+                f&#34;Refraction coefficient must be between {min_coeff} and {max_coeff}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.RefractionCoefficient = value
 
     @property
@@ -653,6 +352,13 @@ class RenderingMaterial(AnyObject):
 
     @scale_u.setter
     def scale_u(self, value: float):
+        min_scale = 0
+        max_scale = 100
+        if not min_scale &lt;= value &lt;= max_scale:
+            raise PytiaApplicationError(
+                f&#34;Scale U must be between {min_scale} and {max_scale}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ScaleU = value
 
     @property
@@ -661,6 +367,13 @@ class RenderingMaterial(AnyObject):
 
     @scale_v.setter
     def scale_v(self, value: float):
+        min_scale = 0
+        max_scale = 100
+        if not min_scale &lt;= value &lt;= max_scale:
+            raise PytiaApplicationError(
+                f&#34;Scale V must be between {min_scale} and {max_scale}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ScaleV = value
 
     @property
@@ -669,6 +382,13 @@ class RenderingMaterial(AnyObject):
 
     @specular_coefficient.setter
     def specular_coefficient(self, value: float):
+        min_coeff = 0
+        max_coeff = 1
+        if not min_coeff &lt;= value &lt;= max_coeff:
+            raise PytiaApplicationError(
+                f&#34;Specular coefficient must be between {min_coeff} and {max_coeff}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.SpecularCoefficient = value
 
     @property
@@ -677,6 +397,13 @@ class RenderingMaterial(AnyObject):
 
     @specular_exponent.setter
     def specular_exponent(self, value: float):
+        min_expo = 0
+        max_expo = 1
+        if not min_expo &lt;= value &lt;= max_expo:
+            raise PytiaApplicationError(
+                f&#34;Specular exponent must be between {min_expo} and {max_expo}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.SpecularExponent = value
 
     @property
@@ -685,6 +412,13 @@ class RenderingMaterial(AnyObject):
 
     @texture_amplitude.setter
     def texture_amplitude(self, value: float):
+        min_amp = 0
+        max_amp = 1
+        if not min_amp &lt;= value &lt;= max_amp:
+            raise PytiaApplicationError(
+                f&#34;Texture amplitude must be between {min_amp} and {max_amp}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.TextureAmplitude = value
 
     @property
@@ -693,6 +427,13 @@ class RenderingMaterial(AnyObject):
 
     @texture_complexity.setter
     def texture_complexity(self, value: int):
+        min_cplx = 0
+        max_cplx = 10
+        if not min_cplx &lt;= value &lt;= max_cplx:
+            raise PytiaApplicationError(
+                f&#34;Texture complexity must be between {min_cplx} and {max_cplx}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.TextureComplexity = value
 
     @property
@@ -701,6 +442,13 @@ class RenderingMaterial(AnyObject):
 
     @texture_gain.setter
     def texture_gain(self, value: float):
+        min_gain = 0
+        max_gain = 2
+        if not min_gain &lt;= value &lt;= max_gain:
+            raise PytiaApplicationError(
+                f&#34;Texture gain must be between {min_gain} and {max_gain}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.TextureGain = value
 
     @property
@@ -717,6 +465,13 @@ class RenderingMaterial(AnyObject):
 
     @texture_perturbation.setter
     def texture_perturbation(self, value: float):
+        min_pet = 0
+        max_pet = 10
+        if not min_pet &lt;= value &lt;= max_pet:
+            raise PytiaApplicationError(
+                f&#34;Texture perturbation must be between {min_pet} and {max_pet}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.TexturePerturbation = value
 
     @property
@@ -733,6 +488,13 @@ class RenderingMaterial(AnyObject):
 
     @texture_type.setter
     def texture_type(self, value: int):
+        min_type = 0
+        max_type = 6
+        if not min_type &lt;= value &lt;= max_type:
+            raise PytiaApplicationError(
+                f&#34;Texture type must be between {min_type} and {max_type}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.TextureType = value
 
     @property
@@ -749,6 +511,13 @@ class RenderingMaterial(AnyObject):
 
     @transparency_coefficient.setter
     def transparency_coefficient(self, value: float):
+        min_coeff = 0
+        max_coeff = 1
+        if not min_coeff &lt;= value &lt;= max_coeff:
+            raise PytiaApplicationError(
+                f&#34;Transparency coefficient must be between {min_coeff} and {max_coeff}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.TransparencyCoefficient = value
 
     def get_3d_texture_color(
@@ -823,29 +592,28 @@ class RenderingMaterial(AnyObject):
 
     def __repr__(self):
         return f&#39;RenderingMaterial(name=&#34;{ self.name }&#34;)&#39;</code></pre>
-          </details>
-        </section>
-        <section></section>
-        <section></section>
-        <section></section>
-        <section>
-          <h2 class="section-title" id="header-classes">Classes</h2>
-          <dl>
-            <dt
-              id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial"
-            >
-              <code class="flex name class">
-                <span>class <span class="ident">RenderingMaterial</span></span>
-                <span>(</span><span>com_object)</span>
-              </code>
-            </dt>
-            <dd>
-              <div class="desc"><p>Base class for the framework.</p></div>
-              <details class="source">
-                <summary>
-                  <span>Expand source code</span>
-                </summary>
-                <pre><code class="python">class RenderingMaterial(AnyObject):
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial"><code class="flex name class">
+<span>class <span class="ident">RenderingMaterial</span></span>
+<span>(</span><span>com_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for the framework.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RenderingMaterial(AnyObject):
     def __init__(self, com_object):
         super().__init__(com_object)
         self.rendering_material = com_object
@@ -856,6 +624,13 @@ class RenderingMaterial(AnyObject):
 
     @adaptive_coeff.setter
     def adaptive_coeff(self, value: int):
+        min_coeff = 1
+        max_coeff = 8
+        if not min_coeff &lt;= value &lt;= max_coeff:
+            raise PytiaApplicationError(
+                f&#34;Adaptive coefficient must be between {min_coeff} and {max_coeff}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.AdaptiveCoeff = value
 
     @property
@@ -864,6 +639,13 @@ class RenderingMaterial(AnyObject):
 
     @ambient_coefficient.setter
     def ambient_coefficient(self, value: float):
+        min_coeff = 0
+        max_coeff = 1
+        if not min_coeff &lt;= value &lt;= max_coeff:
+            raise PytiaApplicationError(
+                f&#34;Ambient coefficient must be between {min_coeff} and {max_coeff}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.AmbientCoefficient = value
 
     @property
@@ -872,6 +654,12 @@ class RenderingMaterial(AnyObject):
 
     @bump.setter
     def bump(self, value: float):
+        min_value = -10
+        max_value = 10
+        if not min_value &lt;= value &lt;= max_value:
+            raise PytiaApplicationError(
+                f&#34;Bump must be between {min_value} and {max_value}, &#34; f&#34;but is {value}.&#34;
+            )
         self.rendering_material.Bump = value
 
     @property
@@ -880,6 +668,13 @@ class RenderingMaterial(AnyObject):
 
     @chessboard_joint_height.setter
     def chessboard_joint_height(self, value: float):
+        min_height = 0
+        max_height = 100
+        if not min_height &lt;= value &lt;= max_height:
+            raise PytiaApplicationError(
+                f&#34;Chessboard joint height must be between {min_height} and {max_height}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ChessboardJointHeight = value
 
     @property
@@ -888,6 +683,13 @@ class RenderingMaterial(AnyObject):
 
     @chessboard_joint_width.setter
     def chessboard_joint_width(self, value: float):
+        min_width = 0
+        max_width = 100
+        if not min_width &lt;= value &lt;= max_width:
+            raise PytiaApplicationError(
+                f&#34;Chessboard joint width must be between {min_width} and {max_width}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ChessboardJointWidth = value
 
     @property
@@ -896,6 +698,13 @@ class RenderingMaterial(AnyObject):
 
     @chessboard_offset.setter
     def chessboard_offset(self, value: float):
+        min_offset = 0
+        max_offset = 0.5
+        if not min_offset &lt;= value &lt;= max_offset:
+            raise PytiaApplicationError(
+                f&#34;Chessboard offset must be between {min_offset} and {max_offset}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ChessboardOffset = value
 
     @property
@@ -904,6 +713,13 @@ class RenderingMaterial(AnyObject):
 
     @chessboard_tile_height.setter
     def chessboard_tile_height(self, value: float):
+        min_height = 0
+        max_height = 100
+        if not min_height &lt;= value &lt;= max_height:
+            raise PytiaApplicationError(
+                f&#34;Chessboard tile height must be between {min_height} and {max_height}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ChessboardTileHeight = value
 
     @property
@@ -912,6 +728,13 @@ class RenderingMaterial(AnyObject):
 
     @chessboard_tile_width.setter
     def chessboard_tile_width(self, value: float):
+        min_width = 0
+        max_width = 100
+        if not min_width &lt;= value &lt;= max_width:
+            raise PytiaApplicationError(
+                f&#34;Chessboard tile width must be between {min_width} and {max_width}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ChessboardTileWidth = value
 
     @property
@@ -928,6 +751,13 @@ class RenderingMaterial(AnyObject):
 
     @diffuse_coefficient.setter
     def diffuse_coefficient(self, value: float):
+        min_coeff = 0
+        max_coeff = 1
+        if not min_coeff &lt;= value &lt;= max_coeff:
+            raise PytiaApplicationError(
+                f&#34;Diffuse coefficient must be between {min_coeff} and {max_coeff}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.DiffuseCoefficient = value
 
     @property
@@ -960,6 +790,13 @@ class RenderingMaterial(AnyObject):
 
     @mapping_type.setter
     def mapping_type(self, value: int):
+        min_mapping = 0
+        max_mapping = 5
+        if not min_mapping &lt;= value &lt;= max_mapping:
+            raise PytiaApplicationError(
+                f&#34;Mapping type must be between {min_mapping} and {max_mapping}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.MappingType = value
 
     @property
@@ -968,6 +805,13 @@ class RenderingMaterial(AnyObject):
 
     @orientation.setter
     def orientation(self, value: float):
+        min_orient = -360
+        max_orient = 360
+        if not min_orient &lt;= value &lt;= max_orient:
+            raise PytiaApplicationError(
+                f&#34;Orientation must be between {min_orient} and {max_orient}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.Orientation = value
 
     @property
@@ -1000,6 +844,13 @@ class RenderingMaterial(AnyObject):
 
     @reflection_height.setter
     def reflection_height(self, value: float):
+        min_height = 0
+        max_height = 1
+        if not min_height &lt;= value &lt;= max_height:
+            raise PytiaApplicationError(
+                f&#34;Reflection height must be between {min_height} and {max_height}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ReflectionHeight = value
 
     @property
@@ -1008,6 +859,13 @@ class RenderingMaterial(AnyObject):
 
     @reflection_length.setter
     def reflection_length(self, value: float):
+        min_length = 0
+        max_length = 1
+        if not min_length &lt;= value &lt;= max_length:
+            raise PytiaApplicationError(
+                f&#34;Reflection length must be between {min_length} and {max_length}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ReflectionLength = value
 
     @property
@@ -1016,6 +874,13 @@ class RenderingMaterial(AnyObject):
 
     @reflection_mode.setter
     def reflection_mode(self, value: int):
+        min_mode = 0
+        max_mode = 4
+        if not min_mode &lt;= value &lt;= max_mode:
+            raise PytiaApplicationError(
+                f&#34;Reflection mode must be between {min_mode} and {max_mode}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ReflectionMode = value
 
     @property
@@ -1024,6 +889,13 @@ class RenderingMaterial(AnyObject):
 
     @reflectivity_coefficient.setter
     def reflectivity_coefficient(self, value: float):
+        min_coeff = 0
+        max_coeff = 4
+        if not min_coeff &lt;= value &lt;= max_coeff:
+            raise PytiaApplicationError(
+                f&#34;Reflectivity coefficient must be between {min_coeff} and {max_coeff}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ReflectivityCoefficient = value
 
     @property
@@ -1032,6 +904,13 @@ class RenderingMaterial(AnyObject):
 
     @refraction_coefficient.setter
     def refraction_coefficient(self, value: float):
+        min_coeff = 1
+        max_coeff = 2
+        if not min_coeff &lt;= value &lt;= max_coeff:
+            raise PytiaApplicationError(
+                f&#34;Refraction coefficient must be between {min_coeff} and {max_coeff}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.RefractionCoefficient = value
 
     @property
@@ -1056,6 +935,13 @@ class RenderingMaterial(AnyObject):
 
     @scale_u.setter
     def scale_u(self, value: float):
+        min_scale = 0
+        max_scale = 100
+        if not min_scale &lt;= value &lt;= max_scale:
+            raise PytiaApplicationError(
+                f&#34;Scale U must be between {min_scale} and {max_scale}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ScaleU = value
 
     @property
@@ -1064,6 +950,13 @@ class RenderingMaterial(AnyObject):
 
     @scale_v.setter
     def scale_v(self, value: float):
+        min_scale = 0
+        max_scale = 100
+        if not min_scale &lt;= value &lt;= max_scale:
+            raise PytiaApplicationError(
+                f&#34;Scale V must be between {min_scale} and {max_scale}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.ScaleV = value
 
     @property
@@ -1072,6 +965,13 @@ class RenderingMaterial(AnyObject):
 
     @specular_coefficient.setter
     def specular_coefficient(self, value: float):
+        min_coeff = 0
+        max_coeff = 1
+        if not min_coeff &lt;= value &lt;= max_coeff:
+            raise PytiaApplicationError(
+                f&#34;Specular coefficient must be between {min_coeff} and {max_coeff}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.SpecularCoefficient = value
 
     @property
@@ -1080,6 +980,13 @@ class RenderingMaterial(AnyObject):
 
     @specular_exponent.setter
     def specular_exponent(self, value: float):
+        min_expo = 0
+        max_expo = 1
+        if not min_expo &lt;= value &lt;= max_expo:
+            raise PytiaApplicationError(
+                f&#34;Specular exponent must be between {min_expo} and {max_expo}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.SpecularExponent = value
 
     @property
@@ -1088,6 +995,13 @@ class RenderingMaterial(AnyObject):
 
     @texture_amplitude.setter
     def texture_amplitude(self, value: float):
+        min_amp = 0
+        max_amp = 1
+        if not min_amp &lt;= value &lt;= max_amp:
+            raise PytiaApplicationError(
+                f&#34;Texture amplitude must be between {min_amp} and {max_amp}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.TextureAmplitude = value
 
     @property
@@ -1096,6 +1010,13 @@ class RenderingMaterial(AnyObject):
 
     @texture_complexity.setter
     def texture_complexity(self, value: int):
+        min_cplx = 0
+        max_cplx = 10
+        if not min_cplx &lt;= value &lt;= max_cplx:
+            raise PytiaApplicationError(
+                f&#34;Texture complexity must be between {min_cplx} and {max_cplx}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.TextureComplexity = value
 
     @property
@@ -1104,6 +1025,13 @@ class RenderingMaterial(AnyObject):
 
     @texture_gain.setter
     def texture_gain(self, value: float):
+        min_gain = 0
+        max_gain = 2
+        if not min_gain &lt;= value &lt;= max_gain:
+            raise PytiaApplicationError(
+                f&#34;Texture gain must be between {min_gain} and {max_gain}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.TextureGain = value
 
     @property
@@ -1120,6 +1048,13 @@ class RenderingMaterial(AnyObject):
 
     @texture_perturbation.setter
     def texture_perturbation(self, value: float):
+        min_pet = 0
+        max_pet = 10
+        if not min_pet &lt;= value &lt;= max_pet:
+            raise PytiaApplicationError(
+                f&#34;Texture perturbation must be between {min_pet} and {max_pet}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.TexturePerturbation = value
 
     @property
@@ -1136,6 +1071,13 @@ class RenderingMaterial(AnyObject):
 
     @texture_type.setter
     def texture_type(self, value: int):
+        min_type = 0
+        max_type = 6
+        if not min_type &lt;= value &lt;= max_type:
+            raise PytiaApplicationError(
+                f&#34;Texture type must be between {min_type} and {max_type}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.TextureType = value
 
     @property
@@ -1152,6 +1094,13 @@ class RenderingMaterial(AnyObject):
 
     @transparency_coefficient.setter
     def transparency_coefficient(self, value: float):
+        min_coeff = 0
+        max_coeff = 1
+        if not min_coeff &lt;= value &lt;= max_coeff:
+            raise PytiaApplicationError(
+                f&#34;Transparency coefficient must be between {min_coeff} and {max_coeff}, &#34;
+                f&#34;but is {value}.&#34;
+            )
         self.rendering_material.TransparencyCoefficient = value
 
     def get_3d_texture_color(
@@ -1226,1688 +1175,809 @@ class RenderingMaterial(AnyObject):
 
     def __repr__(self):
         return f&#39;RenderingMaterial(name=&#34;{ self.name }&#34;)&#39;</code></pre>
-              </details>
-              <h3>Ancestors</h3>
-              <ul class="hlist">
-                <li>
-                  <a
-                    title="pytia.framework.system_interfaces.any_object.AnyObject"
-                    href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject"
-                    >AnyObject</a
-                  >
-                </li>
-                <li>
-                  <a
-                    title="pytia.framework.base.Base"
-                    href="../base.html#pytia.framework.base.Base"
-                    >Base</a
-                  >
-                </li>
-              </ul>
-              <h3>Instance variables</h3>
-              <dl>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.adaptive_coeff"
-                >
-                  <code class="name"
-                    >var <span class="ident">adaptive_coeff</span> : int</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a></li>
+<li><a title="pytia.framework.base.Base" href="../base.html#pytia.framework.base.Base">Base</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.adaptive_coeff"><code class="name">var <span class="ident">adaptive_coeff</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def adaptive_coeff(self) -&gt; int:
     return self.rendering_material.AdaptiveCoeff</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.ambient_coefficient"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">ambient_coefficient</span> : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.ambient_coefficient"><code class="name">var <span class="ident">ambient_coefficient</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def ambient_coefficient(self) -&gt; float:
     return self.rendering_material.AmbientCoefficient</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.bump"
-                >
-                  <code class="name"
-                    >var <span class="ident">bump</span> : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.bump"><code class="name">var <span class="ident">bump</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def bump(self) -&gt; float:
     return self.rendering_material.Bump</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_joint_height"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">chessboard_joint_height</span>
-                    : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_joint_height"><code class="name">var <span class="ident">chessboard_joint_height</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def chessboard_joint_height(self) -&gt; float:
     return self.rendering_material.ChessboardJointHeight</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_joint_width"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">chessboard_joint_width</span>
-                    : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_joint_width"><code class="name">var <span class="ident">chessboard_joint_width</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def chessboard_joint_width(self) -&gt; float:
     return self.rendering_material.ChessboardJointWidth</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_offset"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">chessboard_offset</span> : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_offset"><code class="name">var <span class="ident">chessboard_offset</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def chessboard_offset(self) -&gt; float:
     return self.rendering_material.ChessboardOffset</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_tile_height"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">chessboard_tile_height</span>
-                    : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_tile_height"><code class="name">var <span class="ident">chessboard_tile_height</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def chessboard_tile_height(self) -&gt; float:
     return self.rendering_material.ChessboardTileHeight</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_tile_width"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">chessboard_tile_width</span>
-                    : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_tile_width"><code class="name">var <span class="ident">chessboard_tile_width</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def chessboard_tile_width(self) -&gt; float:
     return self.rendering_material.ChessboardTileWidth</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.color_number"
-                >
-                  <code class="name"
-                    >var <span class="ident">color_number</span> : int</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.color_number"><code class="name">var <span class="ident">color_number</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def color_number(self) -&gt; int:
     return self.rendering_material.ColorNumber</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.diffuse_coefficient"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">diffuse_coefficient</span> : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.diffuse_coefficient"><code class="name">var <span class="ident">diffuse_coefficient</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def diffuse_coefficient(self) -&gt; float:
     return self.rendering_material.DiffuseCoefficient</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.environment_image"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">environment_image</span> : str</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.environment_image"><code class="name">var <span class="ident">environment_image</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def environment_image(self) -&gt; str:
     return self.rendering_material.EnvironmentImage</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.flip_u"
-                >
-                  <code class="name"
-                    >var <span class="ident">flip_u</span> : bool</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.flip_u"><code class="name">var <span class="ident">flip_u</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def flip_u(self) -&gt; bool:
     return self.rendering_material.FlipU</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.flip_v"
-                >
-                  <code class="name"
-                    >var <span class="ident">flip_v</span> : bool</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.flip_v"><code class="name">var <span class="ident">flip_v</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def flip_v(self) -&gt; bool:
     return self.rendering_material.FlipV</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.mapping_type"
-                >
-                  <code class="name"
-                    >var <span class="ident">mapping_type</span> : int</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.mapping_type"><code class="name">var <span class="ident">mapping_type</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def mapping_type(self) -&gt; int:
     return self.rendering_material.MappingType</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.orientation"
-                >
-                  <code class="name"
-                    >var <span class="ident">orientation</span> : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.orientation"><code class="name">var <span class="ident">orientation</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def orientation(self) -&gt; float:
     return self.rendering_material.Orientation</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.position_u"
-                >
-                  <code class="name"
-                    >var <span class="ident">position_u</span> : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.position_u"><code class="name">var <span class="ident">position_u</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def position_u(self) -&gt; float:
     return self.rendering_material.PositionU</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.position_v"
-                >
-                  <code class="name"
-                    >var <span class="ident">position_v</span> : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.position_v"><code class="name">var <span class="ident">position_v</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def position_v(self) -&gt; float:
     return self.rendering_material.PositionV</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.preview_size"
-                >
-                  <code class="name"
-                    >var <span class="ident">preview_size</span> : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.preview_size"><code class="name">var <span class="ident">preview_size</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def preview_size(self) -&gt; float:
     return self.rendering_material.PreviewSize</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_height"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">reflection_height</span> : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_height"><code class="name">var <span class="ident">reflection_height</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def reflection_height(self) -&gt; float:
     return self.rendering_material.ReflectionHeight</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_length"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">reflection_length</span> : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_length"><code class="name">var <span class="ident">reflection_length</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def reflection_length(self) -&gt; float:
     return self.rendering_material.ReflectionLength</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_mode"
-                >
-                  <code class="name"
-                    >var <span class="ident">reflection_mode</span> : int</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_mode"><code class="name">var <span class="ident">reflection_mode</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def reflection_mode(self) -&gt; int:
     return self.rendering_material.ReflectionMode</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflectivity_coefficient"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">reflectivity_coefficient</span>
-                    : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflectivity_coefficient"><code class="name">var <span class="ident">reflectivity_coefficient</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def reflectivity_coefficient(self) -&gt; float:
     return self.rendering_material.ReflectivityCoefficient</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.refraction_coefficient"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">refraction_coefficient</span>
-                    : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.refraction_coefficient"><code class="name">var <span class="ident">refraction_coefficient</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def refraction_coefficient(self) -&gt; float:
     return self.rendering_material.RefractionCoefficient</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.repeat_u"
-                >
-                  <code class="name"
-                    >var <span class="ident">repeat_u</span> : bool</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.repeat_u"><code class="name">var <span class="ident">repeat_u</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def repeat_u(self) -&gt; bool:
     return self.rendering_material.RepeatU</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.repeat_v"
-                >
-                  <code class="name"
-                    >var <span class="ident">repeat_v</span> : bool</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.repeat_v"><code class="name">var <span class="ident">repeat_v</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def repeat_v(self) -&gt; bool:
     return self.rendering_material.RepeatV</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.scale_u"
-                >
-                  <code class="name"
-                    >var <span class="ident">scale_u</span> : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.scale_u"><code class="name">var <span class="ident">scale_u</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def scale_u(self) -&gt; float:
     return self.rendering_material.ScaleU</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.scale_v"
-                >
-                  <code class="name"
-                    >var <span class="ident">scale_v</span> : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.scale_v"><code class="name">var <span class="ident">scale_v</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def scale_v(self) -&gt; float:
     return self.rendering_material.ScaleV</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.specular_coefficient"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">specular_coefficient</span>
-                    : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.specular_coefficient"><code class="name">var <span class="ident">specular_coefficient</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def specular_coefficient(self) -&gt; float:
     return self.rendering_material.SpecularCoefficient</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.specular_exponent"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">specular_exponent</span> : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.specular_exponent"><code class="name">var <span class="ident">specular_exponent</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def specular_exponent(self) -&gt; float:
     return self.rendering_material.SpecularExponent</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_amplitude"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">texture_amplitude</span> : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_amplitude"><code class="name">var <span class="ident">texture_amplitude</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def texture_amplitude(self) -&gt; float:
     return self.rendering_material.TextureAmplitude</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_complexity"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">texture_complexity</span> : int</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_complexity"><code class="name">var <span class="ident">texture_complexity</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def texture_complexity(self) -&gt; int:
     return self.rendering_material.TextureComplexity</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_gain"
-                >
-                  <code class="name"
-                    >var <span class="ident">texture_gain</span> : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_gain"><code class="name">var <span class="ident">texture_gain</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def texture_gain(self) -&gt; float:
     return self.rendering_material.TextureGain</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_image"
-                >
-                  <code class="name"
-                    >var <span class="ident">texture_image</span> : str</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_image"><code class="name">var <span class="ident">texture_image</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def texture_image(self) -&gt; str:
     return self.rendering_material.TextureImage</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_perturbation"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">texture_perturbation</span>
-                    : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_perturbation"><code class="name">var <span class="ident">texture_perturbation</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def texture_perturbation(self) -&gt; float:
     return self.rendering_material.TexturePerturbation</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_turbulence"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">texture_turbulence</span> : bool</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_turbulence"><code class="name">var <span class="ident">texture_turbulence</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def texture_turbulence(self) -&gt; bool:
     return self.rendering_material.TextureTurbulence</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_type"
-                >
-                  <code class="name"
-                    >var <span class="ident">texture_type</span> : int</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_type"><code class="name">var <span class="ident">texture_type</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def texture_type(self) -&gt; int:
     return self.rendering_material.TextureType</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_vein_amplitude"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">texture_vein_amplitude</span>
-                    : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_vein_amplitude"><code class="name">var <span class="ident">texture_vein_amplitude</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def texture_vein_amplitude(self) -&gt; float:
     return self.rendering_material.TextureVeinAmplitude</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.transparency_coefficient"
-                >
-                  <code class="name"
-                    >var
-                    <span class="ident">transparency_coefficient</span>
-                    : float</code
-                  >
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">@property
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.transparency_coefficient"><code class="name">var <span class="ident">transparency_coefficient</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
 def transparency_coefficient(self) -&gt; float:
     return self.rendering_material.TransparencyCoefficient</code></pre>
-                  </details>
-                </dd>
-              </dl>
-              <h3>Methods</h3>
-              <dl>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_color"
-                >
-                  <code class="name flex">
-                    <span
-                      >def <span class="ident">get_3d_texture_color</span></span
-                    >(<span
-                      >self, i_color_index: int, o_3d_texture_color: tuple)
-                      ‑> None</span
-                    >
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def get_3d_texture_color(
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_color"><code class="name flex">
+<span>def <span class="ident">get_3d_texture_color</span></span>(<span>self, i_color_index: int, o_3d_texture_color: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_3d_texture_color(
     self, i_color_index: int, o_3d_texture_color: tuple
 ) -&gt; None:
     return self.rendering_material.Get3DTextureColor(
         i_color_index, o_3d_texture_color
     )</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_color_coefficient"
-                >
-                  <code class="name flex">
-                    <span
-                      >def
-                      <span class="ident"
-                        >get_3d_texture_color_coefficient</span
-                      ></span
-                    >(<span
-                      >self, i_color_index: int,
-                      o_3d_texture_color_coefficient: float) ‑> None</span
-                    >
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def get_3d_texture_color_coefficient(
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_color_coefficient"><code class="name flex">
+<span>def <span class="ident">get_3d_texture_color_coefficient</span></span>(<span>self, i_color_index: int, o_3d_texture_color_coefficient: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_3d_texture_color_coefficient(
     self, i_color_index: int, o_3d_texture_color_coefficient: float
 ) -&gt; None:
     return self.rendering_material.Get3DTextureColorCoefficient(
         i_color_index, o_3d_texture_color_coefficient
     )</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_orientation"
-                >
-                  <code class="name flex">
-                    <span
-                      >def
-                      <span class="ident"
-                        >get_3d_texture_orientation</span
-                      ></span
-                    >(<span
-                      >self, o_3d_texture_orientation: tuple) ‑> None</span
-                    >
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def get_3d_texture_orientation(self, o_3d_texture_orientation: tuple) -&gt; None:
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_orientation"><code class="name flex">
+<span>def <span class="ident">get_3d_texture_orientation</span></span>(<span>self, o_3d_texture_orientation: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_3d_texture_orientation(self, o_3d_texture_orientation: tuple) -&gt; None:
     return self.rendering_material.Get3DTextureOrientation(o_3d_texture_orientation)</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_position"
-                >
-                  <code class="name flex">
-                    <span
-                      >def
-                      <span class="ident">get_3d_texture_position</span></span
-                    >(<span>self, o_3d_texture_position: tuple) ‑> None</span>
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def get_3d_texture_position(self, o_3d_texture_position: tuple) -&gt; None:
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_position"><code class="name flex">
+<span>def <span class="ident">get_3d_texture_position</span></span>(<span>self, o_3d_texture_position: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_3d_texture_position(self, o_3d_texture_position: tuple) -&gt; None:
     return self.rendering_material.Get3DTexturePosition(o_3d_texture_position)</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_scale"
-                >
-                  <code class="name flex">
-                    <span
-                      >def <span class="ident">get_3d_texture_scale</span></span
-                    >(<span>self, o_3d_texture_scale: tuple) ‑> None</span>
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def get_3d_texture_scale(self, o_3d_texture_scale: tuple) -&gt; None:
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_scale"><code class="name flex">
+<span>def <span class="ident">get_3d_texture_scale</span></span>(<span>self, o_3d_texture_scale: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_3d_texture_scale(self, o_3d_texture_scale: tuple) -&gt; None:
     return self.rendering_material.Get3DTextureScale(o_3d_texture_scale)</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_ambient_color"
-                >
-                  <code class="name flex">
-                    <span>def <span class="ident">get_ambient_color</span></span
-                    >(<span>self, o_ambient_color: tuple) ‑> None</span>
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def get_ambient_color(self, o_ambient_color: tuple) -&gt; None:
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_ambient_color"><code class="name flex">
+<span>def <span class="ident">get_ambient_color</span></span>(<span>self, o_ambient_color: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_ambient_color(self, o_ambient_color: tuple) -&gt; None:
     return self.rendering_material.GetAmbientColor(o_ambient_color)</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_diffuse_color"
-                >
-                  <code class="name flex">
-                    <span>def <span class="ident">get_diffuse_color</span></span
-                    >(<span>self, o_diffuse_color: tuple) ‑> None</span>
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def get_diffuse_color(self, o_diffuse_color: tuple) -&gt; None:
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_diffuse_color"><code class="name flex">
+<span>def <span class="ident">get_diffuse_color</span></span>(<span>self, o_diffuse_color: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_diffuse_color(self, o_diffuse_color: tuple) -&gt; None:
     return self.rendering_material.GetDiffuseColor(o_diffuse_color)</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_specular_color"
-                >
-                  <code class="name flex">
-                    <span
-                      >def <span class="ident">get_specular_color</span></span
-                    >(<span>self, o_specular_color: tuple) ‑> None</span>
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def get_specular_color(self, o_specular_color: tuple) -&gt; None:
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_specular_color"><code class="name flex">
+<span>def <span class="ident">get_specular_color</span></span>(<span>self, o_specular_color: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_specular_color(self, o_specular_color: tuple) -&gt; None:
     return self.rendering_material.GetSpecularColor(o_specular_color)</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_transparency_color"
-                >
-                  <code class="name flex">
-                    <span
-                      >def
-                      <span class="ident">get_transparency_color</span></span
-                    >(<span>self, o_transparency_color: tuple) ‑> None</span>
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def get_transparency_color(self, o_transparency_color: tuple) -&gt; None:
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_transparency_color"><code class="name flex">
+<span>def <span class="ident">get_transparency_color</span></span>(<span>self, o_transparency_color: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_transparency_color(self, o_transparency_color: tuple) -&gt; None:
     return self.rendering_material.GetTransparencyColor(o_transparency_color)</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_color"
-                >
-                  <code class="name flex">
-                    <span
-                      >def <span class="ident">put_3d_texture_color</span></span
-                    >(<span
-                      >self, i_color_index: int, i_3d_texture_color: tuple)
-                      ‑> None</span
-                    >
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def put_3d_texture_color(
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_color"><code class="name flex">
+<span>def <span class="ident">put_3d_texture_color</span></span>(<span>self, i_color_index: int, i_3d_texture_color: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def put_3d_texture_color(
     self, i_color_index: int, i_3d_texture_color: tuple
 ) -&gt; None:
     return self.rendering_material.Put3DTextureColor(
         i_color_index, i_3d_texture_color
     )</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_color_coefficient"
-                >
-                  <code class="name flex">
-                    <span
-                      >def
-                      <span class="ident"
-                        >put_3d_texture_color_coefficient</span
-                      ></span
-                    >(<span
-                      >self, i_color_index: int,
-                      i_3d_texture_color_coefficient: float) ‑> None</span
-                    >
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def put_3d_texture_color_coefficient(
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_color_coefficient"><code class="name flex">
+<span>def <span class="ident">put_3d_texture_color_coefficient</span></span>(<span>self, i_color_index: int, i_3d_texture_color_coefficient: float) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def put_3d_texture_color_coefficient(
     self, i_color_index: int, i_3d_texture_color_coefficient: float
 ) -&gt; None:
     return self.rendering_material.Put3DTextureColorCoefficient(
         i_color_index, i_3d_texture_color_coefficient
     )</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_orientation"
-                >
-                  <code class="name flex">
-                    <span
-                      >def
-                      <span class="ident"
-                        >put_3d_texture_orientation</span
-                      ></span
-                    >(<span
-                      >self, i_3d_texture_orientation: tuple) ‑> None</span
-                    >
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def put_3d_texture_orientation(self, i_3d_texture_orientation: tuple) -&gt; None:
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_orientation"><code class="name flex">
+<span>def <span class="ident">put_3d_texture_orientation</span></span>(<span>self, i_3d_texture_orientation: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def put_3d_texture_orientation(self, i_3d_texture_orientation: tuple) -&gt; None:
     return self.rendering_material.Put3DTextureOrientation(i_3d_texture_orientation)</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_position"
-                >
-                  <code class="name flex">
-                    <span
-                      >def
-                      <span class="ident">put_3d_texture_position</span></span
-                    >(<span>self, i_3d_texture_position: tuple) ‑> None</span>
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def put_3d_texture_position(self, i_3d_texture_position: tuple) -&gt; None:
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_position"><code class="name flex">
+<span>def <span class="ident">put_3d_texture_position</span></span>(<span>self, i_3d_texture_position: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def put_3d_texture_position(self, i_3d_texture_position: tuple) -&gt; None:
     return self.rendering_material.Put3DTexturePosition(i_3d_texture_position)</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_scale"
-                >
-                  <code class="name flex">
-                    <span
-                      >def <span class="ident">put_3d_texture_scale</span></span
-                    >(<span>self, i_3d_texture_scale: tuple) ‑> None</span>
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def put_3d_texture_scale(self, i_3d_texture_scale: tuple) -&gt; None:
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_scale"><code class="name flex">
+<span>def <span class="ident">put_3d_texture_scale</span></span>(<span>self, i_3d_texture_scale: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def put_3d_texture_scale(self, i_3d_texture_scale: tuple) -&gt; None:
     return self.rendering_material.Put3DTextureScale(i_3d_texture_scale)</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_ambient_color"
-                >
-                  <code class="name flex">
-                    <span>def <span class="ident">put_ambient_color</span></span
-                    >(<span>self, i_ambient_color: tuple) ‑> None</span>
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def put_ambient_color(self, i_ambient_color: tuple) -&gt; None:
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_ambient_color"><code class="name flex">
+<span>def <span class="ident">put_ambient_color</span></span>(<span>self, i_ambient_color: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def put_ambient_color(self, i_ambient_color: tuple) -&gt; None:
     return self.rendering_material.PutAmbientColor(i_ambient_color)</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_diffuse_color"
-                >
-                  <code class="name flex">
-                    <span>def <span class="ident">put_diffuse_color</span></span
-                    >(<span>self, i_diffuse_color: tuple) ‑> None</span>
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def put_diffuse_color(self, i_diffuse_color: tuple) -&gt; None:
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_diffuse_color"><code class="name flex">
+<span>def <span class="ident">put_diffuse_color</span></span>(<span>self, i_diffuse_color: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def put_diffuse_color(self, i_diffuse_color: tuple) -&gt; None:
     return self.rendering_material.PutDiffuseColor(i_diffuse_color)</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_specular_color"
-                >
-                  <code class="name flex">
-                    <span
-                      >def <span class="ident">put_specular_color</span></span
-                    >(<span>self, i_specular_color: tuple) ‑> None</span>
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def put_specular_color(self, i_specular_color: tuple) -&gt; None:
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_specular_color"><code class="name flex">
+<span>def <span class="ident">put_specular_color</span></span>(<span>self, i_specular_color: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def put_specular_color(self, i_specular_color: tuple) -&gt; None:
     return self.rendering_material.PutSpecularColor(i_specular_color)</code></pre>
-                  </details>
-                </dd>
-                <dt
-                  id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_transparency_color"
-                >
-                  <code class="name flex">
-                    <span
-                      >def
-                      <span class="ident">put_transparency_color</span></span
-                    >(<span>self, i_transparency_color: tuple) ‑> None</span>
-                  </code>
-                </dt>
-                <dd>
-                  <div class="desc"></div>
-                  <details class="source">
-                    <summary>
-                      <span>Expand source code</span>
-                    </summary>
-                    <pre><code class="python">def put_transparency_color(self, i_transparency_color: tuple) -&gt; None:
+</details>
+</dd>
+<dt id="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_transparency_color"><code class="name flex">
+<span>def <span class="ident">put_transparency_color</span></span>(<span>self, i_transparency_color: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def put_transparency_color(self, i_transparency_color: tuple) -&gt; None:
     return self.rendering_material.PutTransparencyColor(i_transparency_color)</code></pre>
-                  </details>
-                </dd>
-              </dl>
-            </dd>
-          </dl>
-        </section>
-      </article>
-      <nav id="sidebar">
-        <h1>Index</h1>
-        <div class="toc">
-          <ul></ul>
-        </div>
-        <ul id="index">
-          <li>
-            <h3>Super-module</h3>
-            <ul>
-              <li>
-                <code
-                  ><a
-                    title="pytia.framework.cat_rma_interfaces"
-                    href="index.html"
-                    >pytia.framework.cat_rma_interfaces</a
-                  ></code
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <h3><a href="#header-classes">Classes</a></h3>
-            <ul>
-              <li>
-                <h4>
-                  <code
-                    ><a
-                      title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial"
-                      href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial"
-                      >RenderingMaterial</a
-                    ></code
-                  >
-                </h4>
-                <ul class="">
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.adaptive_coeff"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.adaptive_coeff"
-                        >adaptive_coeff</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.ambient_coefficient"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.ambient_coefficient"
-                        >ambient_coefficient</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.bump"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.bump"
-                        >bump</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_joint_height"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_joint_height"
-                        >chessboard_joint_height</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_joint_width"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_joint_width"
-                        >chessboard_joint_width</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_offset"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_offset"
-                        >chessboard_offset</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_tile_height"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_tile_height"
-                        >chessboard_tile_height</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_tile_width"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_tile_width"
-                        >chessboard_tile_width</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.color_number"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.color_number"
-                        >color_number</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.diffuse_coefficient"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.diffuse_coefficient"
-                        >diffuse_coefficient</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.environment_image"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.environment_image"
-                        >environment_image</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.flip_u"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.flip_u"
-                        >flip_u</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.flip_v"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.flip_v"
-                        >flip_v</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_color"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_color"
-                        >get_3d_texture_color</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_color_coefficient"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_color_coefficient"
-                        >get_3d_texture_color_coefficient</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_orientation"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_orientation"
-                        >get_3d_texture_orientation</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_position"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_position"
-                        >get_3d_texture_position</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_scale"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_scale"
-                        >get_3d_texture_scale</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_ambient_color"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_ambient_color"
-                        >get_ambient_color</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_diffuse_color"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_diffuse_color"
-                        >get_diffuse_color</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_specular_color"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_specular_color"
-                        >get_specular_color</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_transparency_color"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_transparency_color"
-                        >get_transparency_color</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.mapping_type"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.mapping_type"
-                        >mapping_type</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.orientation"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.orientation"
-                        >orientation</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.position_u"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.position_u"
-                        >position_u</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.position_v"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.position_v"
-                        >position_v</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.preview_size"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.preview_size"
-                        >preview_size</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_color"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_color"
-                        >put_3d_texture_color</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_color_coefficient"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_color_coefficient"
-                        >put_3d_texture_color_coefficient</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_orientation"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_orientation"
-                        >put_3d_texture_orientation</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_position"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_position"
-                        >put_3d_texture_position</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_scale"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_scale"
-                        >put_3d_texture_scale</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_ambient_color"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_ambient_color"
-                        >put_ambient_color</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_diffuse_color"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_diffuse_color"
-                        >put_diffuse_color</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_specular_color"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_specular_color"
-                        >put_specular_color</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_transparency_color"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_transparency_color"
-                        >put_transparency_color</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_height"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_height"
-                        >reflection_height</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_length"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_length"
-                        >reflection_length</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_mode"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_mode"
-                        >reflection_mode</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflectivity_coefficient"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflectivity_coefficient"
-                        >reflectivity_coefficient</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.refraction_coefficient"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.refraction_coefficient"
-                        >refraction_coefficient</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.repeat_u"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.repeat_u"
-                        >repeat_u</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.repeat_v"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.repeat_v"
-                        >repeat_v</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.scale_u"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.scale_u"
-                        >scale_u</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.scale_v"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.scale_v"
-                        >scale_v</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.specular_coefficient"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.specular_coefficient"
-                        >specular_coefficient</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.specular_exponent"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.specular_exponent"
-                        >specular_exponent</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_amplitude"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_amplitude"
-                        >texture_amplitude</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_complexity"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_complexity"
-                        >texture_complexity</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_gain"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_gain"
-                        >texture_gain</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_image"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_image"
-                        >texture_image</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_perturbation"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_perturbation"
-                        >texture_perturbation</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_turbulence"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_turbulence"
-                        >texture_turbulence</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_type"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_type"
-                        >texture_type</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_vein_amplitude"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_vein_amplitude"
-                        >texture_vein_amplitude</a
-                      ></code
-                    >
-                  </li>
-                  <li>
-                    <code
-                      ><a
-                        title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.transparency_coefficient"
-                        href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.transparency_coefficient"
-                        >transparency_coefficient</a
-                      ></code
-                    >
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </main>
-    <footer id="footer">
-      <p>
-        Generated by
-        <a
-          href="https://pdoc3.github.io/pdoc"
-          title="pdoc: Python API documentation generator"
-          ><cite>pdoc</cite> 0.10.0</a
-        >.
-      </p>
-    </footer>
-  </body>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia.framework.cat_rma_interfaces" href="index.html">pytia.framework.cat_rma_interfaces</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial">RenderingMaterial</a></code></h4>
+<ul class="">
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.adaptive_coeff" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.adaptive_coeff">adaptive_coeff</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.ambient_coefficient" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.ambient_coefficient">ambient_coefficient</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.bump" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.bump">bump</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_joint_height" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_joint_height">chessboard_joint_height</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_joint_width" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_joint_width">chessboard_joint_width</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_offset" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_offset">chessboard_offset</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_tile_height" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_tile_height">chessboard_tile_height</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_tile_width" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.chessboard_tile_width">chessboard_tile_width</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.color_number" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.color_number">color_number</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.diffuse_coefficient" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.diffuse_coefficient">diffuse_coefficient</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.environment_image" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.environment_image">environment_image</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.flip_u" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.flip_u">flip_u</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.flip_v" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.flip_v">flip_v</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_color" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_color">get_3d_texture_color</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_color_coefficient" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_color_coefficient">get_3d_texture_color_coefficient</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_orientation" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_orientation">get_3d_texture_orientation</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_position" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_position">get_3d_texture_position</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_scale" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_3d_texture_scale">get_3d_texture_scale</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_ambient_color" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_ambient_color">get_ambient_color</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_diffuse_color" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_diffuse_color">get_diffuse_color</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_specular_color" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_specular_color">get_specular_color</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_transparency_color" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.get_transparency_color">get_transparency_color</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.mapping_type" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.mapping_type">mapping_type</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.orientation" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.orientation">orientation</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.position_u" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.position_u">position_u</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.position_v" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.position_v">position_v</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.preview_size" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.preview_size">preview_size</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_color" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_color">put_3d_texture_color</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_color_coefficient" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_color_coefficient">put_3d_texture_color_coefficient</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_orientation" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_orientation">put_3d_texture_orientation</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_position" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_position">put_3d_texture_position</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_scale" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_3d_texture_scale">put_3d_texture_scale</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_ambient_color" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_ambient_color">put_ambient_color</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_diffuse_color" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_diffuse_color">put_diffuse_color</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_specular_color" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_specular_color">put_specular_color</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_transparency_color" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.put_transparency_color">put_transparency_color</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_height" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_height">reflection_height</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_length" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_length">reflection_length</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_mode" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflection_mode">reflection_mode</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflectivity_coefficient" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.reflectivity_coefficient">reflectivity_coefficient</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.refraction_coefficient" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.refraction_coefficient">refraction_coefficient</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.repeat_u" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.repeat_u">repeat_u</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.repeat_v" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.repeat_v">repeat_v</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.scale_u" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.scale_u">scale_u</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.scale_v" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.scale_v">scale_v</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.specular_coefficient" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.specular_coefficient">specular_coefficient</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.specular_exponent" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.specular_exponent">specular_exponent</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_amplitude" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_amplitude">texture_amplitude</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_complexity" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_complexity">texture_complexity</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_gain" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_gain">texture_gain</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_image" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_image">texture_image</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_perturbation" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_perturbation">texture_perturbation</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_turbulence" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_turbulence">texture_turbulence</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_type" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_type">texture_type</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_vein_amplitude" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.texture_vein_amplitude">texture_vein_amplitude</a></code></li>
+<li><code><a title="pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.transparency_coefficient" href="#pytia.framework.cat_rma_interfaces.rendering_material.RenderingMaterial.transparency_coefficient">transparency_coefficient</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
 </html>
