@@ -300,7 +300,7 @@ class HybridShapeFactory(Factory):
         super().__init__(com_object)
         self.hybrid_shape_factory = com_object
 
-    def add_new3_d_corner(
+    def add_new_3d_corner(
         self,
         i_element1: Reference,
         i_element2: Reference,

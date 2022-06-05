@@ -492,28 +492,28 @@ class RenderingMaterial(AnyObject):
             )
         self.rendering_material.TransparencyCoefficient = value
 
-    def get3_d_texture_color(
-        self, i_color_index: int, o3_d_texture_color: tuple
+    def get_3d_texture_color(
+        self, i_color_index: int, o_3d_texture_color: tuple
     ) -> None:
         return self.rendering_material.Get3DTextureColor(
-            i_color_index, o3_d_texture_color
+            i_color_index, o_3d_texture_color
         )
 
-    def get3_d_texture_color_coefficient(
-        self, i_color_index: int, o3_d_texture_color_coefficient: float
+    def get_3d_texture_color_coefficient(
+        self, i_color_index: int, o_3d_texture_color_coefficient: float
     ) -> None:
         return self.rendering_material.Get3DTextureColorCoefficient(
-            i_color_index, o3_d_texture_color_coefficient
+            i_color_index, o_3d_texture_color_coefficient
         )
 
-    def get3_d_texture_orientation(self, o3_d_texture_orientation: tuple) -> None:
-        return self.rendering_material.Get3DTextureOrientation(o3_d_texture_orientation)
+    def get_3d_texture_orientation(self, o_3d_texture_orientation: tuple) -> None:
+        return self.rendering_material.Get3DTextureOrientation(o_3d_texture_orientation)
 
-    def get3_d_texture_position(self, o3_d_texture_position: tuple) -> None:
-        return self.rendering_material.Get3DTexturePosition(o3_d_texture_position)
+    def get_3d_texture_position(self, o_3d_texture_position: tuple) -> None:
+        return self.rendering_material.Get3DTexturePosition(o_3d_texture_position)
 
-    def get3_d_texture_scale(self, o3_d_texture_scale: tuple) -> None:
-        return self.rendering_material.Get3DTextureScale(o3_d_texture_scale)
+    def get_3d_texture_scale(self, o_3d_texture_scale: tuple) -> None:
+        return self.rendering_material.Get3DTextureScale(o_3d_texture_scale)
 
     def get_ambient_color(self, o_ambient_color: tuple) -> None:
         return self.rendering_material.GetAmbientColor(o_ambient_color)
@@ -527,28 +527,28 @@ class RenderingMaterial(AnyObject):
     def get_transparency_color(self, o_transparency_color: tuple) -> None:
         return self.rendering_material.GetTransparencyColor(o_transparency_color)
 
-    def put3_d_texture_color(
-        self, i_color_index: int, i3_d_texture_color: tuple
+    def put_3d_texture_color(
+        self, i_color_index: int, i_3d_texture_color: tuple
     ) -> None:
         return self.rendering_material.Put3DTextureColor(
-            i_color_index, i3_d_texture_color
+            i_color_index, i_3d_texture_color
         )
 
-    def put3_d_texture_color_coefficient(
-        self, i_color_index: int, i3_d_texture_color_coefficient: float
+    def put_3d_texture_color_coefficient(
+        self, i_color_index: int, i_3d_texture_color_coefficient: float
     ) -> None:
         return self.rendering_material.Put3DTextureColorCoefficient(
-            i_color_index, i3_d_texture_color_coefficient
+            i_color_index, i_3d_texture_color_coefficient
         )
 
-    def put3_d_texture_orientation(self, i3_d_texture_orientation: tuple) -> None:
-        return self.rendering_material.Put3DTextureOrientation(i3_d_texture_orientation)
+    def put_3d_texture_orientation(self, i_3d_texture_orientation: tuple) -> None:
+        return self.rendering_material.Put3DTextureOrientation(i_3d_texture_orientation)
 
-    def put3_d_texture_position(self, i3_d_texture_position: tuple) -> None:
-        return self.rendering_material.Put3DTexturePosition(i3_d_texture_position)
+    def put_3d_texture_position(self, i_3d_texture_position: tuple) -> None:
+        return self.rendering_material.Put3DTexturePosition(i_3d_texture_position)
 
-    def put3_d_texture_scale(self, i3_d_texture_scale: tuple) -> None:
-        return self.rendering_material.Put3DTextureScale(i3_d_texture_scale)
+    def put_3d_texture_scale(self, i_3d_texture_scale: tuple) -> None:
+        return self.rendering_material.Put3DTextureScale(i_3d_texture_scale)
 
     def put_ambient_color(self, i_ambient_color: tuple) -> None:
         return self.rendering_material.PutAmbientColor(i_ambient_color)

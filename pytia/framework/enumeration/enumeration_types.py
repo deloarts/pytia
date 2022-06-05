@@ -74,11 +74,11 @@ auto_time_increment_method = (
     "ABQ_ATI_GLOBAL",
     "ABQ_ATI_ELEMENT_BY_ELEMENT",
 )
-cat3_d_color_inheritance_mode = (
+cat_3d_color_inheritance_mode = (
     "cat3DColorInheritanceModeOff",
     "cat3DColorInheritanceModeOn",
 )
-cat3_d_xml_geom_representation_type = (
+cat_3d_xml_geom_representation_type = (
     "cat3DXmlExact",
     "cat3DXmlTessellation",
     "cat3DXmlCompressedTessellation",
@@ -86,7 +86,7 @@ cat3_d_xml_geom_representation_type = (
     "cat3DXmlStaticTessellation",
     "cat3DXmlXmlTessellation",
 )
-cat3_d_xml_ppr_save_config = (
+cat_3d_xml_ppr_save_config = (
     "cat3DXmlProductAndResourceList",
     "cat3DXmlProductList",
     "cat3DXmlResourceList",
@@ -846,7 +846,7 @@ cat_marker2_d_type = (
     "catMarker2DTypeText",
     "catMarker2DTypePicture",
 )
-cat_marker3_d_type = ("catMarker3DTypeText",)
+cat_marker_3d_type = ("catMarker3DTypeText",)
 cat_marker_text_orientation = (
     "CatMarkerTextOrientationRight",
     "CatMarkerTextOrientationUp",
@@ -1639,7 +1639,7 @@ cat_visu_background_mode = (
     "catLowIntPick",
     "catLowIntNoPick",
 )
-cat_visu_in3_d_mode = (
+cat_visu_in_3d_mode = (
     "catShowAll",
     "catHideAll",
 )

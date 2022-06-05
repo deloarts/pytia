@@ -75,11 +75,11 @@ class PartInfrastructureSettingAtt(SettingController):
         )
 
     @property
-    def colors3_d_experience_management(self) -> bool:
+    def colors_3d_experience_management(self) -> bool:
         return self.part_infrastructure_setting_att.Colors3DExperienceManagement
 
-    @colors3_d_experience_management.setter
-    def colors3_d_experience_management(self, value: bool):
+    @colors_3d_experience_management.setter
+    def colors_3d_experience_management(self, value: bool):
         self.part_infrastructure_setting_att.Colors3DExperienceManagement = value
 
     @property
@@ -231,11 +231,11 @@ class PartInfrastructureSettingAtt(SettingController):
         self.part_infrastructure_setting_att.NamingMode = value
 
     @property
-    def new_with3_d_support(self) -> bool:
+    def new_with_3d_support(self) -> bool:
         return self.part_infrastructure_setting_att.NewWith3DSupport
 
-    @new_with3_d_support.setter
-    def new_with3_d_support(self, value: bool):
+    @new_with_3d_support.setter
+    def new_with_3d_support(self, value: bool):
         self.part_infrastructure_setting_att.NewWith3DSupport = value
 
     @property
@@ -428,7 +428,7 @@ class PartInfrastructureSettingAtt(SettingController):
             io_admin_level, io_locked
         )
 
-    def get_colors3_d_experience_management_info(
+    def get_colors_3d_experience_management_info(
         self, io_admin_level: str, io_locked: str
     ) -> bool:
         return self.part_infrastructure_setting_att.GetColors3DExperienceManagementInfo(
@@ -541,7 +541,7 @@ class PartInfrastructureSettingAtt(SettingController):
             io_admin_level, io_locked
         )
 
-    def get_new_with3_d_support_info(self, io_admin_level: str, io_locked: str) -> bool:
+    def get_new_with_3d_support_info(self, io_admin_level: str, io_locked: str) -> bool:
         return self.part_infrastructure_setting_att.GetNewWith3DSupportInfo(
             io_admin_level, io_locked
         )
@@ -696,7 +696,7 @@ class PartInfrastructureSettingAtt(SettingController):
             i_locked
         )
 
-    def set_colors3_d_experience_management_lock(self, i_locked: bool) -> None:
+    def set_colors_3d_experience_management_lock(self, i_locked: bool) -> None:
         return self.part_infrastructure_setting_att.SetColors3DExperienceManagementLock(
             i_locked
         )
@@ -785,7 +785,7 @@ class PartInfrastructureSettingAtt(SettingController):
     def set_naming_mode_lock(self, i_locked: bool) -> None:
         return self.part_infrastructure_setting_att.SetNamingModeLock(i_locked)
 
-    def set_new_with3_d_support_lock(self, i_locked: bool) -> None:
+    def set_new_with_3d_support_lock(self, i_locked: bool) -> None:
         return self.part_infrastructure_setting_att.SetNewWith3DSupportLock(i_locked)
 
     def set_new_with_axis_system_lock(self, i_locked: bool) -> None:

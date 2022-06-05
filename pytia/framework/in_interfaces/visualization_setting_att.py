@@ -519,35 +519,35 @@ class VisualizationSettingAtt(SettingController):
         self.visualization_setting_att.Viz2DProportionnalAccuracy = value
 
     @property
-    def viz3_d_accuracy_mode(self) -> bool:
+    def viz_3d_accuracy_mode(self) -> bool:
         return self.visualization_setting_att.Viz3DAccuracyMode
 
-    @viz3_d_accuracy_mode.setter
-    def viz3_d_accuracy_mode(self, value: bool):
+    @viz_3d_accuracy_mode.setter
+    def viz_3d_accuracy_mode(self, value: bool):
         self.visualization_setting_att.Viz3DAccuracyMode = value
 
     @property
-    def viz3_d_curve_accuracy(self) -> float:
+    def viz_3d_curve_accuracy(self) -> float:
         return self.visualization_setting_att.Viz3DCurveAccuracy
 
-    @viz3_d_curve_accuracy.setter
-    def viz3_d_curve_accuracy(self, value: float):
+    @viz_3d_curve_accuracy.setter
+    def viz_3d_curve_accuracy(self, value: float):
         self.visualization_setting_att.Viz3DCurveAccuracy = value
 
     @property
-    def viz3_d_fixed_accuracy(self) -> float:
+    def viz_3d_fixed_accuracy(self) -> float:
         return self.visualization_setting_att.Viz3DFixedAccuracy
 
-    @viz3_d_fixed_accuracy.setter
-    def viz3_d_fixed_accuracy(self, value: float):
+    @viz_3d_fixed_accuracy.setter
+    def viz_3d_fixed_accuracy(self, value: float):
         self.visualization_setting_att.Viz3DFixedAccuracy = value
 
     @property
-    def viz3_d_proportionnal_accuracy(self) -> float:
+    def viz_3d_proportionnal_accuracy(self) -> float:
         return self.visualization_setting_att.Viz3DProportionnalAccuracy
 
-    @viz3_d_proportionnal_accuracy.setter
-    def viz3_d_proportionnal_accuracy(self, value: float):
+    @viz_3d_proportionnal_accuracy.setter
+    def viz_3d_proportionnal_accuracy(self, value: float):
         self.visualization_setting_att.Viz3DProportionnalAccuracy = value
 
     def get_accurate_picking_mode_info(
@@ -1013,28 +1013,28 @@ class VisualizationSettingAtt(SettingController):
             io_admin_level, io_locked
         )
 
-    def get_viz3_d_accuracy_mode_info(
+    def get_viz_3d_accuracy_mode_info(
         self, io_admin_level: str, io_locked: str
     ) -> bool:
         return self.visualization_setting_att.GetViz3DAccuracyModeInfo(
             io_admin_level, io_locked
         )
 
-    def get_viz3_d_curve_accuracy_info(
+    def get_viz_3d_curve_accuracy_info(
         self, io_admin_level: str, io_locked: str
     ) -> bool:
         return self.visualization_setting_att.GetViz3DCurveAccuracyInfo(
             io_admin_level, io_locked
         )
 
-    def get_viz3_d_fixed_accuracy_info(
+    def get_viz_3d_fixed_accuracy_info(
         self, io_admin_level: str, io_locked: str
     ) -> bool:
         return self.visualization_setting_att.GetViz3DFixedAccuracyInfo(
             io_admin_level, io_locked
         )
 
-    def get_viz3_d_proportionnal_accuracy_info(
+    def get_viz_3d_proportionnal_accuracy_info(
         self, io_admin_level: str, io_locked: str
     ) -> bool:
         return self.visualization_setting_att.GetViz3DProportionnalAccuracyInfo(
@@ -1306,16 +1306,16 @@ class VisualizationSettingAtt(SettingController):
             i_locked
         )
 
-    def set_viz3_d_accuracy_mode_lock(self, i_locked: bool) -> None:
+    def set_viz_3d_accuracy_mode_lock(self, i_locked: bool) -> None:
         return self.visualization_setting_att.SetViz3DAccuracyModeLock(i_locked)
 
-    def set_viz3_d_curve_accuracy_lock(self, i_locked: bool) -> None:
+    def set_viz_3d_curve_accuracy_lock(self, i_locked: bool) -> None:
         return self.visualization_setting_att.SetViz3DCurveAccuracyLock(i_locked)
 
-    def set_viz3_d_fixed_accuracy_lock(self, i_locked: bool) -> None:
+    def set_viz_3d_fixed_accuracy_lock(self, i_locked: bool) -> None:
         return self.visualization_setting_att.SetViz3DFixedAccuracyLock(i_locked)
 
-    def set_viz3_d_proportionnal_accuracy_lock(self, i_locked: bool) -> None:
+    def set_viz_3d_proportionnal_accuracy_lock(self, i_locked: bool) -> None:
         return self.visualization_setting_att.SetViz3DProportionnalAccuracyLock(
             i_locked
         )
