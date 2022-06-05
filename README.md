@@ -325,7 +325,7 @@ python -m pdoc --http : pytia
    - [README.md](README.md)
 3. Run all **tests**: `poetry run pytest`
 4. Check **pylint** output: `poetry run pylint pytia/`
-5. Update the **documentation**: `poetry run pdoc --html --output-dir docs pytia`
+5. Update the **documentation**: `poetry run pdoc --force --html --output-dir docs pytia`
 6. Update the **lockfile**: `poetry lock`
 7. Update the **requirements.txt**: `poetry export --dev -f requirements.txt -o requirements.txt`
 8. **Build** the package: `poetry build`
