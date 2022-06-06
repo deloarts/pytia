@@ -51,6 +51,8 @@ class Log:
         """
         if not folder:
             folder = gettempdir()
+        if not os.path.isdir(folder):
+            os.makedirs(folder)
 
         if not filename:
             filename = "pytia.log"
