@@ -96,6 +96,15 @@ class PyProperties:
             f"Property {name!r} not found in {self._product.name!r}"
         )
 
+    def delete(self, name: str) -> None:
+        if self.exists(name=name):
+            self._user_ref_properties.remove(name)
+            log.info(f"Deleted property {name!r} from {self._product.name!r}")
+        else:
+            raise PytiaPropertyNotFoundError(
+                f"Cannot delete property {name!r}: Not found in {self._product.name!r}"
+            )
+
     def set_value(self, name: str, value: str) -> None:
         """
         Sets the value of an user ref property.
