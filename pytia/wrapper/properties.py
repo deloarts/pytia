@@ -68,8 +68,13 @@ class PyProperties:
     def exists(self, name: str | List[str]) -> bool:
         """
         Returns True if a property of the given name already exists in the product.
-
         Returns True if all properties of the given list exists in the product.
+
+        Args:
+            name (str | List[str]): The name or list of names to check.
+
+        Returns:
+            bool: True if the property exists, false otherwise.
         """
 
         def name_exists(name):
@@ -87,7 +92,14 @@ class PyProperties:
         """
         Returns a UserRefProperty by its name.
 
-        Raises the PytiaPropertyNotFound exception if the property does not exist.
+        Args:
+            name (str): The name of the property to retrieve.
+
+        Raises:
+            PytiaPropertyNotFoundError: Raised if the property does not exist.
+
+        Returns:
+            StrParam: The property.
         """
         if self.exists(name=name):
             return StrParam(self._user_ref_properties.item(name))
@@ -96,11 +108,31 @@ class PyProperties:
             f"Property {name!r} not found in {self._product.name!r}"
         )
 
+    def delete(self, name: str) -> None:
+        """
+        Deletes a property by its name.
+
+        Args:
+            name (str): The name of the property to delete.
+
+        Raises:
+            PytiaPropertyNotFoundError: Raised if the property does not exist.
+        """
+        if self.exists(name=name):
+            self._user_ref_properties.remove(name)
+            log.info(f"Deleted property {name!r} from {self._product.name!r}")
+        else:
+            raise PytiaPropertyNotFoundError(
+                f"Cannot delete property {name!r}: Not found in {self._product.name!r}"
+            )
+
     def set_value(self, name: str, value: str) -> None:
         """
         Sets the value of an user ref property.
 
-        Raises the PytiaPropertyNotFound exception if the property does not exist.
+        Args:
+            name (str): The name of the property of which to set the value.
+            value (str): The value.
         """
         prop = self.get_by_name(name)
         prop.value = value
@@ -110,7 +142,15 @@ class PyProperties:
         """
         Creates a CATIA UserRefProperty of type STRING.
 
-        Raises the PytiaPropertyExistsError if the property already exists.
+        Args:
+            name (str): The name of the new property.
+            value (str, optional): The value for the new property. Defaults to "".
+
+        Returns:
+            StrParam: The newly created property.
+
+        Raises:
+            PytiaPropertyExistsError: Raised if the property already exists.
         """
         parameter = self._user_ref_properties.create_string(name, value)
         parameter.rename(name)
@@ -129,6 +169,18 @@ class PyProperties:
         any Property if the error is raised.
 
         Doesn't raise an error if skip_existing is True.
+
+        Args:
+            names (List[str]): The list of property names to create.
+            skip_existing (bool, optional): No error is raised when a property already exists. \
+                Defaults to True.
+
+        Raises:
+            PytiaPropertyExistsError: Raised if any property already exists, omitted if the \
+                skip_existing flag is True.
+
+        Returns:
+            List[StrParam]: A list of the newly created properties.
         """
         name_list = []
         props = []
@@ -151,7 +203,7 @@ class PyProperties:
         """
         Writes the pytia version as user ref property.
 
-        Omits this if the environment variable PYTIA_NO_PROPS is set to 1.
+        Omits this if the environment variable `PYTIA_NO_PROPS` is set to 1.
         """
         if ENV_NO_PROPS:
             log.info(

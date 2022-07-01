@@ -10,7 +10,7 @@ class Marker3Ds(Collection):
         super().__init__(com_object, child_object=Marker3D)
         self.marker_3ds = com_object
 
-    def add3_d_text(
+    def add_3d_text(
         self,
         i_text_coordinates: tuple,
         i_text: str,

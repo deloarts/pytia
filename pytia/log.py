@@ -46,11 +46,19 @@ class Log:
         backup_count: int = 10,
     ):
         """
-        Adds a rotating file handler. Every time the log is initialized,
-        a new logfile is created. Backup is 10 files by default.
+        Adds a rotating file handler.
+
+        Args:
+            folder (Optional[str], optional): The folder where the log files are stored. \
+                Uses the users temp folder if not provided. Defaults to None.
+            filename (Optional[str], optional): The filename of the log. Defaults to None.
+            backup_count (int, optional): The amount of backups. Each new file handler will create \
+                a backup of an existing log file. Defaults to 10.
         """
         if not folder:
             folder = gettempdir()
+        if not os.path.isdir(folder):
+            os.makedirs(folder)
 
         if not filename:
             filename = "pytia.log"

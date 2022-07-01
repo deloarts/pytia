@@ -5,6 +5,7 @@
 from typing import Dict, List, Optional
 
 from pytia.exceptions import PytiaMaterialError, PytiaMaterialNotFound
+from pytia.framework import framework
 from pytia.log import log
 from pytia.wrapper.documents.material_documents import PyMaterialDocument
 from pytia.wrapper.documents.part_documents import PyPartDocument
@@ -21,13 +22,16 @@ def get_material_families(catalog_path: str) -> List[str]:
     Returns:
         List[str]: A list of all material families in the catalog.
     """
+    file_alert = framework.catia.display_file_alerts
+    framework.catia.display_file_alerts = False
     with PyMaterialDocument() as material_document:
         material_document.load(catalog_path)
         value = material_document.catalog.families_str
         log.info(
             f"Retrieved material families from {material_document.document.name!r}"
         )
-        return value
+    framework.catia.display_file_alerts = file_alert
+    return value
 
 
 def get_materials(catalog_path: str) -> Dict[str, List[str]]:
@@ -41,11 +45,14 @@ def get_materials(catalog_path: str) -> Dict[str, List[str]]:
         Dict[str, List[str]]: A dictionary with all material families as keys, and a list of all \
             materials of each family as values.
     """
+    file_alert = framework.catia.display_file_alerts
+    framework.catia.display_file_alerts = False
     with PyMaterialDocument() as material_document:
         material_document.load(catalog_path)
         value = material_document.catalog.materials_str
         log.info(f"Retrieved materials from {material_document.document.name!r}")
-        return value
+    framework.catia.display_file_alerts = file_alert
+    return value
 
 
 def apply_material_on_part(
@@ -69,6 +76,9 @@ def apply_material_on_part(
         part_document = PyPartDocument()
         part_document.current()
 
+    file_alert = framework.catia.display_file_alerts
+    framework.catia.display_file_alerts = False
+
     try:
         with PyMaterialDocument() as material_document:
             material_document.load(catalog_path)
@@ -88,6 +98,9 @@ def apply_material_on_part(
         raise PytiaMaterialError(
             f"Failed applying material to {part_document.document.name!r}: {e}"
         ) from e
+
+    finally:
+        framework.catia.display_file_alerts = file_alert
 
 
 def apply_material_on_product(
@@ -113,6 +126,9 @@ def apply_material_on_product(
         product_document = PyProductDocument()
         product_document.current()
 
+    file_alert = framework.catia.display_file_alerts
+    framework.catia.display_file_alerts = False
+
     try:
         with PyMaterialDocument() as material_document:
             material_document.load(catalog_path)
@@ -132,6 +148,9 @@ def apply_material_on_product(
         raise PytiaMaterialError(
             f"Failed applying material to {product_document.document.name!r}: {e}"
         ) from e
+
+    finally:
+        framework.catia.display_file_alerts = file_alert
 
 
 def get_material_from_part(part_document: Optional[PyPartDocument] = None) -> str:

@@ -547,35 +547,35 @@ class VisualizationSettingAtt(SettingController):
         self.visualization_setting_att.Viz2DProportionnalAccuracy = value
 
     @property
-    def viz3_d_accuracy_mode(self) -&gt; bool:
+    def viz_3d_accuracy_mode(self) -&gt; bool:
         return self.visualization_setting_att.Viz3DAccuracyMode
 
-    @viz3_d_accuracy_mode.setter
-    def viz3_d_accuracy_mode(self, value: bool):
+    @viz_3d_accuracy_mode.setter
+    def viz_3d_accuracy_mode(self, value: bool):
         self.visualization_setting_att.Viz3DAccuracyMode = value
 
     @property
-    def viz3_d_curve_accuracy(self) -&gt; float:
+    def viz_3d_curve_accuracy(self) -&gt; float:
         return self.visualization_setting_att.Viz3DCurveAccuracy
 
-    @viz3_d_curve_accuracy.setter
-    def viz3_d_curve_accuracy(self, value: float):
+    @viz_3d_curve_accuracy.setter
+    def viz_3d_curve_accuracy(self, value: float):
         self.visualization_setting_att.Viz3DCurveAccuracy = value
 
     @property
-    def viz3_d_fixed_accuracy(self) -&gt; float:
+    def viz_3d_fixed_accuracy(self) -&gt; float:
         return self.visualization_setting_att.Viz3DFixedAccuracy
 
-    @viz3_d_fixed_accuracy.setter
-    def viz3_d_fixed_accuracy(self, value: float):
+    @viz_3d_fixed_accuracy.setter
+    def viz_3d_fixed_accuracy(self, value: float):
         self.visualization_setting_att.Viz3DFixedAccuracy = value
 
     @property
-    def viz3_d_proportionnal_accuracy(self) -&gt; float:
+    def viz_3d_proportionnal_accuracy(self) -&gt; float:
         return self.visualization_setting_att.Viz3DProportionnalAccuracy
 
-    @viz3_d_proportionnal_accuracy.setter
-    def viz3_d_proportionnal_accuracy(self, value: float):
+    @viz_3d_proportionnal_accuracy.setter
+    def viz_3d_proportionnal_accuracy(self, value: float):
         self.visualization_setting_att.Viz3DProportionnalAccuracy = value
 
     def get_accurate_picking_mode_info(
@@ -1041,28 +1041,28 @@ class VisualizationSettingAtt(SettingController):
             io_admin_level, io_locked
         )
 
-    def get_viz3_d_accuracy_mode_info(
+    def get_viz_3d_accuracy_mode_info(
         self, io_admin_level: str, io_locked: str
     ) -&gt; bool:
         return self.visualization_setting_att.GetViz3DAccuracyModeInfo(
             io_admin_level, io_locked
         )
 
-    def get_viz3_d_curve_accuracy_info(
+    def get_viz_3d_curve_accuracy_info(
         self, io_admin_level: str, io_locked: str
     ) -&gt; bool:
         return self.visualization_setting_att.GetViz3DCurveAccuracyInfo(
             io_admin_level, io_locked
         )
 
-    def get_viz3_d_fixed_accuracy_info(
+    def get_viz_3d_fixed_accuracy_info(
         self, io_admin_level: str, io_locked: str
     ) -&gt; bool:
         return self.visualization_setting_att.GetViz3DFixedAccuracyInfo(
             io_admin_level, io_locked
         )
 
-    def get_viz3_d_proportionnal_accuracy_info(
+    def get_viz_3d_proportionnal_accuracy_info(
         self, io_admin_level: str, io_locked: str
     ) -&gt; bool:
         return self.visualization_setting_att.GetViz3DProportionnalAccuracyInfo(
@@ -1334,16 +1334,16 @@ class VisualizationSettingAtt(SettingController):
             i_locked
         )
 
-    def set_viz3_d_accuracy_mode_lock(self, i_locked: bool) -&gt; None:
+    def set_viz_3d_accuracy_mode_lock(self, i_locked: bool) -&gt; None:
         return self.visualization_setting_att.SetViz3DAccuracyModeLock(i_locked)
 
-    def set_viz3_d_curve_accuracy_lock(self, i_locked: bool) -&gt; None:
+    def set_viz_3d_curve_accuracy_lock(self, i_locked: bool) -&gt; None:
         return self.visualization_setting_att.SetViz3DCurveAccuracyLock(i_locked)
 
-    def set_viz3_d_fixed_accuracy_lock(self, i_locked: bool) -&gt; None:
+    def set_viz_3d_fixed_accuracy_lock(self, i_locked: bool) -&gt; None:
         return self.visualization_setting_att.SetViz3DFixedAccuracyLock(i_locked)
 
-    def set_viz3_d_proportionnal_accuracy_lock(self, i_locked: bool) -&gt; None:
+    def set_viz_3d_proportionnal_accuracy_lock(self, i_locked: bool) -&gt; None:
         return self.visualization_setting_att.SetViz3DProportionnalAccuracyLock(
             i_locked
         )
@@ -1889,35 +1889,35 @@ class VisualizationSettingAtt(SettingController):
         self.visualization_setting_att.Viz2DProportionnalAccuracy = value
 
     @property
-    def viz3_d_accuracy_mode(self) -&gt; bool:
+    def viz_3d_accuracy_mode(self) -&gt; bool:
         return self.visualization_setting_att.Viz3DAccuracyMode
 
-    @viz3_d_accuracy_mode.setter
-    def viz3_d_accuracy_mode(self, value: bool):
+    @viz_3d_accuracy_mode.setter
+    def viz_3d_accuracy_mode(self, value: bool):
         self.visualization_setting_att.Viz3DAccuracyMode = value
 
     @property
-    def viz3_d_curve_accuracy(self) -&gt; float:
+    def viz_3d_curve_accuracy(self) -&gt; float:
         return self.visualization_setting_att.Viz3DCurveAccuracy
 
-    @viz3_d_curve_accuracy.setter
-    def viz3_d_curve_accuracy(self, value: float):
+    @viz_3d_curve_accuracy.setter
+    def viz_3d_curve_accuracy(self, value: float):
         self.visualization_setting_att.Viz3DCurveAccuracy = value
 
     @property
-    def viz3_d_fixed_accuracy(self) -&gt; float:
+    def viz_3d_fixed_accuracy(self) -&gt; float:
         return self.visualization_setting_att.Viz3DFixedAccuracy
 
-    @viz3_d_fixed_accuracy.setter
-    def viz3_d_fixed_accuracy(self, value: float):
+    @viz_3d_fixed_accuracy.setter
+    def viz_3d_fixed_accuracy(self, value: float):
         self.visualization_setting_att.Viz3DFixedAccuracy = value
 
     @property
-    def viz3_d_proportionnal_accuracy(self) -&gt; float:
+    def viz_3d_proportionnal_accuracy(self) -&gt; float:
         return self.visualization_setting_att.Viz3DProportionnalAccuracy
 
-    @viz3_d_proportionnal_accuracy.setter
-    def viz3_d_proportionnal_accuracy(self, value: float):
+    @viz_3d_proportionnal_accuracy.setter
+    def viz_3d_proportionnal_accuracy(self, value: float):
         self.visualization_setting_att.Viz3DProportionnalAccuracy = value
 
     def get_accurate_picking_mode_info(
@@ -2383,28 +2383,28 @@ class VisualizationSettingAtt(SettingController):
             io_admin_level, io_locked
         )
 
-    def get_viz3_d_accuracy_mode_info(
+    def get_viz_3d_accuracy_mode_info(
         self, io_admin_level: str, io_locked: str
     ) -&gt; bool:
         return self.visualization_setting_att.GetViz3DAccuracyModeInfo(
             io_admin_level, io_locked
         )
 
-    def get_viz3_d_curve_accuracy_info(
+    def get_viz_3d_curve_accuracy_info(
         self, io_admin_level: str, io_locked: str
     ) -&gt; bool:
         return self.visualization_setting_att.GetViz3DCurveAccuracyInfo(
             io_admin_level, io_locked
         )
 
-    def get_viz3_d_fixed_accuracy_info(
+    def get_viz_3d_fixed_accuracy_info(
         self, io_admin_level: str, io_locked: str
     ) -&gt; bool:
         return self.visualization_setting_att.GetViz3DFixedAccuracyInfo(
             io_admin_level, io_locked
         )
 
-    def get_viz3_d_proportionnal_accuracy_info(
+    def get_viz_3d_proportionnal_accuracy_info(
         self, io_admin_level: str, io_locked: str
     ) -&gt; bool:
         return self.visualization_setting_att.GetViz3DProportionnalAccuracyInfo(
@@ -2676,16 +2676,16 @@ class VisualizationSettingAtt(SettingController):
             i_locked
         )
 
-    def set_viz3_d_accuracy_mode_lock(self, i_locked: bool) -&gt; None:
+    def set_viz_3d_accuracy_mode_lock(self, i_locked: bool) -&gt; None:
         return self.visualization_setting_att.SetViz3DAccuracyModeLock(i_locked)
 
-    def set_viz3_d_curve_accuracy_lock(self, i_locked: bool) -&gt; None:
+    def set_viz_3d_curve_accuracy_lock(self, i_locked: bool) -&gt; None:
         return self.visualization_setting_att.SetViz3DCurveAccuracyLock(i_locked)
 
-    def set_viz3_d_fixed_accuracy_lock(self, i_locked: bool) -&gt; None:
+    def set_viz_3d_fixed_accuracy_lock(self, i_locked: bool) -&gt; None:
         return self.visualization_setting_att.SetViz3DFixedAccuracyLock(i_locked)
 
-    def set_viz3_d_proportionnal_accuracy_lock(self, i_locked: bool) -&gt; None:
+    def set_viz_3d_proportionnal_accuracy_lock(self, i_locked: bool) -&gt; None:
         return self.visualization_setting_att.SetViz3DProportionnalAccuracyLock(
             i_locked
         )
@@ -3469,7 +3469,7 @@ def viz2_d_proportionnal_accuracy(self) -&gt; float:
     return self.visualization_setting_att.Viz2DProportionnalAccuracy</code></pre>
 </details>
 </dd>
-<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz3_d_accuracy_mode"><code class="name">var <span class="ident">viz3_d_accuracy_mode</span> : bool</code></dt>
+<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz_3d_accuracy_mode"><code class="name">var <span class="ident">viz_3d_accuracy_mode</span> : bool</code></dt>
 <dd>
 <div class="desc"></div>
 <details class="source">
@@ -3477,11 +3477,11 @@ def viz2_d_proportionnal_accuracy(self) -&gt; float:
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@property
-def viz3_d_accuracy_mode(self) -&gt; bool:
+def viz_3d_accuracy_mode(self) -&gt; bool:
     return self.visualization_setting_att.Viz3DAccuracyMode</code></pre>
 </details>
 </dd>
-<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz3_d_curve_accuracy"><code class="name">var <span class="ident">viz3_d_curve_accuracy</span> : float</code></dt>
+<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz_3d_curve_accuracy"><code class="name">var <span class="ident">viz_3d_curve_accuracy</span> : float</code></dt>
 <dd>
 <div class="desc"></div>
 <details class="source">
@@ -3489,11 +3489,11 @@ def viz3_d_accuracy_mode(self) -&gt; bool:
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@property
-def viz3_d_curve_accuracy(self) -&gt; float:
+def viz_3d_curve_accuracy(self) -&gt; float:
     return self.visualization_setting_att.Viz3DCurveAccuracy</code></pre>
 </details>
 </dd>
-<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz3_d_fixed_accuracy"><code class="name">var <span class="ident">viz3_d_fixed_accuracy</span> : float</code></dt>
+<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz_3d_fixed_accuracy"><code class="name">var <span class="ident">viz_3d_fixed_accuracy</span> : float</code></dt>
 <dd>
 <div class="desc"></div>
 <details class="source">
@@ -3501,11 +3501,11 @@ def viz3_d_curve_accuracy(self) -&gt; float:
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@property
-def viz3_d_fixed_accuracy(self) -&gt; float:
+def viz_3d_fixed_accuracy(self) -&gt; float:
     return self.visualization_setting_att.Viz3DFixedAccuracy</code></pre>
 </details>
 </dd>
-<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz3_d_proportionnal_accuracy"><code class="name">var <span class="ident">viz3_d_proportionnal_accuracy</span> : float</code></dt>
+<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz_3d_proportionnal_accuracy"><code class="name">var <span class="ident">viz_3d_proportionnal_accuracy</span> : float</code></dt>
 <dd>
 <div class="desc"></div>
 <details class="source">
@@ -3513,7 +3513,7 @@ def viz3_d_fixed_accuracy(self) -&gt; float:
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@property
-def viz3_d_proportionnal_accuracy(self) -&gt; float:
+def viz_3d_proportionnal_accuracy(self) -&gt; float:
     return self.visualization_setting_att.Viz3DProportionnalAccuracy</code></pre>
 </details>
 </dd>
@@ -4813,8 +4813,8 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
     )</code></pre>
 </details>
 </dd>
-<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz3_d_accuracy_mode_info"><code class="name flex">
-<span>def <span class="ident">get_viz3_d_accuracy_mode_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz_3d_accuracy_mode_info"><code class="name flex">
+<span>def <span class="ident">get_viz_3d_accuracy_mode_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -4822,7 +4822,7 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_viz3_d_accuracy_mode_info(
+<pre><code class="python">def get_viz_3d_accuracy_mode_info(
     self, io_admin_level: str, io_locked: str
 ) -&gt; bool:
     return self.visualization_setting_att.GetViz3DAccuracyModeInfo(
@@ -4830,8 +4830,8 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
     )</code></pre>
 </details>
 </dd>
-<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz3_d_curve_accuracy_info"><code class="name flex">
-<span>def <span class="ident">get_viz3_d_curve_accuracy_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz_3d_curve_accuracy_info"><code class="name flex">
+<span>def <span class="ident">get_viz_3d_curve_accuracy_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -4839,7 +4839,7 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_viz3_d_curve_accuracy_info(
+<pre><code class="python">def get_viz_3d_curve_accuracy_info(
     self, io_admin_level: str, io_locked: str
 ) -&gt; bool:
     return self.visualization_setting_att.GetViz3DCurveAccuracyInfo(
@@ -4847,8 +4847,8 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
     )</code></pre>
 </details>
 </dd>
-<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz3_d_fixed_accuracy_info"><code class="name flex">
-<span>def <span class="ident">get_viz3_d_fixed_accuracy_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz_3d_fixed_accuracy_info"><code class="name flex">
+<span>def <span class="ident">get_viz_3d_fixed_accuracy_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -4856,7 +4856,7 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_viz3_d_fixed_accuracy_info(
+<pre><code class="python">def get_viz_3d_fixed_accuracy_info(
     self, io_admin_level: str, io_locked: str
 ) -&gt; bool:
     return self.visualization_setting_att.GetViz3DFixedAccuracyInfo(
@@ -4864,8 +4864,8 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
     )</code></pre>
 </details>
 </dd>
-<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz3_d_proportionnal_accuracy_info"><code class="name flex">
-<span>def <span class="ident">get_viz3_d_proportionnal_accuracy_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
+<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz_3d_proportionnal_accuracy_info"><code class="name flex">
+<span>def <span class="ident">get_viz_3d_proportionnal_accuracy_info</span></span>(<span>self, io_admin_level: str, io_locked: str) ‑> bool</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -4873,7 +4873,7 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_viz3_d_proportionnal_accuracy_info(
+<pre><code class="python">def get_viz_3d_proportionnal_accuracy_info(
     self, io_admin_level: str, io_locked: str
 ) -&gt; bool:
     return self.visualization_setting_att.GetViz3DProportionnalAccuracyInfo(
@@ -5976,8 +5976,8 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
     )</code></pre>
 </details>
 </dd>
-<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz3_d_accuracy_mode_lock"><code class="name flex">
-<span>def <span class="ident">set_viz3_d_accuracy_mode_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz_3d_accuracy_mode_lock"><code class="name flex">
+<span>def <span class="ident">set_viz_3d_accuracy_mode_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -5985,12 +5985,12 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def set_viz3_d_accuracy_mode_lock(self, i_locked: bool) -&gt; None:
+<pre><code class="python">def set_viz_3d_accuracy_mode_lock(self, i_locked: bool) -&gt; None:
     return self.visualization_setting_att.SetViz3DAccuracyModeLock(i_locked)</code></pre>
 </details>
 </dd>
-<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz3_d_curve_accuracy_lock"><code class="name flex">
-<span>def <span class="ident">set_viz3_d_curve_accuracy_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz_3d_curve_accuracy_lock"><code class="name flex">
+<span>def <span class="ident">set_viz_3d_curve_accuracy_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -5998,12 +5998,12 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def set_viz3_d_curve_accuracy_lock(self, i_locked: bool) -&gt; None:
+<pre><code class="python">def set_viz_3d_curve_accuracy_lock(self, i_locked: bool) -&gt; None:
     return self.visualization_setting_att.SetViz3DCurveAccuracyLock(i_locked)</code></pre>
 </details>
 </dd>
-<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz3_d_fixed_accuracy_lock"><code class="name flex">
-<span>def <span class="ident">set_viz3_d_fixed_accuracy_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz_3d_fixed_accuracy_lock"><code class="name flex">
+<span>def <span class="ident">set_viz_3d_fixed_accuracy_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -6011,12 +6011,12 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def set_viz3_d_fixed_accuracy_lock(self, i_locked: bool) -&gt; None:
+<pre><code class="python">def set_viz_3d_fixed_accuracy_lock(self, i_locked: bool) -&gt; None:
     return self.visualization_setting_att.SetViz3DFixedAccuracyLock(i_locked)</code></pre>
 </details>
 </dd>
-<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz3_d_proportionnal_accuracy_lock"><code class="name flex">
-<span>def <span class="ident">set_viz3_d_proportionnal_accuracy_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
+<dt id="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz_3d_proportionnal_accuracy_lock"><code class="name flex">
+<span>def <span class="ident">set_viz_3d_proportionnal_accuracy_lock</span></span>(<span>self, i_locked: bool) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -6024,7 +6024,7 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def set_viz3_d_proportionnal_accuracy_lock(self, i_locked: bool) -&gt; None:
+<pre><code class="python">def set_viz_3d_proportionnal_accuracy_lock(self, i_locked: bool) -&gt; None:
     return self.visualization_setting_att.SetViz3DProportionnalAccuracyLock(
         i_locked
     )</code></pre>
@@ -6164,10 +6164,10 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
 <li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz2_d_accuracy_mode_info" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz2_d_accuracy_mode_info">get_viz2_d_accuracy_mode_info</a></code></li>
 <li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz2_d_fixed_accuracy_info" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz2_d_fixed_accuracy_info">get_viz2_d_fixed_accuracy_info</a></code></li>
 <li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz2_d_proportionnal_accuracy_info" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz2_d_proportionnal_accuracy_info">get_viz2_d_proportionnal_accuracy_info</a></code></li>
-<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz3_d_accuracy_mode_info" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz3_d_accuracy_mode_info">get_viz3_d_accuracy_mode_info</a></code></li>
-<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz3_d_curve_accuracy_info" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz3_d_curve_accuracy_info">get_viz3_d_curve_accuracy_info</a></code></li>
-<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz3_d_fixed_accuracy_info" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz3_d_fixed_accuracy_info">get_viz3_d_fixed_accuracy_info</a></code></li>
-<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz3_d_proportionnal_accuracy_info" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz3_d_proportionnal_accuracy_info">get_viz3_d_proportionnal_accuracy_info</a></code></li>
+<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz_3d_accuracy_mode_info" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz_3d_accuracy_mode_info">get_viz_3d_accuracy_mode_info</a></code></li>
+<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz_3d_curve_accuracy_info" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz_3d_curve_accuracy_info">get_viz_3d_curve_accuracy_info</a></code></li>
+<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz_3d_fixed_accuracy_info" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz_3d_fixed_accuracy_info">get_viz_3d_fixed_accuracy_info</a></code></li>
+<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz_3d_proportionnal_accuracy_info" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.get_viz_3d_proportionnal_accuracy_info">get_viz_3d_proportionnal_accuracy_info</a></code></li>
 <li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.gravity" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.gravity">gravity</a></code></li>
 <li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.gravity_axis" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.gravity_axis">gravity_axis</a></code></li>
 <li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.halo_mode" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.halo_mode">halo_mode</a></code></li>
@@ -6275,10 +6275,10 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
 <li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz2_d_accuracy_mode_lock" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz2_d_accuracy_mode_lock">set_viz2_d_accuracy_mode_lock</a></code></li>
 <li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz2_d_fixed_accuracy_lock" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz2_d_fixed_accuracy_lock">set_viz2_d_fixed_accuracy_lock</a></code></li>
 <li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz2_d_proportionnal_accuracy_lock" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz2_d_proportionnal_accuracy_lock">set_viz2_d_proportionnal_accuracy_lock</a></code></li>
-<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz3_d_accuracy_mode_lock" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz3_d_accuracy_mode_lock">set_viz3_d_accuracy_mode_lock</a></code></li>
-<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz3_d_curve_accuracy_lock" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz3_d_curve_accuracy_lock">set_viz3_d_curve_accuracy_lock</a></code></li>
-<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz3_d_fixed_accuracy_lock" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz3_d_fixed_accuracy_lock">set_viz3_d_fixed_accuracy_lock</a></code></li>
-<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz3_d_proportionnal_accuracy_lock" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz3_d_proportionnal_accuracy_lock">set_viz3_d_proportionnal_accuracy_lock</a></code></li>
+<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz_3d_accuracy_mode_lock" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz_3d_accuracy_mode_lock">set_viz_3d_accuracy_mode_lock</a></code></li>
+<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz_3d_curve_accuracy_lock" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz_3d_curve_accuracy_lock">set_viz_3d_curve_accuracy_lock</a></code></li>
+<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz_3d_fixed_accuracy_lock" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz_3d_fixed_accuracy_lock">set_viz_3d_fixed_accuracy_lock</a></code></li>
+<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz_3d_proportionnal_accuracy_lock" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.set_viz_3d_proportionnal_accuracy_lock">set_viz_3d_proportionnal_accuracy_lock</a></code></li>
 <li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.shader_mode" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.shader_mode">shader_mode</a></code></li>
 <li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.static_cull" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.static_cull">static_cull</a></code></li>
 <li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.static_lod" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.static_lod">static_lod</a></code></li>
@@ -6289,10 +6289,10 @@ def viz3_d_proportionnal_accuracy(self) -&gt; float:
 <li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz2_d_accuracy_mode" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz2_d_accuracy_mode">viz2_d_accuracy_mode</a></code></li>
 <li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz2_d_fixed_accuracy" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz2_d_fixed_accuracy">viz2_d_fixed_accuracy</a></code></li>
 <li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz2_d_proportionnal_accuracy" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz2_d_proportionnal_accuracy">viz2_d_proportionnal_accuracy</a></code></li>
-<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz3_d_accuracy_mode" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz3_d_accuracy_mode">viz3_d_accuracy_mode</a></code></li>
-<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz3_d_curve_accuracy" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz3_d_curve_accuracy">viz3_d_curve_accuracy</a></code></li>
-<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz3_d_fixed_accuracy" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz3_d_fixed_accuracy">viz3_d_fixed_accuracy</a></code></li>
-<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz3_d_proportionnal_accuracy" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz3_d_proportionnal_accuracy">viz3_d_proportionnal_accuracy</a></code></li>
+<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz_3d_accuracy_mode" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz_3d_accuracy_mode">viz_3d_accuracy_mode</a></code></li>
+<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz_3d_curve_accuracy" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz_3d_curve_accuracy">viz_3d_curve_accuracy</a></code></li>
+<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz_3d_fixed_accuracy" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz_3d_fixed_accuracy">viz_3d_fixed_accuracy</a></code></li>
+<li><code><a title="pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz_3d_proportionnal_accuracy" href="#pytia.framework.in_interfaces.visualization_setting_att.VisualizationSettingAtt.viz_3d_proportionnal_accuracy">viz_3d_proportionnal_accuracy</a></code></li>
 </ul>
 </li>
 </ul>

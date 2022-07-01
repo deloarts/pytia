@@ -8,4 +8,4 @@
     https://github.com/deloarts/pytia
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"

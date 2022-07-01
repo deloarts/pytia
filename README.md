@@ -3,7 +3,7 @@
 A wrapper for the catia v5 api.
 
 ![state](https://img.shields.io/badge/State-Alpha-brown.svg?style=for-the-badge)
-![version](https://img.shields.io/badge/Version-0.1.0-orange.svg?style=for-the-badge)
+![version](https://img.shields.io/badge/Version-0.1.1-orange.svg?style=for-the-badge)
 
 [![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
 ![catia](https://img.shields.io/badge/CATIA-V5%206R2017-blue.svg?style=for-the-badge)
@@ -89,7 +89,7 @@ python -m pytia
 This generates the following output:
 
 ```plain
-PYTIA 0.1.0
+PYTIA 0.1.1
 
 Usage: python -m pytia [OPTIONS] COMMAND [ARGS]...
 
@@ -126,7 +126,7 @@ python -m pytia box
 This will create the following sample output:
 
 ```powershell
-PYTIA 0.1.0
+PYTIA 0.1.1
 
 [ INFO ]  Bounding box of the current part:
           X = 100.0mm
@@ -325,7 +325,7 @@ python -m pdoc --http : pytia
    - [README.md](README.md)
 3. Run all **tests**: `poetry run pytest`
 4. Check **pylint** output: `poetry run pylint pytia/`
-5. Update the **documentation**: `poetry run pdoc --html --output-dir docs pytia`
+5. Update the **documentation**: `poetry run pdoc --force --html --output-dir docs pytia`
 6. Update the **lockfile**: `poetry lock`
 7. Update the **requirements.txt**: `poetry export --dev -f requirements.txt -o requirements.txt`
 8. **Build** the package: `poetry build`
@@ -336,6 +336,7 @@ python -m pdoc --http : pytia
 
 ## 5 changelog
 
+**v0.1.1**: Add `delete` method to the properties wrapper.  
 **v0.1.0**: Initial commit.  
 
 ## 6 to do

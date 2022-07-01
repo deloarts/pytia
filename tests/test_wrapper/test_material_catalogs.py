@@ -1,13 +1,13 @@
-import os
 from pathlib import Path
 from tempfile import gettempdir
 
 import pytest
+from pytia.framework import framework
 
 test_name = "pytest_test_materials"
 test_folder = gettempdir()
 test_files = Path("tests/assets")
-test_catalog_file = str(Path(os.getcwd(), test_files, "Catalog.CATMaterial"))
+test_catalog_file = f"{framework.catia.system_service.environ('CATStartupPath')}\\materials\\Catalog.CATMaterial"
 
 
 def test_import():

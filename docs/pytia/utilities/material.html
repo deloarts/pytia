@@ -34,6 +34,7 @@
 from typing import Dict, List, Optional
 
 from pytia.exceptions import PytiaMaterialError, PytiaMaterialNotFound
+from pytia.framework import framework
 from pytia.log import log
 from pytia.wrapper.documents.material_documents import PyMaterialDocument
 from pytia.wrapper.documents.part_documents import PyPartDocument
@@ -50,13 +51,16 @@ def get_material_families(catalog_path: str) -&gt; List[str]:
     Returns:
         List[str]: A list of all material families in the catalog.
     &#34;&#34;&#34;
+    file_alert = framework.catia.display_file_alerts
+    framework.catia.display_file_alerts = False
     with PyMaterialDocument() as material_document:
         material_document.load(catalog_path)
         value = material_document.catalog.families_str
         log.info(
             f&#34;Retrieved material families from {material_document.document.name!r}&#34;
         )
-        return value
+    framework.catia.display_file_alerts = file_alert
+    return value
 
 
 def get_materials(catalog_path: str) -&gt; Dict[str, List[str]]:
@@ -70,11 +74,14 @@ def get_materials(catalog_path: str) -&gt; Dict[str, List[str]]:
         Dict[str, List[str]]: A dictionary with all material families as keys, and a list of all \
             materials of each family as values.
     &#34;&#34;&#34;
+    file_alert = framework.catia.display_file_alerts
+    framework.catia.display_file_alerts = False
     with PyMaterialDocument() as material_document:
         material_document.load(catalog_path)
         value = material_document.catalog.materials_str
         log.info(f&#34;Retrieved materials from {material_document.document.name!r}&#34;)
-        return value
+    framework.catia.display_file_alerts = file_alert
+    return value
 
 
 def apply_material_on_part(
@@ -98,6 +105,9 @@ def apply_material_on_part(
         part_document = PyPartDocument()
         part_document.current()
 
+    file_alert = framework.catia.display_file_alerts
+    framework.catia.display_file_alerts = False
+
     try:
         with PyMaterialDocument() as material_document:
             material_document.load(catalog_path)
@@ -117,6 +127,9 @@ def apply_material_on_part(
         raise PytiaMaterialError(
             f&#34;Failed applying material to {part_document.document.name!r}: {e}&#34;
         ) from e
+
+    finally:
+        framework.catia.display_file_alerts = file_alert
 
 
 def apply_material_on_product(
@@ -142,6 +155,9 @@ def apply_material_on_product(
         product_document = PyProductDocument()
         product_document.current()
 
+    file_alert = framework.catia.display_file_alerts
+    framework.catia.display_file_alerts = False
+
     try:
         with PyMaterialDocument() as material_document:
             material_document.load(catalog_path)
@@ -161,6 +177,9 @@ def apply_material_on_product(
         raise PytiaMaterialError(
             f&#34;Failed applying material to {product_document.document.name!r}: {e}&#34;
         ) from e
+
+    finally:
+        framework.catia.display_file_alerts = file_alert
 
 
 def get_material_from_part(part_document: Optional[PyPartDocument] = None) -&gt; str:
@@ -286,6 +305,9 @@ applied. Defaults to None.</dd>
         part_document = PyPartDocument()
         part_document.current()
 
+    file_alert = framework.catia.display_file_alerts
+    framework.catia.display_file_alerts = False
+
     try:
         with PyMaterialDocument() as material_document:
             material_document.load(catalog_path)
@@ -304,7 +326,10 @@ applied. Defaults to None.</dd>
     except Exception as e:
         raise PytiaMaterialError(
             f&#34;Failed applying material to {part_document.document.name!r}: {e}&#34;
-        ) from e</code></pre>
+        ) from e
+
+    finally:
+        framework.catia.display_file_alerts = file_alert</code></pre>
 </details>
 </dd>
 <dt id="pytia.utilities.material.apply_material_on_product"><code class="name flex">
@@ -357,6 +382,9 @@ material will be applied. Defaults to None.</dd>
         product_document = PyProductDocument()
         product_document.current()
 
+    file_alert = framework.catia.display_file_alerts
+    framework.catia.display_file_alerts = False
+
     try:
         with PyMaterialDocument() as material_document:
             material_document.load(catalog_path)
@@ -375,7 +403,10 @@ material will be applied. Defaults to None.</dd>
     except Exception as e:
         raise PytiaMaterialError(
             f&#34;Failed applying material to {product_document.document.name!r}: {e}&#34;
-        ) from e</code></pre>
+        ) from e
+
+    finally:
+        framework.catia.display_file_alerts = file_alert</code></pre>
 </details>
 </dd>
 <dt id="pytia.utilities.material.get_material_families"><code class="name flex">
@@ -407,13 +438,16 @@ material will be applied. Defaults to None.</dd>
     Returns:
         List[str]: A list of all material families in the catalog.
     &#34;&#34;&#34;
+    file_alert = framework.catia.display_file_alerts
+    framework.catia.display_file_alerts = False
     with PyMaterialDocument() as material_document:
         material_document.load(catalog_path)
         value = material_document.catalog.families_str
         log.info(
             f&#34;Retrieved material families from {material_document.document.name!r}&#34;
         )
-        return value</code></pre>
+    framework.catia.display_file_alerts = file_alert
+    return value</code></pre>
 </details>
 </dd>
 <dt id="pytia.utilities.material.get_material_from_part"><code class="name flex">
@@ -569,11 +603,14 @@ materials of each family as values.</dd>
         Dict[str, List[str]]: A dictionary with all material families as keys, and a list of all \
             materials of each family as values.
     &#34;&#34;&#34;
+    file_alert = framework.catia.display_file_alerts
+    framework.catia.display_file_alerts = False
     with PyMaterialDocument() as material_document:
         material_document.load(catalog_path)
         value = material_document.catalog.materials_str
         log.info(f&#34;Retrieved materials from {material_document.document.name!r}&#34;)
-        return value</code></pre>
+    framework.catia.display_file_alerts = file_alert
+    return value</code></pre>
 </details>
 </dd>
 </dl>

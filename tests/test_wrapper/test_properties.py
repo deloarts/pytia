@@ -158,6 +158,26 @@ def test_properties_get_by_name():
     os.remove(test_path)
 
 
+def test_properties_delete():
+    """
+    Creates a new document and a new property, then deletes it again.
+    Tests if the property is not present anymore.
+    This test only passes when CATIA is running.
+    """
+    from pytia.wrapper.documents.part_documents import PyPartDocument
+
+    with PyPartDocument() as part_document:
+        part_document.new(name=test_name)
+
+        property = part_document.properties.create(
+            name=test_property_name, value=test_property_value
+        )
+        assert part_document.properties.exists(name=test_property_name)
+
+        part_document.properties.delete(name=property.name)
+        assert part_document.properties.exists(name=test_property_name) == False
+
+
 if __name__ == "__main__":
     from pytia.log import log
 
@@ -175,3 +195,4 @@ if __name__ == "__main__":
     test_properties_exists_list()
     test_properties_exists_list_error()
     test_properties_get_by_name()
+    test_properties_delete()
