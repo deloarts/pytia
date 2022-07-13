@@ -87,7 +87,7 @@ class PyBaseDocument:
 
         if not self._doctype in path:
             raise PytiaWrongDocumentTypeError(
-                f"Failed laoding file {path!r}: Not a {self._doctype}"
+                f"Failed loading file {path!r}: Not a {self._doctype}"
             )
 
         try:
