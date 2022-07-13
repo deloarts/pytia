@@ -1,0 +1,117 @@
+"""
+    Wrapper module for CATIA drawing documents.
+"""
+import os
+
+from pytia import __version__
+from pytia.const import FILE_EXTENSION_DRAWING
+from pytia.exceptions import PytiaFileExistsError
+from pytia.framework.drafting_interfaces.drawing_document import DrawingDocument
+from pytia.helper.verify import verify_folder
+from pytia.log import log
+from pytia.wrapper.documents.base import PyBaseDocument
+
+
+class PyDrawingDocument(PyBaseDocument):
+    """The wrapper class for CATIA Drawing (DraftingInterfaces Framework)"""
+
+    def __init__(self) -> None:
+        """Inits the base class with CATDrawing document type."""
+        super().__init__(doc_type=FILE_EXTENSION_DRAWING)
+        self._drawing_document: DrawingDocument
+        # For a drawing document the name must be stored in the class.
+        # The reason is, that it is not possible to set the name of the drawing document directly,
+        # you have to save the document first, and then the filename will be the name.
+        self._name: str
+
+    @property
+    def drawing_document(self) -> DrawingDocument:
+        """Returns the DrawingDocument object."""
+        return self._drawing_document
+
+    @property
+    def name(self) -> str:
+        """Returns the name of the drawing document."""
+        return self._name
+
+    def __bind(self) -> None:
+        """Binds properties to the class object."""
+        self._drawing_document = DrawingDocument(self.document.com_object)
+
+    def load(self, path: str) -> None:
+        """
+        Loads the given drawing file without creating a window.
+
+        Args:
+            path (str): The full file path to the drawing file.
+        """
+        super().load(path)
+        self.__bind()
+        self._name = self._drawing_document.name.split(".CATDrawing")[0]
+
+    def open(self, path: str) -> None:
+        """
+        Opens the given drawing file.
+
+        Args:
+            path (str): The full file path to the drawing file.
+        """
+        super().open(path)
+        self.__bind()
+        self._name = self._drawing_document.name.split(".CATDrawing")[0]
+
+    def current(self) -> None:
+        """
+        Sets the currently open drawing document as active document..
+        """
+        super().current()
+        self.__bind()
+        self._name = self._drawing_document.name.split(".CATDrawing")[0]
+
+    def new(self, name: str) -> None:
+        """
+        Creates a new drawing document.
+
+        Args:
+            name (str): The name of the new drawing document.
+        """
+        super().new(name)
+        self.__bind()
+        self._name = name
+
+    def new_from(self, path: str, name: str) -> None:
+        """
+        Creates a new drawing document from an existing one.
+
+        Args:
+            name (str): The name of the new drawing document.
+        """
+        super().new_from(path=path, name=name)
+        self.__bind()
+        self._name = name
+
+    def save_as(self, folder: str, overwrite: bool = True) -> str:
+        """
+        Saves the drawing document in the given folder.
+        Overwrites any existing document by default.
+        Returns the path (folder & filename) of the saved document.
+        """
+        folder = verify_folder(folder=folder, absolute=True)
+        filepath = f"{folder}{os.sep}{self._name}.CATDrawing"
+
+        if os.path.exists(filepath):
+            if overwrite:
+                os.remove(filepath)
+            else:
+                raise PytiaFileExistsError(
+                    f"Failed saving the {self._name!r} to {folder!r}: "
+                    f"Already exists."
+                )
+        if not os.path.exists(folder):
+            os.makedirs(folder)
+
+        self.document.save_as(filepath)
+        log.info(
+            f"Saved document {self.document.name!r} to {self.document.full_name!r}"
+        )
+        return self.document.full_name

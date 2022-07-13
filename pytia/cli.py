@@ -117,13 +117,13 @@ def mirror(postfix: str) -> None:
 def new(doc_type: str, name: str) -> None:
     """
     \b
-    Creates a new document (CATPart or CATProduct).
+    Creates a new document (CATPart, CATProduct or CATDrawing).
 
     Example: `pytia new part "my part"`
 
     \f
     Args:
-        doc_type (str): The document type (part or product).
+        doc_type (str): The document type (part, product or drawing).
         name (str): The name (partnumber, filename) of the new document.
     """
     console.info(f"Creating a new {doc_type} ...")
@@ -140,6 +140,12 @@ def new(doc_type: str, name: str) -> None:
             product_document = PyProductDocument()
             product_document.new(name=name)
             console.info(f"Created new CATProduct {name!r}.", in_current_line=True)
+        elif doc_type.lower() == "drawing":
+            from pytia.wrapper.documents.drawing_documents import PyDrawingDocument
+
+            drawing_document = PyDrawingDocument()
+            drawing_document.new(name=name)
+            console.info(f"Created new CATDrawing {name!r}.", in_current_line=True)
         else:
             console.error(
                 f"Failed creating new document:\n{doc_type!r} is no supported document type.",
