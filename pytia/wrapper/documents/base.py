@@ -213,7 +213,7 @@ class PyBaseDocument:
             )
         return self.document.full_name
 
-    def save_as(self, folder: str, overwrite=True) -> str:
+    def save_as(self, folder: str, overwrite: bool = True) -> str:
         """
         Saves the document in the given folder.
         Overwrites any existing document by default.
