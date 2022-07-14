@@ -23,6 +23,8 @@ from pytia.wrapper.documents.product_documents import PyProductDocument
 
 @dataclass
 class DocketConfigTexts:
+    """Dataclass for docket texts."""
+
     name: str
     value: str
     view: str
@@ -30,6 +32,8 @@ class DocketConfigTexts:
 
 @dataclass
 class DocketConfigViews:
+    """Dataclass for docket views."""
+
     name: str
     x: float
     y: float
@@ -40,6 +44,7 @@ class DocketConfigViews:
 
 @dataclass
 class DocketConfig:
+    """Dataclass for docket configuration."""
 
     texts: List[DocketConfigTexts]
     views: List[DocketConfigViews]
@@ -64,7 +69,22 @@ def create_docket_from_template(
     document: PyPartDocument | PyProductDocument,
     config: DocketConfig,
 ) -> PyDrawingDocument:
-    """ """
+    """
+    Creates a docket from a template.
+    The docket (CATDrawing) will be left open as ActiveDocument, you have to close it manually.
+
+    Args:
+        template (str): The path (folder and filename) of the template.
+        document (PyPartDocument | PyProductDocument): The part or product document from which \
+            to create the docket
+        config (DocketConfig): The docket configuration dataclass.
+
+    Raises:
+        PytiaFileNotFoundError: Raised if the template file cannot be found.
+
+    Returns:
+        PyDrawingDocument: Returns the docket as PyDrawingDocument.
+    """
     if not os.path.isfile(template):
         raise PytiaFileNotFoundError(
             f"Cannot open docket template {template!r}: Not a file."
@@ -137,8 +157,21 @@ def create_docket_from_template(
     return docket
 
 
-def export_docket_as_pdf(docket: PyDrawingDocument, name: str, folder: str) -> str:
-    """ """
+def export_docket_as_pdf(
+    docket: PyDrawingDocument, name: str, folder: str, close: bool = True
+) -> str:
+    """
+    Exports the docket as pdf.
+
+    Args:
+        docket (PyDrawingDocument): The docket to export.
+        name (str): The name of the exported pdf file.
+        folder (str): The folder where the exported pdf file should be stored.
+        close (bool, optional): Closes the CATDrawing afterwards. Defaults to True.
+
+    Returns:
+        str: The path to the exported pdf file (folder, filename and extension).
+    """
     export_path = Path(verify_folder(folder), name + ".pdf")
 
     if os.path.exists(export_path):
@@ -147,4 +180,6 @@ def export_docket_as_pdf(docket: PyDrawingDocument, name: str, folder: str) -> s
 
     docket.drawing_document.export_data(export_path, "pdf")
     log.info(f"Exported docket {name!r} to {str(export_path)!r}.")
+    if close:
+        docket.close()
     return str(export_path)
