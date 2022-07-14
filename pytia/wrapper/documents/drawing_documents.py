@@ -34,6 +34,11 @@ class PyDrawingDocument(PyBaseDocument):
         """Returns the name of the drawing document."""
         return self._name
 
+    @name.setter
+    def name(self, value: str) -> None:
+        """Sets the name of the drawing document."""
+        self._name = value
+
     def __bind(self) -> None:
         """Binds properties to the class object."""
         self._drawing_document = DrawingDocument(self.document.com_object)
