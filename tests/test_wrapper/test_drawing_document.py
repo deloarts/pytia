@@ -1,6 +1,7 @@
 import os
-from random import randint
 from tempfile import gettempdir
+
+from pytia.const import BACKGROUND_VIEW, FOREGROUND_VIEW
 
 test_name = "pytest_test_drawing_document"
 test_folder = gettempdir()
@@ -79,6 +80,31 @@ def test_open():
 
     assert drawing_document
     os.remove(test_path)
+
+
+def test_text():
+    """
+    Tests if text can be added to views.
+    """
+    from pytia.wrapper.documents.drawing_documents import PyDrawingDocument
+
+    drawing_document = PyDrawingDocument()
+    drawing_document.new(name=test_name)
+
+    sheet = drawing_document.drawing_document.sheets.active_sheet
+    foreground_view = sheet.views.item(FOREGROUND_VIEW)
+    background_view = sheet.views.item(BACKGROUND_VIEW)
+
+    foreground_texts = foreground_view.texts
+    background_texts = background_view.texts
+
+    foreground_text = foreground_texts.add("Text.Foreground", 10, 20)
+    foreground_text.text = "Foreground text"
+    foreground_text.name = "Text.Foreground"
+
+    background_text = background_texts.add("Text.Background", 10, 40)
+    background_text.text = "Background text"
+    background_text.name = "Text.Background"
 
 
 if __name__ == "__main__":
