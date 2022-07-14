@@ -19,10 +19,10 @@ class PyDrawingDocument(PyBaseDocument):
         """Inits the base class with CATDrawing document type."""
         super().__init__(doc_type=FILE_EXTENSION_DRAWING)
         self._drawing_document: DrawingDocument
-        # For a drawing document the name must be stored in the class.
+        self._name: str
+        # Note to the _name class var: For a drawing document the name must be stored in the class.
         # The reason is, that it is not possible to set the name of the drawing document directly,
         # you have to save the document first, and then the filename will be the name.
-        self._name: str
 
     @property
     def drawing_document(self) -> DrawingDocument:
@@ -62,7 +62,7 @@ class PyDrawingDocument(PyBaseDocument):
 
     def current(self) -> None:
         """
-        Sets the currently open drawing document as active document..
+        Sets the currently open drawing document as active document.
         """
         super().current()
         self.__bind()
@@ -95,7 +95,25 @@ class PyDrawingDocument(PyBaseDocument):
         Saves the drawing document in the given folder.
         Overwrites any existing document by default.
         Returns the path (folder & filename) of the saved document.
+
+        Args:
+            folder (str): The folder in which the document should be saved.
+            overwrite (bool, optional): Overwrites any existing files. EachDefaults to True.
+
+        Raises:
+            PytiaFileExistsError: Raised if the file already exists and overwrite is False.
+
+        Returns:
+            str: The full path to the saved document with filename and extension.
         """
+        # Same as above: We have to introduce a separate save_as method, because the
+        # base-save_as method is originally written for parts and products, which is based on
+        # the assumption, that you can change the documents name before saving it (the doc name
+        # is the partnumber in this case).
+        # But with drawings it's not possible to do so, at this it's necessary to use the class
+        # variable _name instead.
+        # Maybe it's time to change the base-save_as method ...
+
         folder = verify_folder(folder=folder, absolute=True)
         filepath = f"{folder}{os.sep}{self._name}.CATDrawing"
 
