@@ -70,6 +70,7 @@ def create_docket_from_template(
             f"Cannot open docket template {template!r}: Not a file."
         )
 
+    log.info(f"Creating docket from template {template!r}.")
     docket = PyDrawingDocument()
     docket.new_from(path=template, name="docket")
 
@@ -80,6 +81,7 @@ def create_docket_from_template(
     bg_texts = bg_views.texts
 
     # Apply texts from config
+    log.debug("Applying texts from config ...")
     for item in config.texts:
         texts = fg_texts if item.view == "fg" else bg_texts
         try:
@@ -92,8 +94,10 @@ def create_docket_from_template(
 
         match (item_type := item.name.split(".")[0]):
             case "text":
+                log.info(f"Applying TEXT ({item.name}: {item.value}) to docket.")
                 text.text = item.value
             case "property":
+                log.info(f"Applying PROPERTY ({item.name}: {item.value}) to docket.")
                 if item.value == "partnumber":
                     text.text = document.product.part_number
                 elif item.value == "definition":
@@ -114,6 +118,7 @@ def create_docket_from_template(
                 log.warning(f"Unknown type for drawing text: {item_type}")
 
     # Create isometric view
+    log.debug("Creating views from config ...")
     for item in config.views:
         view = sheet.views.add(item.name)
         generative_behavior = view.generative_behavior
@@ -124,6 +129,7 @@ def create_docket_from_template(
         generative_behavior.update()
         view.x = item.x
         view.y = item.y
+        log.info(f"Added view: {view.name} to docket.")
 
         view.scale = get_view_scale(
             view=view, max_width=item.max_width, max_height=item.max_height
