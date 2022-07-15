@@ -1,4 +1,5 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Tuple
+
 from pytia.framework.drafting_interfaces.drawing_arrows import DrawingArrows
 from pytia.framework.drafting_interfaces.drawing_components import DrawingComponents
 from pytia.framework.drafting_interfaces.drawing_dimensions import DrawingDimensions
@@ -193,8 +194,19 @@ class DrawingView(AnyObject):
             i_view_name_prefix, i_view_name_ident, i_view_name_suffix
         )
 
-    def size(self, o_values: tuple) -> float:
-        return self.drawing_view.Size(o_values)
+    def size(self) -> Tuple[int, int, int, int]:
+        vba_function_name = "get_size"
+        vba_code = """
+        Public Function get_size(drawing_view)
+            Dim oXY(4)
+            drawing_view.Size oXY
+            get_size = oXY
+        End Function
+        """
+        value = self.application.system_service.evaluate(
+            vba_code, 0, vba_function_name, [self.com_object]
+        )
+        return value[0], value[1], value[2], value[3]
 
     def un_aligned_with_reference_view(self) -> None:
         return self.drawing_view.UnAlignedWithReferenceView()

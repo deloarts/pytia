@@ -49,13 +49,43 @@
             "justMyCode": true
         },
         {
-            "name": "Python: NEW",
+            "name": "Python: NEW PART",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/pytia/main.py",
             "args": [
                 "--verbose",
-                "new"
+                "new",
+                "part",
+                "\"MyPart\""
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: NEW PRODUCT",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/pytia/main.py",
+            "args": [
+                "--verbose",
+                "new",
+                "product",
+                "\"MyProduct\""
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: NEW DRAWING",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/pytia/main.py",
+            "args": [
+                "--verbose",
+                "new",
+                "drawing",
+                "\"MyDrawing\""
             ],
             "console": "integratedTerminal",
             "justMyCode": true

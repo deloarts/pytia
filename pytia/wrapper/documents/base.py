@@ -77,7 +77,20 @@ class PyBaseDocument:
         return f"PyDocuments({self.document.name})"
 
     def load(self, path: str) -> Document:
-        """Loads the document without creating a window."""
+        """
+        Loads the document without creating a window.
+
+        Args:
+            path (str): The path to the document to load.
+
+        Raises:
+            PytiaFileNotFoundError: Raised if the document does not exist.
+            PytiaWrongDocumentTypeError: Raised if the document is not of the correct type.
+            PytiaDocumentOperationError: Raised if the cannot be opened.
+
+        Returns:
+            Document: _description_
+        """
         path = path.replace("/", os.sep)
 
         if not os.path.exists(path):
@@ -87,7 +100,7 @@ class PyBaseDocument:
 
         if not self._doctype in path:
             raise PytiaWrongDocumentTypeError(
-                f"Failed laoding file {path!r}: Not a {self._doctype}"
+                f"Failed loading file {path!r}: Not a {self._doctype}"
             )
 
         try:
@@ -104,7 +117,20 @@ class PyBaseDocument:
         return self.document
 
     def open(self, path: str) -> Document:
-        """Opens the document from the given path."""
+        """
+        Opens the document from the given path.
+
+        Args:
+            path (str): The path to the document to open.
+
+        Raises:
+            PytiaFileNotFoundError: Raised if the document does not exist.
+            PytiaWrongDocumentTypeError: Raised if the document is not of the correct type.
+            PytiaDocumentOperationError: Raised if the cannot be opened.
+
+        Returns:
+            Document: _description_
+        """
         path = path.replace("/", os.sep)
 
         if not os.path.exists(path):
@@ -134,6 +160,13 @@ class PyBaseDocument:
     def current(self) -> Document:
         """
         Sets the currently open document as ActiveDocument.
+
+        Raises:
+            PytiaNoDocumentOpenError: Raised if no document is open.
+            PytiaWrongDocumentTypeError: Raised if the open document is not of the correct type.
+
+        Returns:
+            Document: The current document object.
         """
         if not self.anything_open():
             raise PytiaNoDocumentOpenError(
@@ -153,6 +186,15 @@ class PyBaseDocument:
     def new(self, name: str) -> Document:
         """
         Creates a new Document and sets it as ActiveDocument.
+
+        Args:
+            name (str): The name of the new document.
+
+        Raises:
+            PytiaDocumentExistsError: Raised if the name already exists in the session.
+
+        Returns:
+            Document: The newly created document object.
         """
         if not self.filename_is_unique(f"{name}.{self._doctype}"):
             raise PytiaDocumentExistsError(
@@ -168,6 +210,16 @@ class PyBaseDocument:
     def new_from(self, path: str, name: str) -> Document:
         """
         Creates a new Document from an existing one and sets it as ActiveDocument.
+
+        Args:
+            path (str): The path to the original document.
+            name (str): The name of the new document.
+
+        Raises:
+            PytiaDocumentExistsError: Raised if the name already exists in the session.
+
+        Returns:
+            Document: The document object.
         """
         if not self.filename_is_unique(f"{name}.{self._doctype}"):
             raise PytiaDocumentExistsError(
@@ -181,9 +233,7 @@ class PyBaseDocument:
         return self.document
 
     def close(self) -> None:
-        """
-        Closes the document.
-        """
+        """Closes the document."""
         if self.document is not None:
             try:
                 self.document.close()
@@ -198,6 +248,13 @@ class PyBaseDocument:
         """
         Saves the document.
         Returns the path (folder & filename) of the saved document.
+
+        Raises:
+            PytiaDocumentNotSavedError: Raised if the document cannot be saved due to an unset \
+                destination folder.
+
+        Returns:
+            str: The full path to the saved document with filename and extension.
         """
         if self.document.name == self.document.full_name:
             raise PytiaDocumentNotSavedError(
@@ -213,11 +270,21 @@ class PyBaseDocument:
             )
         return self.document.full_name
 
-    def save_as(self, folder: str, overwrite=True) -> str:
+    def save_as(self, folder: str, overwrite: bool = True) -> str:
         """
         Saves the document in the given folder.
         Overwrites any existing document by default.
         Returns the path (folder & filename) of the saved document.
+
+        Args:
+            folder (str): The folder in which the document should be saved.
+            overwrite (bool, optional): Overwrites any existing files. EachDefaults to True.
+
+        Raises:
+            PytiaFileExistsError: Raised if the file already exists and overwrite is False.
+
+        Returns:
+            str: The full path to the saved document with filename and extension.
         """
         folder = verify_folder(folder=folder, absolute=True)
         filepath = f"{folder}{os.sep}{self.document.name}"
@@ -240,9 +307,7 @@ class PyBaseDocument:
         return self.document.full_name
 
     def delete_objects(self, objects: List[Any]) -> None:
-        """
-        Deletes all objects of the given list. Uses the documents selection.
-        """
+        """Deletes all objects of the given list. Uses the documents selection."""
         sel: Selection = self.document.selection
 
         self.remove_selection(sel)
@@ -253,15 +318,11 @@ class PyBaseDocument:
         self.remove_selection(sel)
 
     def anything_open(self) -> bool:
-        """
-        Returns True if any document is open.
-        """
+        """Returns True if any document is open."""
         return self.documents.count > 0
 
     def filename_is_unique(self, filename: str) -> bool:
-        """
-        Returns True if the given name is unique in the session.
-        """
+        """Returns True if the given name is unique in the session."""
         for i in range(self.documents.count):
             if self.documents[i].name == filename:
                 return False
