@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia.utilities.docket API documentation</title>
+<meta name="description" content="Utility module for applying text or views to a CATDrawing." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia.utilities.docket</code></h1>
+</header>
+<section id="section-intro">
+<p>Utility module for applying text or views to a CATDrawing.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+    Utility module for applying text or views to a CATDrawing.
+&#34;&#34;&#34;
+
+
+from __future__ import annotations
+
+import os
+from dataclasses import dataclass, fields
+from pathlib import Path
+from typing import List, Tuple
+
+from pytia.const import BACKGROUND_VIEW, FOREGROUND_VIEW
+from pytia.exceptions import PytiaFileNotFoundError
+from pytia.framework.drafting_interfaces.drawing_text import DrawingText
+from pytia.helper.scaling import get_view_scale
+from pytia.helper.verify import verify_folder
+from pytia.log import log
+from pytia.wrapper.documents.drawing_documents import PyDrawingDocument
+from pytia.wrapper.documents.part_documents import PyPartDocument
+from pytia.wrapper.documents.product_documents import PyProductDocument
+
+
+@dataclass
+class DocketConfigTexts:
+    &#34;&#34;&#34;Dataclass for docket texts.&#34;&#34;&#34;
+
+    name: str
+    value: str
+    view: str
+
+
+@dataclass
+class DocketConfigViews:
+    &#34;&#34;&#34;Dataclass for docket views.&#34;&#34;&#34;
+
+    name: str
+    x: float
+    y: float
+    max_width: float
+    max_height: float
+    definition: Tuple[float, float, float, float, float, float]
+
+
+@dataclass
+class DocketConfig:
+    &#34;&#34;&#34;Dataclass for docket configuration.&#34;&#34;&#34;
+
+    texts: List[DocketConfigTexts]
+    views: List[DocketConfigViews]
+
+    def __post_init__(self) -&gt; None:
+        self.texts = [DocketConfigTexts(**dict(text)) for text in self.texts]  # type: ignore
+        self.views = [DocketConfigViews(**dict(view)) for view in self.views]  # type: ignore
+
+    @classmethod
+    def from_dict(cls, data: dict) -&gt; DocketConfig:
+        &#34;&#34;&#34;
+        Creates a DocketConfig by the given dict. Keys that are not in the dataclass
+        will be ignored.
+        &#34;&#34;&#34;
+        return DocketConfig(
+            **{k: v for k, v in data.items() if k in {f.name for f in fields(cls)}}
+        )
+
+
+def create_docket_from_template(
+    template: str,
+    document: PyPartDocument | PyProductDocument,
+    config: DocketConfig,
+) -&gt; PyDrawingDocument:
+    &#34;&#34;&#34;
+    Creates a docket from a template.
+    The docket (CATDrawing) will be left open as ActiveDocument, you have to close it manually.
+
+    Args:
+        template (str): The path (folder and filename) of the template.
+        document (PyPartDocument | PyProductDocument): The part or product document from which \
+            to create the docket
+        config (DocketConfig): The docket configuration dataclass.
+
+    Raises:
+        PytiaFileNotFoundError: Raised if the template file cannot be found.
+
+    Returns:
+        PyDrawingDocument: Returns the docket as PyDrawingDocument.
+    &#34;&#34;&#34;
+    if not os.path.isfile(template):
+        raise PytiaFileNotFoundError(
+            f&#34;Cannot open docket template {template!r}: Not a file.&#34;
+        )
+
+    log.info(f&#34;Creating docket from template {template!r}.&#34;)
+    docket = PyDrawingDocument()
+    docket.new_from(path=template, name=&#34;docket&#34;)
+
+    sheet = docket.drawing_document.sheets.active_sheet
+    fg_views = sheet.views.item(FOREGROUND_VIEW)
+    bg_views = sheet.views.item(BACKGROUND_VIEW)
+    fg_texts = fg_views.texts
+    bg_texts = bg_views.texts
+
+    # Apply texts from config
+    log.debug(&#34;Applying texts from config ...&#34;)
+    for item in config.texts:
+        texts = fg_texts if item.view == &#34;fg&#34; else bg_texts
+        try:
+            text = DrawingText(texts.get_item(item.name).com_object)
+        except Exception as e:
+            log.warning(
+                f&#34;Could not retrieve drawing text {item.name!r}: Does not exist in CATDrawing.&#34;
+            )
+            continue
+
+        match (item_type := item.name.split(&#34;.&#34;)[0]):
+            case &#34;text&#34;:
+                log.info(f&#34;Applying TEXT ({item.name}: {item.value}) to docket.&#34;)
+                text.text = item.value
+            case &#34;property&#34;:
+                log.info(f&#34;Applying PROPERTY ({item.name}: {item.value}) to docket.&#34;)
+                if item.value == &#34;partnumber&#34;:
+                    text.text = document.product.part_number
+                elif item.value == &#34;definition&#34;:
+                    text.text = document.product.definition
+                elif item.value == &#34;revision&#34;:
+                    text.text = document.product.revision
+                elif item.value == &#34;nomenclature&#34;:
+                    text.text = document.product.nomenclature
+                elif item.value == &#34;source&#34;:
+                    text.text = str(document.product.source)
+                elif item.value == &#34;description_reference&#34;:
+                    text.text = document.product.description_reference
+                elif document.properties.exists(name=item.value):
+                    text.text = document.properties.get_by_name(name=item.value).value
+                else:
+                    text.text = f&#34;Unknown ({item.value})&#34;
+            case _:
+                log.warning(f&#34;Unknown type for drawing text: {item_type}&#34;)
+
+    # Create isometric view
+    log.debug(&#34;Creating views from config ...&#34;)
+    for item in config.views:
+        view = sheet.views.add(item.name)
+        generative_behavior = view.generative_behavior
+        generative_behavior.document = document.product
+        generative_behavior.define_isometric_view(
+            *(element for element in item.definition)
+        )
+        generative_behavior.update()
+        view.x = item.x
+        view.y = item.y
+        log.info(f&#34;Added view: {view.name} to docket.&#34;)
+
+        view.scale = get_view_scale(
+            view=view, max_width=item.max_width, max_height=item.max_height
+        )
+    return docket
+
+
+def export_docket_as_pdf(
+    docket: PyDrawingDocument, name: str, folder: str, close: bool = True
+) -&gt; str:
+    &#34;&#34;&#34;
+    Exports the docket as pdf.
+
+    Args:
+        docket (PyDrawingDocument): The docket to export.
+        name (str): The name of the exported pdf file.
+        folder (str): The folder where the exported pdf file should be stored.
+        close (bool, optional): Closes the CATDrawing afterwards. Defaults to True.
+
+    Returns:
+        str: The path to the exported pdf file (folder, filename and extension).
+    &#34;&#34;&#34;
+    export_path = Path(verify_folder(folder), name + &#34;.pdf&#34;)
+
+    if os.path.exists(export_path):
+        os.remove(export_path)
+        log.warning(f&#34;Removed existing docket file at {str(export_path)!r}.&#34;)
+
+    docket.drawing_document.export_data(export_path, &#34;pdf&#34;)
+    log.info(f&#34;Exported docket {name!r} to {str(export_path)!r}.&#34;)
+    if close:
+        docket.close()
+    return str(export_path)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pytia.utilities.docket.create_docket_from_template"><code class="name flex">
+<span>def <span class="ident">create_docket_from_template</span></span>(<span>template: str, document: PyPartDocument | PyProductDocument, config: <a title="pytia.utilities.docket.DocketConfig" href="#pytia.utilities.docket.DocketConfig">DocketConfig</a>) ‑> <a title="pytia.wrapper.documents.drawing_documents.PyDrawingDocument" href="../wrapper/documents/drawing_documents.html#pytia.wrapper.documents.drawing_documents.PyDrawingDocument">PyDrawingDocument</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a docket from a template.
+The docket (CATDrawing) will be left open as ActiveDocument, you have to close it manually.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>template</code></strong> :&ensp;<code>str</code></dt>
+<dd>The path (folder and filename) of the template.</dd>
+<dt>document (PyPartDocument | PyProductDocument): The part or product document from which
+to create the docket</dt>
+<dt><strong><code>config</code></strong> :&ensp;<code><a title="pytia.utilities.docket.DocketConfig" href="#pytia.utilities.docket.DocketConfig">DocketConfig</a></code></dt>
+<dd>The docket configuration dataclass.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaFileNotFoundError</code></dt>
+<dd>Raised if the template file cannot be found.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>PyDrawingDocument</code></dt>
+<dd>Returns the docket as PyDrawingDocument.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_docket_from_template(
+    template: str,
+    document: PyPartDocument | PyProductDocument,
+    config: DocketConfig,
+) -&gt; PyDrawingDocument:
+    &#34;&#34;&#34;
+    Creates a docket from a template.
+    The docket (CATDrawing) will be left open as ActiveDocument, you have to close it manually.
+
+    Args:
+        template (str): The path (folder and filename) of the template.
+        document (PyPartDocument | PyProductDocument): The part or product document from which \
+            to create the docket
+        config (DocketConfig): The docket configuration dataclass.
+
+    Raises:
+        PytiaFileNotFoundError: Raised if the template file cannot be found.
+
+    Returns:
+        PyDrawingDocument: Returns the docket as PyDrawingDocument.
+    &#34;&#34;&#34;
+    if not os.path.isfile(template):
+        raise PytiaFileNotFoundError(
+            f&#34;Cannot open docket template {template!r}: Not a file.&#34;
+        )
+
+    log.info(f&#34;Creating docket from template {template!r}.&#34;)
+    docket = PyDrawingDocument()
+    docket.new_from(path=template, name=&#34;docket&#34;)
+
+    sheet = docket.drawing_document.sheets.active_sheet
+    fg_views = sheet.views.item(FOREGROUND_VIEW)
+    bg_views = sheet.views.item(BACKGROUND_VIEW)
+    fg_texts = fg_views.texts
+    bg_texts = bg_views.texts
+
+    # Apply texts from config
+    log.debug(&#34;Applying texts from config ...&#34;)
+    for item in config.texts:
+        texts = fg_texts if item.view == &#34;fg&#34; else bg_texts
+        try:
+            text = DrawingText(texts.get_item(item.name).com_object)
+        except Exception as e:
+            log.warning(
+                f&#34;Could not retrieve drawing text {item.name!r}: Does not exist in CATDrawing.&#34;
+            )
+            continue
+
+        match (item_type := item.name.split(&#34;.&#34;)[0]):
+            case &#34;text&#34;:
+                log.info(f&#34;Applying TEXT ({item.name}: {item.value}) to docket.&#34;)
+                text.text = item.value
+            case &#34;property&#34;:
+                log.info(f&#34;Applying PROPERTY ({item.name}: {item.value}) to docket.&#34;)
+                if item.value == &#34;partnumber&#34;:
+                    text.text = document.product.part_number
+                elif item.value == &#34;definition&#34;:
+                    text.text = document.product.definition
+                elif item.value == &#34;revision&#34;:
+                    text.text = document.product.revision
+                elif item.value == &#34;nomenclature&#34;:
+                    text.text = document.product.nomenclature
+                elif item.value == &#34;source&#34;:
+                    text.text = str(document.product.source)
+                elif item.value == &#34;description_reference&#34;:
+                    text.text = document.product.description_reference
+                elif document.properties.exists(name=item.value):
+                    text.text = document.properties.get_by_name(name=item.value).value
+                else:
+                    text.text = f&#34;Unknown ({item.value})&#34;
+            case _:
+                log.warning(f&#34;Unknown type for drawing text: {item_type}&#34;)
+
+    # Create isometric view
+    log.debug(&#34;Creating views from config ...&#34;)
+    for item in config.views:
+        view = sheet.views.add(item.name)
+        generative_behavior = view.generative_behavior
+        generative_behavior.document = document.product
+        generative_behavior.define_isometric_view(
+            *(element for element in item.definition)
+        )
+        generative_behavior.update()
+        view.x = item.x
+        view.y = item.y
+        log.info(f&#34;Added view: {view.name} to docket.&#34;)
+
+        view.scale = get_view_scale(
+            view=view, max_width=item.max_width, max_height=item.max_height
+        )
+    return docket</code></pre>
+</details>
+</dd>
+<dt id="pytia.utilities.docket.export_docket_as_pdf"><code class="name flex">
+<span>def <span class="ident">export_docket_as_pdf</span></span>(<span>docket: PyDrawingDocument, name: str, folder: str, close: bool = True) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exports the docket as pdf.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>docket</code></strong> :&ensp;<code>PyDrawingDocument</code></dt>
+<dd>The docket to export.</dd>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the exported pdf file.</dd>
+<dt><strong><code>folder</code></strong> :&ensp;<code>str</code></dt>
+<dd>The folder where the exported pdf file should be stored.</dd>
+<dt><strong><code>close</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Closes the CATDrawing afterwards. Defaults to True.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The path to the exported pdf file (folder, filename and extension).</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export_docket_as_pdf(
+    docket: PyDrawingDocument, name: str, folder: str, close: bool = True
+) -&gt; str:
+    &#34;&#34;&#34;
+    Exports the docket as pdf.
+
+    Args:
+        docket (PyDrawingDocument): The docket to export.
+        name (str): The name of the exported pdf file.
+        folder (str): The folder where the exported pdf file should be stored.
+        close (bool, optional): Closes the CATDrawing afterwards. Defaults to True.
+
+    Returns:
+        str: The path to the exported pdf file (folder, filename and extension).
+    &#34;&#34;&#34;
+    export_path = Path(verify_folder(folder), name + &#34;.pdf&#34;)
+
+    if os.path.exists(export_path):
+        os.remove(export_path)
+        log.warning(f&#34;Removed existing docket file at {str(export_path)!r}.&#34;)
+
+    docket.drawing_document.export_data(export_path, &#34;pdf&#34;)
+    log.info(f&#34;Exported docket {name!r} to {str(export_path)!r}.&#34;)
+    if close:
+        docket.close()
+    return str(export_path)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia.utilities.docket.DocketConfig"><code class="flex name class">
+<span>class <span class="ident">DocketConfig</span></span>
+<span>(</span><span>texts: List[<a title="pytia.utilities.docket.DocketConfigTexts" href="#pytia.utilities.docket.DocketConfigTexts">DocketConfigTexts</a>], views: List[<a title="pytia.utilities.docket.DocketConfigViews" href="#pytia.utilities.docket.DocketConfigViews">DocketConfigViews</a>])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for docket configuration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class DocketConfig:
+    &#34;&#34;&#34;Dataclass for docket configuration.&#34;&#34;&#34;
+
+    texts: List[DocketConfigTexts]
+    views: List[DocketConfigViews]
+
+    def __post_init__(self) -&gt; None:
+        self.texts = [DocketConfigTexts(**dict(text)) for text in self.texts]  # type: ignore
+        self.views = [DocketConfigViews(**dict(view)) for view in self.views]  # type: ignore
+
+    @classmethod
+    def from_dict(cls, data: dict) -&gt; DocketConfig:
+        &#34;&#34;&#34;
+        Creates a DocketConfig by the given dict. Keys that are not in the dataclass
+        will be ignored.
+        &#34;&#34;&#34;
+        return DocketConfig(
+            **{k: v for k, v in data.items() if k in {f.name for f in fields(cls)}}
+        )</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="pytia.utilities.docket.DocketConfig.texts"><code class="name">var <span class="ident">texts</span> : List[<a title="pytia.utilities.docket.DocketConfigTexts" href="#pytia.utilities.docket.DocketConfigTexts">DocketConfigTexts</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfig.views"><code class="name">var <span class="ident">views</span> : List[<a title="pytia.utilities.docket.DocketConfigViews" href="#pytia.utilities.docket.DocketConfigViews">DocketConfigViews</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="pytia.utilities.docket.DocketConfig.from_dict"><code class="name flex">
+<span>def <span class="ident">from_dict</span></span>(<span>data: dict) ‑> <a title="pytia.utilities.docket.DocketConfig" href="#pytia.utilities.docket.DocketConfig">DocketConfig</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a DocketConfig by the given dict. Keys that are not in the dataclass
+will be ignored.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def from_dict(cls, data: dict) -&gt; DocketConfig:
+    &#34;&#34;&#34;
+    Creates a DocketConfig by the given dict. Keys that are not in the dataclass
+    will be ignored.
+    &#34;&#34;&#34;
+    return DocketConfig(
+        **{k: v for k, v in data.items() if k in {f.name for f in fields(cls)}}
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfigTexts"><code class="flex name class">
+<span>class <span class="ident">DocketConfigTexts</span></span>
+<span>(</span><span>name: str, value: str, view: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for docket texts.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class DocketConfigTexts:
+    &#34;&#34;&#34;Dataclass for docket texts.&#34;&#34;&#34;
+
+    name: str
+    value: str
+    view: str</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="pytia.utilities.docket.DocketConfigTexts.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfigTexts.value"><code class="name">var <span class="ident">value</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfigTexts.view"><code class="name">var <span class="ident">view</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfigViews"><code class="flex name class">
+<span>class <span class="ident">DocketConfigViews</span></span>
+<span>(</span><span>name: str, x: float, y: float, max_width: float, max_height: float, definition: Tuple[float, float, float, float, float, float])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for docket views.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class DocketConfigViews:
+    &#34;&#34;&#34;Dataclass for docket views.&#34;&#34;&#34;
+
+    name: str
+    x: float
+    y: float
+    max_width: float
+    max_height: float
+    definition: Tuple[float, float, float, float, float, float]</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="pytia.utilities.docket.DocketConfigViews.definition"><code class="name">var <span class="ident">definition</span> : Tuple[float, float, float, float, float, float]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfigViews.max_height"><code class="name">var <span class="ident">max_height</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfigViews.max_width"><code class="name">var <span class="ident">max_width</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfigViews.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfigViews.x"><code class="name">var <span class="ident">x</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfigViews.y"><code class="name">var <span class="ident">y</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia.utilities" href="index.html">pytia.utilities</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pytia.utilities.docket.create_docket_from_template" href="#pytia.utilities.docket.create_docket_from_template">create_docket_from_template</a></code></li>
+<li><code><a title="pytia.utilities.docket.export_docket_as_pdf" href="#pytia.utilities.docket.export_docket_as_pdf">export_docket_as_pdf</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia.utilities.docket.DocketConfig" href="#pytia.utilities.docket.DocketConfig">DocketConfig</a></code></h4>
+<ul class="">
+<li><code><a title="pytia.utilities.docket.DocketConfig.from_dict" href="#pytia.utilities.docket.DocketConfig.from_dict">from_dict</a></code></li>
+<li><code><a title="pytia.utilities.docket.DocketConfig.texts" href="#pytia.utilities.docket.DocketConfig.texts">texts</a></code></li>
+<li><code><a title="pytia.utilities.docket.DocketConfig.views" href="#pytia.utilities.docket.DocketConfig.views">views</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia.utilities.docket.DocketConfigTexts" href="#pytia.utilities.docket.DocketConfigTexts">DocketConfigTexts</a></code></h4>
+<ul class="">
+<li><code><a title="pytia.utilities.docket.DocketConfigTexts.name" href="#pytia.utilities.docket.DocketConfigTexts.name">name</a></code></li>
+<li><code><a title="pytia.utilities.docket.DocketConfigTexts.value" href="#pytia.utilities.docket.DocketConfigTexts.value">value</a></code></li>
+<li><code><a title="pytia.utilities.docket.DocketConfigTexts.view" href="#pytia.utilities.docket.DocketConfigTexts.view">view</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia.utilities.docket.DocketConfigViews" href="#pytia.utilities.docket.DocketConfigViews">DocketConfigViews</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pytia.utilities.docket.DocketConfigViews.definition" href="#pytia.utilities.docket.DocketConfigViews.definition">definition</a></code></li>
+<li><code><a title="pytia.utilities.docket.DocketConfigViews.max_height" href="#pytia.utilities.docket.DocketConfigViews.max_height">max_height</a></code></li>
+<li><code><a title="pytia.utilities.docket.DocketConfigViews.max_width" href="#pytia.utilities.docket.DocketConfigViews.max_width">max_width</a></code></li>
+<li><code><a title="pytia.utilities.docket.DocketConfigViews.name" href="#pytia.utilities.docket.DocketConfigViews.name">name</a></code></li>
+<li><code><a title="pytia.utilities.docket.DocketConfigViews.x" href="#pytia.utilities.docket.DocketConfigViews.x">x</a></code></li>
+<li><code><a title="pytia.utilities.docket.DocketConfigViews.y" href="#pytia.utilities.docket.DocketConfigViews.y">y</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

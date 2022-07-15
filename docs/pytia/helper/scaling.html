@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>pytia.utilities API documentation</title>
-<meta name="description" content="Utility modules for CATIA." />
+<title>pytia.helper.scaling API documentation</title>
+<meta name="description" content="Helper module for scaling." />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -19,47 +19,111 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>pytia.utilities</code></h1>
+<h1 class="title">Module <code>pytia.helper.scaling</code></h1>
 </header>
 <section id="section-intro">
-<p>Utility modules for CATIA.</p>
+<p>Helper module for scaling.</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">&#34;&#34;&#34;
-    Utility modules for CATIA.
-&#34;&#34;&#34;</code></pre>
+    Helper module for scaling.
+&#34;&#34;&#34;
+
+from pytia.framework.drafting_interfaces.drawing_view import DrawingView
+from pytia.log import log
+
+
+def get_view_scale(view: DrawingView, max_width: float, max_height: float) -&gt; float:
+    &#34;&#34;&#34;
+    Returns the scale for a view to fit into the given maximum dimensions.
+
+    Args:
+        view (DrawingView): The drawing view to scale.
+        max_width (float): The maximum width.
+        max_height (float): The maximum height.
+
+    Returns:
+        float: The scale for the drawing view.
+    &#34;&#34;&#34;
+    x_min, x_max, y_min, y_max = view.size()
+    width = x_max - x_min
+    height = y_max - y_min
+
+    scale = (
+        max_width / width
+        if (width_ratio := width / max_width) &gt; (height_ratio := height / max_height)
+        else max_height / height
+    )
+    log.debug(
+        f&#34;Width ratio is {round(width_ratio, 2)} ({round(width, 2)}/{round(max_width, 2)}). &#34;
+        f&#34;Height ratio is {round(height_ratio, 2)} ({round(height, 2)}/{round(max_height, 2)})&#34;
+    )
+    log.info(f&#34;Set scale for view {view.name!r} to {round(view.scale, 2)}&#34;)
+    return scale</code></pre>
 </details>
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt><code class="name"><a title="pytia.utilities.bill_of_material" href="bill_of_material.html">pytia.utilities.bill_of_material</a></code></dt>
+<dt id="pytia.helper.scaling.get_view_scale"><code class="name flex">
+<span>def <span class="ident">get_view_scale</span></span>(<span>view: <a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView" href="../framework/drafting_interfaces/drawing_view.html#pytia.framework.drafting_interfaces.drawing_view.DrawingView">DrawingView</a>, max_width: float, max_height: float) ‑> float</span>
+</code></dt>
 <dd>
-<div class="desc"><p>Utility module for extracting the bill of material from a CATProduct.</p></div>
-</dd>
-<dt><code class="name"><a title="pytia.utilities.bounding_box" href="bounding_box.html">pytia.utilities.bounding_box</a></code></dt>
-<dd>
-<div class="desc"><p>Utility module for retrieving the dimension of a parts main body.</p></div>
-</dd>
-<dt><code class="name"><a title="pytia.utilities.docket" href="docket.html">pytia.utilities.docket</a></code></dt>
-<dd>
-<div class="desc"><p>Utility module for applying text or views to a CATDrawing.</p></div>
-</dd>
-<dt><code class="name"><a title="pytia.utilities.material" href="material.html">pytia.utilities.material</a></code></dt>
-<dd>
-<div class="desc"><p>Utility module for handling CATMaterials.</p></div>
-</dd>
-<dt><code class="name"><a title="pytia.utilities.mirror" href="mirror.html">pytia.utilities.mirror</a></code></dt>
-<dd>
-<div class="desc"><p>Utility for mirroring a part.</p></div>
+<div class="desc"><p>Returns the scale for a view to fit into the given maximum dimensions.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>view</code></strong> :&ensp;<code>DrawingView</code></dt>
+<dd>The drawing view to scale.</dd>
+<dt><strong><code>max_width</code></strong> :&ensp;<code>float</code></dt>
+<dd>The maximum width.</dd>
+<dt><strong><code>max_height</code></strong> :&ensp;<code>float</code></dt>
+<dd>The maximum height.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>The scale for the drawing view.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_view_scale(view: DrawingView, max_width: float, max_height: float) -&gt; float:
+    &#34;&#34;&#34;
+    Returns the scale for a view to fit into the given maximum dimensions.
+
+    Args:
+        view (DrawingView): The drawing view to scale.
+        max_width (float): The maximum width.
+        max_height (float): The maximum height.
+
+    Returns:
+        float: The scale for the drawing view.
+    &#34;&#34;&#34;
+    x_min, x_max, y_min, y_max = view.size()
+    width = x_max - x_min
+    height = y_max - y_min
+
+    scale = (
+        max_width / width
+        if (width_ratio := width / max_width) &gt; (height_ratio := height / max_height)
+        else max_height / height
+    )
+    log.debug(
+        f&#34;Width ratio is {round(width_ratio, 2)} ({round(width, 2)}/{round(max_width, 2)}). &#34;
+        f&#34;Height ratio is {round(height_ratio, 2)} ({round(height, 2)}/{round(max_height, 2)})&#34;
+    )
+    log.info(f&#34;Set scale for view {view.name!r} to {round(view.scale, 2)}&#34;)
+    return scale</code></pre>
+</details>
 </dd>
 </dl>
-</section>
-<section>
-</section>
-<section>
 </section>
 <section>
 </section>
@@ -72,16 +136,12 @@
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="pytia" href="../index.html">pytia</a></code></li>
+<li><code><a title="pytia.helper" href="index.html">pytia.helper</a></code></li>
 </ul>
 </li>
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
-<ul>
-<li><code><a title="pytia.utilities.bill_of_material" href="bill_of_material.html">pytia.utilities.bill_of_material</a></code></li>
-<li><code><a title="pytia.utilities.bounding_box" href="bounding_box.html">pytia.utilities.bounding_box</a></code></li>
-<li><code><a title="pytia.utilities.docket" href="docket.html">pytia.utilities.docket</a></code></li>
-<li><code><a title="pytia.utilities.material" href="material.html">pytia.utilities.material</a></code></li>
-<li><code><a title="pytia.utilities.mirror" href="mirror.html">pytia.utilities.mirror</a></code></li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pytia.helper.scaling.get_view_scale" href="#pytia.helper.scaling.get_view_scale">get_view_scale</a></code></li>
 </ul>
 </li>
 </ul>

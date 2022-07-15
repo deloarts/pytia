@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-
+    Application entry point.
 """
 
 from pytia import main

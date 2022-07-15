@@ -10,7 +10,15 @@ import pytest
 test_name = "pytest_test_export_bom"
 test_folder = gettempdir()
 test_path = f"{test_folder}{os.sep}{test_name}.xls"
-test_format_german = ("Nummer", "Menge", "Teilenummer", "Überarbeitung", "Definition")
+test_format = (
+    "Number",
+    "Quantity",
+    "Part Number",
+    "Type",
+    "Nomenclature",
+    "Revision",
+    "Definition",
+)
 
 
 def test_import():
@@ -27,7 +35,7 @@ def test_current_format():
 
     with PyProductDocument() as product_document:
         product_document.new(name=test_name)
-        set_current_format(format_=test_format_german)
+        set_current_format(format_=test_format)
 
 
 def test_secondary_format():
@@ -37,7 +45,7 @@ def test_secondary_format():
 
     with PyProductDocument() as product_document:
         product_document.new(name=test_name)
-        set_secondary_format(format_=test_format_german)
+        set_secondary_format(format_=test_format)
 
 
 def test_current_format_with_product():
@@ -47,7 +55,7 @@ def test_current_format_with_product():
 
     with PyProductDocument() as product_document:
         product_document.new(name=test_name)
-        set_current_format(format_=test_format_german, product=product_document.product)
+        set_current_format(format_=test_format, product=product_document.product)
 
 
 def test_secondary_format_with_product():
@@ -57,9 +65,7 @@ def test_secondary_format_with_product():
 
     with PyProductDocument() as product_document:
         product_document.new(name=test_name)
-        set_secondary_format(
-            format_=test_format_german, product=product_document.product
-        )
+        set_secondary_format(format_=test_format, product=product_document.product)
 
 
 def test_exported_file_exists():

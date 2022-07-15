@@ -106,7 +106,20 @@ class PyBaseDocument:
         return f&#34;PyDocuments({self.document.name})&#34;
 
     def load(self, path: str) -&gt; Document:
-        &#34;&#34;&#34;Loads the document without creating a window.&#34;&#34;&#34;
+        &#34;&#34;&#34;
+        Loads the document without creating a window.
+
+        Args:
+            path (str): The path to the document to load.
+
+        Raises:
+            PytiaFileNotFoundError: Raised if the document does not exist.
+            PytiaWrongDocumentTypeError: Raised if the document is not of the correct type.
+            PytiaDocumentOperationError: Raised if the cannot be opened.
+
+        Returns:
+            Document: _description_
+        &#34;&#34;&#34;
         path = path.replace(&#34;/&#34;, os.sep)
 
         if not os.path.exists(path):
@@ -116,7 +129,7 @@ class PyBaseDocument:
 
         if not self._doctype in path:
             raise PytiaWrongDocumentTypeError(
-                f&#34;Failed laoding file {path!r}: Not a {self._doctype}&#34;
+                f&#34;Failed loading file {path!r}: Not a {self._doctype}&#34;
             )
 
         try:
@@ -133,7 +146,20 @@ class PyBaseDocument:
         return self.document
 
     def open(self, path: str) -&gt; Document:
-        &#34;&#34;&#34;Opens the document from the given path.&#34;&#34;&#34;
+        &#34;&#34;&#34;
+        Opens the document from the given path.
+
+        Args:
+            path (str): The path to the document to open.
+
+        Raises:
+            PytiaFileNotFoundError: Raised if the document does not exist.
+            PytiaWrongDocumentTypeError: Raised if the document is not of the correct type.
+            PytiaDocumentOperationError: Raised if the cannot be opened.
+
+        Returns:
+            Document: _description_
+        &#34;&#34;&#34;
         path = path.replace(&#34;/&#34;, os.sep)
 
         if not os.path.exists(path):
@@ -163,6 +189,13 @@ class PyBaseDocument:
     def current(self) -&gt; Document:
         &#34;&#34;&#34;
         Sets the currently open document as ActiveDocument.
+
+        Raises:
+            PytiaNoDocumentOpenError: Raised if no document is open.
+            PytiaWrongDocumentTypeError: Raised if the open document is not of the correct type.
+
+        Returns:
+            Document: The current document object.
         &#34;&#34;&#34;
         if not self.anything_open():
             raise PytiaNoDocumentOpenError(
@@ -182,6 +215,15 @@ class PyBaseDocument:
     def new(self, name: str) -&gt; Document:
         &#34;&#34;&#34;
         Creates a new Document and sets it as ActiveDocument.
+
+        Args:
+            name (str): The name of the new document.
+
+        Raises:
+            PytiaDocumentExistsError: Raised if the name already exists in the session.
+
+        Returns:
+            Document: The newly created document object.
         &#34;&#34;&#34;
         if not self.filename_is_unique(f&#34;{name}.{self._doctype}&#34;):
             raise PytiaDocumentExistsError(
@@ -197,6 +239,16 @@ class PyBaseDocument:
     def new_from(self, path: str, name: str) -&gt; Document:
         &#34;&#34;&#34;
         Creates a new Document from an existing one and sets it as ActiveDocument.
+
+        Args:
+            path (str): The path to the original document.
+            name (str): The name of the new document.
+
+        Raises:
+            PytiaDocumentExistsError: Raised if the name already exists in the session.
+
+        Returns:
+            Document: The document object.
         &#34;&#34;&#34;
         if not self.filename_is_unique(f&#34;{name}.{self._doctype}&#34;):
             raise PytiaDocumentExistsError(
@@ -210,9 +262,7 @@ class PyBaseDocument:
         return self.document
 
     def close(self) -&gt; None:
-        &#34;&#34;&#34;
-        Closes the document.
-        &#34;&#34;&#34;
+        &#34;&#34;&#34;Closes the document.&#34;&#34;&#34;
         if self.document is not None:
             try:
                 self.document.close()
@@ -227,6 +277,13 @@ class PyBaseDocument:
         &#34;&#34;&#34;
         Saves the document.
         Returns the path (folder &amp; filename) of the saved document.
+
+        Raises:
+            PytiaDocumentNotSavedError: Raised if the document cannot be saved due to an unset \
+                destination folder.
+
+        Returns:
+            str: The full path to the saved document with filename and extension.
         &#34;&#34;&#34;
         if self.document.name == self.document.full_name:
             raise PytiaDocumentNotSavedError(
@@ -242,11 +299,21 @@ class PyBaseDocument:
             )
         return self.document.full_name
 
-    def save_as(self, folder: str, overwrite=True) -&gt; str:
+    def save_as(self, folder: str, overwrite: bool = True) -&gt; str:
         &#34;&#34;&#34;
         Saves the document in the given folder.
         Overwrites any existing document by default.
         Returns the path (folder &amp; filename) of the saved document.
+
+        Args:
+            folder (str): The folder in which the document should be saved.
+            overwrite (bool, optional): Overwrites any existing files. EachDefaults to True.
+
+        Raises:
+            PytiaFileExistsError: Raised if the file already exists and overwrite is False.
+
+        Returns:
+            str: The full path to the saved document with filename and extension.
         &#34;&#34;&#34;
         folder = verify_folder(folder=folder, absolute=True)
         filepath = f&#34;{folder}{os.sep}{self.document.name}&#34;
@@ -269,9 +336,7 @@ class PyBaseDocument:
         return self.document.full_name
 
     def delete_objects(self, objects: List[Any]) -&gt; None:
-        &#34;&#34;&#34;
-        Deletes all objects of the given list. Uses the documents selection.
-        &#34;&#34;&#34;
+        &#34;&#34;&#34;Deletes all objects of the given list. Uses the documents selection.&#34;&#34;&#34;
         sel: Selection = self.document.selection
 
         self.remove_selection(sel)
@@ -282,15 +347,11 @@ class PyBaseDocument:
         self.remove_selection(sel)
 
     def anything_open(self) -&gt; bool:
-        &#34;&#34;&#34;
-        Returns True if any document is open.
-        &#34;&#34;&#34;
+        &#34;&#34;&#34;Returns True if any document is open.&#34;&#34;&#34;
         return self.documents.count &gt; 0
 
     def filename_is_unique(self, filename: str) -&gt; bool:
-        &#34;&#34;&#34;
-        Returns True if the given name is unique in the session.
-        &#34;&#34;&#34;
+        &#34;&#34;&#34;Returns True if the given name is unique in the session.&#34;&#34;&#34;
         for i in range(self.documents.count):
             if self.documents[i].name == filename:
                 return False
@@ -395,7 +456,20 @@ VALID_FILE_EXTENSIONS list.</dd>
         return f&#34;PyDocuments({self.document.name})&#34;
 
     def load(self, path: str) -&gt; Document:
-        &#34;&#34;&#34;Loads the document without creating a window.&#34;&#34;&#34;
+        &#34;&#34;&#34;
+        Loads the document without creating a window.
+
+        Args:
+            path (str): The path to the document to load.
+
+        Raises:
+            PytiaFileNotFoundError: Raised if the document does not exist.
+            PytiaWrongDocumentTypeError: Raised if the document is not of the correct type.
+            PytiaDocumentOperationError: Raised if the cannot be opened.
+
+        Returns:
+            Document: _description_
+        &#34;&#34;&#34;
         path = path.replace(&#34;/&#34;, os.sep)
 
         if not os.path.exists(path):
@@ -405,7 +479,7 @@ VALID_FILE_EXTENSIONS list.</dd>
 
         if not self._doctype in path:
             raise PytiaWrongDocumentTypeError(
-                f&#34;Failed laoding file {path!r}: Not a {self._doctype}&#34;
+                f&#34;Failed loading file {path!r}: Not a {self._doctype}&#34;
             )
 
         try:
@@ -422,7 +496,20 @@ VALID_FILE_EXTENSIONS list.</dd>
         return self.document
 
     def open(self, path: str) -&gt; Document:
-        &#34;&#34;&#34;Opens the document from the given path.&#34;&#34;&#34;
+        &#34;&#34;&#34;
+        Opens the document from the given path.
+
+        Args:
+            path (str): The path to the document to open.
+
+        Raises:
+            PytiaFileNotFoundError: Raised if the document does not exist.
+            PytiaWrongDocumentTypeError: Raised if the document is not of the correct type.
+            PytiaDocumentOperationError: Raised if the cannot be opened.
+
+        Returns:
+            Document: _description_
+        &#34;&#34;&#34;
         path = path.replace(&#34;/&#34;, os.sep)
 
         if not os.path.exists(path):
@@ -452,6 +539,13 @@ VALID_FILE_EXTENSIONS list.</dd>
     def current(self) -&gt; Document:
         &#34;&#34;&#34;
         Sets the currently open document as ActiveDocument.
+
+        Raises:
+            PytiaNoDocumentOpenError: Raised if no document is open.
+            PytiaWrongDocumentTypeError: Raised if the open document is not of the correct type.
+
+        Returns:
+            Document: The current document object.
         &#34;&#34;&#34;
         if not self.anything_open():
             raise PytiaNoDocumentOpenError(
@@ -471,6 +565,15 @@ VALID_FILE_EXTENSIONS list.</dd>
     def new(self, name: str) -&gt; Document:
         &#34;&#34;&#34;
         Creates a new Document and sets it as ActiveDocument.
+
+        Args:
+            name (str): The name of the new document.
+
+        Raises:
+            PytiaDocumentExistsError: Raised if the name already exists in the session.
+
+        Returns:
+            Document: The newly created document object.
         &#34;&#34;&#34;
         if not self.filename_is_unique(f&#34;{name}.{self._doctype}&#34;):
             raise PytiaDocumentExistsError(
@@ -486,6 +589,16 @@ VALID_FILE_EXTENSIONS list.</dd>
     def new_from(self, path: str, name: str) -&gt; Document:
         &#34;&#34;&#34;
         Creates a new Document from an existing one and sets it as ActiveDocument.
+
+        Args:
+            path (str): The path to the original document.
+            name (str): The name of the new document.
+
+        Raises:
+            PytiaDocumentExistsError: Raised if the name already exists in the session.
+
+        Returns:
+            Document: The document object.
         &#34;&#34;&#34;
         if not self.filename_is_unique(f&#34;{name}.{self._doctype}&#34;):
             raise PytiaDocumentExistsError(
@@ -499,9 +612,7 @@ VALID_FILE_EXTENSIONS list.</dd>
         return self.document
 
     def close(self) -&gt; None:
-        &#34;&#34;&#34;
-        Closes the document.
-        &#34;&#34;&#34;
+        &#34;&#34;&#34;Closes the document.&#34;&#34;&#34;
         if self.document is not None:
             try:
                 self.document.close()
@@ -516,6 +627,13 @@ VALID_FILE_EXTENSIONS list.</dd>
         &#34;&#34;&#34;
         Saves the document.
         Returns the path (folder &amp; filename) of the saved document.
+
+        Raises:
+            PytiaDocumentNotSavedError: Raised if the document cannot be saved due to an unset \
+                destination folder.
+
+        Returns:
+            str: The full path to the saved document with filename and extension.
         &#34;&#34;&#34;
         if self.document.name == self.document.full_name:
             raise PytiaDocumentNotSavedError(
@@ -531,11 +649,21 @@ VALID_FILE_EXTENSIONS list.</dd>
             )
         return self.document.full_name
 
-    def save_as(self, folder: str, overwrite=True) -&gt; str:
+    def save_as(self, folder: str, overwrite: bool = True) -&gt; str:
         &#34;&#34;&#34;
         Saves the document in the given folder.
         Overwrites any existing document by default.
         Returns the path (folder &amp; filename) of the saved document.
+
+        Args:
+            folder (str): The folder in which the document should be saved.
+            overwrite (bool, optional): Overwrites any existing files. EachDefaults to True.
+
+        Raises:
+            PytiaFileExistsError: Raised if the file already exists and overwrite is False.
+
+        Returns:
+            str: The full path to the saved document with filename and extension.
         &#34;&#34;&#34;
         folder = verify_folder(folder=folder, absolute=True)
         filepath = f&#34;{folder}{os.sep}{self.document.name}&#34;
@@ -558,9 +686,7 @@ VALID_FILE_EXTENSIONS list.</dd>
         return self.document.full_name
 
     def delete_objects(self, objects: List[Any]) -&gt; None:
-        &#34;&#34;&#34;
-        Deletes all objects of the given list. Uses the documents selection.
-        &#34;&#34;&#34;
+        &#34;&#34;&#34;Deletes all objects of the given list. Uses the documents selection.&#34;&#34;&#34;
         sel: Selection = self.document.selection
 
         self.remove_selection(sel)
@@ -571,15 +697,11 @@ VALID_FILE_EXTENSIONS list.</dd>
         self.remove_selection(sel)
 
     def anything_open(self) -&gt; bool:
-        &#34;&#34;&#34;
-        Returns True if any document is open.
-        &#34;&#34;&#34;
+        &#34;&#34;&#34;Returns True if any document is open.&#34;&#34;&#34;
         return self.documents.count &gt; 0
 
     def filename_is_unique(self, filename: str) -&gt; bool:
-        &#34;&#34;&#34;
-        Returns True if the given name is unique in the session.
-        &#34;&#34;&#34;
+        &#34;&#34;&#34;Returns True if the given name is unique in the session.&#34;&#34;&#34;
         for i in range(self.documents.count):
             if self.documents[i].name == filename:
                 return False
@@ -600,6 +722,7 @@ VALID_FILE_EXTENSIONS list.</dd>
 </details>
 <h3>Subclasses</h3>
 <ul class="hlist">
+<li><a title="pytia.wrapper.documents.drawing_documents.PyDrawingDocument" href="drawing_documents.html#pytia.wrapper.documents.drawing_documents.PyDrawingDocument">PyDrawingDocument</a></li>
 <li><a title="pytia.wrapper.documents.material_documents.PyMaterialDocument" href="material_documents.html#pytia.wrapper.documents.material_documents.PyMaterialDocument">PyMaterialDocument</a></li>
 <li><a title="pytia.wrapper.documents.part_documents.PyPartDocument" href="part_documents.html#pytia.wrapper.documents.part_documents.PyPartDocument">PyPartDocument</a></li>
 <li><a title="pytia.wrapper.documents.product_documents.PyProductDocument" href="product_documents.html#pytia.wrapper.documents.product_documents.PyProductDocument">PyProductDocument</a></li>
@@ -616,9 +739,7 @@ VALID_FILE_EXTENSIONS list.</dd>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def anything_open(self) -&gt; bool:
-    &#34;&#34;&#34;
-    Returns True if any document is open.
-    &#34;&#34;&#34;
+    &#34;&#34;&#34;Returns True if any document is open.&#34;&#34;&#34;
     return self.documents.count &gt; 0</code></pre>
 </details>
 </dd>
@@ -632,9 +753,7 @@ VALID_FILE_EXTENSIONS list.</dd>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def close(self) -&gt; None:
-    &#34;&#34;&#34;
-    Closes the document.
-    &#34;&#34;&#34;
+    &#34;&#34;&#34;Closes the document.&#34;&#34;&#34;
     if self.document is not None:
         try:
             self.document.close()
@@ -650,7 +769,19 @@ VALID_FILE_EXTENSIONS list.</dd>
 <span>def <span class="ident">current</span></span>(<span>self) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="../../framework/in_interfaces/document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
 </code></dt>
 <dd>
-<div class="desc"><p>Sets the currently open document as ActiveDocument.</p></div>
+<div class="desc"><p>Sets the currently open document as ActiveDocument.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaNoDocumentOpenError</code></dt>
+<dd>Raised if no document is open.</dd>
+<dt><code>PytiaWrongDocumentTypeError</code></dt>
+<dd>Raised if the open document is not of the correct type.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Document</code></dt>
+<dd>The current document object.</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -658,6 +789,13 @@ VALID_FILE_EXTENSIONS list.</dd>
 <pre><code class="python">def current(self) -&gt; Document:
     &#34;&#34;&#34;
     Sets the currently open document as ActiveDocument.
+
+    Raises:
+        PytiaNoDocumentOpenError: Raised if no document is open.
+        PytiaWrongDocumentTypeError: Raised if the open document is not of the correct type.
+
+    Returns:
+        Document: The current document object.
     &#34;&#34;&#34;
     if not self.anything_open():
         raise PytiaNoDocumentOpenError(
@@ -685,9 +823,7 @@ VALID_FILE_EXTENSIONS list.</dd>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def delete_objects(self, objects: List[Any]) -&gt; None:
-    &#34;&#34;&#34;
-    Deletes all objects of the given list. Uses the documents selection.
-    &#34;&#34;&#34;
+    &#34;&#34;&#34;Deletes all objects of the given list. Uses the documents selection.&#34;&#34;&#34;
     sel: Selection = self.document.selection
 
     self.remove_selection(sel)
@@ -708,9 +844,7 @@ VALID_FILE_EXTENSIONS list.</dd>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def filename_is_unique(self, filename: str) -&gt; bool:
-    &#34;&#34;&#34;
-    Returns True if the given name is unique in the session.
-    &#34;&#34;&#34;
+    &#34;&#34;&#34;Returns True if the given name is unique in the session.&#34;&#34;&#34;
     for i in range(self.documents.count):
         if self.documents[i].name == filename:
             return False
@@ -721,13 +855,45 @@ VALID_FILE_EXTENSIONS list.</dd>
 <span>def <span class="ident">load</span></span>(<span>self, path: str) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="../../framework/in_interfaces/document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
 </code></dt>
 <dd>
-<div class="desc"><p>Loads the document without creating a window.</p></div>
+<div class="desc"><p>Loads the document without creating a window.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
+<dd>The path to the document to load.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaFileNotFoundError</code></dt>
+<dd>Raised if the document does not exist.</dd>
+<dt><code>PytiaWrongDocumentTypeError</code></dt>
+<dd>Raised if the document is not of the correct type.</dd>
+<dt><code>PytiaDocumentOperationError</code></dt>
+<dd>Raised if the cannot be opened.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Document</code></dt>
+<dd><em>description</em></dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def load(self, path: str) -&gt; Document:
-    &#34;&#34;&#34;Loads the document without creating a window.&#34;&#34;&#34;
+    &#34;&#34;&#34;
+    Loads the document without creating a window.
+
+    Args:
+        path (str): The path to the document to load.
+
+    Raises:
+        PytiaFileNotFoundError: Raised if the document does not exist.
+        PytiaWrongDocumentTypeError: Raised if the document is not of the correct type.
+        PytiaDocumentOperationError: Raised if the cannot be opened.
+
+    Returns:
+        Document: _description_
+    &#34;&#34;&#34;
     path = path.replace(&#34;/&#34;, os.sep)
 
     if not os.path.exists(path):
@@ -737,7 +903,7 @@ VALID_FILE_EXTENSIONS list.</dd>
 
     if not self._doctype in path:
         raise PytiaWrongDocumentTypeError(
-            f&#34;Failed laoding file {path!r}: Not a {self._doctype}&#34;
+            f&#34;Failed loading file {path!r}: Not a {self._doctype}&#34;
         )
 
     try:
@@ -758,7 +924,22 @@ VALID_FILE_EXTENSIONS list.</dd>
 <span>def <span class="ident">new</span></span>(<span>self, name: str) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="../../framework/in_interfaces/document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
 </code></dt>
 <dd>
-<div class="desc"><p>Creates a new Document and sets it as ActiveDocument.</p></div>
+<div class="desc"><p>Creates a new Document and sets it as ActiveDocument.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the new document.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaDocumentExistsError</code></dt>
+<dd>Raised if the name already exists in the session.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Document</code></dt>
+<dd>The newly created document object.</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -766,6 +947,15 @@ VALID_FILE_EXTENSIONS list.</dd>
 <pre><code class="python">def new(self, name: str) -&gt; Document:
     &#34;&#34;&#34;
     Creates a new Document and sets it as ActiveDocument.
+
+    Args:
+        name (str): The name of the new document.
+
+    Raises:
+        PytiaDocumentExistsError: Raised if the name already exists in the session.
+
+    Returns:
+        Document: The newly created document object.
     &#34;&#34;&#34;
     if not self.filename_is_unique(f&#34;{name}.{self._doctype}&#34;):
         raise PytiaDocumentExistsError(
@@ -783,7 +973,24 @@ VALID_FILE_EXTENSIONS list.</dd>
 <span>def <span class="ident">new_from</span></span>(<span>self, path: str, name: str) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="../../framework/in_interfaces/document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
 </code></dt>
 <dd>
-<div class="desc"><p>Creates a new Document from an existing one and sets it as ActiveDocument.</p></div>
+<div class="desc"><p>Creates a new Document from an existing one and sets it as ActiveDocument.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
+<dd>The path to the original document.</dd>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the new document.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaDocumentExistsError</code></dt>
+<dd>Raised if the name already exists in the session.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Document</code></dt>
+<dd>The document object.</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -791,6 +998,16 @@ VALID_FILE_EXTENSIONS list.</dd>
 <pre><code class="python">def new_from(self, path: str, name: str) -&gt; Document:
     &#34;&#34;&#34;
     Creates a new Document from an existing one and sets it as ActiveDocument.
+
+    Args:
+        path (str): The path to the original document.
+        name (str): The name of the new document.
+
+    Raises:
+        PytiaDocumentExistsError: Raised if the name already exists in the session.
+
+    Returns:
+        Document: The document object.
     &#34;&#34;&#34;
     if not self.filename_is_unique(f&#34;{name}.{self._doctype}&#34;):
         raise PytiaDocumentExistsError(
@@ -808,13 +1025,45 @@ VALID_FILE_EXTENSIONS list.</dd>
 <span>def <span class="ident">open</span></span>(<span>self, path: str) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="../../framework/in_interfaces/document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
 </code></dt>
 <dd>
-<div class="desc"><p>Opens the document from the given path.</p></div>
+<div class="desc"><p>Opens the document from the given path.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
+<dd>The path to the document to open.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaFileNotFoundError</code></dt>
+<dd>Raised if the document does not exist.</dd>
+<dt><code>PytiaWrongDocumentTypeError</code></dt>
+<dd>Raised if the document is not of the correct type.</dd>
+<dt><code>PytiaDocumentOperationError</code></dt>
+<dd>Raised if the cannot be opened.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Document</code></dt>
+<dd><em>description</em></dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def open(self, path: str) -&gt; Document:
-    &#34;&#34;&#34;Opens the document from the given path.&#34;&#34;&#34;
+    &#34;&#34;&#34;
+    Opens the document from the given path.
+
+    Args:
+        path (str): The path to the document to open.
+
+    Raises:
+        PytiaFileNotFoundError: Raised if the document does not exist.
+        PytiaWrongDocumentTypeError: Raised if the document is not of the correct type.
+        PytiaDocumentOperationError: Raised if the cannot be opened.
+
+    Returns:
+        Document: _description_
+    &#34;&#34;&#34;
     path = path.replace(&#34;/&#34;, os.sep)
 
     if not os.path.exists(path):
@@ -870,7 +1119,18 @@ VALID_FILE_EXTENSIONS list.</dd>
 </code></dt>
 <dd>
 <div class="desc"><p>Saves the document.
-Returns the path (folder &amp; filename) of the saved document.</p></div>
+Returns the path (folder &amp; filename) of the saved document.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaDocumentNotSavedError</code></dt>
+<dd>Raised if the document cannot be saved due to an unset
+destination folder.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The full path to the saved document with filename and extension.</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -879,6 +1139,13 @@ Returns the path (folder &amp; filename) of the saved document.</p></div>
     &#34;&#34;&#34;
     Saves the document.
     Returns the path (folder &amp; filename) of the saved document.
+
+    Raises:
+        PytiaDocumentNotSavedError: Raised if the document cannot be saved due to an unset \
+            destination folder.
+
+    Returns:
+        str: The full path to the saved document with filename and extension.
     &#34;&#34;&#34;
     if self.document.name == self.document.full_name:
         raise PytiaDocumentNotSavedError(
@@ -896,21 +1163,48 @@ Returns the path (folder &amp; filename) of the saved document.</p></div>
 </details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.save_as"><code class="name flex">
-<span>def <span class="ident">save_as</span></span>(<span>self, folder: str, overwrite=True) ‑> str</span>
+<span>def <span class="ident">save_as</span></span>(<span>self, folder: str, overwrite: bool = True) ‑> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Saves the document in the given folder.
 Overwrites any existing document by default.
-Returns the path (folder &amp; filename) of the saved document.</p></div>
+Returns the path (folder &amp; filename) of the saved document.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>folder</code></strong> :&ensp;<code>str</code></dt>
+<dd>The folder in which the document should be saved.</dd>
+<dt><strong><code>overwrite</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Overwrites any existing files. EachDefaults to True.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaFileExistsError</code></dt>
+<dd>Raised if the file already exists and overwrite is False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The full path to the saved document with filename and extension.</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def save_as(self, folder: str, overwrite=True) -&gt; str:
+<pre><code class="python">def save_as(self, folder: str, overwrite: bool = True) -&gt; str:
     &#34;&#34;&#34;
     Saves the document in the given folder.
     Overwrites any existing document by default.
     Returns the path (folder &amp; filename) of the saved document.
+
+    Args:
+        folder (str): The folder in which the document should be saved.
+        overwrite (bool, optional): Overwrites any existing files. EachDefaults to True.
+
+    Raises:
+        PytiaFileExistsError: Raised if the file already exists and overwrite is False.
+
+    Returns:
+        str: The full path to the saved document with filename and extension.
     &#34;&#34;&#34;
     folder = verify_folder(folder=folder, absolute=True)
     filepath = f&#34;{folder}{os.sep}{self.document.name}&#34;
