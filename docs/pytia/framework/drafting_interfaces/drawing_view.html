@@ -26,7 +26,8 @@
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from typing import TYPE_CHECKING
+<pre><code class="python">from typing import TYPE_CHECKING, Tuple
+
 from pytia.framework.drafting_interfaces.drawing_arrows import DrawingArrows
 from pytia.framework.drafting_interfaces.drawing_components import DrawingComponents
 from pytia.framework.drafting_interfaces.drawing_dimensions import DrawingDimensions
@@ -221,8 +222,19 @@ class DrawingView(AnyObject):
             i_view_name_prefix, i_view_name_ident, i_view_name_suffix
         )
 
-    def size(self, o_values: tuple) -&gt; float:
-        return self.drawing_view.Size(o_values)
+    def size(self) -&gt; Tuple[int, int, int, int]:
+        vba_function_name = &#34;get_size&#34;
+        vba_code = &#34;&#34;&#34;
+        Public Function get_size(drawing_view)
+            Dim oXY(4)
+            drawing_view.Size oXY
+            get_size = oXY
+        End Function
+        &#34;&#34;&#34;
+        value = self.application.system_service.evaluate(
+            vba_code, 0, vba_function_name, [self.com_object]
+        )
+        return value[0], value[1], value[2], value[3]
 
     def un_aligned_with_reference_view(self) -&gt; None:
         return self.drawing_view.UnAlignedWithReferenceView()
@@ -422,8 +434,19 @@ class DrawingView(AnyObject):
             i_view_name_prefix, i_view_name_ident, i_view_name_suffix
         )
 
-    def size(self, o_values: tuple) -&gt; float:
-        return self.drawing_view.Size(o_values)
+    def size(self) -&gt; Tuple[int, int, int, int]:
+        vba_function_name = &#34;get_size&#34;
+        vba_code = &#34;&#34;&#34;
+        Public Function get_size(drawing_view)
+            Dim oXY(4)
+            drawing_view.Size oXY
+            get_size = oXY
+        End Function
+        &#34;&#34;&#34;
+        value = self.application.system_service.evaluate(
+            vba_code, 0, vba_function_name, [self.com_object]
+        )
+        return value[0], value[1], value[2], value[3]
 
     def un_aligned_with_reference_view(self) -&gt; None:
         return self.drawing_view.UnAlignedWithReferenceView()
@@ -843,7 +866,7 @@ def y_axis_data(self) -&gt; float:
 </details>
 </dd>
 <dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.size"><code class="name flex">
-<span>def <span class="ident">size</span></span>(<span>self, o_values: tuple) ‑> float</span>
+<span>def <span class="ident">size</span></span>(<span>self) ‑> Tuple[int, int, int, int]</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -851,8 +874,19 @@ def y_axis_data(self) -&gt; float:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def size(self, o_values: tuple) -&gt; float:
-    return self.drawing_view.Size(o_values)</code></pre>
+<pre><code class="python">def size(self) -&gt; Tuple[int, int, int, int]:
+    vba_function_name = &#34;get_size&#34;
+    vba_code = &#34;&#34;&#34;
+    Public Function get_size(drawing_view)
+        Dim oXY(4)
+        drawing_view.Size oXY
+        get_size = oXY
+    End Function
+    &#34;&#34;&#34;
+    value = self.application.system_service.evaluate(
+        vba_code, 0, vba_function_name, [self.com_object]
+    )
+    return value[0], value[1], value[2], value[3]</code></pre>
 </details>
 </dd>
 <dt id="pytia.framework.drafting_interfaces.drawing_view.DrawingView.un_aligned_with_reference_view"><code class="name flex">
