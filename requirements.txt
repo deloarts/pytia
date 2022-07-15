@@ -1,9 +1,5 @@
-astroid==2.11.6; python_full_version >= "3.7.2" \
-    --hash=sha256:ba33a82a9a9c06a5ceed98180c5aab16e29c285b828d94696bf32d6015ea82a9 \
-    --hash=sha256:4f933d0bf5e408b03a6feb5d23793740c27e07340605f236496cd6ce552043d6
-atomicwrites==1.4.0; python_version >= "3.7" and python_full_version < "3.0.0" and sys_platform == "win32" or sys_platform == "win32" and python_version >= "3.7" and python_full_version >= "3.4.0" \
-    --hash=sha256:6d1784dea7c0c8d4a5172b6c620f40b6e4cbfdf96d783691f2e1302a7b88e197 \
-    --hash=sha256:ae70396ad1a434f9c7046fd2dd196fc04b12f9e91ffb859164193be8b6168a7a
+astroid==2.11.7; python_full_version >= "3.7.2"
+atomicwrites==1.4.1; python_version >= "3.7" and python_full_version < "3.0.0" and sys_platform == "win32" or sys_platform == "win32" and python_version >= "3.7" and python_full_version >= "3.4.0"
 attrs==21.4.0; python_version >= "3.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version >= "3.7" \
     --hash=sha256:2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4 \
     --hash=sha256:626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd
@@ -46,9 +42,7 @@ decorator==5.1.1; python_version >= "3.5" \
 dill==0.3.5.1; python_full_version >= "3.7.2" \
     --hash=sha256:33501d03270bbe410c72639b350e941882a8b0fd55357580fbc873fba0c59302 \
     --hash=sha256:d75e41f3eff1eee599d738e76ba8f4ad98ea229db8b085318aa2b3333a208c86
-distlib==0.3.4; python_version >= "3.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version >= "3.7" \
-    --hash=sha256:6564fe0a8f51e734df6333d08b8b94d4ea8ee6b99b5ed50613f731fd4089f34b \
-    --hash=sha256:e4b58818180336dc9c529bfb9a0b58728ffc09ad92027a3f30b7cd91e3458579
+distlib==0.3.5; python_version >= "3.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version >= "3.7"
 filelock==3.7.1; python_version >= "3.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version >= "3.7" \
     --hash=sha256:37def7b658813cda163b56fc564cdc75e86d338246458c4c28ae84cabefa2404 \
     --hash=sha256:3a0fd85166ad9dbab54c9aec96737b744106dc5f15c0b09a6744a445299fcf04
@@ -170,9 +164,7 @@ platformdirs==2.5.2; python_version >= "3.7" and python_full_version >= "3.7.2" 
 pluggy==1.0.0; python_version >= "3.7" \
     --hash=sha256:74134bbf457f031a36d68416e1509f34bd5ccc019f0bcc952c7b909d06b37bd3 \
     --hash=sha256:4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159
-pre-commit==2.19.0; python_version >= "3.7" \
-    --hash=sha256:10c62741aa5704faea2ad69cb550ca78082efe5697d6f04e5710c3c229afdd10 \
-    --hash=sha256:4233a1e38621c87d9dda9808c6606d7e7ba0e087cd56d3fe03202a01d2919615
+pre-commit==2.20.0; python_version >= "3.7"
 psutil==5.9.0; (python_version >= "2.6" and python_full_version < "3.0.0") or (python_full_version >= "3.4.0") \
     --hash=sha256:55ce319452e3d139e25d6c3f85a1acf12d1607ddedea5e35fb47a552c051161b \
     --hash=sha256:7336292a13a80eb93c21f36bde4328aa748a04b68c13d01dfddd67fc13fd0618 \
@@ -276,9 +268,7 @@ toml==0.10.2; python_version >= "3.7" and python_full_version < "3.0.0" or pytho
 tomli==2.0.1; python_full_version < "3.11.0a7" and python_full_version >= "3.7.2" and python_version >= "3.7" and python_version < "3.11" \
     --hash=sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc \
     --hash=sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f
-tomlkit==0.11.0; python_version >= "3.6" and python_version < "4.0" and python_full_version >= "3.7.2" \
-    --hash=sha256:0f4050db66fd445b885778900ce4dd9aea8c90c4721141fde0d6ade893820ef1 \
-    --hash=sha256:71ceb10c0eefd8b8f11fe34e8a51ad07812cb1dc3de23247425fbc9ddc47b9dd
+tomlkit==0.11.1; python_version >= "3.6" and python_version < "4.0" and python_full_version >= "3.7.2"
 validators==0.19.0; python_version >= "3.4" \
     --hash=sha256:dec45f4381f042f1e705cfa74949505b77f1e27e8b05409096fee8152c839cbe
 virtualenv==20.15.1; python_version >= "3.7" and python_full_version < "3.0.0" or python_full_version >= "3.5.0" and python_version >= "3.7" \
