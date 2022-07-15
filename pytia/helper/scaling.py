@@ -7,7 +7,17 @@ from pytia.log import log
 
 
 def get_view_scale(view: DrawingView, max_width: float, max_height: float) -> float:
-    """ """
+    """
+    Returns the scale for a view to fit into the given maximum dimensions.
+
+    Args:
+        view (DrawingView): The drawing view to scale.
+        max_width (float): The maximum width.
+        max_height (float): The maximum height.
+
+    Returns:
+        float: The scale for the drawing view.
+    """
     x_min, x_max, y_min, y_max = view.size()
     width = x_max - x_min
     height = y_max - y_min
