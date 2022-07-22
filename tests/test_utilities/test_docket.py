@@ -18,6 +18,8 @@ config = {
         {"name": "property.partnumber", "value": "partnumber", "view": "fg"},
         {"name": "text.material", "value": "Material", "view": "bg"},
         {"name": "property.material", "value": "pytia.material", "view": "fg"},
+        {"name": "text.date", "value": "Date", "view": "bg"},
+        {"name": "object.date", "value": "%d.%m.%Y", "view": "fg"},
         {"name": "property.notfound", "value": "pytia.notfound", "view": "fg"},
         {"name": "wrong_type.material", "value": "pytia.material", "view": "fg"},
     ],
@@ -90,15 +92,20 @@ def test_create_docket_from_template():
             foreground_texts = foreground_view.texts
             background_texts = background_view.texts
 
-            active_text = background_texts.add("text_partnumber", 0, 20)
+            active_text = background_texts.add("text_partnumber", 0, 30)
             active_text.name = "text.partnumber"
-            active_text = foreground_texts.add("property_partnumber", 50, 20)
+            active_text = foreground_texts.add("property_partnumber", 50, 30)
             active_text.name = "property.partnumber"
 
-            active_text = background_texts.add("text_material", 0, 10)
+            active_text = background_texts.add("text_material", 0, 20)
             active_text.name = "text.material"
-            active_text = foreground_texts.add("property_material", 50, 10)
+            active_text = foreground_texts.add("property_material", 50, 20)
             active_text.name = "property.material"
+
+            active_text = background_texts.add("text_date", 0, 10)
+            active_text.name = "text.date"
+            active_text = foreground_texts.add("object_date", 50, 10)
+            active_text.name = "object.date"
 
             background_view.activate()
             factory = background_view.factory_2d

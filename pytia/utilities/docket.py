@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import os
 from dataclasses import dataclass, fields
+from datetime import datetime
 from pathlib import Path
 from typing import List, Tuple
 
@@ -116,6 +117,13 @@ def create_docket_from_template(
             case "text":
                 log.info(f"Applying TEXT ({item.name}: {item.value}) to docket.")
                 text.text = item.value
+            case "object":
+                log.info(f"Applying OBJECT ({item.name}: {item.value}) to docket.")
+                match (object_type := item.name.split(".")[-1]):
+                    case "date":
+                        text.text = datetime.now().strftime(item.value)
+                    case _:
+                        text.text = f"Unknown ({object_type})"
             case "property":
                 log.info(f"Applying PROPERTY ({item.name}: {item.value}) to docket.")
                 if item.value == "partnumber":
