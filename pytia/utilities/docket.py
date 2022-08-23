@@ -70,6 +70,7 @@ def create_docket_from_template(
     document: PyPartDocument | PyProductDocument,
     config: DocketConfig,
     hide_unknown_properties: bool = False,
+    **kwargs,
 ) -> PyDrawingDocument:
     """
     Creates a docket from a template.
@@ -81,6 +82,10 @@ def create_docket_from_template(
             to create the docket
         config (DocketConfig): The docket configuration dataclass.
         hide_unknown_properties (bool): Use empty string for unknown properties.
+
+        kwargs: Keyword arguments will be added to the docket for text elements which names are \
+            prefixed with `arg.`. Example: To add the quantity to the docket text \
+            element with the name 'arg.quantity' you have to supply the argument `quantity=1`.
 
     Raises:
         PytiaFileNotFoundError: Raised if the template file cannot be found.
@@ -119,6 +124,12 @@ def create_docket_from_template(
             case "text":
                 log.info(f"Applying TEXT ({item.name}: {item.value}) to docket.")
                 text.text = item.value
+            case "arg":
+                log.info(f"Applying ARGUMENT ({item.name}: {item.value}) to docket.")
+                if item.value in kwargs:
+                    text.text = str(kwargs[item.value])
+                else:
+                    log.warning(f"No argument for {item.value}.")
             case "object":
                 log.info(f"Applying OBJECT ({item.name}: {item.value}) to docket.")
                 match (object_type := item.name.split(".")[-1]):
