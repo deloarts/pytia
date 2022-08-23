@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import List, Tuple
 
 from pytia.const import BACKGROUND_VIEW, FOREGROUND_VIEW
-from pytia.exceptions import PytiaFileNotFoundError
+from pytia.exceptions import PytiaFileNotFoundError, PytiaFileOperationError
 from pytia.framework.drafting_interfaces.drawing_text import DrawingText
 from pytia.helper.scaling import get_view_scale
 from pytia.helper.verify import verify_folder
@@ -69,6 +69,7 @@ def create_docket_from_template(
     template: str,
     document: PyPartDocument | PyProductDocument,
     config: DocketConfig,
+    hide_unknown_properties: bool = False,
 ) -> PyDrawingDocument:
     """
     Creates a docket from a template.
@@ -79,6 +80,7 @@ def create_docket_from_template(
         document (PyPartDocument | PyProductDocument): The part or product document from which \
             to create the docket
         config (DocketConfig): The docket configuration dataclass.
+        hide_unknown_properties (bool): Use empty string for unknown properties.
 
     Raises:
         PytiaFileNotFoundError: Raised if the template file cannot be found.
@@ -141,7 +143,10 @@ def create_docket_from_template(
                 elif document.properties.exists(name=item.value):
                     text.text = document.properties.get_by_name(name=item.value).value
                 else:
-                    text.text = f"Unknown ({item.value})"
+                    text.text = (
+                        "" if hide_unknown_properties else f"Unknown ({item.value})"
+                    )
+                    log.warning(f"Unknown property for drawing text: {item.value}")
             case _:
                 log.warning(f"Unknown type for drawing text: {item_type}")
 
@@ -177,14 +182,22 @@ def export_docket_as_pdf(
         folder (str): The folder where the exported pdf file should be stored.
         close (bool, optional): Closes the CATDrawing afterwards. Defaults to True.
 
+    Raises:
+        PytiaFileOperationError: Raised when an existing docket cannot be deleted.
+
     Returns:
         str: The path to the exported pdf file (folder, filename and extension).
     """
     export_path = Path(verify_folder(folder), name + ".pdf")
 
     if os.path.exists(export_path):
-        os.remove(export_path)
-        log.warning(f"Removed existing docket file at {str(export_path)!r}.")
+        try:
+            os.remove(export_path)
+            log.warning(f"Removed existing docket file at {str(export_path)!r}.")
+        except Exception as e:
+            raise PytiaFileOperationError(
+                f"Failed to remove existing docket file at {str(export_path)!r}: {e}"
+            ) from e
 
     docket.drawing_document.export_data(export_path, "pdf")
     log.info(f"Exported docket {name!r} to {str(export_path)!r}.")
