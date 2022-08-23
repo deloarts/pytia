@@ -52,6 +52,10 @@ class PytiaFileNotFoundError(PytiaBaseError):
     """Exception for non existent files"""
 
 
+class PytiaFileOperationError(PytiaBaseError):
+    """Exception for non existent files"""
+
+
 class PytiaFileExistsError(PytiaBaseError):
     """Exception for non existent files"""
 
