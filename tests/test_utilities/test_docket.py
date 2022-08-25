@@ -57,7 +57,18 @@ config = {
             ),
         },
     ],
+    "images": [
+        {
+            "name": "image 1",
+            "path_argument": "test_image",
+            "x": 200,
+            "y": 100,
+            "width": 40,
+            "height": 40,
+        }
+    ],
 }
+test_image_path = Path(os.getcwd(), "tests/assets/docket_image.png")
 
 
 def test_import():
@@ -172,6 +183,7 @@ def test_create_docket_from_template():
         document=part_document,
         config=docket_config,
         test_argument="Test Argument Value",
+        test_image=test_image_path,
     )
     part_document.close()
 
@@ -190,7 +202,7 @@ def test_export_docket_as_pdf():
 
     os.remove(Path(temp_folder, template_name + ".CATDrawing"))
     os.remove(Path(temp_folder, test_name + ".CATPart"))
-    # os.remove(Path(temp_folder, test_name + ".pdf"))
+    os.remove(Path(temp_folder, test_name + ".pdf"))
 
 
 if __name__ == "__main__":

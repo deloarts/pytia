@@ -44,15 +44,29 @@ class DocketConfigViews:
 
 
 @dataclass
+class DocketConfigImages:
+    """Dataclass for docket images."""
+
+    name: str
+    path_argument: str
+    x: float
+    y: float
+    width: float
+    height: float
+
+
+@dataclass
 class DocketConfig:
     """Dataclass for docket configuration."""
 
     texts: List[DocketConfigTexts]
     views: List[DocketConfigViews]
+    images: List[DocketConfigImages]
 
     def __post_init__(self) -> None:
         self.texts = [DocketConfigTexts(**dict(text)) for text in self.texts]  # type: ignore
         self.views = [DocketConfigViews(**dict(view)) for view in self.views]  # type: ignore
+        self.images = [DocketConfigImages(**dict(image)) for image in self.images]  # type: ignore
 
     @classmethod
     def from_dict(cls, data: dict) -> DocketConfig:
@@ -178,6 +192,26 @@ def create_docket_from_template(
         view.scale = get_view_scale(
             view=view, max_width=item.max_width, max_height=item.max_height
         )
+
+    # Add images
+    log.debug("Adding images from config ...")
+    for item in config.images:
+        if item.path_argument in kwargs:
+            image_path = str(Path(kwargs[item.path_argument]))
+            if os.path.isfile(image_path) and (
+                ".bmp" in image_path or ".png" in image_path
+            ):
+                image = fg_views.pictures.add(str(image_path), item.x, item.y)
+                if item.width:
+                    image.width = item.width
+                if item.height:
+                    image.height = item.height
+                image.name = item.name
+            else:
+                raise PytiaFileNotFoundError(
+                    f"Cannot add image to docket, file {image_path!r} not found or not a bitmap."
+                )
+
     return docket
 
 
