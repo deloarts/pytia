@@ -64,10 +64,10 @@ def set_secondary_format(format_: tuple, product: Optional[Product] = None) -> N
     try:
         bom = AssemblyConvertor(product.get_item_dispatch(GET_ITEM_BILL_OF_MATERIAL))
         bom.set_secondary_format(format_)
-        log.info(f"Set current BOM format of {product.name!r} to {format_!r}")
+        log.info(f"Set secondary BOM format of {product.name!r} to {format_!r}")
     except Exception as e:
         raise PytiaBOMError(
-            f"Failed setting current bom format of {product.name!r}: {e}"
+            f"Failed setting secondary bom format of {product.name!r}: {e}"
         ) from e
 
 

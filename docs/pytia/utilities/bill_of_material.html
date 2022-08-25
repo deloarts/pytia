@@ -93,10 +93,10 @@ def set_secondary_format(format_: tuple, product: Optional[Product] = None) -&gt
     try:
         bom = AssemblyConvertor(product.get_item_dispatch(GET_ITEM_BILL_OF_MATERIAL))
         bom.set_secondary_format(format_)
-        log.info(f&#34;Set current BOM format of {product.name!r} to {format_!r}&#34;)
+        log.info(f&#34;Set secondary BOM format of {product.name!r} to {format_!r}&#34;)
     except Exception as e:
         raise PytiaBOMError(
-            f&#34;Failed setting current bom format of {product.name!r}: {e}&#34;
+            f&#34;Failed setting secondary bom format of {product.name!r}: {e}&#34;
         ) from e
 
 
@@ -418,10 +418,10 @@ Defaults to None. If None the currently open CATProduct will be used.</dd>
     try:
         bom = AssemblyConvertor(product.get_item_dispatch(GET_ITEM_BILL_OF_MATERIAL))
         bom.set_secondary_format(format_)
-        log.info(f&#34;Set current BOM format of {product.name!r} to {format_!r}&#34;)
+        log.info(f&#34;Set secondary BOM format of {product.name!r} to {format_!r}&#34;)
     except Exception as e:
         raise PytiaBOMError(
-            f&#34;Failed setting current bom format of {product.name!r}: {e}&#34;
+            f&#34;Failed setting secondary bom format of {product.name!r}: {e}&#34;
         ) from e</code></pre>
 </details>
 </dd>
