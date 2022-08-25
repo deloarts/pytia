@@ -20,6 +20,8 @@ config = {
         {"name": "property.material", "value": "pytia.material", "view": "fg"},
         {"name": "text.date", "value": "Date", "view": "bg"},
         {"name": "object.date", "value": "%d.%m.%Y", "view": "fg"},
+        {"name": "text.argument", "value": "Argument", "view": "bg"},
+        {"name": "arg.test_argument", "value": "test_argument", "view": "fg"},
         {"name": "property.notfound", "value": "pytia.notfound", "view": "fg"},
         {"name": "wrong_type.material", "value": "pytia.material", "view": "fg"},
     ],
@@ -92,20 +94,25 @@ def test_create_docket_from_template():
             foreground_texts = foreground_view.texts
             background_texts = background_view.texts
 
-            active_text = background_texts.add("text_partnumber", 0, 30)
+            active_text = background_texts.add("text_partnumber", 0, 40)
             active_text.name = "text.partnumber"
-            active_text = foreground_texts.add("property_partnumber", 50, 30)
+            active_text = foreground_texts.add("property_partnumber", 50, 40)
             active_text.name = "property.partnumber"
 
-            active_text = background_texts.add("text_material", 0, 20)
+            active_text = background_texts.add("text_material", 0, 30)
             active_text.name = "text.material"
-            active_text = foreground_texts.add("property_material", 50, 20)
+            active_text = foreground_texts.add("property_material", 50, 30)
             active_text.name = "property.material"
 
-            active_text = background_texts.add("text_date", 0, 10)
+            active_text = background_texts.add("text_date", 0, 20)
             active_text.name = "text.date"
-            active_text = foreground_texts.add("object_date", 50, 10)
+            active_text = foreground_texts.add("object_date", 50, 20)
             active_text.name = "object.date"
+
+            active_text = background_texts.add("text_argument", 0, 10)
+            active_text.name = "text.argument"
+            active_text = foreground_texts.add("argument", 50, 10)
+            active_text.name = "arg.test_argument"
 
             background_view.activate()
             factory = background_view.factory_2d
@@ -164,6 +171,7 @@ def test_create_docket_from_template():
         template=template,
         document=part_document,
         config=docket_config,
+        test_argument="Test Argument Value",
     )
     part_document.close()
 
@@ -182,7 +190,7 @@ def test_export_docket_as_pdf():
 
     os.remove(Path(temp_folder, template_name + ".CATDrawing"))
     os.remove(Path(temp_folder, test_name + ".CATPart"))
-    os.remove(Path(temp_folder, test_name + ".pdf"))
+    # os.remove(Path(temp_folder, test_name + ".pdf"))
 
 
 if __name__ == "__main__":
