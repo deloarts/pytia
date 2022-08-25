@@ -81,6 +81,10 @@ class PytiaFileNotFoundError(PytiaBaseError):
     &#34;&#34;&#34;Exception for non existent files&#34;&#34;&#34;
 
 
+class PytiaFileOperationError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non existent files&#34;&#34;&#34;
+
+
 class PytiaFileExistsError(PytiaBaseError):
     &#34;&#34;&#34;Exception for non existent files&#34;&#34;&#34;
 
@@ -310,6 +314,7 @@ class PytiaDifferentDocumentError(PytiaBaseError):
 <li><a title="pytia.exceptions.PytiaFailsafeError" href="#pytia.exceptions.PytiaFailsafeError">PytiaFailsafeError</a></li>
 <li><a title="pytia.exceptions.PytiaFileExistsError" href="#pytia.exceptions.PytiaFileExistsError">PytiaFileExistsError</a></li>
 <li><a title="pytia.exceptions.PytiaFileNotFoundError" href="#pytia.exceptions.PytiaFileNotFoundError">PytiaFileNotFoundError</a></li>
+<li><a title="pytia.exceptions.PytiaFileOperationError" href="#pytia.exceptions.PytiaFileOperationError">PytiaFileOperationError</a></li>
 <li><a title="pytia.exceptions.PytiaHelperError" href="#pytia.exceptions.PytiaHelperError">PytiaHelperError</a></li>
 <li><a title="pytia.exceptions.PytiaMaterialError" href="#pytia.exceptions.PytiaMaterialError">PytiaMaterialError</a></li>
 <li><a title="pytia.exceptions.PytiaMaterialNotFound" href="#pytia.exceptions.PytiaMaterialNotFound">PytiaMaterialNotFound</a></li>
@@ -576,6 +581,26 @@ class PytiaDifferentDocumentError(PytiaBaseError):
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class PytiaFileNotFoundError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for non existent files&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="pytia.exceptions.PytiaFileOperationError"><code class="flex name class">
+<span>class <span class="ident">PytiaFileOperationError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for non existent files</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaFileOperationError(PytiaBaseError):
     &#34;&#34;&#34;Exception for non existent files&#34;&#34;&#34;</code></pre>
 </details>
 <h3>Ancestors</h3>
@@ -922,6 +947,9 @@ class PytiaDifferentDocumentError(PytiaBaseError):
 </li>
 <li>
 <h4><code><a title="pytia.exceptions.PytiaFileNotFoundError" href="#pytia.exceptions.PytiaFileNotFoundError">PytiaFileNotFoundError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaFileOperationError" href="#pytia.exceptions.PytiaFileOperationError">PytiaFileOperationError</a></code></h4>
 </li>
 <li>
 <h4><code><a title="pytia.exceptions.PytiaHelperError" href="#pytia.exceptions.PytiaHelperError">PytiaHelperError</a></code></h4>

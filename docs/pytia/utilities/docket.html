@@ -36,11 +36,12 @@ from __future__ import annotations
 
 import os
 from dataclasses import dataclass, fields
+from datetime import datetime
 from pathlib import Path
 from typing import List, Tuple
 
 from pytia.const import BACKGROUND_VIEW, FOREGROUND_VIEW
-from pytia.exceptions import PytiaFileNotFoundError
+from pytia.exceptions import PytiaFileNotFoundError, PytiaFileOperationError
 from pytia.framework.drafting_interfaces.drawing_text import DrawingText
 from pytia.helper.scaling import get_view_scale
 from pytia.helper.verify import verify_folder
@@ -72,15 +73,29 @@ class DocketConfigViews:
 
 
 @dataclass
+class DocketConfigImages:
+    &#34;&#34;&#34;Dataclass for docket images.&#34;&#34;&#34;
+
+    name: str
+    path_argument: str
+    x: float
+    y: float
+    width: float
+    height: float
+
+
+@dataclass
 class DocketConfig:
     &#34;&#34;&#34;Dataclass for docket configuration.&#34;&#34;&#34;
 
     texts: List[DocketConfigTexts]
     views: List[DocketConfigViews]
+    images: List[DocketConfigImages]
 
     def __post_init__(self) -&gt; None:
         self.texts = [DocketConfigTexts(**dict(text)) for text in self.texts]  # type: ignore
         self.views = [DocketConfigViews(**dict(view)) for view in self.views]  # type: ignore
+        self.images = [DocketConfigImages(**dict(image)) for image in self.images]  # type: ignore
 
     @classmethod
     def from_dict(cls, data: dict) -&gt; DocketConfig:
@@ -97,6 +112,8 @@ def create_docket_from_template(
     template: str,
     document: PyPartDocument | PyProductDocument,
     config: DocketConfig,
+    hide_unknown_properties: bool = False,
+    **kwargs,
 ) -&gt; PyDrawingDocument:
     &#34;&#34;&#34;
     Creates a docket from a template.
@@ -107,6 +124,11 @@ def create_docket_from_template(
         document (PyPartDocument | PyProductDocument): The part or product document from which \
             to create the docket
         config (DocketConfig): The docket configuration dataclass.
+        hide_unknown_properties (bool): Use empty string for unknown properties.
+
+        kwargs: Keyword arguments will be added to the docket for text elements which names are \
+            prefixed with `arg.`. Example: To add the quantity to the docket text \
+            element with the name &#39;arg.quantity&#39; you have to supply the argument `quantity=1`.
 
     Raises:
         PytiaFileNotFoundError: Raised if the template file cannot be found.
@@ -145,6 +167,19 @@ def create_docket_from_template(
             case &#34;text&#34;:
                 log.info(f&#34;Applying TEXT ({item.name}: {item.value}) to docket.&#34;)
                 text.text = item.value
+            case &#34;arg&#34;:
+                log.info(f&#34;Applying ARGUMENT ({item.name}: {item.value}) to docket.&#34;)
+                if item.value in kwargs:
+                    text.text = str(kwargs[item.value])
+                else:
+                    log.warning(f&#34;No argument for {item.value}.&#34;)
+            case &#34;object&#34;:
+                log.info(f&#34;Applying OBJECT ({item.name}: {item.value}) to docket.&#34;)
+                match (object_type := item.name.split(&#34;.&#34;)[-1]):
+                    case &#34;date&#34;:
+                        text.text = datetime.now().strftime(item.value)
+                    case _:
+                        text.text = f&#34;Unknown ({object_type})&#34;
             case &#34;property&#34;:
                 log.info(f&#34;Applying PROPERTY ({item.name}: {item.value}) to docket.&#34;)
                 if item.value == &#34;partnumber&#34;:
@@ -162,7 +197,10 @@ def create_docket_from_template(
                 elif document.properties.exists(name=item.value):
                     text.text = document.properties.get_by_name(name=item.value).value
                 else:
-                    text.text = f&#34;Unknown ({item.value})&#34;
+                    text.text = (
+                        &#34;&#34; if hide_unknown_properties else f&#34;Unknown ({item.value})&#34;
+                    )
+                    log.warning(f&#34;Unknown property for drawing text: {item.value}&#34;)
             case _:
                 log.warning(f&#34;Unknown type for drawing text: {item_type}&#34;)
 
@@ -183,6 +221,26 @@ def create_docket_from_template(
         view.scale = get_view_scale(
             view=view, max_width=item.max_width, max_height=item.max_height
         )
+
+    # Add images
+    log.debug(&#34;Adding images from config ...&#34;)
+    for item in config.images:
+        if item.path_argument in kwargs:
+            image_path = str(Path(kwargs[item.path_argument]))
+            if os.path.isfile(image_path) and (
+                &#34;.bmp&#34; in image_path or &#34;.png&#34; in image_path
+            ):
+                image = fg_views.pictures.add(str(image_path), item.x, item.y)
+                if item.width:
+                    image.width = item.width
+                if item.height:
+                    image.height = item.height
+                image.name = item.name
+            else:
+                raise PytiaFileNotFoundError(
+                    f&#34;Cannot add image to docket, file {image_path!r} not found or not a bitmap.&#34;
+                )
+
     return docket
 
 
@@ -198,14 +256,22 @@ def export_docket_as_pdf(
         folder (str): The folder where the exported pdf file should be stored.
         close (bool, optional): Closes the CATDrawing afterwards. Defaults to True.
 
+    Raises:
+        PytiaFileOperationError: Raised when an existing docket cannot be deleted.
+
     Returns:
         str: The path to the exported pdf file (folder, filename and extension).
     &#34;&#34;&#34;
     export_path = Path(verify_folder(folder), name + &#34;.pdf&#34;)
 
     if os.path.exists(export_path):
-        os.remove(export_path)
-        log.warning(f&#34;Removed existing docket file at {str(export_path)!r}.&#34;)
+        try:
+            os.remove(export_path)
+            log.warning(f&#34;Removed existing docket file at {str(export_path)!r}.&#34;)
+        except Exception as e:
+            raise PytiaFileOperationError(
+                f&#34;Failed to remove existing docket file at {str(export_path)!r}: {e}&#34;
+            ) from e
 
     docket.drawing_document.export_data(export_path, &#34;pdf&#34;)
     log.info(f&#34;Exported docket {name!r} to {str(export_path)!r}.&#34;)
@@ -222,7 +288,7 @@ def export_docket_as_pdf(
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="pytia.utilities.docket.create_docket_from_template"><code class="name flex">
-<span>def <span class="ident">create_docket_from_template</span></span>(<span>template: str, document: PyPartDocument | PyProductDocument, config: <a title="pytia.utilities.docket.DocketConfig" href="#pytia.utilities.docket.DocketConfig">DocketConfig</a>) ‑> <a title="pytia.wrapper.documents.drawing_documents.PyDrawingDocument" href="../wrapper/documents/drawing_documents.html#pytia.wrapper.documents.drawing_documents.PyDrawingDocument">PyDrawingDocument</a></span>
+<span>def <span class="ident">create_docket_from_template</span></span>(<span>template: str, document: PyPartDocument | PyProductDocument, config: <a title="pytia.utilities.docket.DocketConfig" href="#pytia.utilities.docket.DocketConfig">DocketConfig</a>, hide_unknown_properties: bool = False, **kwargs) ‑> <a title="pytia.wrapper.documents.drawing_documents.PyDrawingDocument" href="../wrapper/documents/drawing_documents.html#pytia.wrapper.documents.drawing_documents.PyDrawingDocument">PyDrawingDocument</a></span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a docket from a template.
@@ -235,6 +301,12 @@ The docket (CATDrawing) will be left open as ActiveDocument, you have to close i
 to create the docket</dt>
 <dt><strong><code>config</code></strong> :&ensp;<code><a title="pytia.utilities.docket.DocketConfig" href="#pytia.utilities.docket.DocketConfig">DocketConfig</a></code></dt>
 <dd>The docket configuration dataclass.</dd>
+<dt><strong><code>hide_unknown_properties</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Use empty string for unknown properties.</dd>
+<dt><strong><code>kwargs</code></strong></dt>
+<dd>Keyword arguments will be added to the docket for text elements which names are
+prefixed with <code>arg.</code>. Example: To add the quantity to the docket text
+element with the name 'arg.quantity' you have to supply the argument <code>quantity=1</code>.</dd>
 </dl>
 <h2 id="raises">Raises</h2>
 <dl>
@@ -254,6 +326,8 @@ to create the docket</dt>
     template: str,
     document: PyPartDocument | PyProductDocument,
     config: DocketConfig,
+    hide_unknown_properties: bool = False,
+    **kwargs,
 ) -&gt; PyDrawingDocument:
     &#34;&#34;&#34;
     Creates a docket from a template.
@@ -264,6 +338,11 @@ to create the docket</dt>
         document (PyPartDocument | PyProductDocument): The part or product document from which \
             to create the docket
         config (DocketConfig): The docket configuration dataclass.
+        hide_unknown_properties (bool): Use empty string for unknown properties.
+
+        kwargs: Keyword arguments will be added to the docket for text elements which names are \
+            prefixed with `arg.`. Example: To add the quantity to the docket text \
+            element with the name &#39;arg.quantity&#39; you have to supply the argument `quantity=1`.
 
     Raises:
         PytiaFileNotFoundError: Raised if the template file cannot be found.
@@ -302,6 +381,19 @@ to create the docket</dt>
             case &#34;text&#34;:
                 log.info(f&#34;Applying TEXT ({item.name}: {item.value}) to docket.&#34;)
                 text.text = item.value
+            case &#34;arg&#34;:
+                log.info(f&#34;Applying ARGUMENT ({item.name}: {item.value}) to docket.&#34;)
+                if item.value in kwargs:
+                    text.text = str(kwargs[item.value])
+                else:
+                    log.warning(f&#34;No argument for {item.value}.&#34;)
+            case &#34;object&#34;:
+                log.info(f&#34;Applying OBJECT ({item.name}: {item.value}) to docket.&#34;)
+                match (object_type := item.name.split(&#34;.&#34;)[-1]):
+                    case &#34;date&#34;:
+                        text.text = datetime.now().strftime(item.value)
+                    case _:
+                        text.text = f&#34;Unknown ({object_type})&#34;
             case &#34;property&#34;:
                 log.info(f&#34;Applying PROPERTY ({item.name}: {item.value}) to docket.&#34;)
                 if item.value == &#34;partnumber&#34;:
@@ -319,7 +411,10 @@ to create the docket</dt>
                 elif document.properties.exists(name=item.value):
                     text.text = document.properties.get_by_name(name=item.value).value
                 else:
-                    text.text = f&#34;Unknown ({item.value})&#34;
+                    text.text = (
+                        &#34;&#34; if hide_unknown_properties else f&#34;Unknown ({item.value})&#34;
+                    )
+                    log.warning(f&#34;Unknown property for drawing text: {item.value}&#34;)
             case _:
                 log.warning(f&#34;Unknown type for drawing text: {item_type}&#34;)
 
@@ -340,6 +435,26 @@ to create the docket</dt>
         view.scale = get_view_scale(
             view=view, max_width=item.max_width, max_height=item.max_height
         )
+
+    # Add images
+    log.debug(&#34;Adding images from config ...&#34;)
+    for item in config.images:
+        if item.path_argument in kwargs:
+            image_path = str(Path(kwargs[item.path_argument]))
+            if os.path.isfile(image_path) and (
+                &#34;.bmp&#34; in image_path or &#34;.png&#34; in image_path
+            ):
+                image = fg_views.pictures.add(str(image_path), item.x, item.y)
+                if item.width:
+                    image.width = item.width
+                if item.height:
+                    image.height = item.height
+                image.name = item.name
+            else:
+                raise PytiaFileNotFoundError(
+                    f&#34;Cannot add image to docket, file {image_path!r} not found or not a bitmap.&#34;
+                )
+
     return docket</code></pre>
 </details>
 </dd>
@@ -358,6 +473,11 @@ to create the docket</dt>
 <dd>The folder where the exported pdf file should be stored.</dd>
 <dt><strong><code>close</code></strong> :&ensp;<code>bool</code>, optional</dt>
 <dd>Closes the CATDrawing afterwards. Defaults to True.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>PytiaFileOperationError</code></dt>
+<dd>Raised when an existing docket cannot be deleted.</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
@@ -380,14 +500,22 @@ to create the docket</dt>
         folder (str): The folder where the exported pdf file should be stored.
         close (bool, optional): Closes the CATDrawing afterwards. Defaults to True.
 
+    Raises:
+        PytiaFileOperationError: Raised when an existing docket cannot be deleted.
+
     Returns:
         str: The path to the exported pdf file (folder, filename and extension).
     &#34;&#34;&#34;
     export_path = Path(verify_folder(folder), name + &#34;.pdf&#34;)
 
     if os.path.exists(export_path):
-        os.remove(export_path)
-        log.warning(f&#34;Removed existing docket file at {str(export_path)!r}.&#34;)
+        try:
+            os.remove(export_path)
+            log.warning(f&#34;Removed existing docket file at {str(export_path)!r}.&#34;)
+        except Exception as e:
+            raise PytiaFileOperationError(
+                f&#34;Failed to remove existing docket file at {str(export_path)!r}: {e}&#34;
+            ) from e
 
     docket.drawing_document.export_data(export_path, &#34;pdf&#34;)
     log.info(f&#34;Exported docket {name!r} to {str(export_path)!r}.&#34;)
@@ -403,7 +531,7 @@ to create the docket</dt>
 <dl>
 <dt id="pytia.utilities.docket.DocketConfig"><code class="flex name class">
 <span>class <span class="ident">DocketConfig</span></span>
-<span>(</span><span>texts: List[<a title="pytia.utilities.docket.DocketConfigTexts" href="#pytia.utilities.docket.DocketConfigTexts">DocketConfigTexts</a>], views: List[<a title="pytia.utilities.docket.DocketConfigViews" href="#pytia.utilities.docket.DocketConfigViews">DocketConfigViews</a>])</span>
+<span>(</span><span>texts: List[<a title="pytia.utilities.docket.DocketConfigTexts" href="#pytia.utilities.docket.DocketConfigTexts">DocketConfigTexts</a>], views: List[<a title="pytia.utilities.docket.DocketConfigViews" href="#pytia.utilities.docket.DocketConfigViews">DocketConfigViews</a>], images: List[<a title="pytia.utilities.docket.DocketConfigImages" href="#pytia.utilities.docket.DocketConfigImages">DocketConfigImages</a>])</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Dataclass for docket configuration.</p></div>
@@ -417,10 +545,12 @@ class DocketConfig:
 
     texts: List[DocketConfigTexts]
     views: List[DocketConfigViews]
+    images: List[DocketConfigImages]
 
     def __post_init__(self) -&gt; None:
         self.texts = [DocketConfigTexts(**dict(text)) for text in self.texts]  # type: ignore
         self.views = [DocketConfigViews(**dict(view)) for view in self.views]  # type: ignore
+        self.images = [DocketConfigImages(**dict(image)) for image in self.images]  # type: ignore
 
     @classmethod
     def from_dict(cls, data: dict) -&gt; DocketConfig:
@@ -434,6 +564,10 @@ class DocketConfig:
 </details>
 <h3>Class variables</h3>
 <dl>
+<dt id="pytia.utilities.docket.DocketConfig.images"><code class="name">var <span class="ident">images</span> : List[<a title="pytia.utilities.docket.DocketConfigImages" href="#pytia.utilities.docket.DocketConfigImages">DocketConfigImages</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
 <dt id="pytia.utilities.docket.DocketConfig.texts"><code class="name">var <span class="ident">texts</span> : List[<a title="pytia.utilities.docket.DocketConfigTexts" href="#pytia.utilities.docket.DocketConfigTexts">DocketConfigTexts</a>]</code></dt>
 <dd>
 <div class="desc"></div>
@@ -465,6 +599,55 @@ def from_dict(cls, data: dict) -&gt; DocketConfig:
         **{k: v for k, v in data.items() if k in {f.name for f in fields(cls)}}
     )</code></pre>
 </details>
+</dd>
+</dl>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfigImages"><code class="flex name class">
+<span>class <span class="ident">DocketConfigImages</span></span>
+<span>(</span><span>name: str, path_argument: str, x: float, y: float, width: float, height: float)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for docket images.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class DocketConfigImages:
+    &#34;&#34;&#34;Dataclass for docket images.&#34;&#34;&#34;
+
+    name: str
+    path_argument: str
+    x: float
+    y: float
+    width: float
+    height: float</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="pytia.utilities.docket.DocketConfigImages.height"><code class="name">var <span class="ident">height</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfigImages.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfigImages.path_argument"><code class="name">var <span class="ident">path_argument</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfigImages.width"><code class="name">var <span class="ident">width</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfigImages.x"><code class="name">var <span class="ident">x</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pytia.utilities.docket.DocketConfigImages.y"><code class="name">var <span class="ident">y</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
 </dd>
 </dl>
 </dd>
@@ -577,8 +760,20 @@ class DocketConfigViews:
 <h4><code><a title="pytia.utilities.docket.DocketConfig" href="#pytia.utilities.docket.DocketConfig">DocketConfig</a></code></h4>
 <ul class="">
 <li><code><a title="pytia.utilities.docket.DocketConfig.from_dict" href="#pytia.utilities.docket.DocketConfig.from_dict">from_dict</a></code></li>
+<li><code><a title="pytia.utilities.docket.DocketConfig.images" href="#pytia.utilities.docket.DocketConfig.images">images</a></code></li>
 <li><code><a title="pytia.utilities.docket.DocketConfig.texts" href="#pytia.utilities.docket.DocketConfig.texts">texts</a></code></li>
 <li><code><a title="pytia.utilities.docket.DocketConfig.views" href="#pytia.utilities.docket.DocketConfig.views">views</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia.utilities.docket.DocketConfigImages" href="#pytia.utilities.docket.DocketConfigImages">DocketConfigImages</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pytia.utilities.docket.DocketConfigImages.height" href="#pytia.utilities.docket.DocketConfigImages.height">height</a></code></li>
+<li><code><a title="pytia.utilities.docket.DocketConfigImages.name" href="#pytia.utilities.docket.DocketConfigImages.name">name</a></code></li>
+<li><code><a title="pytia.utilities.docket.DocketConfigImages.path_argument" href="#pytia.utilities.docket.DocketConfigImages.path_argument">path_argument</a></code></li>
+<li><code><a title="pytia.utilities.docket.DocketConfigImages.width" href="#pytia.utilities.docket.DocketConfigImages.width">width</a></code></li>
+<li><code><a title="pytia.utilities.docket.DocketConfigImages.x" href="#pytia.utilities.docket.DocketConfigImages.x">x</a></code></li>
+<li><code><a title="pytia.utilities.docket.DocketConfigImages.y" href="#pytia.utilities.docket.DocketConfigImages.y">y</a></code></li>
 </ul>
 </li>
 <li>

@@ -3,7 +3,7 @@
 A wrapper for the catia v5 api.
 
 ![state](https://img.shields.io/badge/State-Alpha-brown.svg?style=for-the-badge)
-![version](https://img.shields.io/badge/Version-0.2.0-orange.svg?style=for-the-badge)
+![version](https://img.shields.io/badge/Version-0.2.1-orange.svg?style=for-the-badge)
 
 [![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
 ![catia](https://img.shields.io/badge/CATIA-V5%206R2017-blue.svg?style=for-the-badge)
@@ -89,7 +89,7 @@ python -m pytia
 This generates the following output:
 
 ```plain
-PYTIA 0.2.0
+PYTIA 0.2.1
 
 Usage: python -m pytia [OPTIONS] COMMAND [ARGS]...
 
@@ -126,7 +126,7 @@ python -m pytia box
 This will create the following sample output:
 
 ```powershell
-PYTIA 0.2.0
+PYTIA 0.2.1
 
 [ INFO ]  Bounding box of the current part:
           X = 100.0mm
@@ -336,6 +336,7 @@ python -m pdoc --http : pytia
 
 ## 5 changelog
 
+**v0.2.1**: Add docket generator.  
 **v0.2.0**: Add drawing document wrapper.  
 **v0.1.1**: Add `delete` method to the properties wrapper.  
 **v0.1.0**: Initial commit.  
