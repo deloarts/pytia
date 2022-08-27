@@ -1,12 +1,13 @@
 import os
+from pathlib import Path
 from random import randint
 from tempfile import gettempdir
 
 import pytest
 
 test_name = "pytest_test_parameter"
-test_folder = gettempdir()
-test_path = f"{test_folder}{os.sep}{test_name}.CATPart"
+test_folder = Path(gettempdir())
+test_path = Path(test_folder, test_name + ".CATPart")
 test_property_name = "test_" + str(randint(10000, 99999))
 test_property_value = "test_" + str(randint(10000, 99999))
 

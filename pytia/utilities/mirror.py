@@ -2,6 +2,7 @@
     Utility for mirroring a part.
 """
 import os
+from pathlib import Path
 from typing import Optional
 
 from pytia.exceptions import (
@@ -18,15 +19,15 @@ from pytia.wrapper.documents.part_documents import PyPartDocument
 def mirror_main_body(
     postfix: str = "_mirror",
     keep_open: bool = True,
-    folder: Optional[str] = None,
-) -> str:
+    folder: Optional[Path] = None,
+) -> Path:
     """
     Mirrors the current parts main body to a new part file. Returns the path of the saved file.
 
     Args:
         postfix (str, optional): The postfix of the filename and partnumber. Defaults to "_mirror".
         keep_open (bool, optional): Keeps the mirrored document opens. Defaults to True.
-        folder (Optional[str], optional): The target folder for the mirrored part. \
+        folder (Optional[Path], optional): The target folder for the mirrored part. \
             Defaults to None. Uses the original parts folder when None.
 
     Raises:
@@ -35,7 +36,7 @@ def mirror_main_body(
         PytiaBodyNotFoundError: Raised when the main body cannot be found in the mirrored part.
 
     Returns:
-        str: The full path of the mirrored part.
+        Path: The full path of the mirrored part.
     """
     original_document = PyPartDocument()
     original_document.current()
@@ -46,8 +47,8 @@ def mirror_main_body(
     original_main_body = original_document.bodies.main_body
     original_selection = original_document.document.selection
     original_name = original_part.name
-    original_path = original_document.document.full_name
-    original_folder = original_path.split(original_name)[0]
+    original_path = Path(original_document.document.full_name)
+    original_folder = Path(original_path.parent)
 
     if original_document.bodies.is_empty(
         original_main_body, count_sketches=False, count_hybrid_bodies=False
@@ -61,7 +62,7 @@ def mirror_main_body(
     if not folder:
         folder = original_folder
     folder = verify_folder(folder)
-    new_path = f"{folder}{os.sep}{new_name}.CATPart"
+    new_path = Path(folder, new_name + ".CATPart")
 
     if os.path.exists(new_path):
         raise PytiaFileExistsError(
@@ -124,5 +125,5 @@ def mirror_main_body(
     if not keep_open:
         new_document.close()
 
-    log.info(f"Exported mirrored part to {new_path!r}")
+    log.info(f"Exported mirrored part to {str(new_path)!r}")
     return new_path

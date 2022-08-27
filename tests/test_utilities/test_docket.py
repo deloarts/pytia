@@ -11,7 +11,7 @@ from pytia.wrapper.documents.drawing_documents import PyDrawingDocument
 
 template_name = "pytia_test_docket_template"
 test_name = "pytia_test_docket"
-temp_folder = gettempdir()
+temp_folder = Path(gettempdir())
 config = {
     "texts": [
         {"name": "text.partnumber", "value": "Partnumber", "view": "bg"},
@@ -94,7 +94,7 @@ def test_create_docket_from_template():
     from pytia.wrapper.documents.drawing_documents import PyDrawingDocument
     from pytia.wrapper.documents.part_documents import PyPartDocument
 
-    def prepare_docket_template() -> str:
+    def prepare_docket_template() -> Path:
         with PyDrawingDocument() as drawing_document:
             drawing_document.new(name=template_name)
 

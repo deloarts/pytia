@@ -1,13 +1,12 @@
 import os
+from pathlib import Path
 from tempfile import gettempdir
 
 from pytia.const import BACKGROUND_VIEW, FOREGROUND_VIEW
 
 test_name = "pytest_test_drawing_document"
-test_folder = gettempdir()
-test_folder_wrong_sep = test_folder.replace(os.sep, "/")
-test_path = f"{test_folder}{os.sep}{test_name}.CATDrawing"
-test_path_wrong_sep = test_path.replace(os.sep, "/")
+test_folder = Path(gettempdir())
+test_path = Path(test_folder, test_name + ".CATDrawing")
 
 
 def test_import():
@@ -47,21 +46,6 @@ def test_new_save():
     assert os.path.exists(test_path)
     assert name == test_name
     os.remove(test_path)
-
-
-def test_new_save_wrong_sep():
-    """
-    Tests if the new drawing document can be saved with the linux style folder sep.
-    This test only passes when CATIA is running.
-    """
-    from pytia.wrapper.documents.drawing_documents import PyDrawingDocument
-
-    with PyDrawingDocument() as drawing_document:
-        drawing_document.new(name=test_name)
-        drawing_document.save_as(folder=test_folder_wrong_sep)
-
-    assert os.path.exists(test_path_wrong_sep)
-    os.remove(test_path_wrong_sep)
 
 
 def test_open():
@@ -116,5 +100,4 @@ if __name__ == "__main__":
     test_import()
     test_new()
     test_new_save()
-    test_new_save_wrong_sep()
     test_open()

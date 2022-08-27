@@ -80,7 +80,7 @@ class DocketConfig:
 
 
 def create_docket_from_template(
-    template: str,
+    template: Path,
     document: PyPartDocument | PyProductDocument,
     config: DocketConfig,
     hide_unknown_properties: bool = False,
@@ -91,7 +91,7 @@ def create_docket_from_template(
     The docket (CATDrawing) will be left open as ActiveDocument, you have to close it manually.
 
     Args:
-        template (str): The path (folder and filename) of the template.
+        template (Path): The path (folder and filename) of the template.
         document (PyPartDocument | PyProductDocument): The part or product document from which \
             to create the docket
         config (DocketConfig): The docket configuration dataclass.
@@ -216,7 +216,7 @@ def create_docket_from_template(
 
 
 def export_docket_as_pdf(
-    docket: PyDrawingDocument, name: str, folder: str, close: bool = True
+    docket: PyDrawingDocument, name: str, folder: Path, close: bool = True
 ) -> str:
     """
     Exports the docket as pdf.

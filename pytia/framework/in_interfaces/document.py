@@ -144,8 +144,8 @@ class Document(AnyObject):
     def save(self) -> None:
         self.document.Save()
 
-    def save_as(self, full_name: str) -> None:
-        self.document.SaveAs(full_name)
+    def save_as(self, full_name: Path) -> None:
+        self.document.SaveAs(str(full_name))
 
     def spa_workbench(self):
         return SPAWorkbench(self.com_object)

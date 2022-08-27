@@ -2,6 +2,8 @@
     Wrapper module for handling part documents.
 """
 
+from pathlib import Path
+
 from pytia import __version__
 from pytia.const import FILE_EXTENSION_PART, GET_ITEM_MATERIAL_MANAGER
 from pytia.exceptions import PytiaDocumentNameConventionError
@@ -105,12 +107,12 @@ class PyPartDocument(PyBaseDocument):
             self._part, material, i_link_mode=True
         )
 
-    def open(self, path: str) -> None:
+    def open(self, path: Path) -> None:
         """
         Opens the part document from the given path.
 
         Args:
-            path (str): The full path to the part document.
+            path (Path): The full path to the part document.
 
         Raises:
             PytiaDocumentNameConventionError: Raised when strict mode is enabled and the filename \
@@ -158,13 +160,13 @@ class PyPartDocument(PyBaseDocument):
 
         log.info(f"Renamed document {old_name!r} to {self.document.name!r}")
 
-    def new_from(self, path: str, name: str) -> None:
+    def new_from(self, path: Path, name: str) -> None:
         """
         Creates a new PartDocument from an existing one and sets it as ActiveDocument.
         Filename, PartNumber and MainBody will be set to the given name.
 
         Args:
-            path (str): The full path to the source part document
+            path (Path): The full path to the source part document
             name (str): The name (filename and partnumber) of the new part.
         """
         super().new_from(path=path, name=name)

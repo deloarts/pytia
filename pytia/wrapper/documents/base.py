@@ -3,6 +3,7 @@
 """
 
 import os
+from pathlib import Path
 from typing import Any, List, Optional
 
 from pytia import __version__
@@ -76,12 +77,12 @@ class PyBaseDocument:
         """Returns the representation of the object."""
         return f"PyDocuments({self.document.name})"
 
-    def load(self, path: str) -> Document:
+    def load(self, path: Path) -> Document:
         """
         Loads the document without creating a window.
 
         Args:
-            path (str): The path to the document to load.
+            path (Path): The path to the document to load.
 
         Raises:
             PytiaFileNotFoundError: Raised if the document does not exist.
@@ -91,23 +92,21 @@ class PyBaseDocument:
         Returns:
             Document: _description_
         """
-        path = path.replace("/", os.sep)
-
-        if not os.path.exists(path):
+        if not path.exists():
             raise PytiaFileNotFoundError(
-                f"Failed loading file {path!r}: Does not exist"
+                f"Failed loading file {str(path)!r}: Does not exist"
             )
 
-        if not self._doctype in path:
+        if not self._doctype in str(path):
             raise PytiaWrongDocumentTypeError(
-                f"Failed loading file {path!r}: Not a {self._doctype}"
+                f"Failed loading file {str(path)!r}: Not a {self._doctype}"
             )
 
         try:
             self.document = self.documents.read(file_name=path)
         except Exception as e:
             raise PytiaDocumentOperationError(
-                f"Failed opening document from {path!r}: {e}"
+                f"Failed opening document from {str(path)!r}: {e}"
             ) from e
 
         log.info(
@@ -116,12 +115,12 @@ class PyBaseDocument:
         )
         return self.document
 
-    def open(self, path: str) -> Document:
+    def open(self, path: Path) -> Document:
         """
         Opens the document from the given path.
 
         Args:
-            path (str): The path to the document to open.
+            path (Path): The path to the document to open.
 
         Raises:
             PytiaFileNotFoundError: Raised if the document does not exist.
@@ -129,25 +128,23 @@ class PyBaseDocument:
             PytiaDocumentOperationError: Raised if the cannot be opened.
 
         Returns:
-            Document: _description_
+            Document: The opened document.
         """
-        path = path.replace("/", os.sep)
-
-        if not os.path.exists(path):
+        if not path.exists():
             raise PytiaFileNotFoundError(
-                f"Failed opening file {path!r}: Does not exist"
+                f"Failed opening file {str(path)!r}: Does not exist"
             )
 
-        if not self._doctype in path:
+        if not self._doctype in str(path):
             raise PytiaWrongDocumentTypeError(
-                f"Failed opening file {path!r}: Not a {self._doctype}"
+                f"Failed opening file {str(path)!r}: Not a {self._doctype}"
             )
 
         try:
             self.documents.open(path)
         except Exception as e:
             raise PytiaDocumentOperationError(
-                f"Failed opening document from {path!r}: {e}"
+                f"Failed opening document from {str(path)!r}: {e}"
             ) from e
 
         self.document = self._framework.catia.active_document
@@ -207,12 +204,12 @@ class PyBaseDocument:
         log.info(f"Created new document {self.document.name!r}")
         return self.document
 
-    def new_from(self, path: str, name: str) -> Document:
+    def new_from(self, path: Path, name: str) -> Document:
         """
         Creates a new Document from an existing one and sets it as ActiveDocument.
 
         Args:
-            path (str): The path to the original document.
+            path (Path): The path to the original document.
             name (str): The name of the new document.
 
         Raises:
@@ -229,7 +226,7 @@ class PyBaseDocument:
         self.documents.new_from(path)
         self.document = self._framework.catia.active_document
 
-        log.info(f"Created new document {self.document.name!r} from {path!r}")
+        log.info(f"Created new document {self.document.name!r} from {str(path)!r}")
         return self.document
 
     def close(self) -> None:
@@ -270,24 +267,23 @@ class PyBaseDocument:
             )
         return self.document.full_name
 
-    def save_as(self, folder: str, overwrite: bool = True) -> str:
+    def save_as(self, folder: Path, overwrite: bool = True) -> Path:
         """
         Saves the document in the given folder.
         Overwrites any existing document by default.
         Returns the path (folder & filename) of the saved document.
 
         Args:
-            folder (str): The folder in which the document should be saved.
+            folder (Path): The folder in which the document should be saved.
             overwrite (bool, optional): Overwrites any existing files. EachDefaults to True.
 
         Raises:
             PytiaFileExistsError: Raised if the file already exists and overwrite is False.
 
         Returns:
-            str: The full path to the saved document with filename and extension.
+            Path: The full path to the saved document with filename and extension.
         """
-        folder = verify_folder(folder=folder, absolute=True)
-        filepath = f"{folder}{os.sep}{self.document.name}"
+        filepath = Path(verify_folder(folder=folder, absolute=True), self.document.name)
 
         if os.path.exists(filepath):
             if overwrite:
@@ -304,7 +300,7 @@ class PyBaseDocument:
         log.info(
             f"Saved document {self.document.name!r} to {self.document.full_name!r}"
         )
-        return self.document.full_name
+        return Path(self.document.full_name)
 
     def delete_objects(self, objects: List[Any]) -> None:
         """Deletes all objects of the given list. Uses the documents selection."""
