@@ -107,7 +107,7 @@ def create_docket_from_template(
     Returns:
         PyDrawingDocument: Returns the docket as PyDrawingDocument.
     """
-    if not os.path.isfile(template):
+    if not template.is_file():
         raise PytiaFileNotFoundError(
             f"Cannot open docket template {template!r}: Not a file."
         )
