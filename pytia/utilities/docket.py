@@ -233,7 +233,10 @@ def export_docket_as_pdf(
     Returns:
         str: The path to the exported pdf file (folder, filename and extension).
     """
-    export_path = Path(verify_folder(folder), name + ".pdf")
+
+    if ".pdf" not in name:
+        name += ".pdf"
+    export_path = Path(verify_folder(folder), name)
 
     if os.path.exists(export_path):
         try:
