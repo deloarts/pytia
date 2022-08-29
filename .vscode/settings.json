@@ -13,6 +13,7 @@
         "levelname",
         "measurables",
         "partnumber",
+        "pathlib",
         "pdoc",
         "psutil",
         "pycatia",
