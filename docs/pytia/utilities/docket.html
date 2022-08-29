@@ -109,7 +109,7 @@ class DocketConfig:
 
 
 def create_docket_from_template(
-    template: str,
+    template: Path,
     document: PyPartDocument | PyProductDocument,
     config: DocketConfig,
     hide_unknown_properties: bool = False,
@@ -120,7 +120,7 @@ def create_docket_from_template(
     The docket (CATDrawing) will be left open as ActiveDocument, you have to close it manually.
 
     Args:
-        template (str): The path (folder and filename) of the template.
+        template (Path): The path (folder and filename) of the template.
         document (PyPartDocument | PyProductDocument): The part or product document from which \
             to create the docket
         config (DocketConfig): The docket configuration dataclass.
@@ -136,7 +136,7 @@ def create_docket_from_template(
     Returns:
         PyDrawingDocument: Returns the docket as PyDrawingDocument.
     &#34;&#34;&#34;
-    if not os.path.isfile(template):
+    if not template.is_file():
         raise PytiaFileNotFoundError(
             f&#34;Cannot open docket template {template!r}: Not a file.&#34;
         )
@@ -245,7 +245,7 @@ def create_docket_from_template(
 
 
 def export_docket_as_pdf(
-    docket: PyDrawingDocument, name: str, folder: str, close: bool = True
+    docket: PyDrawingDocument, name: str, folder: Path, close: bool = True
 ) -&gt; str:
     &#34;&#34;&#34;
     Exports the docket as pdf.
@@ -262,7 +262,10 @@ def export_docket_as_pdf(
     Returns:
         str: The path to the exported pdf file (folder, filename and extension).
     &#34;&#34;&#34;
-    export_path = Path(verify_folder(folder), name + &#34;.pdf&#34;)
+
+    if &#34;.pdf&#34; not in name:
+        name += &#34;.pdf&#34;
+    export_path = Path(verify_folder(folder), name)
 
     if os.path.exists(export_path):
         try:
@@ -288,14 +291,14 @@ def export_docket_as_pdf(
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="pytia.utilities.docket.create_docket_from_template"><code class="name flex">
-<span>def <span class="ident">create_docket_from_template</span></span>(<span>template: str, document: PyPartDocument | PyProductDocument, config: <a title="pytia.utilities.docket.DocketConfig" href="#pytia.utilities.docket.DocketConfig">DocketConfig</a>, hide_unknown_properties: bool = False, **kwargs) ‑> <a title="pytia.wrapper.documents.drawing_documents.PyDrawingDocument" href="../wrapper/documents/drawing_documents.html#pytia.wrapper.documents.drawing_documents.PyDrawingDocument">PyDrawingDocument</a></span>
+<span>def <span class="ident">create_docket_from_template</span></span>(<span>template: Path, document: PyPartDocument | PyProductDocument, config: <a title="pytia.utilities.docket.DocketConfig" href="#pytia.utilities.docket.DocketConfig">DocketConfig</a>, hide_unknown_properties: bool = False, **kwargs) ‑> <a title="pytia.wrapper.documents.drawing_documents.PyDrawingDocument" href="../wrapper/documents/drawing_documents.html#pytia.wrapper.documents.drawing_documents.PyDrawingDocument">PyDrawingDocument</a></span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a docket from a template.
 The docket (CATDrawing) will be left open as ActiveDocument, you have to close it manually.</p>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>template</code></strong> :&ensp;<code>str</code></dt>
+<dt><strong><code>template</code></strong> :&ensp;<code>Path</code></dt>
 <dd>The path (folder and filename) of the template.</dd>
 <dt>document (PyPartDocument | PyProductDocument): The part or product document from which
 to create the docket</dt>
@@ -323,7 +326,7 @@ element with the name 'arg.quantity' you have to supply the argument <code>quant
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def create_docket_from_template(
-    template: str,
+    template: Path,
     document: PyPartDocument | PyProductDocument,
     config: DocketConfig,
     hide_unknown_properties: bool = False,
@@ -334,7 +337,7 @@ element with the name 'arg.quantity' you have to supply the argument <code>quant
     The docket (CATDrawing) will be left open as ActiveDocument, you have to close it manually.
 
     Args:
-        template (str): The path (folder and filename) of the template.
+        template (Path): The path (folder and filename) of the template.
         document (PyPartDocument | PyProductDocument): The part or product document from which \
             to create the docket
         config (DocketConfig): The docket configuration dataclass.
@@ -350,7 +353,7 @@ element with the name 'arg.quantity' you have to supply the argument <code>quant
     Returns:
         PyDrawingDocument: Returns the docket as PyDrawingDocument.
     &#34;&#34;&#34;
-    if not os.path.isfile(template):
+    if not template.is_file():
         raise PytiaFileNotFoundError(
             f&#34;Cannot open docket template {template!r}: Not a file.&#34;
         )
@@ -459,7 +462,7 @@ element with the name 'arg.quantity' you have to supply the argument <code>quant
 </details>
 </dd>
 <dt id="pytia.utilities.docket.export_docket_as_pdf"><code class="name flex">
-<span>def <span class="ident">export_docket_as_pdf</span></span>(<span>docket: PyDrawingDocument, name: str, folder: str, close: bool = True) ‑> str</span>
+<span>def <span class="ident">export_docket_as_pdf</span></span>(<span>docket: PyDrawingDocument, name: str, folder: Path, close: bool = True) ‑> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Exports the docket as pdf.</p>
@@ -489,7 +492,7 @@ element with the name 'arg.quantity' you have to supply the argument <code>quant
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def export_docket_as_pdf(
-    docket: PyDrawingDocument, name: str, folder: str, close: bool = True
+    docket: PyDrawingDocument, name: str, folder: Path, close: bool = True
 ) -&gt; str:
     &#34;&#34;&#34;
     Exports the docket as pdf.
@@ -506,7 +509,10 @@ element with the name 'arg.quantity' you have to supply the argument <code>quant
     Returns:
         str: The path to the exported pdf file (folder, filename and extension).
     &#34;&#34;&#34;
-    export_path = Path(verify_folder(folder), name + &#34;.pdf&#34;)
+
+    if &#34;.pdf&#34; not in name:
+        name += &#34;.pdf&#34;
+    export_path = Path(verify_folder(folder), name)
 
     if os.path.exists(export_path):
         try:

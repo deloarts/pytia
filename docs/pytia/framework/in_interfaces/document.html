@@ -172,8 +172,8 @@ class Document(AnyObject):
     def save(self) -&gt; None:
         self.document.Save()
 
-    def save_as(self, full_name: str) -&gt; None:
-        self.document.SaveAs(full_name)
+    def save_as(self, full_name: Path) -&gt; None:
+        self.document.SaveAs(str(full_name))
 
     def spa_workbench(self):
         return SPAWorkbench(self.com_object)
@@ -332,8 +332,8 @@ class Document(AnyObject):
     def save(self) -&gt; None:
         self.document.Save()
 
-    def save_as(self, full_name: str) -&gt; None:
-        self.document.SaveAs(full_name)
+    def save_as(self, full_name: Path) -&gt; None:
+        self.document.SaveAs(str(full_name))
 
     def spa_workbench(self):
         return SPAWorkbench(self.com_object)
@@ -673,7 +673,7 @@ def selection(self) -&gt; &#34;Selection&#34;:
 </details>
 </dd>
 <dt id="pytia.framework.in_interfaces.document.Document.save_as"><code class="name flex">
-<span>def <span class="ident">save_as</span></span>(<span>self, full_name: str) ‑> None</span>
+<span>def <span class="ident">save_as</span></span>(<span>self, full_name: pathlib.Path) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -681,8 +681,8 @@ def selection(self) -&gt; &#34;Selection&#34;:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def save_as(self, full_name: str) -&gt; None:
-    self.document.SaveAs(full_name)</code></pre>
+<pre><code class="python">def save_as(self, full_name: Path) -&gt; None:
+    self.document.SaveAs(str(full_name))</code></pre>
 </details>
 </dd>
 <dt id="pytia.framework.in_interfaces.document.Document.spa_workbench"><code class="name flex">

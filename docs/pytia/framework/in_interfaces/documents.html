@@ -26,13 +26,14 @@
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">import os
-import warnings
+<pre><code class="python">import warnings
+from pathlib import Path
 from typing import Iterator
+
+from pytia.framework.cat_types.general import cat_variant, list_str
 from pytia.framework.exception_handling import CATIAApplicationException
 from pytia.framework.in_interfaces.document import Document
 from pytia.framework.system_interfaces.collection import Collection
-from pytia.framework.cat_types.general import cat_variant, list_str
 
 
 class Documents(Collection):
@@ -58,8 +59,8 @@ class Documents(Collection):
             [True for name in items for typ in type_list if name.lower().find(typ) &gt; 0]
         )
 
-    def new_from(self, full_name: str) -&gt; Document:
-        return Document(self.documents.NewFrom(full_name))
+    def new_from(self, full_name: Path) -&gt; Document:
+        return Document(self.documents.NewFrom(str(full_name)))
 
     def item(self, index: cat_variant) -&gt; Document:
         try:
@@ -76,11 +77,11 @@ class Documents(Collection):
         warnings.warn(warning_string)
         return self.documents.Count
 
-    def open(self, file_name: str) -&gt; Document:
-        return Document(self.documents.Open(file_name))
+    def open(self, file_name: Path) -&gt; Document:
+        return Document(self.documents.Open(str(file_name)))
 
-    def read(self, file_name: str) -&gt; Document:
-        return Document(self.documents.Read(file_name))
+    def read(self, file_name: Path) -&gt; Document:
+        return Document(self.documents.Read(str(file_name)))
 
     def __getitem__(self, n: int) -&gt; Document:
         if (n + 1) &gt; self.count:
@@ -137,8 +138,8 @@ class Documents(Collection):
             [True for name in items for typ in type_list if name.lower().find(typ) &gt; 0]
         )
 
-    def new_from(self, full_name: str) -&gt; Document:
-        return Document(self.documents.NewFrom(full_name))
+    def new_from(self, full_name: Path) -&gt; Document:
+        return Document(self.documents.NewFrom(str(full_name)))
 
     def item(self, index: cat_variant) -&gt; Document:
         try:
@@ -155,11 +156,11 @@ class Documents(Collection):
         warnings.warn(warning_string)
         return self.documents.Count
 
-    def open(self, file_name: str) -&gt; Document:
-        return Document(self.documents.Open(file_name))
+    def open(self, file_name: Path) -&gt; Document:
+        return Document(self.documents.Open(str(file_name)))
 
-    def read(self, file_name: str) -&gt; Document:
-        return Document(self.documents.Read(file_name))
+    def read(self, file_name: Path) -&gt; Document:
+        return Document(self.documents.Read(str(file_name)))
 
     def __getitem__(self, n: int) -&gt; Document:
         if (n + 1) &gt; self.count:
@@ -234,7 +235,7 @@ class Documents(Collection):
 </details>
 </dd>
 <dt id="pytia.framework.in_interfaces.documents.Documents.new_from"><code class="name flex">
-<span>def <span class="ident">new_from</span></span>(<span>self, full_name: str) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
+<span>def <span class="ident">new_from</span></span>(<span>self, full_name: pathlib.Path) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -242,8 +243,8 @@ class Documents(Collection):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def new_from(self, full_name: str) -&gt; Document:
-    return Document(self.documents.NewFrom(full_name))</code></pre>
+<pre><code class="python">def new_from(self, full_name: Path) -&gt; Document:
+    return Document(self.documents.NewFrom(str(full_name)))</code></pre>
 </details>
 </dd>
 <dt id="pytia.framework.in_interfaces.documents.Documents.num_open"><code class="name flex">
@@ -266,7 +267,7 @@ class Documents(Collection):
 </details>
 </dd>
 <dt id="pytia.framework.in_interfaces.documents.Documents.open"><code class="name flex">
-<span>def <span class="ident">open</span></span>(<span>self, file_name: str) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
+<span>def <span class="ident">open</span></span>(<span>self, file_name: pathlib.Path) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -274,12 +275,12 @@ class Documents(Collection):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def open(self, file_name: str) -&gt; Document:
-    return Document(self.documents.Open(file_name))</code></pre>
+<pre><code class="python">def open(self, file_name: Path) -&gt; Document:
+    return Document(self.documents.Open(str(file_name)))</code></pre>
 </details>
 </dd>
 <dt id="pytia.framework.in_interfaces.documents.Documents.read"><code class="name flex">
-<span>def <span class="ident">read</span></span>(<span>self, file_name: str) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
+<span>def <span class="ident">read</span></span>(<span>self, file_name: pathlib.Path) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -287,8 +288,8 @@ class Documents(Collection):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def read(self, file_name: str) -&gt; Document:
-    return Document(self.documents.Read(file_name))</code></pre>
+<pre><code class="python">def read(self, file_name: Path) -&gt; Document:
+    return Document(self.documents.Read(str(file_name)))</code></pre>
 </details>
 </dd>
 </dl>

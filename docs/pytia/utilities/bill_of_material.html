@@ -33,6 +33,7 @@
 
 import os
 import tempfile
+from pathlib import Path
 from typing import Optional
 
 from pytia.const import ENV_IGNORE_BOM_ERROR, GET_ITEM_BILL_OF_MATERIAL, KNOWN_ERRORS
@@ -102,24 +103,24 @@ def set_secondary_format(format_: tuple, product: Optional[Product] = None) -&gt
 
 def export_bom(
     filename: Optional[str] = None,
-    folder: Optional[str] = None,
+    folder: Optional[Path] = None,
     overwrite: bool = False,
     product: Optional[Product] = None,
-) -&gt; str:
+) -&gt; Path:
     &#34;&#34;&#34;
     Exports the bill of material of the current product as excel file to the specified path.
     Returns the path (folder and filename) of the bill of material.
 
     Args:
         filename (Optional[str], optional): The filename of the BOM. Defaults to None.
-        folder (Optional[str], optional): The folder to which the BOM will be saved. \
+        folder (Optional[Path], optional): The folder to which the BOM will be saved. \
             Defaults to None.
         overwrite (bool, optional): Overwrites any existing files if True. Defaults to False.
         product (Optional[Product], optional): The product from which the BOM will be extracted. \
             Defaults to None. If None the currently open CATProduct will be used.
 
     Returns:
-        str: The full path of the exported BOM.
+        Path: The full path of the exported BOM.
     &#34;&#34;&#34;
 
     def fallback():
@@ -153,7 +154,7 @@ def export_bom(
         filename = filename + &#34;.xls&#34;
 
     if folder is None:
-        folder = tempfile.gettempdir()
+        folder = Path(tempfile.gettempdir())
     else:
         folder = verify_folder(folder)
 
@@ -161,7 +162,7 @@ def export_bom(
         os.makedirs(folder)
         log.info(f&#34;Created new folder: {folder!r}&#34;)
 
-    path = f&#34;{folder.replace(&#39;/&#39;, os.sep)}{os.sep}{filename}&#34;
+    path = Path(folder, filename)
 
     if os.path.isfile(path):
         if overwrite:
@@ -177,7 +178,7 @@ def export_bom(
         # bom.print(&#34;XLS&#34;, path, product)
         bom = product.get_item(GET_ITEM_BILL_OF_MATERIAL)
         assembly_convertor = AssemblyConvertor(bom.com_object)
-        assembly_convertor.print(&#34;XLS&#34;, path, product)
+        assembly_convertor.print(&#34;XLS&#34;, str(path), product)
         log.info(f&#34;Exported BOM of {product.name!r} as {path!r}&#34;)
     except Exception as e:  # pylint: disable=W0703
         if not ENV_IGNORE_BOM_ERROR:
@@ -204,7 +205,7 @@ def export_bom(
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="pytia.utilities.bill_of_material.export_bom"><code class="name flex">
-<span>def <span class="ident">export_bom</span></span>(<span>filename: Optional[str] = None, folder: Optional[str] = None, overwrite: bool = False, product: Optional[<a title="pytia.framework.product_structure_interfaces.product.Product" href="../framework/product_structure_interfaces/product.html#pytia.framework.product_structure_interfaces.product.Product">Product</a>] = None) ‑> str</span>
+<span>def <span class="ident">export_bom</span></span>(<span>filename: Optional[str] = None, folder: Optional[pathlib.Path] = None, overwrite: bool = False, product: Optional[<a title="pytia.framework.product_structure_interfaces.product.Product" href="../framework/product_structure_interfaces/product.html#pytia.framework.product_structure_interfaces.product.Product">Product</a>] = None) ‑> pathlib.Path</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Exports the bill of material of the current product as excel file to the specified path.
@@ -213,7 +214,7 @@ Returns the path (folder and filename) of the bill of material.</p>
 <dl>
 <dt><strong><code>filename</code></strong> :&ensp;<code>Optional[str]</code>, optional</dt>
 <dd>The filename of the BOM. Defaults to None.</dd>
-<dt><strong><code>folder</code></strong> :&ensp;<code>Optional[str]</code>, optional</dt>
+<dt><strong><code>folder</code></strong> :&ensp;<code>Optional[Path]</code>, optional</dt>
 <dd>The folder to which the BOM will be saved.
 Defaults to None.</dd>
 <dt><strong><code>overwrite</code></strong> :&ensp;<code>bool</code>, optional</dt>
@@ -224,7 +225,7 @@ Defaults to None. If None the currently open CATProduct will be used.</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><code>str</code></dt>
+<dt><code>Path</code></dt>
 <dd>The full path of the exported BOM.</dd>
 </dl></div>
 <details class="source">
@@ -233,24 +234,24 @@ Defaults to None. If None the currently open CATProduct will be used.</dd>
 </summary>
 <pre><code class="python">def export_bom(
     filename: Optional[str] = None,
-    folder: Optional[str] = None,
+    folder: Optional[Path] = None,
     overwrite: bool = False,
     product: Optional[Product] = None,
-) -&gt; str:
+) -&gt; Path:
     &#34;&#34;&#34;
     Exports the bill of material of the current product as excel file to the specified path.
     Returns the path (folder and filename) of the bill of material.
 
     Args:
         filename (Optional[str], optional): The filename of the BOM. Defaults to None.
-        folder (Optional[str], optional): The folder to which the BOM will be saved. \
+        folder (Optional[Path], optional): The folder to which the BOM will be saved. \
             Defaults to None.
         overwrite (bool, optional): Overwrites any existing files if True. Defaults to False.
         product (Optional[Product], optional): The product from which the BOM will be extracted. \
             Defaults to None. If None the currently open CATProduct will be used.
 
     Returns:
-        str: The full path of the exported BOM.
+        Path: The full path of the exported BOM.
     &#34;&#34;&#34;
 
     def fallback():
@@ -284,7 +285,7 @@ Defaults to None. If None the currently open CATProduct will be used.</dd>
         filename = filename + &#34;.xls&#34;
 
     if folder is None:
-        folder = tempfile.gettempdir()
+        folder = Path(tempfile.gettempdir())
     else:
         folder = verify_folder(folder)
 
@@ -292,7 +293,7 @@ Defaults to None. If None the currently open CATProduct will be used.</dd>
         os.makedirs(folder)
         log.info(f&#34;Created new folder: {folder!r}&#34;)
 
-    path = f&#34;{folder.replace(&#39;/&#39;, os.sep)}{os.sep}{filename}&#34;
+    path = Path(folder, filename)
 
     if os.path.isfile(path):
         if overwrite:
@@ -308,7 +309,7 @@ Defaults to None. If None the currently open CATProduct will be used.</dd>
         # bom.print(&#34;XLS&#34;, path, product)
         bom = product.get_item(GET_ITEM_BILL_OF_MATERIAL)
         assembly_convertor = AssemblyConvertor(bom.com_object)
-        assembly_convertor.print(&#34;XLS&#34;, path, product)
+        assembly_convertor.print(&#34;XLS&#34;, str(path), product)
         log.info(f&#34;Exported BOM of {product.name!r} as {path!r}&#34;)
     except Exception as e:  # pylint: disable=W0703
         if not ENV_IGNORE_BOM_ERROR:

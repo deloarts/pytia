@@ -30,6 +30,7 @@
 <pre><code class="python">&#34;&#34;&#34;
     Wrapper module for CATIA material documents.
 &#34;&#34;&#34;
+from pathlib import Path
 
 from pytia import __version__
 from pytia.const import FILE_EXTENSION_MATERIAL
@@ -63,17 +64,17 @@ class PyMaterialDocument(PyBaseDocument):
         self._material_document = MaterialDocument(self.document.com_object)
         self._catalog = PyMaterialCatalog(self._material_document)
 
-    def load(self, path: str) -&gt; None:
+    def load(self, path: Path) -&gt; None:
         &#34;&#34;&#34;
         Loads the given material file without creating a window.
 
         Args:
-            path (str): The full file path to the material catalog.
+            path (Path): The full file path to the material catalog.
         &#34;&#34;&#34;
         super().load(path)
         self.__bind()
 
-    def open(self, path: str) -&gt; None:
+    def open(self, path: Path) -&gt; None:
         &#34;&#34;&#34;
         Opens the given material file.
 
@@ -81,7 +82,7 @@ class PyMaterialDocument(PyBaseDocument):
             Not implemented yet.
 
         Args:
-            path (str): The full file path to the material catalog.
+            path (Path): The full file path to the material catalog.
 
         Raises:
             PytiaNotImplementedError: Always raised.
@@ -115,7 +116,7 @@ class PyMaterialDocument(PyBaseDocument):
         &#34;&#34;&#34;
         raise PytiaNotImplementedError()
 
-    def new_from(self, path: str, name: str) -&gt; None:
+    def new_from(self, path: Path, name: str) -&gt; None:
         &#34;&#34;&#34;
         Creates a new material document from an existing one.
 
@@ -123,6 +124,7 @@ class PyMaterialDocument(PyBaseDocument):
             Not implemented yet.
 
         Args:
+            path (Path): The path to the original material document.
             name (str): The name of the new material document.
 
         Raises:
@@ -174,17 +176,17 @@ class PyMaterialDocument(PyBaseDocument):
         self._material_document = MaterialDocument(self.document.com_object)
         self._catalog = PyMaterialCatalog(self._material_document)
 
-    def load(self, path: str) -&gt; None:
+    def load(self, path: Path) -&gt; None:
         &#34;&#34;&#34;
         Loads the given material file without creating a window.
 
         Args:
-            path (str): The full file path to the material catalog.
+            path (Path): The full file path to the material catalog.
         &#34;&#34;&#34;
         super().load(path)
         self.__bind()
 
-    def open(self, path: str) -&gt; None:
+    def open(self, path: Path) -&gt; None:
         &#34;&#34;&#34;
         Opens the given material file.
 
@@ -192,7 +194,7 @@ class PyMaterialDocument(PyBaseDocument):
             Not implemented yet.
 
         Args:
-            path (str): The full file path to the material catalog.
+            path (Path): The full file path to the material catalog.
 
         Raises:
             PytiaNotImplementedError: Always raised.
@@ -226,7 +228,7 @@ class PyMaterialDocument(PyBaseDocument):
         &#34;&#34;&#34;
         raise PytiaNotImplementedError()
 
-    def new_from(self, path: str, name: str) -&gt; None:
+    def new_from(self, path: Path, name: str) -&gt; None:
         &#34;&#34;&#34;
         Creates a new material document from an existing one.
 
@@ -234,6 +236,7 @@ class PyMaterialDocument(PyBaseDocument):
             Not implemented yet.
 
         Args:
+            path (Path): The path to the original material document.
             name (str): The name of the new material document.
 
         Raises:
@@ -308,25 +311,25 @@ def material_document(self) -&gt; MaterialDocument:
 </details>
 </dd>
 <dt id="pytia.wrapper.documents.material_documents.PyMaterialDocument.load"><code class="name flex">
-<span>def <span class="ident">load</span></span>(<span>self, path: str) ‑> None</span>
+<span>def <span class="ident">load</span></span>(<span>self, path: pathlib.Path) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Loads the given material file without creating a window.</p>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
+<dt><strong><code>path</code></strong> :&ensp;<code>Path</code></dt>
 <dd>The full file path to the material catalog.</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def load(self, path: str) -&gt; None:
+<pre><code class="python">def load(self, path: Path) -&gt; None:
     &#34;&#34;&#34;
     Loads the given material file without creating a window.
 
     Args:
-        path (str): The full file path to the material catalog.
+        path (Path): The full file path to the material catalog.
     &#34;&#34;&#34;
     super().load(path)
     self.__bind()</code></pre>
@@ -372,7 +375,7 @@ def material_document(self) -&gt; MaterialDocument:
 </details>
 </dd>
 <dt id="pytia.wrapper.documents.material_documents.PyMaterialDocument.new_from"><code class="name flex">
-<span>def <span class="ident">new_from</span></span>(<span>self, path: str, name: str) ‑> None</span>
+<span>def <span class="ident">new_from</span></span>(<span>self, path: pathlib.Path, name: str) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a new material document from an existing one.</p>
@@ -382,6 +385,8 @@ def material_document(self) -&gt; MaterialDocument:
 </div>
 <h2 id="args">Args</h2>
 <dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>Path</code></dt>
+<dd>The path to the original material document.</dd>
 <dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
 <dd>The name of the new material document.</dd>
 </dl>
@@ -394,7 +399,7 @@ def material_document(self) -&gt; MaterialDocument:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def new_from(self, path: str, name: str) -&gt; None:
+<pre><code class="python">def new_from(self, path: Path, name: str) -&gt; None:
     &#34;&#34;&#34;
     Creates a new material document from an existing one.
 
@@ -402,6 +407,7 @@ def material_document(self) -&gt; MaterialDocument:
         Not implemented yet.
 
     Args:
+        path (Path): The path to the original material document.
         name (str): The name of the new material document.
 
     Raises:
@@ -411,7 +417,7 @@ def material_document(self) -&gt; MaterialDocument:
 </details>
 </dd>
 <dt id="pytia.wrapper.documents.material_documents.PyMaterialDocument.open"><code class="name flex">
-<span>def <span class="ident">open</span></span>(<span>self, path: str) ‑> None</span>
+<span>def <span class="ident">open</span></span>(<span>self, path: pathlib.Path) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Opens the given material file.</p>
@@ -421,7 +427,7 @@ def material_document(self) -&gt; MaterialDocument:
 </div>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
+<dt><strong><code>path</code></strong> :&ensp;<code>Path</code></dt>
 <dd>The full file path to the material catalog.</dd>
 </dl>
 <h2 id="raises">Raises</h2>
@@ -433,7 +439,7 @@ def material_document(self) -&gt; MaterialDocument:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def open(self, path: str) -&gt; None:
+<pre><code class="python">def open(self, path: Path) -&gt; None:
     &#34;&#34;&#34;
     Opens the given material file.
 
@@ -441,7 +447,7 @@ def material_document(self) -&gt; MaterialDocument:
         Not implemented yet.
 
     Args:
-        path (str): The full file path to the material catalog.
+        path (Path): The full file path to the material catalog.
 
     Raises:
         PytiaNotImplementedError: Always raised.

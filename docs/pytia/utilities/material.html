@@ -31,6 +31,7 @@
     Utility module for handling CATMaterials.
 &#34;&#34;&#34;
 
+from pathlib import Path
 from typing import Dict, List, Optional
 
 from pytia.exceptions import PytiaMaterialError, PytiaMaterialNotFound
@@ -41,12 +42,12 @@ from pytia.wrapper.documents.part_documents import PyPartDocument
 from pytia.wrapper.documents.product_documents import PyProductDocument
 
 
-def get_material_families(catalog_path: str) -&gt; List[str]:
+def get_material_families(catalog_path: Path) -&gt; List[str]:
     &#34;&#34;&#34;
     Returns a list of strings representing the available material families of a given catalog.
 
     Args:
-        catalog_path (str): The absolute path to the catalog file.
+        catalog_path (Path): The absolute path to the catalog file.
 
     Returns:
         List[str]: A list of all material families in the catalog.
@@ -63,12 +64,12 @@ def get_material_families(catalog_path: str) -&gt; List[str]:
     return value
 
 
-def get_materials(catalog_path: str) -&gt; Dict[str, List[str]]:
+def get_materials(catalog_path: Path) -&gt; Dict[str, List[str]]:
     &#34;&#34;&#34;
     Returns a dict of strings representing the family and its materials.
 
     Args:
-        catalog_path (str): The absolute path to the catalog file.
+        catalog_path (Path): The absolute path to the catalog file.
 
     Returns:
         Dict[str, List[str]]: A dictionary with all material families as keys, and a list of all \
@@ -85,7 +86,7 @@ def get_materials(catalog_path: str) -&gt; Dict[str, List[str]]:
 
 
 def apply_material_on_part(
-    material: str, catalog_path: str, part_document: Optional[PyPartDocument] = None
+    material: str, catalog_path: Path, part_document: Optional[PyPartDocument] = None
 ) -&gt; None:
     &#34;&#34;&#34;
     Applies the material from given catalog to the part.
@@ -134,7 +135,7 @@ def apply_material_on_part(
 
 def apply_material_on_product(
     material: str,
-    catalog_path: str,
+    catalog_path: Path,
     product_document: Optional[PyProductDocument] = None,
 ) -&gt; None:
     &#34;&#34;&#34;
@@ -143,7 +144,7 @@ def apply_material_on_product(
 
     Args:
         material (str): The name of the material.
-        catalog_path (str): The absolute path of the catalog file.
+        catalog_path (Path): The absolute path of the catalog file.
         product_document (Optional[PyProductDocument], optional): The product to which the \
             material will be applied. Defaults to None.
 
@@ -258,7 +259,7 @@ def get_material_from_product(
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="pytia.utilities.material.apply_material_on_part"><code class="name flex">
-<span>def <span class="ident">apply_material_on_part</span></span>(<span>material: str, catalog_path: str, part_document: Optional[<a title="pytia.wrapper.documents.part_documents.PyPartDocument" href="../wrapper/documents/part_documents.html#pytia.wrapper.documents.part_documents.PyPartDocument">PyPartDocument</a>] = None) ‑> None</span>
+<span>def <span class="ident">apply_material_on_part</span></span>(<span>material: str, catalog_path: pathlib.Path, part_document: Optional[<a title="pytia.wrapper.documents.part_documents.PyPartDocument" href="../wrapper/documents/part_documents.html#pytia.wrapper.documents.part_documents.PyPartDocument">PyPartDocument</a>] = None) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Applies the material from given catalog to the part.
@@ -285,7 +286,7 @@ applied. Defaults to None.</dd>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def apply_material_on_part(
-    material: str, catalog_path: str, part_document: Optional[PyPartDocument] = None
+    material: str, catalog_path: Path, part_document: Optional[PyPartDocument] = None
 ) -&gt; None:
     &#34;&#34;&#34;
     Applies the material from given catalog to the part.
@@ -333,7 +334,7 @@ applied. Defaults to None.</dd>
 </details>
 </dd>
 <dt id="pytia.utilities.material.apply_material_on_product"><code class="name flex">
-<span>def <span class="ident">apply_material_on_product</span></span>(<span>material: str, catalog_path: str, product_document: Optional[<a title="pytia.wrapper.documents.product_documents.PyProductDocument" href="../wrapper/documents/product_documents.html#pytia.wrapper.documents.product_documents.PyProductDocument">PyProductDocument</a>] = None) ‑> None</span>
+<span>def <span class="ident">apply_material_on_product</span></span>(<span>material: str, catalog_path: pathlib.Path, product_document: Optional[<a title="pytia.wrapper.documents.product_documents.PyProductDocument" href="../wrapper/documents/product_documents.html#pytia.wrapper.documents.product_documents.PyProductDocument">PyProductDocument</a>] = None) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Applies the material from given catalog to the product.
@@ -342,7 +343,7 @@ Uses the current active document if no product_document is given.</p>
 <dl>
 <dt><strong><code>material</code></strong> :&ensp;<code>str</code></dt>
 <dd>The name of the material.</dd>
-<dt><strong><code>catalog_path</code></strong> :&ensp;<code>str</code></dt>
+<dt><strong><code>catalog_path</code></strong> :&ensp;<code>Path</code></dt>
 <dd>The absolute path of the catalog file.</dd>
 <dt><strong><code>product_document</code></strong> :&ensp;<code>Optional[PyProductDocument]</code>, optional</dt>
 <dd>The product to which the
@@ -361,7 +362,7 @@ material will be applied. Defaults to None.</dd>
 </summary>
 <pre><code class="python">def apply_material_on_product(
     material: str,
-    catalog_path: str,
+    catalog_path: Path,
     product_document: Optional[PyProductDocument] = None,
 ) -&gt; None:
     &#34;&#34;&#34;
@@ -370,7 +371,7 @@ material will be applied. Defaults to None.</dd>
 
     Args:
         material (str): The name of the material.
-        catalog_path (str): The absolute path of the catalog file.
+        catalog_path (Path): The absolute path of the catalog file.
         product_document (Optional[PyProductDocument], optional): The product to which the \
             material will be applied. Defaults to None.
 
@@ -410,13 +411,13 @@ material will be applied. Defaults to None.</dd>
 </details>
 </dd>
 <dt id="pytia.utilities.material.get_material_families"><code class="name flex">
-<span>def <span class="ident">get_material_families</span></span>(<span>catalog_path: str) ‑> List[str]</span>
+<span>def <span class="ident">get_material_families</span></span>(<span>catalog_path: pathlib.Path) ‑> List[str]</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns a list of strings representing the available material families of a given catalog.</p>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>catalog_path</code></strong> :&ensp;<code>str</code></dt>
+<dt><strong><code>catalog_path</code></strong> :&ensp;<code>Path</code></dt>
 <dd>The absolute path to the catalog file.</dd>
 </dl>
 <h2 id="returns">Returns</h2>
@@ -428,12 +429,12 @@ material will be applied. Defaults to None.</dd>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_material_families(catalog_path: str) -&gt; List[str]:
+<pre><code class="python">def get_material_families(catalog_path: Path) -&gt; List[str]:
     &#34;&#34;&#34;
     Returns a list of strings representing the available material families of a given catalog.
 
     Args:
-        catalog_path (str): The absolute path to the catalog file.
+        catalog_path (Path): The absolute path to the catalog file.
 
     Returns:
         List[str]: A list of all material families in the catalog.
@@ -573,13 +574,13 @@ material name will be returned. Defaults to None.</dd>
 </details>
 </dd>
 <dt id="pytia.utilities.material.get_materials"><code class="name flex">
-<span>def <span class="ident">get_materials</span></span>(<span>catalog_path: str) ‑> Dict[str, List[str]]</span>
+<span>def <span class="ident">get_materials</span></span>(<span>catalog_path: pathlib.Path) ‑> Dict[str, List[str]]</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns a dict of strings representing the family and its materials.</p>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>catalog_path</code></strong> :&ensp;<code>str</code></dt>
+<dt><strong><code>catalog_path</code></strong> :&ensp;<code>Path</code></dt>
 <dd>The absolute path to the catalog file.</dd>
 </dl>
 <h2 id="returns">Returns</h2>
@@ -592,12 +593,12 @@ materials of each family as values.</dd>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_materials(catalog_path: str) -&gt; Dict[str, List[str]]:
+<pre><code class="python">def get_materials(catalog_path: Path) -&gt; Dict[str, List[str]]:
     &#34;&#34;&#34;
     Returns a dict of strings representing the family and its materials.
 
     Args:
-        catalog_path (str): The absolute path to the catalog file.
+        catalog_path (Path): The absolute path to the catalog file.
 
     Returns:
         Dict[str, List[str]]: A dictionary with all material families as keys, and a list of all \
