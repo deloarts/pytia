@@ -80,7 +80,7 @@ class DocketConfig:
 
 
 def create_docket_from_template(
-    template: str,
+    template: Path,
     document: PyPartDocument | PyProductDocument,
     config: DocketConfig,
     hide_unknown_properties: bool = False,
@@ -91,7 +91,7 @@ def create_docket_from_template(
     The docket (CATDrawing) will be left open as ActiveDocument, you have to close it manually.
 
     Args:
-        template (str): The path (folder and filename) of the template.
+        template (Path): The path (folder and filename) of the template.
         document (PyPartDocument | PyProductDocument): The part or product document from which \
             to create the docket
         config (DocketConfig): The docket configuration dataclass.
@@ -107,7 +107,7 @@ def create_docket_from_template(
     Returns:
         PyDrawingDocument: Returns the docket as PyDrawingDocument.
     """
-    if not os.path.isfile(template):
+    if not template.is_file():
         raise PytiaFileNotFoundError(
             f"Cannot open docket template {template!r}: Not a file."
         )
@@ -216,7 +216,7 @@ def create_docket_from_template(
 
 
 def export_docket_as_pdf(
-    docket: PyDrawingDocument, name: str, folder: str, close: bool = True
+    docket: PyDrawingDocument, name: str, folder: Path, close: bool = True
 ) -> str:
     """
     Exports the docket as pdf.
@@ -233,7 +233,10 @@ def export_docket_as_pdf(
     Returns:
         str: The path to the exported pdf file (folder, filename and extension).
     """
-    export_path = Path(verify_folder(folder), name + ".pdf")
+
+    if ".pdf" not in name:
+        name += ".pdf"
+    export_path = Path(verify_folder(folder), name)
 
     if os.path.exists(export_path):
         try:

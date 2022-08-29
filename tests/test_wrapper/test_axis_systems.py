@@ -1,11 +1,12 @@
 import os
+from pathlib import Path
 from tempfile import gettempdir
 
 import pytest
 
 test_name = "pytest_test_axis_systems"
-test_folder = gettempdir()
-test_path = f"{test_folder}{os.sep}{test_name}.CATPart"
+test_folder = Path(gettempdir())
+test_path = Path(test_folder, test_name + ".CATPart")
 
 
 def test_import():

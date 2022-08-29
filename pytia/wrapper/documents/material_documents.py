@@ -1,6 +1,7 @@
 """
     Wrapper module for CATIA material documents.
 """
+from pathlib import Path
 
 from pytia import __version__
 from pytia.const import FILE_EXTENSION_MATERIAL
@@ -34,17 +35,17 @@ class PyMaterialDocument(PyBaseDocument):
         self._material_document = MaterialDocument(self.document.com_object)
         self._catalog = PyMaterialCatalog(self._material_document)
 
-    def load(self, path: str) -> None:
+    def load(self, path: Path) -> None:
         """
         Loads the given material file without creating a window.
 
         Args:
-            path (str): The full file path to the material catalog.
+            path (Path): The full file path to the material catalog.
         """
         super().load(path)
         self.__bind()
 
-    def open(self, path: str) -> None:
+    def open(self, path: Path) -> None:
         """
         Opens the given material file.
 
@@ -52,7 +53,7 @@ class PyMaterialDocument(PyBaseDocument):
             Not implemented yet.
 
         Args:
-            path (str): The full file path to the material catalog.
+            path (Path): The full file path to the material catalog.
 
         Raises:
             PytiaNotImplementedError: Always raised.
@@ -86,7 +87,7 @@ class PyMaterialDocument(PyBaseDocument):
         """
         raise PytiaNotImplementedError()
 
-    def new_from(self, path: str, name: str) -> None:
+    def new_from(self, path: Path, name: str) -> None:
         """
         Creates a new material document from an existing one.
 
@@ -94,6 +95,7 @@ class PyMaterialDocument(PyBaseDocument):
             Not implemented yet.
 
         Args:
+            path (Path): The path to the original material document.
             name (str): The name of the new material document.
 
         Raises:

@@ -4,6 +4,7 @@
 
 import os
 import tempfile
+from pathlib import Path
 
 import pytest
 
@@ -55,11 +56,11 @@ def test_mirror_main_body():
         part_document.part.shape_factory.add_new_pad(profile_sketch, test_z)
         part_document.part.update_object(main_body)
 
-        original_path = part_document.save_as(folder=tempfile.gettempdir())
+        original_path = part_document.save_as(folder=Path(tempfile.gettempdir()))
 
         new_path = mirror_main_body(keep_open=False)
 
-    assert os.path.exists(new_path)
+    assert new_path.exists()
     os.remove(original_path)
     os.remove(new_path)
 

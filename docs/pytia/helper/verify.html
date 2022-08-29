@@ -32,16 +32,17 @@
 &#34;&#34;&#34;
 
 import os
+from pathlib import Path, WindowsPath
 
 from pytia.exceptions import PytiaNotAFolderError
 
 
-def verify_folder(folder: str, absolute: bool = False) -&gt; str:
+def verify_folder(folder: Path, absolute: bool = False) -&gt; Path:
     &#34;&#34;&#34;
-    Returns a given folder as windows style without trailing slash.
+    Returns a given folder as windows style path.
 
     Args:
-        folder (str): The folder to verify.
+        folder (Path): The folder to verify.
         absolute (bool, optional): Verifies if a folder is absolute. Defaults to False.
 
     Raises:
@@ -51,19 +52,17 @@ def verify_folder(folder: str, absolute: bool = False) -&gt; str:
         str: The input folder without trailing slash in windows style.
     &#34;&#34;&#34;
 
-    if not folder or not os.path.isdir(folder):
-        raise PytiaNotAFolderError(f&#34;The given folder {folder!r} is not a directory.&#34;)
+    if not folder or not folder.is_dir():
+        raise PytiaNotAFolderError(
+            f&#34;The given folder {str(folder)!r} is not a directory.&#34;
+        )
 
-    if absolute and not os.path.isabs(folder):
+    if absolute and not folder.is_absolute():
         raise PytiaNotAFolderError(
             f&#34;The given folder {folder!r} is not an absolute path.&#34;
         )
 
-    folder = folder.replace(&#34;/&#34;, os.sep)
-    while folder[-1] == os.sep:
-        folder = folder[:-1]
-
-    return folder</code></pre>
+    return WindowsPath(folder)</code></pre>
 </details>
 </section>
 <section>
@@ -74,13 +73,13 @@ def verify_folder(folder: str, absolute: bool = False) -&gt; str:
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="pytia.helper.verify.verify_folder"><code class="name flex">
-<span>def <span class="ident">verify_folder</span></span>(<span>folder: str, absolute: bool = False) ‑> str</span>
+<span>def <span class="ident">verify_folder</span></span>(<span>folder: pathlib.Path, absolute: bool = False) ‑> pathlib.Path</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns a given folder as windows style without trailing slash.</p>
+<div class="desc"><p>Returns a given folder as windows style path.</p>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>folder</code></strong> :&ensp;<code>str</code></dt>
+<dt><strong><code>folder</code></strong> :&ensp;<code>Path</code></dt>
 <dd>The folder to verify.</dd>
 <dt><strong><code>absolute</code></strong> :&ensp;<code>bool</code>, optional</dt>
 <dd>Verifies if a folder is absolute. Defaults to False.</dd>
@@ -99,12 +98,12 @@ def verify_folder(folder: str, absolute: bool = False) -&gt; str:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def verify_folder(folder: str, absolute: bool = False) -&gt; str:
+<pre><code class="python">def verify_folder(folder: Path, absolute: bool = False) -&gt; Path:
     &#34;&#34;&#34;
-    Returns a given folder as windows style without trailing slash.
+    Returns a given folder as windows style path.
 
     Args:
-        folder (str): The folder to verify.
+        folder (Path): The folder to verify.
         absolute (bool, optional): Verifies if a folder is absolute. Defaults to False.
 
     Raises:
@@ -114,19 +113,17 @@ def verify_folder(folder: str, absolute: bool = False) -&gt; str:
         str: The input folder without trailing slash in windows style.
     &#34;&#34;&#34;
 
-    if not folder or not os.path.isdir(folder):
-        raise PytiaNotAFolderError(f&#34;The given folder {folder!r} is not a directory.&#34;)
+    if not folder or not folder.is_dir():
+        raise PytiaNotAFolderError(
+            f&#34;The given folder {str(folder)!r} is not a directory.&#34;
+        )
 
-    if absolute and not os.path.isabs(folder):
+    if absolute and not folder.is_absolute():
         raise PytiaNotAFolderError(
             f&#34;The given folder {folder!r} is not an absolute path.&#34;
         )
 
-    folder = folder.replace(&#34;/&#34;, os.sep)
-    while folder[-1] == os.sep:
-        folder = folder[:-1]
-
-    return folder</code></pre>
+    return WindowsPath(folder)</code></pre>
 </details>
 </dd>
 </dl>

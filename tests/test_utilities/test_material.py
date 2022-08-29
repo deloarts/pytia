@@ -9,7 +9,11 @@ from pytia.framework import framework
 
 test_name = "pytest_test_material"
 test_files = Path("tests/assets")
-test_catalog_file = f"{framework.catia.system_service.environ('CATStartupPath')}\\materials\\Catalog.CATMaterial"
+test_catalog_file = Path(
+    framework.catia.system_service.environ("CATStartupPath"),
+    "materials",
+    "Catalog.CATMaterial",
+)
 
 
 def test_import():

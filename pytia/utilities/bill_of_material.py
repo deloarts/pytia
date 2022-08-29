@@ -4,6 +4,7 @@
 
 import os
 import tempfile
+from pathlib import Path
 from typing import Optional
 
 from pytia.const import ENV_IGNORE_BOM_ERROR, GET_ITEM_BILL_OF_MATERIAL, KNOWN_ERRORS
@@ -73,24 +74,24 @@ def set_secondary_format(format_: tuple, product: Optional[Product] = None) -> N
 
 def export_bom(
     filename: Optional[str] = None,
-    folder: Optional[str] = None,
+    folder: Optional[Path] = None,
     overwrite: bool = False,
     product: Optional[Product] = None,
-) -> str:
+) -> Path:
     """
     Exports the bill of material of the current product as excel file to the specified path.
     Returns the path (folder and filename) of the bill of material.
 
     Args:
         filename (Optional[str], optional): The filename of the BOM. Defaults to None.
-        folder (Optional[str], optional): The folder to which the BOM will be saved. \
+        folder (Optional[Path], optional): The folder to which the BOM will be saved. \
             Defaults to None.
         overwrite (bool, optional): Overwrites any existing files if True. Defaults to False.
         product (Optional[Product], optional): The product from which the BOM will be extracted. \
             Defaults to None. If None the currently open CATProduct will be used.
 
     Returns:
-        str: The full path of the exported BOM.
+        Path: The full path of the exported BOM.
     """
 
     def fallback():
@@ -124,7 +125,7 @@ def export_bom(
         filename = filename + ".xls"
 
     if folder is None:
-        folder = tempfile.gettempdir()
+        folder = Path(tempfile.gettempdir())
     else:
         folder = verify_folder(folder)
 
@@ -132,7 +133,7 @@ def export_bom(
         os.makedirs(folder)
         log.info(f"Created new folder: {folder!r}")
 
-    path = f"{folder.replace('/', os.sep)}{os.sep}{filename}"
+    path = Path(folder, filename)
 
     if os.path.isfile(path):
         if overwrite:
@@ -148,7 +149,7 @@ def export_bom(
         # bom.print("XLS", path, product)
         bom = product.get_item(GET_ITEM_BILL_OF_MATERIAL)
         assembly_convertor = AssemblyConvertor(bom.com_object)
-        assembly_convertor.print("XLS", path, product)
+        assembly_convertor.print("XLS", str(path), product)
         log.info(f"Exported BOM of {product.name!r} as {path!r}")
     except Exception as e:  # pylint: disable=W0703
         if not ENV_IGNORE_BOM_ERROR:

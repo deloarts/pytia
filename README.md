@@ -3,7 +3,7 @@
 A wrapper for the catia v5 api.
 
 ![state](https://img.shields.io/badge/State-Alpha-brown.svg?style=for-the-badge)
-![version](https://img.shields.io/badge/Version-0.2.1-orange.svg?style=for-the-badge)
+![version](https://img.shields.io/badge/Version-0.2.2-orange.svg?style=for-the-badge)
 
 [![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
 ![catia](https://img.shields.io/badge/CATIA-V5%206R2017-blue.svg?style=for-the-badge)
@@ -12,6 +12,14 @@ A wrapper for the catia v5 api.
 **pytia** is a wrapper for the CATIA V5 api based on the **V5Automation.chm** help file. It provides some useful utilities and features for interacting with the api and a cli tool. This module only works with Windows.
 
 > 🔒 This is currently a private repo.
+
+Check out the pytia ecosystem:
+
+- [pytia](https://github.com/deloarts/pytia): The heart of this project.
+- [pytia-property-manager](https://github.com/deloarts/pytia-property-manager): An app to edit part and product properties.
+- [pytia-bounding-box](https://github.com/deloarts/pytia-bounding-box): An app to retrieve the bounding box of a part.
+- [pytia-bill-of-material](https://github.com/deloarts/pytia-bill-of-material): An app to retrieve the bill of material of a product.
+- [pytia-ui-tools](https://github.com/deloarts/pytia-ui-tools): A toolbox for all pytia apps.
 
 ## 1 installation
 
@@ -89,7 +97,7 @@ python -m pytia
 This generates the following output:
 
 ```plain
-PYTIA 0.2.1
+PYTIA 0.2.2
 
 Usage: python -m pytia [OPTIONS] COMMAND [ARGS]...
 
@@ -126,7 +134,7 @@ python -m pytia box
 This will create the following sample output:
 
 ```powershell
-PYTIA 0.2.1
+PYTIA 0.2.2
 
 [ INFO ]  Bounding box of the current part:
           X = 100.0mm
@@ -336,6 +344,7 @@ python -m pdoc --http : pytia
 
 ## 5 changelog
 
+**v0.2.2**: Use pathlib instead of str.  
 **v0.2.1**: Add docket generator.  
 **v0.2.0**: Add drawing document wrapper.  
 **v0.1.1**: Add `delete` method to the properties wrapper.  
@@ -343,4 +352,4 @@ python -m pdoc --http : pytia
 
 ## 6 to do
 
-- [ ] Make more to-dos
+Using VS Code [Comment Anchors](https://marketplace.visualstudio.com/items?itemName=ExodiusStudios.comment-anchors) to keep track of to-dos.

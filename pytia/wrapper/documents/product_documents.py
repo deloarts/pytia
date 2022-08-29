@@ -1,6 +1,7 @@
 """
     Wrapper module for handling product documents.
 """
+from pathlib import Path
 
 from pytia import __version__
 from pytia.const import FILE_EXTENSION_PRODUCT, GET_ITEM_MATERIAL_MANAGER
@@ -65,12 +66,12 @@ class PyProductDocument(PyBaseDocument):
             self._product, material, i_link_mode=True
         )
 
-    def open(self, path: str) -> None:
+    def open(self, path: Path) -> None:
         """
         Opens the product document from the given path.
 
         Args:
-            path (str): The full path to the product document.
+            path (Path): The full path to the product document.
 
         Raises:
             PytiaDocumentNameConventionError: Raised when strict mode is enabled and the filename \
@@ -117,13 +118,13 @@ class PyProductDocument(PyBaseDocument):
 
         log.info(f"Renamed document {old_name!r} to {self.document.name!r}")
 
-    def new_from(self, path: str, name: str) -> None:
+    def new_from(self, path: Path, name: str) -> None:
         """
         Creates a new ProductDocument from an existing one and sets it as ActiveDocument.
         Filename and partnumber will be set to the given name.
 
         Args:
-            path (str): The full path to the source part document
+            path (Path): The full path to the source part document
             name (str): The name (filename and partnumber) of the new product.
         """
         super().new_from(path=path, name=name)

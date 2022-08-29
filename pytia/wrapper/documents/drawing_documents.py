@@ -2,6 +2,7 @@
     Wrapper module for CATIA drawing documents.
 """
 import os
+from pathlib import Path
 
 from pytia import __version__
 from pytia.const import FILE_EXTENSION_DRAWING
@@ -43,23 +44,23 @@ class PyDrawingDocument(PyBaseDocument):
         """Binds properties to the class object."""
         self._drawing_document = DrawingDocument(self.document.com_object)
 
-    def load(self, path: str) -> None:
+    def load(self, path: Path) -> None:
         """
         Loads the given drawing file without creating a window.
 
         Args:
-            path (str): The full file path to the drawing file.
+            path (Path): The full file path to the drawing file.
         """
         super().load(path)
         self.__bind()
         self._name = self._drawing_document.name.split(".CATDrawing")[0]
 
-    def open(self, path: str) -> None:
+    def open(self, path: Path) -> None:
         """
         Opens the given drawing file.
 
         Args:
-            path (str): The full file path to the drawing file.
+            path (Path): The full file path to the drawing file.
         """
         super().open(path)
         self.__bind()
@@ -84,32 +85,33 @@ class PyDrawingDocument(PyBaseDocument):
         self.__bind()
         self._name = name
 
-    def new_from(self, path: str, name: str) -> None:
+    def new_from(self, path: Path, name: str) -> None:
         """
         Creates a new drawing document from an existing one.
 
         Args:
+            path (Path): The path to the original document.
             name (str): The name of the new drawing document.
         """
         super().new_from(path=path, name=name)
         self.__bind()
         self._name = name
 
-    def save_as(self, folder: str, overwrite: bool = True) -> str:
+    def save_as(self, folder: Path, overwrite: bool = True) -> Path:
         """
         Saves the drawing document in the given folder.
         Overwrites any existing document by default.
         Returns the path (folder & filename) of the saved document.
 
         Args:
-            folder (str): The folder in which the document should be saved.
+            folder (Path): The folder in which the document should be saved.
             overwrite (bool, optional): Overwrites any existing files. EachDefaults to True.
 
         Raises:
             PytiaFileExistsError: Raised if the file already exists and overwrite is False.
 
         Returns:
-            str: The full path to the saved document with filename and extension.
+            Path: The full path to the saved document with filename and extension.
         """
         # Same as above: We have to introduce a separate save_as method, because the
         # base-save_as method is originally written for parts and products, which is based on
@@ -119,8 +121,9 @@ class PyDrawingDocument(PyBaseDocument):
         # variable _name instead.
         # Maybe it's time to change the base-save_as method ...
 
-        folder = verify_folder(folder=folder, absolute=True)
-        filepath = f"{folder}{os.sep}{self._name}.CATDrawing"
+        filepath = Path(
+            verify_folder(folder=folder, absolute=True), self._name + ".CATDrawing"
+        )
 
         if os.path.exists(filepath):
             if overwrite:
@@ -137,4 +140,4 @@ class PyDrawingDocument(PyBaseDocument):
         log.info(
             f"Saved document {self.document.name!r} to {self.document.full_name!r}"
         )
-        return self.document.full_name
+        return Path(self.document.full_name)

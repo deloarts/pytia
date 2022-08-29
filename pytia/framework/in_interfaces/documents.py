@@ -1,10 +1,11 @@
-import os
 import warnings
+from pathlib import Path
 from typing import Iterator
+
+from pytia.framework.cat_types.general import cat_variant, list_str
 from pytia.framework.exception_handling import CATIAApplicationException
 from pytia.framework.in_interfaces.document import Document
 from pytia.framework.system_interfaces.collection import Collection
-from pytia.framework.cat_types.general import cat_variant, list_str
 
 
 class Documents(Collection):
@@ -30,8 +31,8 @@ class Documents(Collection):
             [True for name in items for typ in type_list if name.lower().find(typ) > 0]
         )
 
-    def new_from(self, full_name: str) -> Document:
-        return Document(self.documents.NewFrom(full_name))
+    def new_from(self, full_name: Path) -> Document:
+        return Document(self.documents.NewFrom(str(full_name)))
 
     def item(self, index: cat_variant) -> Document:
         try:
@@ -48,11 +49,11 @@ class Documents(Collection):
         warnings.warn(warning_string)
         return self.documents.Count
 
-    def open(self, file_name: str) -> Document:
-        return Document(self.documents.Open(file_name))
+    def open(self, file_name: Path) -> Document:
+        return Document(self.documents.Open(str(file_name)))
 
-    def read(self, file_name: str) -> Document:
-        return Document(self.documents.Read(file_name))
+    def read(self, file_name: Path) -> Document:
+        return Document(self.documents.Read(str(file_name)))
 
     def __getitem__(self, n: int) -> Document:
         if (n + 1) > self.count:

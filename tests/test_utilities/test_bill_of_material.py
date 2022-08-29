@@ -3,13 +3,14 @@
 """
 
 import os
+from pathlib import Path
 from tempfile import gettempdir
 
 import pytest
 
 test_name = "pytest_test_export_bom"
-test_folder = gettempdir()
-test_path = f"{test_folder}{os.sep}{test_name}.xls"
+test_folder = Path(gettempdir())
+test_path = Path(test_folder, test_name + ".xls")
 test_format = (
     "Number",
     "Quantity",
@@ -78,9 +79,9 @@ def test_exported_file_exists():
 
     with PyProductDocument() as product_document:
         product_document.new(name=test_name)
-        location = export_bom(filename=test_name, folder=test_folder)
+        location = export_bom(filename=test_name, folder=test_folder, overwrite=True)
 
-    assert location == test_path
+    assert str(location) == str(test_path)
     assert os.path.exists(test_path)
     os.remove(test_path)
 
@@ -96,9 +97,9 @@ def test_exported_file_exists_no_args():
 
     with PyProductDocument() as product_document:
         product_document.new(name=test_name)
-        location = export_bom()
+        location = export_bom(overwrite=True)
 
-    assert location == test_path
+    assert str(location) == str(test_path)
     assert os.path.exists(test_path)
     os.remove(test_path)
 

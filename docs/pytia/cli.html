@@ -31,6 +31,8 @@
     Module for handling the cli feature of pytia.
 &#34;&#34;&#34;
 
+from pathlib import Path
+
 import click
 
 from pytia import __version__
@@ -85,7 +87,7 @@ def box() -&gt; None:
     &#34;--overwrite&#34;, is_flag=True, default=False, help=&#34;Overwrite existing files.&#34;
 )
 @click.argument(&#34;folder&#34;, type=click.Path(), default=None, required=False)
-def bom(folder: str, overwrite: bool) -&gt; None:
+def bom(folder: Path, overwrite: bool) -&gt; None:
     &#34;&#34;&#34;
     \b
     Exports the bill of material for the current product.
@@ -96,7 +98,7 @@ def bom(folder: str, overwrite: bool) -&gt; None:
 
     \f
     Args:
-        folder (str): The path where the bom will be saved.
+        folder (Path): The path where the bom will be saved.
         overwrite (bool): Overwrites any existing files if set to True.
     &#34;&#34;&#34;
     console.info(&#34;Exporting bill of material ...&#34;)

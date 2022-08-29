@@ -40,7 +40,7 @@ decorator==5.1.1; python_version >= "3.5" \
 dill==0.3.5.1; python_full_version >= "3.7.2" \
     --hash=sha256:33501d03270bbe410c72639b350e941882a8b0fd55357580fbc873fba0c59302 \
     --hash=sha256:d75e41f3eff1eee599d738e76ba8f4ad98ea229db8b085318aa2b3333a208c86
-distlib==0.3.5; python_version >= "3.7"
+distlib==0.3.6; python_version >= "3.7"
 filelock==3.8.0; python_version >= "3.7"
 identify==2.5.3; python_version >= "3.7"
 iniconfig==1.1.1; python_version >= "3.7" \

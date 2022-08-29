@@ -2,6 +2,7 @@
     Utility module for handling CATMaterials.
 """
 
+from pathlib import Path
 from typing import Dict, List, Optional
 
 from pytia.exceptions import PytiaMaterialError, PytiaMaterialNotFound
@@ -12,12 +13,12 @@ from pytia.wrapper.documents.part_documents import PyPartDocument
 from pytia.wrapper.documents.product_documents import PyProductDocument
 
 
-def get_material_families(catalog_path: str) -> List[str]:
+def get_material_families(catalog_path: Path) -> List[str]:
     """
     Returns a list of strings representing the available material families of a given catalog.
 
     Args:
-        catalog_path (str): The absolute path to the catalog file.
+        catalog_path (Path): The absolute path to the catalog file.
 
     Returns:
         List[str]: A list of all material families in the catalog.
@@ -34,12 +35,12 @@ def get_material_families(catalog_path: str) -> List[str]:
     return value
 
 
-def get_materials(catalog_path: str) -> Dict[str, List[str]]:
+def get_materials(catalog_path: Path) -> Dict[str, List[str]]:
     """
     Returns a dict of strings representing the family and its materials.
 
     Args:
-        catalog_path (str): The absolute path to the catalog file.
+        catalog_path (Path): The absolute path to the catalog file.
 
     Returns:
         Dict[str, List[str]]: A dictionary with all material families as keys, and a list of all \
@@ -56,7 +57,7 @@ def get_materials(catalog_path: str) -> Dict[str, List[str]]:
 
 
 def apply_material_on_part(
-    material: str, catalog_path: str, part_document: Optional[PyPartDocument] = None
+    material: str, catalog_path: Path, part_document: Optional[PyPartDocument] = None
 ) -> None:
     """
     Applies the material from given catalog to the part.
@@ -105,7 +106,7 @@ def apply_material_on_part(
 
 def apply_material_on_product(
     material: str,
-    catalog_path: str,
+    catalog_path: Path,
     product_document: Optional[PyProductDocument] = None,
 ) -> None:
     """
@@ -114,7 +115,7 @@ def apply_material_on_product(
 
     Args:
         material (str): The name of the material.
-        catalog_path (str): The absolute path of the catalog file.
+        catalog_path (Path): The absolute path of the catalog file.
         product_document (Optional[PyProductDocument], optional): The product to which the \
             material will be applied. Defaults to None.
 

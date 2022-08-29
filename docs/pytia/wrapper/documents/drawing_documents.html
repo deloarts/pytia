@@ -31,6 +31,7 @@
     Wrapper module for CATIA drawing documents.
 &#34;&#34;&#34;
 import os
+from pathlib import Path
 
 from pytia import __version__
 from pytia.const import FILE_EXTENSION_DRAWING
@@ -72,23 +73,23 @@ class PyDrawingDocument(PyBaseDocument):
         &#34;&#34;&#34;Binds properties to the class object.&#34;&#34;&#34;
         self._drawing_document = DrawingDocument(self.document.com_object)
 
-    def load(self, path: str) -&gt; None:
+    def load(self, path: Path) -&gt; None:
         &#34;&#34;&#34;
         Loads the given drawing file without creating a window.
 
         Args:
-            path (str): The full file path to the drawing file.
+            path (Path): The full file path to the drawing file.
         &#34;&#34;&#34;
         super().load(path)
         self.__bind()
         self._name = self._drawing_document.name.split(&#34;.CATDrawing&#34;)[0]
 
-    def open(self, path: str) -&gt; None:
+    def open(self, path: Path) -&gt; None:
         &#34;&#34;&#34;
         Opens the given drawing file.
 
         Args:
-            path (str): The full file path to the drawing file.
+            path (Path): The full file path to the drawing file.
         &#34;&#34;&#34;
         super().open(path)
         self.__bind()
@@ -113,32 +114,33 @@ class PyDrawingDocument(PyBaseDocument):
         self.__bind()
         self._name = name
 
-    def new_from(self, path: str, name: str) -&gt; None:
+    def new_from(self, path: Path, name: str) -&gt; None:
         &#34;&#34;&#34;
         Creates a new drawing document from an existing one.
 
         Args:
+            path (Path): The path to the original document.
             name (str): The name of the new drawing document.
         &#34;&#34;&#34;
         super().new_from(path=path, name=name)
         self.__bind()
         self._name = name
 
-    def save_as(self, folder: str, overwrite: bool = True) -&gt; str:
+    def save_as(self, folder: Path, overwrite: bool = True) -&gt; Path:
         &#34;&#34;&#34;
         Saves the drawing document in the given folder.
         Overwrites any existing document by default.
         Returns the path (folder &amp; filename) of the saved document.
 
         Args:
-            folder (str): The folder in which the document should be saved.
+            folder (Path): The folder in which the document should be saved.
             overwrite (bool, optional): Overwrites any existing files. EachDefaults to True.
 
         Raises:
             PytiaFileExistsError: Raised if the file already exists and overwrite is False.
 
         Returns:
-            str: The full path to the saved document with filename and extension.
+            Path: The full path to the saved document with filename and extension.
         &#34;&#34;&#34;
         # Same as above: We have to introduce a separate save_as method, because the
         # base-save_as method is originally written for parts and products, which is based on
@@ -148,8 +150,9 @@ class PyDrawingDocument(PyBaseDocument):
         # variable _name instead.
         # Maybe it&#39;s time to change the base-save_as method ...
 
-        folder = verify_folder(folder=folder, absolute=True)
-        filepath = f&#34;{folder}{os.sep}{self._name}.CATDrawing&#34;
+        filepath = Path(
+            verify_folder(folder=folder, absolute=True), self._name + &#34;.CATDrawing&#34;
+        )
 
         if os.path.exists(filepath):
             if overwrite:
@@ -166,7 +169,7 @@ class PyDrawingDocument(PyBaseDocument):
         log.info(
             f&#34;Saved document {self.document.name!r} to {self.document.full_name!r}&#34;
         )
-        return self.document.full_name</code></pre>
+        return Path(self.document.full_name)</code></pre>
 </details>
 </section>
 <section>
@@ -219,23 +222,23 @@ class PyDrawingDocument(PyBaseDocument):
         &#34;&#34;&#34;Binds properties to the class object.&#34;&#34;&#34;
         self._drawing_document = DrawingDocument(self.document.com_object)
 
-    def load(self, path: str) -&gt; None:
+    def load(self, path: Path) -&gt; None:
         &#34;&#34;&#34;
         Loads the given drawing file without creating a window.
 
         Args:
-            path (str): The full file path to the drawing file.
+            path (Path): The full file path to the drawing file.
         &#34;&#34;&#34;
         super().load(path)
         self.__bind()
         self._name = self._drawing_document.name.split(&#34;.CATDrawing&#34;)[0]
 
-    def open(self, path: str) -&gt; None:
+    def open(self, path: Path) -&gt; None:
         &#34;&#34;&#34;
         Opens the given drawing file.
 
         Args:
-            path (str): The full file path to the drawing file.
+            path (Path): The full file path to the drawing file.
         &#34;&#34;&#34;
         super().open(path)
         self.__bind()
@@ -260,32 +263,33 @@ class PyDrawingDocument(PyBaseDocument):
         self.__bind()
         self._name = name
 
-    def new_from(self, path: str, name: str) -&gt; None:
+    def new_from(self, path: Path, name: str) -&gt; None:
         &#34;&#34;&#34;
         Creates a new drawing document from an existing one.
 
         Args:
+            path (Path): The path to the original document.
             name (str): The name of the new drawing document.
         &#34;&#34;&#34;
         super().new_from(path=path, name=name)
         self.__bind()
         self._name = name
 
-    def save_as(self, folder: str, overwrite: bool = True) -&gt; str:
+    def save_as(self, folder: Path, overwrite: bool = True) -&gt; Path:
         &#34;&#34;&#34;
         Saves the drawing document in the given folder.
         Overwrites any existing document by default.
         Returns the path (folder &amp; filename) of the saved document.
 
         Args:
-            folder (str): The folder in which the document should be saved.
+            folder (Path): The folder in which the document should be saved.
             overwrite (bool, optional): Overwrites any existing files. EachDefaults to True.
 
         Raises:
             PytiaFileExistsError: Raised if the file already exists and overwrite is False.
 
         Returns:
-            str: The full path to the saved document with filename and extension.
+            Path: The full path to the saved document with filename and extension.
         &#34;&#34;&#34;
         # Same as above: We have to introduce a separate save_as method, because the
         # base-save_as method is originally written for parts and products, which is based on
@@ -295,8 +299,9 @@ class PyDrawingDocument(PyBaseDocument):
         # variable _name instead.
         # Maybe it&#39;s time to change the base-save_as method ...
 
-        folder = verify_folder(folder=folder, absolute=True)
-        filepath = f&#34;{folder}{os.sep}{self._name}.CATDrawing&#34;
+        filepath = Path(
+            verify_folder(folder=folder, absolute=True), self._name + &#34;.CATDrawing&#34;
+        )
 
         if os.path.exists(filepath):
             if overwrite:
@@ -313,7 +318,7 @@ class PyDrawingDocument(PyBaseDocument):
         log.info(
             f&#34;Saved document {self.document.name!r} to {self.document.full_name!r}&#34;
         )
-        return self.document.full_name</code></pre>
+        return Path(self.document.full_name)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -369,25 +374,25 @@ def name(self) -&gt; str:
 </details>
 </dd>
 <dt id="pytia.wrapper.documents.drawing_documents.PyDrawingDocument.load"><code class="name flex">
-<span>def <span class="ident">load</span></span>(<span>self, path: str) ‑> None</span>
+<span>def <span class="ident">load</span></span>(<span>self, path: pathlib.Path) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Loads the given drawing file without creating a window.</p>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
+<dt><strong><code>path</code></strong> :&ensp;<code>Path</code></dt>
 <dd>The full file path to the drawing file.</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def load(self, path: str) -&gt; None:
+<pre><code class="python">def load(self, path: Path) -&gt; None:
     &#34;&#34;&#34;
     Loads the given drawing file without creating a window.
 
     Args:
-        path (str): The full file path to the drawing file.
+        path (Path): The full file path to the drawing file.
     &#34;&#34;&#34;
     super().load(path)
     self.__bind()
@@ -421,12 +426,14 @@ def name(self) -&gt; str:
 </details>
 </dd>
 <dt id="pytia.wrapper.documents.drawing_documents.PyDrawingDocument.new_from"><code class="name flex">
-<span>def <span class="ident">new_from</span></span>(<span>self, path: str, name: str) ‑> None</span>
+<span>def <span class="ident">new_from</span></span>(<span>self, path: pathlib.Path, name: str) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a new drawing document from an existing one.</p>
 <h2 id="args">Args</h2>
 <dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>Path</code></dt>
+<dd>The path to the original document.</dd>
 <dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
 <dd>The name of the new drawing document.</dd>
 </dl></div>
@@ -434,11 +441,12 @@ def name(self) -&gt; str:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def new_from(self, path: str, name: str) -&gt; None:
+<pre><code class="python">def new_from(self, path: Path, name: str) -&gt; None:
     &#34;&#34;&#34;
     Creates a new drawing document from an existing one.
 
     Args:
+        path (Path): The path to the original document.
         name (str): The name of the new drawing document.
     &#34;&#34;&#34;
     super().new_from(path=path, name=name)
@@ -447,25 +455,25 @@ def name(self) -&gt; str:
 </details>
 </dd>
 <dt id="pytia.wrapper.documents.drawing_documents.PyDrawingDocument.open"><code class="name flex">
-<span>def <span class="ident">open</span></span>(<span>self, path: str) ‑> None</span>
+<span>def <span class="ident">open</span></span>(<span>self, path: pathlib.Path) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Opens the given drawing file.</p>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
+<dt><strong><code>path</code></strong> :&ensp;<code>Path</code></dt>
 <dd>The full file path to the drawing file.</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def open(self, path: str) -&gt; None:
+<pre><code class="python">def open(self, path: Path) -&gt; None:
     &#34;&#34;&#34;
     Opens the given drawing file.
 
     Args:
-        path (str): The full file path to the drawing file.
+        path (Path): The full file path to the drawing file.
     &#34;&#34;&#34;
     super().open(path)
     self.__bind()
@@ -473,7 +481,7 @@ def name(self) -&gt; str:
 </details>
 </dd>
 <dt id="pytia.wrapper.documents.drawing_documents.PyDrawingDocument.save_as"><code class="name flex">
-<span>def <span class="ident">save_as</span></span>(<span>self, folder: str, overwrite: bool = True) ‑> str</span>
+<span>def <span class="ident">save_as</span></span>(<span>self, folder: pathlib.Path, overwrite: bool = True) ‑> pathlib.Path</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Saves the drawing document in the given folder.
@@ -481,7 +489,7 @@ Overwrites any existing document by default.
 Returns the path (folder &amp; filename) of the saved document.</p>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>folder</code></strong> :&ensp;<code>str</code></dt>
+<dt><strong><code>folder</code></strong> :&ensp;<code>Path</code></dt>
 <dd>The folder in which the document should be saved.</dd>
 <dt><strong><code>overwrite</code></strong> :&ensp;<code>bool</code>, optional</dt>
 <dd>Overwrites any existing files. EachDefaults to True.</dd>
@@ -493,28 +501,28 @@ Returns the path (folder &amp; filename) of the saved document.</p>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><code>str</code></dt>
+<dt><code>Path</code></dt>
 <dd>The full path to the saved document with filename and extension.</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def save_as(self, folder: str, overwrite: bool = True) -&gt; str:
+<pre><code class="python">def save_as(self, folder: Path, overwrite: bool = True) -&gt; Path:
     &#34;&#34;&#34;
     Saves the drawing document in the given folder.
     Overwrites any existing document by default.
     Returns the path (folder &amp; filename) of the saved document.
 
     Args:
-        folder (str): The folder in which the document should be saved.
+        folder (Path): The folder in which the document should be saved.
         overwrite (bool, optional): Overwrites any existing files. EachDefaults to True.
 
     Raises:
         PytiaFileExistsError: Raised if the file already exists and overwrite is False.
 
     Returns:
-        str: The full path to the saved document with filename and extension.
+        Path: The full path to the saved document with filename and extension.
     &#34;&#34;&#34;
     # Same as above: We have to introduce a separate save_as method, because the
     # base-save_as method is originally written for parts and products, which is based on
@@ -524,8 +532,9 @@ Returns the path (folder &amp; filename) of the saved document.</p>
     # variable _name instead.
     # Maybe it&#39;s time to change the base-save_as method ...
 
-    folder = verify_folder(folder=folder, absolute=True)
-    filepath = f&#34;{folder}{os.sep}{self._name}.CATDrawing&#34;
+    filepath = Path(
+        verify_folder(folder=folder, absolute=True), self._name + &#34;.CATDrawing&#34;
+    )
 
     if os.path.exists(filepath):
         if overwrite:
@@ -542,7 +551,7 @@ Returns the path (folder &amp; filename) of the saved document.</p>
     log.info(
         f&#34;Saved document {self.document.name!r} to {self.document.full_name!r}&#34;
     )
-    return self.document.full_name</code></pre>
+    return Path(self.document.full_name)</code></pre>
 </details>
 </dd>
 </dl>
