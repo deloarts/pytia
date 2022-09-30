@@ -150,3 +150,7 @@ class PytiaDispatchError(PytiaBaseError):
 
 class PytiaDifferentDocumentError(PytiaBaseError):
     """Base class for errors when a document has changed."""
+
+
+class PytiaLanguageError(PytiaBaseError):
+    """Exception for language errors."""
