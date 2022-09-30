@@ -1,5 +1,6 @@
-from typing import TYPE_CHECKING, Any, Iterator, Optional
-from pytia.framework.exception_handling import CATIAApplicationException
+from typing import TYPE_CHECKING, Iterator
+
+from pytia.framework.cat_types.general import cat_variant
 from pytia.framework.knowledge_interfaces.bool_param import BoolParam
 from pytia.framework.knowledge_interfaces.dimension import Dimension
 from pytia.framework.knowledge_interfaces.int_param import IntParam
@@ -10,7 +11,6 @@ from pytia.framework.knowledge_interfaces.str_param import StrParam
 from pytia.framework.knowledge_interfaces.units import Units
 from pytia.framework.system_interfaces.any_object import AnyObject
 from pytia.framework.system_interfaces.collection import Collection
-from pytia.framework.cat_types.general import any_parameter, cat_variant
 
 if TYPE_CHECKING:
     from pytia.framework.knowledge_interfaces.parameter_set import ParameterSet

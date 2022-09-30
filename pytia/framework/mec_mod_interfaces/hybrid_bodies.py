@@ -1,5 +1,5 @@
 from typing import Iterator
-from pytia.framework.exception_handling.exceptions import CATIAApplicationException
+from pytia.exceptions import PytiaApplicationError
 from pytia.framework.mec_mod_interfaces.hybrid_body import HybridBody
 from pytia.framework.system_interfaces.collection import Collection
 from pytia.framework.cat_types.general import cat_variant
@@ -18,7 +18,7 @@ class HybridBodies(Collection):
         try:
             return HybridBody(self.hybrid_bodies.Item(i_index))
         except Exception as e:
-            raise CATIAApplicationException(f'Could not find hybrid_body "i_index"')
+            raise PytiaApplicationError(f'Could not find hybrid_body "i_index"')
 
     def __getitem__(self, n: int) -> HybridBody:
         if (n + 1) > self.count:

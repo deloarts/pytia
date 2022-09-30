@@ -1,6 +1,8 @@
 from pathlib import Path
+
+from pytia.framework.cat_types.document_types import document_type
 from pytia.framework.enumeration.enumeration_types import cat_script_language
-from pytia.framework.exception_handling.exceptions import CATIAApplicationException
+from pytia.exceptions import PytiaApplicationError
 from pytia.framework.in_interfaces.document import Document
 from pytia.framework.in_interfaces.documents import Documents
 from pytia.framework.in_interfaces.file_system import FileSystem
@@ -13,7 +15,6 @@ from pytia.framework.in_interfaces.window import Window
 from pytia.framework.in_interfaces.windows import Windows
 from pytia.framework.system_interfaces.any_object import AnyObject
 from pytia.framework.system_interfaces.system_service import SystemService
-from pytia.framework.cat_types.document_types import document_type
 
 
 class Application(AnyObject):
@@ -28,7 +29,7 @@ class Application(AnyObject):
             doc_suffix = active_doc_com.Name.split(".")[-1]
             return document_type[doc_suffix](active_doc_com)
         except Exception as e:
-            raise CATIAApplicationException("Is there an active document?")
+            raise PytiaApplicationError("No active document found.")
 
     @property
     def active_printer(self) -> Printer:

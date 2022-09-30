@@ -1,7 +1,8 @@
+import warnings
 from pathlib import Path
 from typing import TYPE_CHECKING
-import warnings
-from pytia.framework.exception_handling.exceptions import CATIAApplicationException
+
+from pytia.exceptions import PytiaApplicationError
 from pytia.framework.in_interfaces.move import Move
 from pytia.framework.in_interfaces.position import Position
 from pytia.framework.in_interfaces.reference import Reference
@@ -13,8 +14,8 @@ from pytia.framework.product_structure_interfaces.publications import Publicatio
 from pytia.framework.system_interfaces.any_object import AnyObject
 
 if TYPE_CHECKING:
-    from pytia.framework.product_structure_interfaces.products import Products
     from pytia.framework.in_interfaces.document import Document
+    from pytia.framework.product_structure_interfaces.products import Products
 
 
 class Product(AnyObject):
@@ -79,8 +80,8 @@ class Product(AnyObject):
         try:
             return self.product.PartNumber
         except Exception as e:
-            raise CATIAApplicationException(
-                f'Prodcut "{self.name}" could not do get Product.PartNumber. Check Product for broken links.'
+            raise PytiaApplicationError(
+                f'Product "{self.name}" could not do get Product.PartNumber. Check Product for broken links.'
             )
 
     @part_number.setter
@@ -88,8 +89,8 @@ class Product(AnyObject):
         try:
             self.product.PartNumber = value
         except Exception as e:
-            raise CATIAApplicationException(
-                f'Prodcut "{self.name}" could not do set Product.PartNumber. Check Product for broken links.'
+            raise PytiaApplicationError(
+                f'Product "{self.name}" could not do set Product.PartNumber. Check Product for broken links.'
             )
 
     @property
@@ -111,8 +112,8 @@ class Product(AnyObject):
         try:
             return Product(self.product.ReferenceProduct)
         except Exception as e:
-            raise CATIAApplicationException(
-                f'Prodcut "{self.name}" could not do get Reference Product. Check Product for broken links.'
+            raise PytiaApplicationError(
+                f'Product "{self.name}" could not do get Reference Product. Check Product for broken links.'
             )
 
     @property
@@ -132,8 +133,8 @@ class Product(AnyObject):
         try:
             return self.product.Source
         except Exception as e:
-            raise CATIAApplicationException(
-                f'Prodcut "{self.name}" could not do get Product.Source. Check Product for broken links.'
+            raise PytiaApplicationError(
+                f'Product "{self.name}" could not do get Product.Source. Check Product for broken links.'
             )
 
     @source.setter
@@ -141,8 +142,8 @@ class Product(AnyObject):
         try:
             self.product.Source = value
         except Exception as e:
-            raise CATIAApplicationException(
-                f'Prodcut "{self.name}" could not do set Product.Source. Check Product for broken links.'
+            raise PytiaApplicationError(
+                f'Product "{self.name}" could not do set Product.Source. Check Product for broken links.'
             )
 
     @property
