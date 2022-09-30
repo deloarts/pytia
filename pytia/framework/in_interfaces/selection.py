@@ -1,10 +1,11 @@
 from typing import Iterator
-from pytia.framework.exception_handling import CATIAApplicationException
+
+from pytia.exceptions import PytiaApplicationError
+from pytia.framework.cat_types.checking import check_type
 from pytia.framework.in_interfaces.document import Document
 from pytia.framework.in_interfaces.selected_element import SelectedElement
 from pytia.framework.in_interfaces.vis_property_set import VisPropertySet
 from pytia.framework.system_interfaces.any_object import AnyObject
-from pytia.framework.cat_types.checking import check_type
 
 
 class Selection(AnyObject):
@@ -119,7 +120,7 @@ class Selection(AnyObject):
         try:
             return self.selection.Search(i_string_bstr)
         except Exception as e:
-            raise CATIAApplicationException(
+            raise PytiaApplicationError(
                 f'The method Search failed with search string "{i_string_bstr}". Try changing your search string.'
             )
 

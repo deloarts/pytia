@@ -141,7 +141,7 @@ class PytiaMaterialError(PytiaBaseError):
 
 
 class PytiaMaterialNotFound(PytiaBaseError):
-    """Base class for mssing materials exceptions."""
+    """Base class for missing materials exceptions."""
 
 
 class PytiaDispatchError(PytiaBaseError):
@@ -150,3 +150,7 @@ class PytiaDispatchError(PytiaBaseError):
 
 class PytiaDifferentDocumentError(PytiaBaseError):
     """Base class for errors when a document has changed."""
+
+
+class PytiaLanguageError(PytiaBaseError):
+    """Exception for language errors."""

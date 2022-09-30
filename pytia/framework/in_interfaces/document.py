@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from pytia.framework.exception_handling import CATIAApplicationException
+from pytia.exceptions import PytiaApplicationError
 from pytia.framework.in_interfaces.cameras import Cameras
 from pytia.framework.in_interfaces.reference import Reference
 from pytia.framework.in_interfaces.window import Window
@@ -98,7 +98,7 @@ class Document(AnyObject):
         if not isinstance(file_name, Path):
             file_name = Path(file_name)
         if file_name.suffix.lower() != "." + file_type.lower():
-            raise CATIAApplicationException(
+            raise PytiaApplicationError(
                 f'Filename "{file_name}" must have the same suffix as filetype "{file_type}".'
             )
         if not str(file_name).endswith(file_type):

@@ -1,5 +1,5 @@
 from pathlib import Path
-from pytia.framework.exception_handling.exceptions import CATIAApplicationException
+from pytia.exceptions import PytiaApplicationError
 from pytia.framework.hybrid_shape_interfaces.hybrid_shape_factory import (
     HybridShapeFactory,
 )
@@ -151,7 +151,7 @@ class Part(AnyObject):
         if self.part.FindObjectByName(i_obj_name):
             return AnyObject(self.part.FindObjectByName(i_obj_name))
         else:
-            raise CATIAApplicationException("Could not find object.")
+            raise PytiaApplicationError("Could not find object.")
 
     def get_customer_factory(self, i_factory_iid: str) -> Factory:
         return Factory(self.part.GetCustomerFactory(i_factory_iid))

@@ -3,7 +3,6 @@ from pathlib import Path
 from pytia.framework.drafting_interfaces.drawing_page_setup import DrawingPageSetup
 from pytia.framework.drafting_interfaces.drawing_views import DrawingViews
 from pytia.framework.drafting_interfaces.print_area import PrintArea
-from pytia.framework.exception_handling.exceptions import CATIAApplicationException
 from pytia.framework.system_interfaces.any_object import AnyObject
 
 

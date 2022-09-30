@@ -170,7 +170,7 @@ class PytiaMaterialError(PytiaBaseError):
 
 
 class PytiaMaterialNotFound(PytiaBaseError):
-    &#34;&#34;&#34;Base class for mssing materials exceptions.&#34;&#34;&#34;
+    &#34;&#34;&#34;Base class for missing materials exceptions.&#34;&#34;&#34;
 
 
 class PytiaDispatchError(PytiaBaseError):
@@ -178,7 +178,11 @@ class PytiaDispatchError(PytiaBaseError):
 
 
 class PytiaDifferentDocumentError(PytiaBaseError):
-    &#34;&#34;&#34;Base class for errors when a document has changed.&#34;&#34;&#34;</code></pre>
+    &#34;&#34;&#34;Base class for errors when a document has changed.&#34;&#34;&#34;
+
+
+class PytiaLanguageError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for language errors.&#34;&#34;&#34;</code></pre>
 </details>
 </section>
 <section>
@@ -316,6 +320,7 @@ class PytiaDifferentDocumentError(PytiaBaseError):
 <li><a title="pytia.exceptions.PytiaFileNotFoundError" href="#pytia.exceptions.PytiaFileNotFoundError">PytiaFileNotFoundError</a></li>
 <li><a title="pytia.exceptions.PytiaFileOperationError" href="#pytia.exceptions.PytiaFileOperationError">PytiaFileOperationError</a></li>
 <li><a title="pytia.exceptions.PytiaHelperError" href="#pytia.exceptions.PytiaHelperError">PytiaHelperError</a></li>
+<li><a title="pytia.exceptions.PytiaLanguageError" href="#pytia.exceptions.PytiaLanguageError">PytiaLanguageError</a></li>
 <li><a title="pytia.exceptions.PytiaMaterialError" href="#pytia.exceptions.PytiaMaterialError">PytiaMaterialError</a></li>
 <li><a title="pytia.exceptions.PytiaMaterialNotFound" href="#pytia.exceptions.PytiaMaterialNotFound">PytiaMaterialNotFound</a></li>
 <li><a title="pytia.exceptions.PytiaNoDocumentOpenError" href="#pytia.exceptions.PytiaNoDocumentOpenError">PytiaNoDocumentOpenError</a></li>
@@ -630,6 +635,26 @@ class PytiaDifferentDocumentError(PytiaBaseError):
 <li>builtins.BaseException</li>
 </ul>
 </dd>
+<dt id="pytia.exceptions.PytiaLanguageError"><code class="flex name class">
+<span>class <span class="ident">PytiaLanguageError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for language errors.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaLanguageError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for language errors.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
 <dt id="pytia.exceptions.PytiaMaterialError"><code class="flex name class">
 <span>class <span class="ident">PytiaMaterialError</span></span>
 <span>(</span><span>msg: str)</span>
@@ -655,13 +680,13 @@ class PytiaDifferentDocumentError(PytiaBaseError):
 <span>(</span><span>msg: str)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Base class for mssing materials exceptions.</p></div>
+<div class="desc"><p>Base class for missing materials exceptions.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class PytiaMaterialNotFound(PytiaBaseError):
-    &#34;&#34;&#34;Base class for mssing materials exceptions.&#34;&#34;&#34;</code></pre>
+    &#34;&#34;&#34;Base class for missing materials exceptions.&#34;&#34;&#34;</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -953,6 +978,9 @@ class PytiaDifferentDocumentError(PytiaBaseError):
 </li>
 <li>
 <h4><code><a title="pytia.exceptions.PytiaHelperError" href="#pytia.exceptions.PytiaHelperError">PytiaHelperError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaLanguageError" href="#pytia.exceptions.PytiaLanguageError">PytiaLanguageError</a></code></h4>
 </li>
 <li>
 <h4><code><a title="pytia.exceptions.PytiaMaterialError" href="#pytia.exceptions.PytiaMaterialError">PytiaMaterialError</a></code></h4>

@@ -2,8 +2,8 @@ import warnings
 from pathlib import Path
 from typing import Iterator
 
+from pytia.exceptions import PytiaApplicationError
 from pytia.framework.cat_types.general import cat_variant, list_str
-from pytia.framework.exception_handling import CATIAApplicationException
 from pytia.framework.in_interfaces.document import Document
 from pytia.framework.system_interfaces.collection import Collection
 
@@ -24,7 +24,7 @@ class Documents(Collection):
         elif isinstance(file_type_list, list):
             type_list = [elem.lower() for elem in file_type_list]
         else:
-            raise CATIAApplicationException(
+            raise PytiaApplicationError(
                 f"File type list {file_type_list} not valid type."
             )
         return len(
@@ -38,7 +38,7 @@ class Documents(Collection):
         try:
             return Document(self.documents.Item(index))
         except Exception as e:
-            raise CATIAApplicationException(f'Could not get item "{index}".')
+            raise PytiaApplicationError(f'Could not get item "{index}".')
 
     def num_open(self) -> int:
         warning_string = (

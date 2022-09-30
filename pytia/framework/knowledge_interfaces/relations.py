@@ -1,6 +1,8 @@
-from typing import Iterator
 from pathlib import Path
-from pytia.framework.exception_handling.exceptions import CATIAApplicationException
+from typing import Iterator
+
+from pytia.exceptions import PytiaApplicationError
+from pytia.framework.cat_types.general import cat_variant
 from pytia.framework.knowledge_interfaces.check import Check
 from pytia.framework.knowledge_interfaces.design_table import DesignTable
 from pytia.framework.knowledge_interfaces.formula import Formula
@@ -11,7 +13,6 @@ from pytia.framework.knowledge_interfaces.rule import Rule
 from pytia.framework.knowledge_interfaces.set_of_equation import SetOfEquation
 from pytia.framework.system_interfaces.any_object import AnyObject
 from pytia.framework.system_interfaces.collection import Collection
-from pytia.framework.cat_types.general import cat_variant
 
 
 class Relations(Collection):
@@ -30,7 +31,7 @@ class Relations(Collection):
         self, i_name: str, i_comment: str, i_copy_mode: bool, i_sheet_path: Path
     ) -> DesignTable:
         if not i_sheet_path.exists():
-            raise CATIAApplicationException(
+            raise PytiaApplicationError(
                 f'Could not find design table "{i_sheet_path}".'
             )
         return DesignTable(
