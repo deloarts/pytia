@@ -27,7 +27,7 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">from pathlib import Path
-from pytia.framework.exception_handling.exceptions import CATIAApplicationException
+from pytia.exceptions import PytiaApplicationError
 from pytia.framework.hybrid_shape_interfaces.hybrid_shape_factory import (
     HybridShapeFactory,
 )
@@ -179,7 +179,7 @@ class Part(AnyObject):
         if self.part.FindObjectByName(i_obj_name):
             return AnyObject(self.part.FindObjectByName(i_obj_name))
         else:
-            raise CATIAApplicationException(&#34;Could not find object.&#34;)
+            raise PytiaApplicationError(&#34;Could not find object.&#34;)
 
     def get_customer_factory(self, i_factory_iid: str) -&gt; Factory:
         return Factory(self.part.GetCustomerFactory(i_factory_iid))
@@ -352,7 +352,7 @@ class Part(AnyObject):
         if self.part.FindObjectByName(i_obj_name):
             return AnyObject(self.part.FindObjectByName(i_obj_name))
         else:
-            raise CATIAApplicationException(&#34;Could not find object.&#34;)
+            raise PytiaApplicationError(&#34;Could not find object.&#34;)
 
     def get_customer_factory(self, i_factory_iid: str) -&gt; Factory:
         return Factory(self.part.GetCustomerFactory(i_factory_iid))
@@ -728,7 +728,7 @@ def user_surfaces(self) -&gt; Collection:
     if self.part.FindObjectByName(i_obj_name):
         return AnyObject(self.part.FindObjectByName(i_obj_name))
     else:
-        raise CATIAApplicationException(&#34;Could not find object.&#34;)</code></pre>
+        raise PytiaApplicationError(&#34;Could not find object.&#34;)</code></pre>
 </details>
 </dd>
 <dt id="pytia.framework.mec_mod_interfaces.part.Part.get_customer_factory"><code class="name flex">

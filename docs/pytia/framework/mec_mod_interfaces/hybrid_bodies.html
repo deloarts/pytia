@@ -27,7 +27,7 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">from typing import Iterator
-from pytia.framework.exception_handling.exceptions import CATIAApplicationException
+from pytia.exceptions import PytiaApplicationError
 from pytia.framework.mec_mod_interfaces.hybrid_body import HybridBody
 from pytia.framework.system_interfaces.collection import Collection
 from pytia.framework.cat_types.general import cat_variant
@@ -46,7 +46,7 @@ class HybridBodies(Collection):
         try:
             return HybridBody(self.hybrid_bodies.Item(i_index))
         except Exception as e:
-            raise CATIAApplicationException(f&#39;Could not find hybrid_body &#34;i_index&#34;&#39;)
+            raise PytiaApplicationError(f&#39;Could not find hybrid_body &#34;i_index&#34;&#39;)
 
     def __getitem__(self, n: int) -&gt; HybridBody:
         if (n + 1) &gt; self.count:
@@ -93,7 +93,7 @@ class HybridBodies(Collection):
         try:
             return HybridBody(self.hybrid_bodies.Item(i_index))
         except Exception as e:
-            raise CATIAApplicationException(f&#39;Could not find hybrid_body &#34;i_index&#34;&#39;)
+            raise PytiaApplicationError(f&#39;Could not find hybrid_body &#34;i_index&#34;&#39;)
 
     def __getitem__(self, n: int) -&gt; HybridBody:
         if (n + 1) &gt; self.count:
@@ -140,7 +140,7 @@ class HybridBodies(Collection):
     try:
         return HybridBody(self.hybrid_bodies.Item(i_index))
     except Exception as e:
-        raise CATIAApplicationException(f&#39;Could not find hybrid_body &#34;i_index&#34;&#39;)</code></pre>
+        raise PytiaApplicationError(f&#39;Could not find hybrid_body &#34;i_index&#34;&#39;)</code></pre>
 </details>
 </dd>
 </dl>
