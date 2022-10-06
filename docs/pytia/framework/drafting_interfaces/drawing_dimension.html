@@ -26,7 +26,9 @@
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from pytia.framework.drafting_interfaces.drawing_dim_ext_line import DrawingDimExtLine
+<pre><code class="python">from typing import Tuple
+
+from pytia.framework.drafting_interfaces.drawing_dim_ext_line import DrawingDimExtLine
 from pytia.framework.drafting_interfaces.drawing_dim_line import DrawingDimLine
 from pytia.framework.drafting_interfaces.drawing_dim_value import DrawingDimValue
 from pytia.framework.knowledge_interfaces.parameters import Parameters
@@ -170,25 +172,28 @@ class DrawingDimension(AnyObject):
     def get_dim_line(self) -&gt; DrawingDimLine:
         return DrawingDimLine(self.drawing_dimension.GetDimLine())
 
-    def get_tolerances(
-        self,
-        o_tol_type: int,
-        o_tol_name: str,
-        o_up_tol: str,
-        o_low_tol: str,
-        od_up_tol: float,
-        od_low_tol: float,
-        o_display_mode: int,
-    ) -&gt; None:
-        return self.drawing_dimension.GetTolerances(
-            o_tol_type,
-            o_tol_name,
-            o_up_tol,
-            o_low_tol,
-            od_up_tol,
-            od_low_tol,
-            o_display_mode,
+    def get_tolerances(self) -&gt; Tuple[int, str, str, str, float, float, int]:
+        vba_function_name = &#34;get_tolerances&#34;
+        vba_code = &#34;&#34;&#34;
+        Public Function get_tolerances(drawing_dimension)
+            Dim oValues(7)
+            drawing_dimension.GetTolerances tol_type, tol_name, tol_up_s, tol_low_s, tol_up_d, tol_low_d, tol_display
+
+            oValues(0) = tol_type
+            oValues(1) = tol_name
+            oValues(2) = tol_up_s
+            oValues(3) = tol_low_s
+            oValues(4) = tol_up_d
+            oValues(5) = tol_low_d
+            oValues(6) = tol_display
+
+            get_tolerances = oValues
+        End Function
+        &#34;&#34;&#34;
+        value = self.application.system_service.evaluate(
+            vba_code, 0, vba_function_name, [self.com_object]
         )
+        return value[0], value[1], value[2], value[3], value[4], value[5], value[6]
 
     def get_value(self) -&gt; DrawingDimValue:
         return DrawingDimValue(self.drawing_dimension.GetValue())
@@ -387,25 +392,28 @@ class DrawingDimension(AnyObject):
     def get_dim_line(self) -&gt; DrawingDimLine:
         return DrawingDimLine(self.drawing_dimension.GetDimLine())
 
-    def get_tolerances(
-        self,
-        o_tol_type: int,
-        o_tol_name: str,
-        o_up_tol: str,
-        o_low_tol: str,
-        od_up_tol: float,
-        od_low_tol: float,
-        o_display_mode: int,
-    ) -&gt; None:
-        return self.drawing_dimension.GetTolerances(
-            o_tol_type,
-            o_tol_name,
-            o_up_tol,
-            o_low_tol,
-            od_up_tol,
-            od_low_tol,
-            o_display_mode,
+    def get_tolerances(self) -&gt; Tuple[int, str, str, str, float, float, int]:
+        vba_function_name = &#34;get_tolerances&#34;
+        vba_code = &#34;&#34;&#34;
+        Public Function get_tolerances(drawing_dimension)
+            Dim oValues(7)
+            drawing_dimension.GetTolerances tol_type, tol_name, tol_up_s, tol_low_s, tol_up_d, tol_low_d, tol_display
+
+            oValues(0) = tol_type
+            oValues(1) = tol_name
+            oValues(2) = tol_up_s
+            oValues(3) = tol_low_s
+            oValues(4) = tol_up_d
+            oValues(5) = tol_low_d
+            oValues(6) = tol_display
+
+            get_tolerances = oValues
+        End Function
+        &#34;&#34;&#34;
+        value = self.application.system_service.evaluate(
+            vba_code, 0, vba_function_name, [self.com_object]
         )
+        return value[0], value[1], value[2], value[3], value[4], value[5], value[6]
 
     def get_value(self) -&gt; DrawingDimValue:
         return DrawingDimValue(self.drawing_dimension.GetValue())
@@ -738,7 +746,7 @@ def value_reference(self) -&gt; int:
 </details>
 </dd>
 <dt id="pytia.framework.drafting_interfaces.drawing_dimension.DrawingDimension.get_tolerances"><code class="name flex">
-<span>def <span class="ident">get_tolerances</span></span>(<span>self, o_tol_type: int, o_tol_name: str, o_up_tol: str, o_low_tol: str, od_up_tol: float, od_low_tol: float, o_display_mode: int) ‑> None</span>
+<span>def <span class="ident">get_tolerances</span></span>(<span>self) ‑> Tuple[int, str, str, str, float, float, int]</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -746,25 +754,28 @@ def value_reference(self) -&gt; int:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_tolerances(
-    self,
-    o_tol_type: int,
-    o_tol_name: str,
-    o_up_tol: str,
-    o_low_tol: str,
-    od_up_tol: float,
-    od_low_tol: float,
-    o_display_mode: int,
-) -&gt; None:
-    return self.drawing_dimension.GetTolerances(
-        o_tol_type,
-        o_tol_name,
-        o_up_tol,
-        o_low_tol,
-        od_up_tol,
-        od_low_tol,
-        o_display_mode,
-    )</code></pre>
+<pre><code class="python">def get_tolerances(self) -&gt; Tuple[int, str, str, str, float, float, int]:
+    vba_function_name = &#34;get_tolerances&#34;
+    vba_code = &#34;&#34;&#34;
+    Public Function get_tolerances(drawing_dimension)
+        Dim oValues(7)
+        drawing_dimension.GetTolerances tol_type, tol_name, tol_up_s, tol_low_s, tol_up_d, tol_low_d, tol_display
+
+        oValues(0) = tol_type
+        oValues(1) = tol_name
+        oValues(2) = tol_up_s
+        oValues(3) = tol_low_s
+        oValues(4) = tol_up_d
+        oValues(5) = tol_low_d
+        oValues(6) = tol_display
+
+        get_tolerances = oValues
+    End Function
+    &#34;&#34;&#34;
+    value = self.application.system_service.evaluate(
+        vba_code, 0, vba_function_name, [self.com_object]
+    )
+    return value[0], value[1], value[2], value[3], value[4], value[5], value[6]</code></pre>
 </details>
 </dd>
 <dt id="pytia.framework.drafting_interfaces.drawing_dimension.DrawingDimension.get_value"><code class="name flex">
