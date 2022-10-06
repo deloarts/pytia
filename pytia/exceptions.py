@@ -144,13 +144,25 @@ class PytiaMaterialNotFound(PytiaBaseError):
     """Base class for missing materials exceptions."""
 
 
-class PytiaDispatchError(PytiaBaseError):
-    """Base class for dispatch error exceptions."""
-
-
 class PytiaDifferentDocumentError(PytiaBaseError):
     """Base class for errors when a document has changed."""
 
 
 class PytiaLanguageError(PytiaBaseError):
     """Exception for language errors."""
+
+
+class PytiaDispatchError(PytiaBaseError):
+    """Exception when the dispatch failed."""
+
+
+class PytiaNotInstalledError(PytiaBaseError):
+    """Exception for not installed dependencies or software."""
+
+
+class PytiaAbortedByUserError(PytiaBaseError):
+    """Exception for user abortions."""
+
+
+class PytiaConvertError(PytiaBaseError):
+    """Exception when converting fails."""
