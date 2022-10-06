@@ -173,16 +173,28 @@ class PytiaMaterialNotFound(PytiaBaseError):
     &#34;&#34;&#34;Base class for missing materials exceptions.&#34;&#34;&#34;
 
 
-class PytiaDispatchError(PytiaBaseError):
-    &#34;&#34;&#34;Base class for dispatch error exceptions.&#34;&#34;&#34;
-
-
 class PytiaDifferentDocumentError(PytiaBaseError):
     &#34;&#34;&#34;Base class for errors when a document has changed.&#34;&#34;&#34;
 
 
 class PytiaLanguageError(PytiaBaseError):
-    &#34;&#34;&#34;Exception for language errors.&#34;&#34;&#34;</code></pre>
+    &#34;&#34;&#34;Exception for language errors.&#34;&#34;&#34;
+
+
+class PytiaDispatchError(PytiaBaseError):
+    &#34;&#34;&#34;Exception when the dispatch failed.&#34;&#34;&#34;
+
+
+class PytiaNotInstalledError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for not installed dependencies or software.&#34;&#34;&#34;
+
+
+class PytiaAbortedByUserError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for user abortions.&#34;&#34;&#34;
+
+
+class PytiaConvertError(PytiaBaseError):
+    &#34;&#34;&#34;Exception when converting fails.&#34;&#34;&#34;</code></pre>
 </details>
 </section>
 <section>
@@ -194,6 +206,26 @@ class PytiaLanguageError(PytiaBaseError):
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
+<dt id="pytia.exceptions.PytiaAbortedByUserError"><code class="flex name class">
+<span>class <span class="ident">PytiaAbortedByUserError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for user abortions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaAbortedByUserError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for user abortions.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
 <dt id="pytia.exceptions.PytiaApplicationError"><code class="flex name class">
 <span>class <span class="ident">PytiaApplicationError</span></span>
 <span>(</span><span>msg: str)</span>
@@ -301,6 +333,7 @@ class PytiaLanguageError(PytiaBaseError):
 </ul>
 <h3>Subclasses</h3>
 <ul class="hlist">
+<li><a title="pytia.exceptions.PytiaAbortedByUserError" href="#pytia.exceptions.PytiaAbortedByUserError">PytiaAbortedByUserError</a></li>
 <li><a title="pytia.exceptions.PytiaApplicationError" href="#pytia.exceptions.PytiaApplicationError">PytiaApplicationError</a></li>
 <li><a title="pytia.exceptions.PytiaAxisSystemExistsError" href="#pytia.exceptions.PytiaAxisSystemExistsError">PytiaAxisSystemExistsError</a></li>
 <li><a title="pytia.exceptions.PytiaAxisSystemNotFoundError" href="#pytia.exceptions.PytiaAxisSystemNotFoundError">PytiaAxisSystemNotFoundError</a></li>
@@ -308,6 +341,7 @@ class PytiaLanguageError(PytiaBaseError):
 <li><a title="pytia.exceptions.PytiaBodyEmptyError" href="#pytia.exceptions.PytiaBodyEmptyError">PytiaBodyEmptyError</a></li>
 <li><a title="pytia.exceptions.PytiaBodyExistsError" href="#pytia.exceptions.PytiaBodyExistsError">PytiaBodyExistsError</a></li>
 <li><a title="pytia.exceptions.PytiaBodyNotFoundError" href="#pytia.exceptions.PytiaBodyNotFoundError">PytiaBodyNotFoundError</a></li>
+<li><a title="pytia.exceptions.PytiaConvertError" href="#pytia.exceptions.PytiaConvertError">PytiaConvertError</a></li>
 <li><a title="pytia.exceptions.PytiaDifferentDocumentError" href="#pytia.exceptions.PytiaDifferentDocumentError">PytiaDifferentDocumentError</a></li>
 <li><a title="pytia.exceptions.PytiaDispatchError" href="#pytia.exceptions.PytiaDispatchError">PytiaDispatchError</a></li>
 <li><a title="pytia.exceptions.PytiaDocumentExistsError" href="#pytia.exceptions.PytiaDocumentExistsError">PytiaDocumentExistsError</a></li>
@@ -326,6 +360,7 @@ class PytiaLanguageError(PytiaBaseError):
 <li><a title="pytia.exceptions.PytiaNoDocumentOpenError" href="#pytia.exceptions.PytiaNoDocumentOpenError">PytiaNoDocumentOpenError</a></li>
 <li><a title="pytia.exceptions.PytiaNotAFolderError" href="#pytia.exceptions.PytiaNotAFolderError">PytiaNotAFolderError</a></li>
 <li><a title="pytia.exceptions.PytiaNotImplementedError" href="#pytia.exceptions.PytiaNotImplementedError">PytiaNotImplementedError</a></li>
+<li><a title="pytia.exceptions.PytiaNotInstalledError" href="#pytia.exceptions.PytiaNotInstalledError">PytiaNotInstalledError</a></li>
 <li><a title="pytia.exceptions.PytiaParameterExistsError" href="#pytia.exceptions.PytiaParameterExistsError">PytiaParameterExistsError</a></li>
 <li><a title="pytia.exceptions.PytiaParameterNotFoundError" href="#pytia.exceptions.PytiaParameterNotFoundError">PytiaParameterNotFoundError</a></li>
 <li><a title="pytia.exceptions.PytiaParameterTypeError" href="#pytia.exceptions.PytiaParameterTypeError">PytiaParameterTypeError</a></li>
@@ -395,6 +430,26 @@ class PytiaLanguageError(PytiaBaseError):
 <li>builtins.BaseException</li>
 </ul>
 </dd>
+<dt id="pytia.exceptions.PytiaConvertError"><code class="flex name class">
+<span>class <span class="ident">PytiaConvertError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception when converting fails.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaConvertError(PytiaBaseError):
+    &#34;&#34;&#34;Exception when converting fails.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
 <dt id="pytia.exceptions.PytiaDifferentDocumentError"><code class="flex name class">
 <span>class <span class="ident">PytiaDifferentDocumentError</span></span>
 <span>(</span><span>msg: str)</span>
@@ -420,13 +475,13 @@ class PytiaLanguageError(PytiaBaseError):
 <span>(</span><span>msg: str)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Base class for dispatch error exceptions.</p></div>
+<div class="desc"><p>Exception when the dispatch failed.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class PytiaDispatchError(PytiaBaseError):
-    &#34;&#34;&#34;Base class for dispatch error exceptions.&#34;&#34;&#34;</code></pre>
+    &#34;&#34;&#34;Exception when the dispatch failed.&#34;&#34;&#34;</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -759,6 +814,26 @@ class PytiaLanguageError(PytiaBaseError):
 <li>builtins.BaseException</li>
 </ul>
 </dd>
+<dt id="pytia.exceptions.PytiaNotInstalledError"><code class="flex name class">
+<span>class <span class="ident">PytiaNotInstalledError</span></span>
+<span>(</span><span>msg: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exception for not installed dependencies or software.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PytiaNotInstalledError(PytiaBaseError):
+    &#34;&#34;&#34;Exception for not installed dependencies or software.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia.exceptions.PytiaBaseError" href="#pytia.exceptions.PytiaBaseError">PytiaBaseError</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
 <dt id="pytia.exceptions.PytiaParameterExistsError"><code class="flex name class">
 <span>class <span class="ident">PytiaParameterExistsError</span></span>
 <span>(</span><span>msg: str)</span>
@@ -920,6 +995,9 @@ class PytiaLanguageError(PytiaBaseError):
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
+<h4><code><a title="pytia.exceptions.PytiaAbortedByUserError" href="#pytia.exceptions.PytiaAbortedByUserError">PytiaAbortedByUserError</a></code></h4>
+</li>
+<li>
 <h4><code><a title="pytia.exceptions.PytiaApplicationError" href="#pytia.exceptions.PytiaApplicationError">PytiaApplicationError</a></code></h4>
 </li>
 <li>
@@ -942,6 +1020,9 @@ class PytiaLanguageError(PytiaBaseError):
 </li>
 <li>
 <h4><code><a title="pytia.exceptions.PytiaBodyNotFoundError" href="#pytia.exceptions.PytiaBodyNotFoundError">PytiaBodyNotFoundError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaConvertError" href="#pytia.exceptions.PytiaConvertError">PytiaConvertError</a></code></h4>
 </li>
 <li>
 <h4><code><a title="pytia.exceptions.PytiaDifferentDocumentError" href="#pytia.exceptions.PytiaDifferentDocumentError">PytiaDifferentDocumentError</a></code></h4>
@@ -996,6 +1077,9 @@ class PytiaLanguageError(PytiaBaseError):
 </li>
 <li>
 <h4><code><a title="pytia.exceptions.PytiaNotImplementedError" href="#pytia.exceptions.PytiaNotImplementedError">PytiaNotImplementedError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia.exceptions.PytiaNotInstalledError" href="#pytia.exceptions.PytiaNotInstalledError">PytiaNotInstalledError</a></code></h4>
 </li>
 <li>
 <h4><code><a title="pytia.exceptions.PytiaParameterExistsError" href="#pytia.exceptions.PytiaParameterExistsError">PytiaParameterExistsError</a></code></h4>
