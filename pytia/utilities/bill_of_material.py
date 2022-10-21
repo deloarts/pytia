@@ -36,8 +36,9 @@ def set_current_format(format_: tuple, product: Optional[Product] = None) -> Non
         product = product_document.product
 
     try:
-        bom = AssemblyConvertor(product.get_item_dispatch(GET_ITEM_BILL_OF_MATERIAL))
-        bom.set_current_format(format_)
+        bom = product.get_item(GET_ITEM_BILL_OF_MATERIAL)
+        assembly_convertor = AssemblyConvertor(bom.com_object)
+        assembly_convertor.set_current_format(format_)
         log.info(f"Set current BOM format of {product.name!r} to {format_!r}")
     except Exception as e:
         raise PytiaBOMError(
@@ -63,8 +64,9 @@ def set_secondary_format(format_: tuple, product: Optional[Product] = None) -> N
         product = product_document.product
 
     try:
-        bom = AssemblyConvertor(product.get_item_dispatch(GET_ITEM_BILL_OF_MATERIAL))
-        bom.set_secondary_format(format_)
+        bom = product.get_item(GET_ITEM_BILL_OF_MATERIAL)
+        assembly_convertor = AssemblyConvertor(bom.com_object)
+        assembly_convertor.set_secondary_format(format_)
         log.info(f"Set secondary BOM format of {product.name!r} to {format_!r}")
     except Exception as e:
         raise PytiaBOMError(
@@ -145,8 +147,6 @@ def export_bom(
             )
 
     try:
-        # bom = AssemblyConvertor(product.get_item_dispatch(BILL_OF_MATERIAL))
-        # bom.print("XLS", path, product)
         bom = product.get_item(GET_ITEM_BILL_OF_MATERIAL)
         assembly_convertor = AssemblyConvertor(bom.com_object)
         assembly_convertor.print("XLS", str(path), product)
