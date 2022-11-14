@@ -76,8 +76,8 @@ class PyMaterialCatalog:
         Returns:
             bool: True if a material with the given name exists.
         """
-        for family in self.materials:
-            for material in self.materials[family]:
+        for materials in self.materials.values():
+            for material in materials:
                 if isinstance(query, str) and material.name == query:
                     return True
                 if isinstance(query, Material) and material == query:
