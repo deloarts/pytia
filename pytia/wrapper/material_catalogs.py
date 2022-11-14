@@ -54,12 +54,13 @@ class PyMaterialCatalog:
     @property
     def materials_str(self) -> Dict[str, List[str]]:
         """Returns a dictionary mapping material family names to material objects."""
-        materials = {}
-        for family in self.materials:
-            materials[family.name] = []
-            for material in self.materials[family]:
-                materials[family.name].append(material.name)
-        return materials
+        values = {}
+        for family, materials in self.materials.items():
+            items: list = []
+            values[family.name] = items
+            for material in materials:
+                items.append(material.name)
+        return values
 
     def __repr__(self) -> str:
         """Returns the representation of the object."""
