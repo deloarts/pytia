@@ -108,9 +108,9 @@ def export_bom(
         """
         from pytia.framework import Framework
 
-        fw = Framework()
+        framework = Framework()
 
-        d_document = fw.dispatch.ActiveDocument
+        d_document = framework.dispatch.ActiveDocument
         d_product = d_document.Product
 
         try:
