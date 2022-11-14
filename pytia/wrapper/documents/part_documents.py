@@ -43,7 +43,7 @@ class PyPartDocument(PyBaseDocument):
         self._hybrid_bodies: PyHybridBodies
         self._axis_systems: PyAxisSystems
         self._material_manager: MaterialManager
-        self._material_link = self._material_link
+        self._material_link = material_link
 
     def __bind(self) -> None:
         """Binds properties to the class object."""
