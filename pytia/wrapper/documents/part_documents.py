@@ -23,13 +23,15 @@ from pytia.wrapper.properties import PyProperties
 class PyPartDocument(PyBaseDocument):
     """The wrapper class for CATIA PartDocument (MecModInterfaces Framework)"""
 
-    def __init__(self, strict_naming: bool = True) -> None:
+    def __init__(self, strict_naming: bool = True, material_link: bool = True) -> None:
         """
         Inits the base class with CATPart document type. Even
 
         Args:
             strict_naming (bool, optional): If set to True the partnumber and the filename must \
                 always match. Defaults to True.
+            material_link (bool, optional): If set to True, the applied material will be linked \
+                to the material catalog. Defaults to True.
         """
         self.strict = strict_naming
         super().__init__(doc_type=FILE_EXTENSION_PART)
@@ -41,6 +43,7 @@ class PyPartDocument(PyBaseDocument):
         self._hybrid_bodies: PyHybridBodies
         self._axis_systems: PyAxisSystems
         self._material_manager: MaterialManager
+        self._material_link = material_link
 
     def __bind(self) -> None:
         """Binds properties to the class object."""
@@ -104,7 +107,7 @@ class PyPartDocument(PyBaseDocument):
             material (Material): The catia material object.
         """
         self._material_manager.apply_material_on_part(
-            self._part, material, i_link_mode=True
+            self._part, material, i_link_mode=self._material_link
         )
 
     def open(self, path: Path) -> None:

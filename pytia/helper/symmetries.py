@@ -30,22 +30,3 @@ def create_symmetry_of_main_body_zx(part: Part) -> HybridShapeSymmetry:
     part.update_object(part.main_body)
     log.info(f"Created symmetry of {part}'s main body on ZX plane.")
     return mirror_symmetry
-
-
-@failsafe
-def create_symmetry_of_main_body_zx_as_dispatch() -> None:
-    """
-    Creates a HybridShapeSymmetry of the parts ZX plane.
-
-    .. warning::
-        This is only a fallback solution that shouldn't be used.
-    """
-    from pytia.framework import Framework
-
-    fw = Framework()
-    d_document = fw.dispatch.ActiveDocument
-    d_part = d_document.Part
-    d_reference = d_part.CreateReferenceFromObject(d_part.OriginElements.PlaneZX)
-    d_symmetry = d_part.ShapeFactory.AddNewSymmetry2(d_reference)
-    d_shape = d_symmetry.HybridShape
-    d_part.InWorkObject = d_shape

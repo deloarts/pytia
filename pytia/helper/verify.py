@@ -2,7 +2,6 @@
     Helper module for verifying objects.
 """
 
-import os
 from pathlib import Path, WindowsPath
 
 from pytia.exceptions import PytiaNotAFolderError

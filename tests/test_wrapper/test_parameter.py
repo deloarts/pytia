@@ -128,7 +128,88 @@ def test_part_parameter_check_type_false():
         parameter = part_document.parameters.get(test_parameter_name)
         should_be_false = part_document.parameters.is_real(parameter)
     assert should_be_false == False
+
+
+def test_part_parameter_type_dimension():
+    """"""
+    from pytia.wrapper.documents.part_documents import PyPartDocument
+
+    with PyPartDocument() as part_document:
+        part_document.open(path=test_path)
+        length_param = part_document.parameters.create_length(
+            name=test_parameter_name + "_length", value=10
+        )
+        angle_param = part_document.parameters.create_angle(
+            name=test_parameter_name + "_angle", value=20
+        )
+
+        assert part_document.parameters.is_dimension(length_param)
+        assert length_param.value == 10
+
+        assert part_document.parameters.is_dimension(angle_param)
+        assert angle_param.value == 20
+
+
+def test_part_parameter_type_bool():
+    """"""
+    from pytia.wrapper.documents.part_documents import PyPartDocument
+
+    with PyPartDocument() as part_document:
+        part_document.open(path=test_path)
+        param = part_document.parameters.create_bool(
+            name=test_parameter_name + "_bool", value=True
+        )
+
+        assert part_document.parameters.is_bool(param)
+        assert param.value == True
+
+
+def test_part_parameter_type_int():
+    """"""
+    from pytia.wrapper.documents.part_documents import PyPartDocument
+
+    with PyPartDocument() as part_document:
+        part_document.open(path=test_path)
+        param = part_document.parameters.create_int(
+            name=test_parameter_name + "_int", value=30
+        )
+
+        assert part_document.parameters.is_int(param)
+        assert param.value == 30
+
+
+def test_part_parameter_type_real():
+    """"""
+    from pytia.wrapper.documents.part_documents import PyPartDocument
+
+    with PyPartDocument() as part_document:
+        part_document.open(path=test_path)
+        param = part_document.parameters.create_real(
+            name=test_parameter_name + "_real", value=40.40
+        )
+
+        assert part_document.parameters.is_real(param)
+        assert param.value == 40.40
+
+
+def test_part_parameter_type_str():
+    """"""
+    from pytia.wrapper.documents.part_documents import PyPartDocument
+
+    with PyPartDocument() as part_document:
+        part_document.open(path=test_path)
+        param = part_document.parameters.create_string(
+            name=test_parameter_name + "_str", value="foo bar"
+        )
+
+        assert part_document.parameters.is_str(param)
+        assert param.value == "foo bar"
+
+
+def test_part_parameter_cleanup():
+    """Not a test."""
     os.remove(test_path)
+    assert True
 
 
 if __name__ == "__main__":

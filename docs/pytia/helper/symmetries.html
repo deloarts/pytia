@@ -58,26 +58,7 @@ def create_symmetry_of_main_body_zx(part: Part) -&gt; HybridShapeSymmetry:
     part.in_work_object = part.main_body
     part.update_object(part.main_body)
     log.info(f&#34;Created symmetry of {part}&#39;s main body on ZX plane.&#34;)
-    return mirror_symmetry
-
-
-@failsafe
-def create_symmetry_of_main_body_zx_as_dispatch() -&gt; None:
-    &#34;&#34;&#34;
-    Creates a HybridShapeSymmetry of the parts ZX plane.
-
-    .. warning::
-        This is only a fallback solution that shouldn&#39;t be used.
-    &#34;&#34;&#34;
-    from pytia.framework import Framework
-
-    fw = Framework()
-    d_document = fw.dispatch.ActiveDocument
-    d_part = d_document.Part
-    d_reference = d_part.CreateReferenceFromObject(d_part.OriginElements.PlaneZX)
-    d_symmetry = d_part.ShapeFactory.AddNewSymmetry2(d_reference)
-    d_shape = d_symmetry.HybridShape
-    d_part.InWorkObject = d_shape</code></pre>
+    return mirror_symmetry</code></pre>
 </details>
 </section>
 <section>
@@ -128,38 +109,6 @@ def create_symmetry_of_main_body_zx(part: Part) -&gt; HybridShapeSymmetry:
     return mirror_symmetry</code></pre>
 </details>
 </dd>
-<dt id="pytia.helper.symmetries.create_symmetry_of_main_body_zx_as_dispatch"><code class="name flex">
-<span>def <span class="ident">create_symmetry_of_main_body_zx_as_dispatch</span></span>(<span>) ‑> None</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Creates a HybridShapeSymmetry of the parts ZX plane.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This is only a fallback solution that shouldn't be used.</p>
-</div></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@failsafe
-def create_symmetry_of_main_body_zx_as_dispatch() -&gt; None:
-    &#34;&#34;&#34;
-    Creates a HybridShapeSymmetry of the parts ZX plane.
-
-    .. warning::
-        This is only a fallback solution that shouldn&#39;t be used.
-    &#34;&#34;&#34;
-    from pytia.framework import Framework
-
-    fw = Framework()
-    d_document = fw.dispatch.ActiveDocument
-    d_part = d_document.Part
-    d_reference = d_part.CreateReferenceFromObject(d_part.OriginElements.PlaneZX)
-    d_symmetry = d_part.ShapeFactory.AddNewSymmetry2(d_reference)
-    d_shape = d_symmetry.HybridShape
-    d_part.InWorkObject = d_shape</code></pre>
-</details>
-</dd>
 </dl>
 </section>
 <section>
@@ -179,7 +128,6 @@ def create_symmetry_of_main_body_zx_as_dispatch() -&gt; None:
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
 <li><code><a title="pytia.helper.symmetries.create_symmetry_of_main_body_zx" href="#pytia.helper.symmetries.create_symmetry_of_main_body_zx">create_symmetry_of_main_body_zx</a></code></li>
-<li><code><a title="pytia.helper.symmetries.create_symmetry_of_main_body_zx_as_dispatch" href="#pytia.helper.symmetries.create_symmetry_of_main_body_zx_as_dispatch">create_symmetry_of_main_body_zx_as_dispatch</a></code></li>
 </ul>
 </li>
 </ul>

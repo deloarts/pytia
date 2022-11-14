@@ -36,7 +36,7 @@ def test_current_format():
 
     with PyProductDocument() as product_document:
         product_document.new(name=test_name)
-        set_current_format(format_=test_format)
+        set_current_format(current_format=test_format)
 
 
 def test_secondary_format():
@@ -46,7 +46,7 @@ def test_secondary_format():
 
     with PyProductDocument() as product_document:
         product_document.new(name=test_name)
-        set_secondary_format(format_=test_format)
+        set_secondary_format(secondary_format=test_format)
 
 
 def test_current_format_with_product():
@@ -56,7 +56,7 @@ def test_current_format_with_product():
 
     with PyProductDocument() as product_document:
         product_document.new(name=test_name)
-        set_current_format(format_=test_format, product=product_document.product)
+        set_current_format(current_format=test_format, product=product_document.product)
 
 
 def test_secondary_format_with_product():
@@ -66,7 +66,9 @@ def test_secondary_format_with_product():
 
     with PyProductDocument() as product_document:
         product_document.new(name=test_name)
-        set_secondary_format(format_=test_format, product=product_document.product)
+        set_secondary_format(
+            secondary_format=test_format, product=product_document.product
+        )
 
 
 def test_exported_file_exists():

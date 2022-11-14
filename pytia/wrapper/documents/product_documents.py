@@ -17,19 +17,22 @@ from pytia.wrapper.properties import PyProperties
 class PyProductDocument(PyBaseDocument):
     """The wrapper class for CATIA ProductDocument (ProductStructureInterfaces Framework)"""
 
-    def __init__(self, strict_naming: bool = True) -> None:
+    def __init__(self, strict_naming: bool = True, material_link: bool = True) -> None:
         """
         Inits the base class with CATProduct document type. Even
 
         Args:
             strict_naming (bool, optional): If set to True the partnumber and the filename must \
                 always match. Defaults to True.
+            material_link (bool, optional): If set to True, the applied material will be linked \
+                to the material catalog. Defaults to True.
         """
         self.strict = strict_naming
         super().__init__(doc_type=FILE_EXTENSION_PRODUCT)
         self._product: Product
         self._properties: PyProperties
         self._material_manager: MaterialManager
+        self._material_link = material_link
 
     def __bind(self) -> None:
         """Binds properties to the class object."""
@@ -63,7 +66,7 @@ class PyProductDocument(PyBaseDocument):
             material (Material): The catia material object.
         """
         self._material_manager.apply_material_on_product(
-            self._product, material, i_link_mode=True
+            self._product, material, i_link_mode=self._material_link
         )
 
     def open(self, path: Path) -> None:

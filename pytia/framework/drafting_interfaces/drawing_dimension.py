@@ -1,5 +1,3 @@
-from typing import Tuple
-
 from pytia.framework.drafting_interfaces.drawing_dim_ext_line import DrawingDimExtLine
 from pytia.framework.drafting_interfaces.drawing_dim_line import DrawingDimLine
 from pytia.framework.drafting_interfaces.drawing_dim_value import DrawingDimValue
@@ -132,8 +130,8 @@ class DrawingDimension(AnyObject):
     def value_reference(self, value: int):
         self.drawing_dimension.ValueReference = value
 
-    def get_boundary_box(self, o_values: tuple) -> None:
-        return self.drawing_dimension.GetBoundaryBox(o_values)
+    def get_boundary_box(self) -> tuple:
+        return self.drawing_dimension.GetBoundaryBox()
 
     def get_clip(self, x: float, y: float, o_kept_side: int) -> None:
         return self.drawing_dimension.GetClip(x, y, o_kept_side)
@@ -144,28 +142,8 @@ class DrawingDimension(AnyObject):
     def get_dim_line(self) -> DrawingDimLine:
         return DrawingDimLine(self.drawing_dimension.GetDimLine())
 
-    def get_tolerances(self) -> Tuple[int, str, str, str, float, float, int]:
-        vba_function_name = "get_tolerances"
-        vba_code = """
-        Public Function get_tolerances(drawing_dimension)
-            Dim oValues(7)
-            drawing_dimension.GetTolerances tol_type, tol_name, tol_up_s, tol_low_s, tol_up_d, tol_low_d, tol_display
-
-            oValues(0) = tol_type
-            oValues(1) = tol_name
-            oValues(2) = tol_up_s
-            oValues(3) = tol_low_s
-            oValues(4) = tol_up_d
-            oValues(5) = tol_low_d
-            oValues(6) = tol_display
-
-            get_tolerances = oValues
-        End Function
-        """
-        value = self.application.system_service.evaluate(
-            vba_code, 0, vba_function_name, [self.com_object]
-        )
-        return value[0], value[1], value[2], value[3], value[4], value[5], value[6]
+    def get_tolerances(self) -> tuple[int, str, str, str, float, float, int]:
+        return self.drawing_dimension.GetTolerances()
 
     def get_value(self) -> DrawingDimValue:
         return DrawingDimValue(self.drawing_dimension.GetValue())

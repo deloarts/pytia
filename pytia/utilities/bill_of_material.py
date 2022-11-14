@@ -18,12 +18,14 @@ from pytia.log import log
 from pytia.wrapper.documents.product_documents import PyProductDocument
 
 
-def set_current_format(format_: tuple, product: Optional[Product] = None) -> None:
+def set_current_format(
+    current_format: tuple, product: Optional[Product] = None
+) -> None:
     """
     Sets the current format of the products bill of material.
 
     Args:
-        format_ (tuple): The elements that shall be visible in the bom.
+        current_format (tuple): The elements that shall be visible in the bom.
         product (Optional[Product], optional): The product to which the format will be applied. \
             Defaults to None. If None the currently open CATProduct will be used.
 
@@ -36,21 +38,24 @@ def set_current_format(format_: tuple, product: Optional[Product] = None) -> Non
         product = product_document.product
 
     try:
-        bom = AssemblyConvertor(product.get_item_dispatch(GET_ITEM_BILL_OF_MATERIAL))
-        bom.set_current_format(format_)
-        log.info(f"Set current BOM format of {product.name!r} to {format_!r}")
+        bom = product.get_item(GET_ITEM_BILL_OF_MATERIAL)
+        assembly_convertor = AssemblyConvertor(bom.com_object)
+        assembly_convertor.set_current_format(current_format)
+        log.info(f"Set current BOM format of {product.name!r} to {current_format!r}")
     except Exception as e:
         raise PytiaBOMError(
             f"Failed setting current bom format of {product.name!r}: {e}"
         ) from e
 
 
-def set_secondary_format(format_: tuple, product: Optional[Product] = None) -> None:
+def set_secondary_format(
+    secondary_format: tuple, product: Optional[Product] = None
+) -> None:
     """
     Sets the secondary format of the products bill of material.
 
     Args:
-        format_ (tuple): The elements that shall be visible in the bom.
+        secondary_format (tuple): The elements that shall be visible in the bom.
         product (Optional[Product], optional): The product to which the format will be applied. \
             Defaults to None. If None the currently open CATProduct will be used.
 
@@ -63,9 +68,12 @@ def set_secondary_format(format_: tuple, product: Optional[Product] = None) -> N
         product = product_document.product
 
     try:
-        bom = AssemblyConvertor(product.get_item_dispatch(GET_ITEM_BILL_OF_MATERIAL))
-        bom.set_secondary_format(format_)
-        log.info(f"Set secondary BOM format of {product.name!r} to {format_!r}")
+        bom = product.get_item(GET_ITEM_BILL_OF_MATERIAL)
+        assembly_convertor = AssemblyConvertor(bom.com_object)
+        assembly_convertor.set_secondary_format(secondary_format)
+        log.info(
+            f"Set secondary BOM format of {product.name!r} to {secondary_format!r}"
+        )
     except Exception as e:
         raise PytiaBOMError(
             f"Failed setting secondary bom format of {product.name!r}: {e}"
@@ -100,9 +108,9 @@ def export_bom(
         """
         from pytia.framework import Framework
 
-        fw = Framework()
+        framework = Framework()
 
-        d_document = fw.dispatch.ActiveDocument
+        d_document = framework.dispatch.ActiveDocument
         d_product = d_document.Product
 
         try:
@@ -145,8 +153,6 @@ def export_bom(
             )
 
     try:
-        # bom = AssemblyConvertor(product.get_item_dispatch(BILL_OF_MATERIAL))
-        # bom.print("XLS", path, product)
         bom = product.get_item(GET_ITEM_BILL_OF_MATERIAL)
         assembly_convertor = AssemblyConvertor(bom.com_object)
         assembly_convertor.print("XLS", str(path), product)
