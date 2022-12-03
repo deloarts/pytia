@@ -4,10 +4,11 @@
 
 from typing import List
 
+from pycatia.mec_mod_interfaces.axis_system import AxisSystem
+from pycatia.mec_mod_interfaces.axis_systems import AxisSystems
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.exceptions import PytiaAxisSystemExistsError, PytiaAxisSystemNotFoundError
-from pytia.framework.mec_mod_interfaces.axis_system import AxisSystem
-from pytia.framework.mec_mod_interfaces.axis_systems import AxisSystems
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.log import log
 
 

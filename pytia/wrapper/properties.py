@@ -5,12 +5,13 @@
 import functools
 from typing import List
 
+from pycatia.knowledge_interfaces.parameters import Parameters
+from pycatia.knowledge_interfaces.str_param import StrParam
+from pycatia.product_structure_interfaces.product import Product
+
 from pytia import __version__
 from pytia.const import ENV_NO_PROPS, PROP_VERSION
 from pytia.exceptions import PytiaPropertyExistsError, PytiaPropertyNotFoundError
-from pytia.framework.knowledge_interfaces.parameters import Parameters
-from pytia.framework.knowledge_interfaces.str_param import StrParam
-from pytia.framework.product_structure_interfaces.product import Product
 from pytia.log import log
 
 

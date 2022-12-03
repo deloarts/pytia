@@ -2,6 +2,7 @@ from pathlib import Path
 from tempfile import gettempdir
 
 import pytest
+
 from pytia.framework import framework
 
 test_name = "pytest_test_materials"
@@ -67,7 +68,8 @@ def test_material_exists():
 
 def test_get_material():
     """Tests if an existing material can be retrieved."""
-    from pytia.framework.cat_mat_interfaces.material import Material
+    from pycatia.cat_mat_interfaces.material import Material
+
     from pytia.wrapper.documents.material_documents import PyMaterialDocument
 
     with PyMaterialDocument() as material_document:
@@ -81,8 +83,9 @@ def test_get_material():
 
 def test_get_material_non_existent():
     """Tests if the correct error is raised."""
+    from pycatia.cat_mat_interfaces.material import Material
+
     from pytia.exceptions import PytiaMaterialNotFound
-    from pytia.framework.cat_mat_interfaces.material import Material
     from pytia.wrapper.documents.material_documents import PyMaterialDocument
 
     with pytest.raises(PytiaMaterialNotFound):

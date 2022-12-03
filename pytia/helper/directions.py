@@ -2,12 +2,11 @@
     Helper module for CATIA HybridShapeDirections objects.
 """
 
+from pycatia.hybrid_shape_interfaces.hybrid_shape_direction import HybridShapeDirection
+from pycatia.in_interfaces.reference import Reference
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.decorators import failsafe
-from pytia.framework.hybrid_shape_interfaces.hybrid_shape_direction import (
-    HybridShapeDirection,
-)
-from pytia.framework.in_interfaces.reference import Reference
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.log import log
 
 

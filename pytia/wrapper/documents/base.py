@@ -6,6 +6,9 @@ import os
 from pathlib import Path
 from typing import Any, List, Optional
 
+from pycatia.in_interfaces.document import Document
+from pycatia.in_interfaces.selection import Selection
+
 from pytia import __version__
 from pytia.const import VALID_FILE_EXTENSIONS
 from pytia.exceptions import (
@@ -19,8 +22,6 @@ from pytia.exceptions import (
     PytiaWrongDocumentTypeError,
 )
 from pytia.framework import framework
-from pytia.framework.in_interfaces.document import Document
-from pytia.framework.in_interfaces.selection import Selection
 from pytia.helper.verify import verify_folder
 from pytia.log import log
 

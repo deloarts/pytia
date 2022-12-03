@@ -2,11 +2,10 @@
     Helper module for CATIA HybridShapeSymmetry objects.
 """
 
+from pycatia.hybrid_shape_interfaces.hybrid_shape_symmetry import HybridShapeSymmetry
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.decorators import failsafe
-from pytia.framework.hybrid_shape_interfaces.hybrid_shape_symmetry import (
-    HybridShapeSymmetry,
-)
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.log import log
 
 

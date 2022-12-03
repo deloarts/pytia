@@ -4,13 +4,14 @@
 
 from typing import Optional
 
+from pycatia.in_interfaces.document import Document
+from pycatia.in_interfaces.reference import Reference
+from pycatia.mec_mod_interfaces.body import Body
+from pycatia.mec_mod_interfaces.part import Part
+from pycatia.space_analyses_interfaces.measurable import Measurable
+
 from pytia.decorators import failsafe
 from pytia.framework import framework
-from pytia.framework.in_interfaces.document import Document
-from pytia.framework.in_interfaces.reference import Reference
-from pytia.framework.mec_mod_interfaces.body import Body
-from pytia.framework.mec_mod_interfaces.part import Part
-from pytia.framework.space_analyses_interfaces.measurable import Measurable
 from pytia.log import log
 
 

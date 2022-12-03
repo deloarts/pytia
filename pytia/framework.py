@@ -4,21 +4,18 @@
     .. warning::
         The documentation of the framework can be found inside the **V5automation.chm** 
         (/assets/V5Automation.chm) help file.
-
-        For this purpose the code inside framework is stripped from its documentation completely.
-
-        This framework is based on **pycatia** (https://github.com/evereux/pycatia).
 """
 
 import atexit
 import os
 
 from psutil import process_iter
+from pycatia.in_interfaces.application import Application
+from win32com.client import CDispatch, Dispatch
+
 from pytia import __version__
 from pytia.exceptions import PytiaApplicationError
-from pytia.framework.in_interfaces.application import Application
 from pytia.log import log
-from win32com.client import CDispatch, Dispatch
 
 
 class Framework:

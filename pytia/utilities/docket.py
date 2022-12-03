@@ -11,9 +11,10 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Tuple
 
+from pycatia.drafting_interfaces.drawing_text import DrawingText
+
 from pytia.const import BACKGROUND_VIEW, FOREGROUND_VIEW
 from pytia.exceptions import PytiaFileNotFoundError, PytiaFileOperationError
-from pytia.framework.drafting_interfaces.drawing_text import DrawingText
 from pytia.helper.scaling import get_view_scale
 from pytia.helper.verify import verify_folder
 from pytia.log import log
