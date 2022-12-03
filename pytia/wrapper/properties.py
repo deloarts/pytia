@@ -103,7 +103,7 @@ class PyProperties:
             StrParam: The property.
         """
         if self.exists(name=name):
-            return StrParam(self._user_ref_properties.item(name))
+            return StrParam(self._user_ref_properties.item(name).com_object)
 
         raise PytiaPropertyNotFoundError(
             f"Property {name!r} not found in {self._product.name!r}"

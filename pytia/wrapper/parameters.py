@@ -121,7 +121,7 @@ class PyPartParameters:
         """
         if self.exists(name=name):
             native_value = self._parameters.item(name).value  # type: ignore
-            parameter = self._parameters.item(name)
+            parameter = Parameter(self._parameters.item(name).com_object).com_object
 
             # Return the parameter with its type
             if self.is_bool(parameter) and of_type in [bool, None]:
