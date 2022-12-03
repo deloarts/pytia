@@ -31,11 +31,10 @@
     Helper module for CATIA HybridShapeSymmetry objects.
 &#34;&#34;&#34;
 
+from pycatia.hybrid_shape_interfaces.hybrid_shape_symmetry import HybridShapeSymmetry
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.decorators import failsafe
-from pytia.framework.hybrid_shape_interfaces.hybrid_shape_symmetry import (
-    HybridShapeSymmetry,
-)
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.log import log
 
 
@@ -69,7 +68,7 @@ def create_symmetry_of_main_body_zx(part: Part) -&gt; HybridShapeSymmetry:
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="pytia.helper.symmetries.create_symmetry_of_main_body_zx"><code class="name flex">
-<span>def <span class="ident">create_symmetry_of_main_body_zx</span></span>(<span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>) ‑> <a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_symmetry.HybridShapeSymmetry" href="../framework/hybrid_shape_interfaces/hybrid_shape_symmetry.html#pytia.framework.hybrid_shape_interfaces.hybrid_shape_symmetry.HybridShapeSymmetry">HybridShapeSymmetry</a></span>
+<span>def <span class="ident">create_symmetry_of_main_body_zx</span></span>(<span>part: pycatia.mec_mod_interfaces.part.Part) ‑> pycatia.hybrid_shape_interfaces.hybrid_shape_symmetry.HybridShapeSymmetry</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates and returns a HybridShapeSymmetry of the parts ZX plane.</p>

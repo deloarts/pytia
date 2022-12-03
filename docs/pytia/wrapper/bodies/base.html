@@ -31,11 +31,12 @@
     Base wrapper module for CATIA bodies.
 &#34;&#34;&#34;
 
+from pycatia.cat_mat_interfaces.material_manager import MaterialManager
+from pycatia.mec_mod_interfaces.body import Body
+from pycatia.mec_mod_interfaces.hybrid_body import HybridBody
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.const import GET_ITEM_MATERIAL_MANAGER
-from pytia.framework.cat_mat_interfaces.material_manager import MaterialManager
-from pytia.framework.mec_mod_interfaces.body import Body
-from pytia.framework.mec_mod_interfaces.hybrid_body import HybridBody
-from pytia.framework.mec_mod_interfaces.part import Part
 
 
 class PyBodiesBase:
@@ -98,7 +99,7 @@ class PyBodiesBase:
 <dl>
 <dt id="pytia.wrapper.bodies.base.PyBodiesBase"><code class="flex name class">
 <span>class <span class="ident">PyBodiesBase</span></span>
-<span>(</span><span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>)</span>
+<span>(</span><span>part: pycatia.mec_mod_interfaces.part.Part)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Base class for the CATIA Bodies and HybridBodies (MecModInterfaces Framework)</p>
@@ -163,7 +164,7 @@ class PyBodiesBase:
 <h3>Static methods</h3>
 <dl>
 <dt id="pytia.wrapper.bodies.base.PyBodiesBase.is_empty"><code class="name flex">
-<span>def <span class="ident">is_empty</span></span>(<span>body: <a title="pytia.framework.mec_mod_interfaces.body.Body" href="../../framework/mec_mod_interfaces/body.html#pytia.framework.mec_mod_interfaces.body.Body">Body</a> | <a title="pytia.framework.mec_mod_interfaces.hybrid_body.HybridBody" href="../../framework/mec_mod_interfaces/hybrid_body.html#pytia.framework.mec_mod_interfaces.hybrid_body.HybridBody">HybridBody</a>, count_shapes: bool = True, count_hybrid_bodies: bool = True, count_sketches: bool = True) ‑> bool</span>
+<span>def <span class="ident">is_empty</span></span>(<span>body: pycatia.mec_mod_interfaces.body.Body | pycatia.mec_mod_interfaces.hybrid_body.HybridBody, count_shapes: bool = True, count_hybrid_bodies: bool = True, count_sketches: bool = True) ‑> bool</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns True if the body is empty.</p>

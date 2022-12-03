@@ -31,11 +31,12 @@
     Helper module for CATIA Point objects.
 &#34;&#34;&#34;
 
+from pycatia.hybrid_shape_interfaces.point import Point
+from pycatia.mec_mod_interfaces.body import Body
+from pycatia.mec_mod_interfaces.hybrid_body import HybridBody
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.decorators import failsafe
-from pytia.framework.hybrid_shape_interfaces.point import Point
-from pytia.framework.mec_mod_interfaces.body import Body
-from pytia.framework.mec_mod_interfaces.hybrid_body import HybridBody
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.helper.measurables import get_measurable_from_body
 from pytia.log import log
 
@@ -135,7 +136,7 @@ def create_point_from_coordinates(
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="pytia.helper.points.create_point_from_coordinates"><code class="name flex">
-<span>def <span class="ident">create_point_from_coordinates</span></span>(<span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>, hybrid_body: <a title="pytia.framework.mec_mod_interfaces.hybrid_body.HybridBody" href="../framework/mec_mod_interfaces/hybrid_body.html#pytia.framework.mec_mod_interfaces.hybrid_body.HybridBody">HybridBody</a>, x: int, y: int, z: int, name: str = 'Point') ‑> None</span>
+<span>def <span class="ident">create_point_from_coordinates</span></span>(<span>part: pycatia.mec_mod_interfaces.part.Part, hybrid_body: pycatia.mec_mod_interfaces.hybrid_body.HybridBody, x: int, y: int, z: int, name: str = 'Point') ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a point inside the given hybrid body from the given coordinates.</p>
@@ -180,7 +181,7 @@ def create_point_from_coordinates(
 </details>
 </dd>
 <dt id="pytia.helper.points.create_point_from_point_object"><code class="name flex">
-<span>def <span class="ident">create_point_from_point_object</span></span>(<span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>, hybrid_body: <a title="pytia.framework.mec_mod_interfaces.hybrid_body.HybridBody" href="../framework/mec_mod_interfaces/hybrid_body.html#pytia.framework.mec_mod_interfaces.hybrid_body.HybridBody">HybridBody</a>, point: <a title="pytia.framework.hybrid_shape_interfaces.point.Point" href="../framework/hybrid_shape_interfaces/point.html#pytia.framework.hybrid_shape_interfaces.point.Point">Point</a>) ‑> None</span>
+<span>def <span class="ident">create_point_from_point_object</span></span>(<span>part: pycatia.mec_mod_interfaces.part.Part, hybrid_body: pycatia.mec_mod_interfaces.hybrid_body.HybridBody, point: pycatia.hybrid_shape_interfaces.point.Point) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a point inside the given hybrid body from the given
@@ -219,7 +220,7 @@ def create_point_from_point_object(
 </details>
 </dd>
 <dt id="pytia.helper.points.get_center_of_gravity"><code class="name flex">
-<span>def <span class="ident">get_center_of_gravity</span></span>(<span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>, body: <a title="pytia.framework.mec_mod_interfaces.body.Body" href="../framework/mec_mod_interfaces/body.html#pytia.framework.mec_mod_interfaces.body.Body">Body</a>, name: str = 'CenterOfGravity') ‑> <a title="pytia.framework.hybrid_shape_interfaces.point.Point" href="../framework/hybrid_shape_interfaces/point.html#pytia.framework.hybrid_shape_interfaces.point.Point">Point</a></span>
+<span>def <span class="ident">get_center_of_gravity</span></span>(<span>part: pycatia.mec_mod_interfaces.part.Part, body: pycatia.mec_mod_interfaces.body.Body, name: str = 'CenterOfGravity') ‑> pycatia.hybrid_shape_interfaces.point.Point</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns a HybridShapeFactory Point object at the center of gravity from the
@@ -268,7 +269,7 @@ def get_center_of_gravity(
 </details>
 </dd>
 <dt id="pytia.helper.points.get_point_object"><code class="name flex">
-<span>def <span class="ident">get_point_object</span></span>(<span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>, x: int, y: int, z: int, name: str = 'Point') ‑> <a title="pytia.framework.hybrid_shape_interfaces.point.Point" href="../framework/hybrid_shape_interfaces/point.html#pytia.framework.hybrid_shape_interfaces.point.Point">Point</a></span>
+<span>def <span class="ident">get_point_object</span></span>(<span>part: pycatia.mec_mod_interfaces.part.Part, x: int, y: int, z: int, name: str = 'Point') ‑> pycatia.hybrid_shape_interfaces.point.Point</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns a HybridShapeFactory point object from the given part at the given coordinates.

@@ -31,7 +31,8 @@
     Helper module for scaling.
 &#34;&#34;&#34;
 
-from pytia.framework.drafting_interfaces.drawing_view import DrawingView
+from pycatia.drafting_interfaces.drawing_view import DrawingView
+
 from pytia.log import log
 
 
@@ -72,7 +73,7 @@ def get_view_scale(view: DrawingView, max_width: float, max_height: float) -&gt;
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="pytia.helper.scaling.get_view_scale"><code class="name flex">
-<span>def <span class="ident">get_view_scale</span></span>(<span>view: <a title="pytia.framework.drafting_interfaces.drawing_view.DrawingView" href="../framework/drafting_interfaces/drawing_view.html#pytia.framework.drafting_interfaces.drawing_view.DrawingView">DrawingView</a>, max_width: float, max_height: float) ‑> float</span>
+<span>def <span class="ident">get_view_scale</span></span>(<span>view: pycatia.drafting_interfaces.drawing_view.DrawingView, max_width: float, max_height: float) ‑> float</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns the scale for a view to fit into the given maximum dimensions.</p>

@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>pytia.framework.mec_mod_interfaces.solid API documentation</title>
-<meta name="description" content="" />
+<title>pytia.framework API documentation</title>
+<meta name="description" content="The framework for interacting with CATIA …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -19,37 +19,79 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>pytia.framework.mec_mod_interfaces.solid</code></h1>
+<h1 class="title">Module <code>pytia.framework</code></h1>
 </header>
 <section id="section-intro">
+<p>The framework for interacting with CATIA.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The documentation of the framework can be found inside the <strong>V5automation.chm</strong>
+(/assets/V5Automation.chm) help file.</p>
+</div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from pytia.framework.in_interfaces.move import Move
-from pytia.framework.mec_mod_interfaces.shape import Shape
-from pytia.framework.system_interfaces.any_object import AnyObject
+<pre><code class="python">&#34;&#34;&#34;
+    The framework for interacting with CATIA.
+
+    .. warning::
+        The documentation of the framework can be found inside the **V5automation.chm** 
+        (/assets/V5Automation.chm) help file.
+&#34;&#34;&#34;
+
+import atexit
+import os
+
+from psutil import process_iter
+from pycatia.in_interfaces.application import Application
+from win32com.client import CDispatch, Dispatch
+
+from pytia import __version__
+from pytia.exceptions import PytiaApplicationError
+from pytia.log import log
 
 
-class Solid(Shape):
-    def __init__(self, com_object):
-        super().__init__(com_object)
-        self.solid = com_object
+class Framework:
+    def __init__(self) -&gt; None:
+        &#34;&#34;&#34;Inits the catia application dispatch.&#34;&#34;&#34;
+        if not os.name == &#34;nt&#34;:
+            raise OSError(f&#34;This operating system is not supported.&#34;)
+
+        if &#34;CNEXT.exe&#34; not in (p.name() for p in process_iter()):
+            raise PytiaApplicationError(
+                &#34;Failed connecting to CATIA: Application not running.&#34;
+            )
+
+        self._dispatch = Dispatch(&#34;CATIA.Application&#34;)
+        self._catia = Application(self._dispatch)
+        self._catia.status_bar = f&#34;Connected to pytia {__version__}&#34;
+
+        atexit.register(self._exit)
+
+        log.info(
+            f&#34;Connected to CATIA V{self._catia.system_configuration.version}-&#34;
+            f&#34;R{self._catia.system_configuration.release} &#34;
+            f&#34;SP{self._catia.system_configuration.service_pack}.&#34;
+        )
+
+    def _exit(self) -&gt; None:
+        &#34;&#34;&#34;Triggered at exit.&#34;&#34;&#34;
+        self._catia.status_bar = &#34;&#34;
+        log.info(&#34;Disconnected from CATIA.&#34;)
 
     @property
-    def move(self) -&gt; Move:
-        return Move(self.solid.Move)
+    def catia(self) -&gt; Application:
+        &#34;&#34;&#34;Returns the catia application.&#34;&#34;&#34;
+        return self._catia
 
     @property
-    def source_element(self) -&gt; AnyObject:
-        return AnyObject(self.solid.SourceElement)
+    def dispatch(self) -&gt; CDispatch:
+        &#34;&#34;&#34;Returns the catia dispatch.&#34;&#34;&#34;
+        return self._dispatch
 
-    @property
-    def source_product(self) -&gt; AnyObject:
-        return AnyObject(self.solid.SourceProduct)
 
-    def __repr__(self):
-        return f&#39;Solid(name=&#34;{ self.name }&#34;)&#39;</code></pre>
+framework = Framework()</code></pre>
 </details>
 </section>
 <section>
@@ -61,78 +103,79 @@ class Solid(Shape):
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="pytia.framework.mec_mod_interfaces.solid.Solid"><code class="flex name class">
-<span>class <span class="ident">Solid</span></span>
-<span>(</span><span>com_object)</span>
+<dt id="pytia.framework.Framework"><code class="flex name class">
+<span>class <span class="ident">Framework</span></span>
 </code></dt>
 <dd>
-<div class="desc"><p>Base class for the framework.</p></div>
+<div class="desc"><p>Inits the catia application dispatch.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class Solid(Shape):
-    def __init__(self, com_object):
-        super().__init__(com_object)
-        self.solid = com_object
+<pre><code class="python">class Framework:
+    def __init__(self) -&gt; None:
+        &#34;&#34;&#34;Inits the catia application dispatch.&#34;&#34;&#34;
+        if not os.name == &#34;nt&#34;:
+            raise OSError(f&#34;This operating system is not supported.&#34;)
+
+        if &#34;CNEXT.exe&#34; not in (p.name() for p in process_iter()):
+            raise PytiaApplicationError(
+                &#34;Failed connecting to CATIA: Application not running.&#34;
+            )
+
+        self._dispatch = Dispatch(&#34;CATIA.Application&#34;)
+        self._catia = Application(self._dispatch)
+        self._catia.status_bar = f&#34;Connected to pytia {__version__}&#34;
+
+        atexit.register(self._exit)
+
+        log.info(
+            f&#34;Connected to CATIA V{self._catia.system_configuration.version}-&#34;
+            f&#34;R{self._catia.system_configuration.release} &#34;
+            f&#34;SP{self._catia.system_configuration.service_pack}.&#34;
+        )
+
+    def _exit(self) -&gt; None:
+        &#34;&#34;&#34;Triggered at exit.&#34;&#34;&#34;
+        self._catia.status_bar = &#34;&#34;
+        log.info(&#34;Disconnected from CATIA.&#34;)
 
     @property
-    def move(self) -&gt; Move:
-        return Move(self.solid.Move)
+    def catia(self) -&gt; Application:
+        &#34;&#34;&#34;Returns the catia application.&#34;&#34;&#34;
+        return self._catia
 
     @property
-    def source_element(self) -&gt; AnyObject:
-        return AnyObject(self.solid.SourceElement)
-
-    @property
-    def source_product(self) -&gt; AnyObject:
-        return AnyObject(self.solid.SourceProduct)
-
-    def __repr__(self):
-        return f&#39;Solid(name=&#34;{ self.name }&#34;)&#39;</code></pre>
+    def dispatch(self) -&gt; CDispatch:
+        &#34;&#34;&#34;Returns the catia dispatch.&#34;&#34;&#34;
+        return self._dispatch</code></pre>
 </details>
-<h3>Ancestors</h3>
-<ul class="hlist">
-<li><a title="pytia.framework.mec_mod_interfaces.shape.Shape" href="shape.html#pytia.framework.mec_mod_interfaces.shape.Shape">Shape</a></li>
-<li><a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a></li>
-<li><a title="pytia.framework.base.Base" href="../base.html#pytia.framework.base.Base">Base</a></li>
-</ul>
 <h3>Instance variables</h3>
 <dl>
-<dt id="pytia.framework.mec_mod_interfaces.solid.Solid.move"><code class="name">var <span class="ident">move</span> : <a title="pytia.framework.in_interfaces.move.Move" href="../in_interfaces/move.html#pytia.framework.in_interfaces.move.Move">Move</a></code></dt>
+<dt id="pytia.framework.Framework.catia"><code class="name">var <span class="ident">catia</span> : pycatia.in_interfaces.application.Application</code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Returns the catia application.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@property
-def move(self) -&gt; Move:
-    return Move(self.solid.Move)</code></pre>
+def catia(self) -&gt; Application:
+    &#34;&#34;&#34;Returns the catia application.&#34;&#34;&#34;
+    return self._catia</code></pre>
 </details>
 </dd>
-<dt id="pytia.framework.mec_mod_interfaces.solid.Solid.source_element"><code class="name">var <span class="ident">source_element</span> : <a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a></code></dt>
+<dt id="pytia.framework.Framework.dispatch"><code class="name">var <span class="ident">dispatch</span> : win32com.client.CDispatch</code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Returns the catia dispatch.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@property
-def source_element(self) -&gt; AnyObject:
-    return AnyObject(self.solid.SourceElement)</code></pre>
-</details>
-</dd>
-<dt id="pytia.framework.mec_mod_interfaces.solid.Solid.source_product"><code class="name">var <span class="ident">source_product</span> : <a title="pytia.framework.system_interfaces.any_object.AnyObject" href="../system_interfaces/any_object.html#pytia.framework.system_interfaces.any_object.AnyObject">AnyObject</a></code></dt>
-<dd>
-<div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@property
-def source_product(self) -&gt; AnyObject:
-    return AnyObject(self.solid.SourceProduct)</code></pre>
+def dispatch(self) -&gt; CDispatch:
+    &#34;&#34;&#34;Returns the catia dispatch.&#34;&#34;&#34;
+    return self._dispatch</code></pre>
 </details>
 </dd>
 </dl>
@@ -148,17 +191,16 @@ def source_product(self) -&gt; AnyObject:
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="pytia.framework.mec_mod_interfaces" href="index.html">pytia.framework.mec_mod_interfaces</a></code></li>
+<li><code><a title="pytia" href="index.html">pytia</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="pytia.framework.mec_mod_interfaces.solid.Solid" href="#pytia.framework.mec_mod_interfaces.solid.Solid">Solid</a></code></h4>
+<h4><code><a title="pytia.framework.Framework" href="#pytia.framework.Framework">Framework</a></code></h4>
 <ul class="">
-<li><code><a title="pytia.framework.mec_mod_interfaces.solid.Solid.move" href="#pytia.framework.mec_mod_interfaces.solid.Solid.move">move</a></code></li>
-<li><code><a title="pytia.framework.mec_mod_interfaces.solid.Solid.source_element" href="#pytia.framework.mec_mod_interfaces.solid.Solid.source_element">source_element</a></code></li>
-<li><code><a title="pytia.framework.mec_mod_interfaces.solid.Solid.source_product" href="#pytia.framework.mec_mod_interfaces.solid.Solid.source_product">source_product</a></code></li>
+<li><code><a title="pytia.framework.Framework.catia" href="#pytia.framework.Framework.catia">catia</a></code></li>
+<li><code><a title="pytia.framework.Framework.dispatch" href="#pytia.framework.Framework.dispatch">dispatch</a></code></li>
 </ul>
 </li>
 </ul>

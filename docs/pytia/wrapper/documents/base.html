@@ -35,6 +35,9 @@ import os
 from pathlib import Path
 from typing import Any, List, Optional
 
+from pycatia.in_interfaces.document import Document
+from pycatia.in_interfaces.selection import Selection
+
 from pytia import __version__
 from pytia.const import VALID_FILE_EXTENSIONS
 from pytia.exceptions import (
@@ -48,8 +51,6 @@ from pytia.exceptions import (
     PytiaWrongDocumentTypeError,
 )
 from pytia.framework import framework
-from pytia.framework.in_interfaces.document import Document
-from pytia.framework.in_interfaces.selection import Selection
 from pytia.helper.verify import verify_folder
 from pytia.log import log
 
@@ -132,7 +133,7 @@ class PyBaseDocument:
             )
 
         try:
-            self.document = self.documents.read(file_name=path)
+            self.document = self.documents.read(file_name=str(path))
         except Exception as e:
             raise PytiaDocumentOperationError(
                 f&#34;Failed opening document from {str(path)!r}: {e}&#34;
@@ -170,7 +171,7 @@ class PyBaseDocument:
             )
 
         try:
-            self.documents.open(path)
+            self.documents.open(str(path))
         except Exception as e:
             raise PytiaDocumentOperationError(
                 f&#34;Failed opening document from {str(path)!r}: {e}&#34;
@@ -252,7 +253,7 @@ class PyBaseDocument:
                 f&#34;Cannot create {self._doctype!r} with name {name!r}: Already exists in session.&#34;
             )
 
-        self.documents.new_from(path)
+        self.documents.new_from(str(path))
         self.document = self._framework.catia.active_document
 
         log.info(f&#34;Created new document {self.document.name!r} from {str(path)!r}&#34;)
@@ -477,7 +478,7 @@ VALID_FILE_EXTENSIONS list.</dd>
             )
 
         try:
-            self.document = self.documents.read(file_name=path)
+            self.document = self.documents.read(file_name=str(path))
         except Exception as e:
             raise PytiaDocumentOperationError(
                 f&#34;Failed opening document from {str(path)!r}: {e}&#34;
@@ -515,7 +516,7 @@ VALID_FILE_EXTENSIONS list.</dd>
             )
 
         try:
-            self.documents.open(path)
+            self.documents.open(str(path))
         except Exception as e:
             raise PytiaDocumentOperationError(
                 f&#34;Failed opening document from {str(path)!r}: {e}&#34;
@@ -597,7 +598,7 @@ VALID_FILE_EXTENSIONS list.</dd>
                 f&#34;Cannot create {self._doctype!r} with name {name!r}: Already exists in session.&#34;
             )
 
-        self.documents.new_from(path)
+        self.documents.new_from(str(path))
         self.document = self._framework.catia.active_document
 
         log.info(f&#34;Created new document {self.document.name!r} from {str(path)!r}&#34;)
@@ -757,7 +758,7 @@ VALID_FILE_EXTENSIONS list.</dd>
 </details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.current"><code class="name flex">
-<span>def <span class="ident">current</span></span>(<span>self) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="../../framework/in_interfaces/document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
+<span>def <span class="ident">current</span></span>(<span>self) ‑> pycatia.in_interfaces.document.Document</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Sets the currently open document as ActiveDocument.</p>
@@ -843,7 +844,7 @@ VALID_FILE_EXTENSIONS list.</dd>
 </details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.load"><code class="name flex">
-<span>def <span class="ident">load</span></span>(<span>self, path: pathlib.Path) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="../../framework/in_interfaces/document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
+<span>def <span class="ident">load</span></span>(<span>self, path: pathlib.Path) ‑> pycatia.in_interfaces.document.Document</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Loads the document without creating a window.</p>
@@ -896,7 +897,7 @@ VALID_FILE_EXTENSIONS list.</dd>
         )
 
     try:
-        self.document = self.documents.read(file_name=path)
+        self.document = self.documents.read(file_name=str(path))
     except Exception as e:
         raise PytiaDocumentOperationError(
             f&#34;Failed opening document from {str(path)!r}: {e}&#34;
@@ -910,7 +911,7 @@ VALID_FILE_EXTENSIONS list.</dd>
 </details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.new"><code class="name flex">
-<span>def <span class="ident">new</span></span>(<span>self, name: str) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="../../framework/in_interfaces/document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
+<span>def <span class="ident">new</span></span>(<span>self, name: str) ‑> pycatia.in_interfaces.document.Document</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a new Document and sets it as ActiveDocument.</p>
@@ -959,7 +960,7 @@ VALID_FILE_EXTENSIONS list.</dd>
 </details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.new_from"><code class="name flex">
-<span>def <span class="ident">new_from</span></span>(<span>self, path: pathlib.Path, name: str) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="../../framework/in_interfaces/document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
+<span>def <span class="ident">new_from</span></span>(<span>self, path: pathlib.Path, name: str) ‑> pycatia.in_interfaces.document.Document</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a new Document from an existing one and sets it as ActiveDocument.</p>
@@ -1003,7 +1004,7 @@ VALID_FILE_EXTENSIONS list.</dd>
             f&#34;Cannot create {self._doctype!r} with name {name!r}: Already exists in session.&#34;
         )
 
-    self.documents.new_from(path)
+    self.documents.new_from(str(path))
     self.document = self._framework.catia.active_document
 
     log.info(f&#34;Created new document {self.document.name!r} from {str(path)!r}&#34;)
@@ -1011,7 +1012,7 @@ VALID_FILE_EXTENSIONS list.</dd>
 </details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.open"><code class="name flex">
-<span>def <span class="ident">open</span></span>(<span>self, path: pathlib.Path) ‑> <a title="pytia.framework.in_interfaces.document.Document" href="../../framework/in_interfaces/document.html#pytia.framework.in_interfaces.document.Document">Document</a></span>
+<span>def <span class="ident">open</span></span>(<span>self, path: pathlib.Path) ‑> pycatia.in_interfaces.document.Document</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Opens the document from the given path.</p>
@@ -1064,7 +1065,7 @@ VALID_FILE_EXTENSIONS list.</dd>
         )
 
     try:
-        self.documents.open(path)
+        self.documents.open(str(path))
     except Exception as e:
         raise PytiaDocumentOperationError(
             f&#34;Failed opening document from {str(path)!r}: {e}&#34;
@@ -1079,7 +1080,7 @@ VALID_FILE_EXTENSIONS list.</dd>
 </details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.remove_selection"><code class="name flex">
-<span>def <span class="ident">remove_selection</span></span>(<span>self, selection: Optional[<a title="pytia.framework.in_interfaces.selection.Selection" href="../../framework/in_interfaces/selection.html#pytia.framework.in_interfaces.selection.Selection">Selection</a>] = None) ‑> None</span>
+<span>def <span class="ident">remove_selection</span></span>(<span>self, selection: Optional[pycatia.in_interfaces.selection.Selection] = None) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Removes all objects of the given selection.</p></div>

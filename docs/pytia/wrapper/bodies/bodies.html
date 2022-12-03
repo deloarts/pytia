@@ -33,10 +33,11 @@
 
 from typing import List
 
+from pycatia.cat_mat_interfaces.material import Material
+from pycatia.mec_mod_interfaces.body import Body
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.exceptions import PytiaBodyExistsError
-from pytia.framework.cat_mat_interfaces.material import Material
-from pytia.framework.mec_mod_interfaces.body import Body
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.log import log
 from pytia.wrapper.bodies.base import PyBodiesBase
 
@@ -165,7 +166,7 @@ class PyBodies(PyBodiesBase):
 <dl>
 <dt id="pytia.wrapper.bodies.bodies.PyBodies"><code class="flex name class">
 <span>class <span class="ident">PyBodies</span></span>
-<span>(</span><span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>)</span>
+<span>(</span><span>part: pycatia.mec_mod_interfaces.part.Part)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Wrapper class for the CATIA Bodies (MecModInterfaces Framework)</p>
@@ -297,7 +298,7 @@ class PyBodies(PyBodiesBase):
 </ul>
 <h3>Instance variables</h3>
 <dl>
-<dt id="pytia.wrapper.bodies.bodies.PyBodies.bodies"><code class="name">var <span class="ident">bodies</span> : List[<a title="pytia.framework.mec_mod_interfaces.body.Body" href="../../framework/mec_mod_interfaces/body.html#pytia.framework.mec_mod_interfaces.body.Body">Body</a>]</code></dt>
+<dt id="pytia.wrapper.bodies.bodies.PyBodies.bodies"><code class="name">var <span class="ident">bodies</span> : List[pycatia.mec_mod_interfaces.body.Body]</code></dt>
 <dd>
 <div class="desc"><p>Returns a list of all bodies of type Body.</p></div>
 <details class="source">
@@ -313,7 +314,7 @@ def bodies(self) -&gt; List[Body]:
     return output</code></pre>
 </details>
 </dd>
-<dt id="pytia.wrapper.bodies.bodies.PyBodies.main_body"><code class="name">var <span class="ident">main_body</span> : <a title="pytia.framework.mec_mod_interfaces.body.Body" href="../../framework/mec_mod_interfaces/body.html#pytia.framework.mec_mod_interfaces.body.Body">Body</a></code></dt>
+<dt id="pytia.wrapper.bodies.bodies.PyBodies.main_body"><code class="name">var <span class="ident">main_body</span> : pycatia.mec_mod_interfaces.body.Body</code></dt>
 <dd>
 <div class="desc"><p>Returns the parts main body.</p></div>
 <details class="source">
@@ -346,7 +347,7 @@ def names(self) -&gt; List[str]:
 <h3>Methods</h3>
 <dl>
 <dt id="pytia.wrapper.bodies.bodies.PyBodies.apply_material"><code class="name flex">
-<span>def <span class="ident">apply_material</span></span>(<span>self, body: <a title="pytia.framework.mec_mod_interfaces.body.Body" href="../../framework/mec_mod_interfaces/body.html#pytia.framework.mec_mod_interfaces.body.Body">Body</a>, material: <a title="pytia.framework.cat_mat_interfaces.material.Material" href="../../framework/cat_mat_interfaces/material.html#pytia.framework.cat_mat_interfaces.material.Material">Material</a>, linked: bool = True) ‑> None</span>
+<span>def <span class="ident">apply_material</span></span>(<span>self, body: pycatia.mec_mod_interfaces.body.Body, material: pycatia.cat_mat_interfaces.material.Material, linked: bool = True) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Apply the material to the body.</p>
@@ -380,7 +381,7 @@ def names(self) -&gt; List[str]:
 </details>
 </dd>
 <dt id="pytia.wrapper.bodies.bodies.PyBodies.create"><code class="name flex">
-<span>def <span class="ident">create</span></span>(<span>self, name: str) ‑> <a title="pytia.framework.mec_mod_interfaces.body.Body" href="../../framework/mec_mod_interfaces/body.html#pytia.framework.mec_mod_interfaces.body.Body">Body</a></span>
+<span>def <span class="ident">create</span></span>(<span>self, name: str) ‑> pycatia.mec_mod_interfaces.body.Body</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a new body and sets it as in work object.</p>
@@ -464,7 +465,7 @@ def names(self) -&gt; List[str]:
 </details>
 </dd>
 <dt id="pytia.wrapper.bodies.bodies.PyBodies.get_by_name"><code class="name flex">
-<span>def <span class="ident">get_by_name</span></span>(<span>self, name: str) ‑> <a title="pytia.framework.mec_mod_interfaces.body.Body" href="../../framework/mec_mod_interfaces/body.html#pytia.framework.mec_mod_interfaces.body.Body">Body</a></span>
+<span>def <span class="ident">get_by_name</span></span>(<span>self, name: str) ‑> pycatia.mec_mod_interfaces.body.Body</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns a body by its name.</p>
@@ -496,7 +497,7 @@ def names(self) -&gt; List[str]:
 </details>
 </dd>
 <dt id="pytia.wrapper.bodies.bodies.PyBodies.get_material"><code class="name flex">
-<span>def <span class="ident">get_material</span></span>(<span>self, body: <a title="pytia.framework.mec_mod_interfaces.body.Body" href="../../framework/mec_mod_interfaces/body.html#pytia.framework.mec_mod_interfaces.body.Body">Body</a>) ‑> <a title="pytia.framework.cat_mat_interfaces.material.Material" href="../../framework/cat_mat_interfaces/material.html#pytia.framework.cat_mat_interfaces.material.Material">Material</a></span>
+<span>def <span class="ident">get_material</span></span>(<span>self, body: pycatia.mec_mod_interfaces.body.Body) ‑> pycatia.cat_mat_interfaces.material.Material</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns the material applied to the body.</p>

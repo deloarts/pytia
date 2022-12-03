@@ -33,13 +33,14 @@
 
 from typing import Optional
 
+from pycatia.in_interfaces.document import Document
+from pycatia.in_interfaces.reference import Reference
+from pycatia.mec_mod_interfaces.body import Body
+from pycatia.mec_mod_interfaces.part import Part
+from pycatia.space_analyses_interfaces.measurable import Measurable
+
 from pytia.decorators import failsafe
 from pytia.framework import framework
-from pytia.framework.in_interfaces.document import Document
-from pytia.framework.in_interfaces.reference import Reference
-from pytia.framework.mec_mod_interfaces.body import Body
-from pytia.framework.mec_mod_interfaces.part import Part
-from pytia.framework.space_analyses_interfaces.measurable import Measurable
 from pytia.log import log
 
 
@@ -91,7 +92,7 @@ def get_measurable_from_body(part: Part, body: Body) -&gt; Measurable:
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="pytia.helper.measurables.get_measurable_from_body"><code class="name flex">
-<span>def <span class="ident">get_measurable_from_body</span></span>(<span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>, body: <a title="pytia.framework.mec_mod_interfaces.body.Body" href="../framework/mec_mod_interfaces/body.html#pytia.framework.mec_mod_interfaces.body.Body">Body</a>) ‑> <a title="pytia.framework.space_analyses_interfaces.measurable.Measurable" href="../framework/space_analyses_interfaces/measurable.html#pytia.framework.space_analyses_interfaces.measurable.Measurable">Measurable</a></span>
+<span>def <span class="ident">get_measurable_from_body</span></span>(<span>part: pycatia.mec_mod_interfaces.part.Part, body: pycatia.mec_mod_interfaces.body.Body) ‑> pycatia.space_analyses_interfaces.measurable.Measurable</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Gets measurements from the given body.</p>
@@ -129,7 +130,7 @@ def get_measurable_from_body(part: Part, body: Body) -&gt; Measurable:
 </details>
 </dd>
 <dt id="pytia.helper.measurables.get_measurable_from_reference"><code class="name flex">
-<span>def <span class="ident">get_measurable_from_reference</span></span>(<span>*, reference: <a title="pytia.framework.in_interfaces.reference.Reference" href="../framework/in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, document: Optional[<a title="pytia.framework.in_interfaces.document.Document" href="../framework/in_interfaces/document.html#pytia.framework.in_interfaces.document.Document">Document</a>] = None) ‑> <a title="pytia.framework.space_analyses_interfaces.measurable.Measurable" href="../framework/space_analyses_interfaces/measurable.html#pytia.framework.space_analyses_interfaces.measurable.Measurable">Measurable</a></span>
+<span>def <span class="ident">get_measurable_from_reference</span></span>(<span>*, reference: pycatia.in_interfaces.reference.Reference, document: Optional[pycatia.in_interfaces.document.Document] = None) ‑> pycatia.space_analyses_interfaces.measurable.Measurable</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Gets measurements from the given reference. Uses the current active document
