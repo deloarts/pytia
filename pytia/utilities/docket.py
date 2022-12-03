@@ -198,11 +198,11 @@ def create_docket_from_template(
     log.debug("Adding images from config ...")
     for item in config.images:
         if item.path_argument in kwargs:
-            image_path = str(Path(kwargs[item.path_argument]))
+            image_path = Path(kwargs[item.path_argument])
             if os.path.isfile(image_path) and (
-                ".bmp" in image_path or ".png" in image_path
+                ".bmp" in str(image_path) or ".png" in str(image_path)
             ):
-                image = fg_views.pictures.add(str(image_path), item.x, item.y)
+                image = fg_views.pictures.add(image_path, item.x, item.y)
                 if item.width:
                     image.width = item.width
                 if item.height:

@@ -154,7 +154,7 @@ def export_bom(
     try:
         bom = product.get_item(GET_ITEM_BILL_OF_MATERIAL)
         assembly_convertor = AssemblyConvertor(bom.com_object)
-        assembly_convertor.print("XLS", str(path), product)
+        assembly_convertor.print("XLS", path, product)
         log.info(f"Exported BOM of {product.name!r} as {path!r}")
     except Exception as e:  # pylint: disable=W0703
         if not ENV_IGNORE_BOM_ERROR:
