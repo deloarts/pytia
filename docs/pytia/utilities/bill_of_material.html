@@ -36,12 +36,11 @@ import tempfile
 from pathlib import Path
 from typing import Optional
 
+from pycatia.product_structure_interfaces.assembly_convertor import AssemblyConvertor
+from pycatia.product_structure_interfaces.product import Product
+
 from pytia.const import ENV_IGNORE_BOM_ERROR, GET_ITEM_BILL_OF_MATERIAL, KNOWN_ERRORS
 from pytia.exceptions import PytiaBOMError, PytiaFileExistsError
-from pytia.framework.product_structure_interfaces.assembly_convertor import (
-    AssemblyConvertor,
-)
-from pytia.framework.product_structure_interfaces.product import Product
 from pytia.helper.verify import verify_folder
 from pytia.log import log
 from pytia.wrapper.documents.product_documents import PyProductDocument
@@ -184,7 +183,7 @@ def export_bom(
     try:
         bom = product.get_item(GET_ITEM_BILL_OF_MATERIAL)
         assembly_convertor = AssemblyConvertor(bom.com_object)
-        assembly_convertor.print(&#34;XLS&#34;, str(path), product)
+        assembly_convertor.print(&#34;XLS&#34;, path, product)
         log.info(f&#34;Exported BOM of {product.name!r} as {path!r}&#34;)
     except Exception as e:  # pylint: disable=W0703
         if not ENV_IGNORE_BOM_ERROR:
@@ -211,7 +210,7 @@ def export_bom(
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="pytia.utilities.bill_of_material.export_bom"><code class="name flex">
-<span>def <span class="ident">export_bom</span></span>(<span>filename: Optional[str] = None, folder: Optional[pathlib.Path] = None, overwrite: bool = False, product: Optional[<a title="pytia.framework.product_structure_interfaces.product.Product" href="../framework/product_structure_interfaces/product.html#pytia.framework.product_structure_interfaces.product.Product">Product</a>] = None) ‑> pathlib.Path</span>
+<span>def <span class="ident">export_bom</span></span>(<span>filename: Optional[str] = None, folder: Optional[pathlib.Path] = None, overwrite: bool = False, product: Optional[pycatia.product_structure_interfaces.product.Product] = None) ‑> pathlib.Path</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Exports the bill of material of the current product as excel file to the specified path.
@@ -313,7 +312,7 @@ Defaults to None. If None the currently open CATProduct will be used.</dd>
     try:
         bom = product.get_item(GET_ITEM_BILL_OF_MATERIAL)
         assembly_convertor = AssemblyConvertor(bom.com_object)
-        assembly_convertor.print(&#34;XLS&#34;, str(path), product)
+        assembly_convertor.print(&#34;XLS&#34;, path, product)
         log.info(f&#34;Exported BOM of {product.name!r} as {path!r}&#34;)
     except Exception as e:  # pylint: disable=W0703
         if not ENV_IGNORE_BOM_ERROR:
@@ -333,7 +332,7 @@ Defaults to None. If None the currently open CATProduct will be used.</dd>
 </details>
 </dd>
 <dt id="pytia.utilities.bill_of_material.set_current_format"><code class="name flex">
-<span>def <span class="ident">set_current_format</span></span>(<span>current_format: tuple, product: Optional[<a title="pytia.framework.product_structure_interfaces.product.Product" href="../framework/product_structure_interfaces/product.html#pytia.framework.product_structure_interfaces.product.Product">Product</a>] = None) ‑> None</span>
+<span>def <span class="ident">set_current_format</span></span>(<span>current_format: tuple, product: Optional[pycatia.product_structure_interfaces.product.Product] = None) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Sets the current format of the products bill of material.</p>
@@ -385,7 +384,7 @@ Defaults to None. If None the currently open CATProduct will be used.</dd>
 </details>
 </dd>
 <dt id="pytia.utilities.bill_of_material.set_secondary_format"><code class="name flex">
-<span>def <span class="ident">set_secondary_format</span></span>(<span>secondary_format: tuple, product: Optional[<a title="pytia.framework.product_structure_interfaces.product.Product" href="../framework/product_structure_interfaces/product.html#pytia.framework.product_structure_interfaces.product.Product">Product</a>] = None) ‑> None</span>
+<span>def <span class="ident">set_secondary_format</span></span>(<span>secondary_format: tuple, product: Optional[pycatia.product_structure_interfaces.product.Product] = None) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Sets the secondary format of the products bill of material.</p>

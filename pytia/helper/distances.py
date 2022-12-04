@@ -2,14 +2,13 @@
     Helper module for CATIA Distance objects.
 """
 
+from pycatia.hybrid_shape_interfaces.hybrid_shape_extremum import HybridShapeExtremum
+from pycatia.hybrid_shape_interfaces.plane import Plane
+from pycatia.in_interfaces.reference import Reference
+from pycatia.mec_mod_interfaces.part import Part
+from pycatia.space_analyses_interfaces.distance import Distance
+
 from pytia.decorators import failsafe
-from pytia.framework.hybrid_shape_interfaces.hybrid_shape_extremum import (
-    HybridShapeExtremum,
-)
-from pytia.framework.hybrid_shape_interfaces.plane import Plane
-from pytia.framework.in_interfaces.reference import Reference
-from pytia.framework.mec_mod_interfaces.part import Part
-from pytia.framework.space_analyses_interfaces.distance import Distance
 from pytia.helper.measurables import get_measurable_from_reference
 
 

@@ -30,11 +30,12 @@
 <pre><code class="python">&#34;&#34;&#34;
     Helper module for CATIA Reference objects.
 &#34;&#34;&#34;
+from pycatia.in_interfaces.reference import Reference
+from pycatia.mec_mod_interfaces.axis_system import AxisSystem
+from pycatia.mec_mod_interfaces.body import Body
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.decorators import failsafe
-from pytia.framework.in_interfaces.reference import Reference
-from pytia.framework.mec_mod_interfaces.axis_system import AxisSystem
-from pytia.framework.mec_mod_interfaces.body import Body
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.log import log
 
 
@@ -100,7 +101,7 @@ def create_reference_from_body(part: Part, body: Body) -&gt; Reference:
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="pytia.helper.references.create_reference_from_axis_system"><code class="name flex">
-<span>def <span class="ident">create_reference_from_axis_system</span></span>(<span>*, part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>, axis_system: <a title="pytia.framework.mec_mod_interfaces.axis_system.AxisSystem" href="../framework/mec_mod_interfaces/axis_system.html#pytia.framework.mec_mod_interfaces.axis_system.AxisSystem">AxisSystem</a>, brep_direction: int) ‑> <a title="pytia.framework.in_interfaces.reference.Reference" href="../framework/in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></span>
+<span>def <span class="ident">create_reference_from_axis_system</span></span>(<span>*, part: pycatia.mec_mod_interfaces.part.Part, axis_system: pycatia.mec_mod_interfaces.axis_system.AxisSystem, brep_direction: int) ‑> pycatia.in_interfaces.reference.Reference</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a reference from a GenericNaming label. This allows manipulation of
@@ -161,7 +162,7 @@ def create_reference_from_axis_system(
 </details>
 </dd>
 <dt id="pytia.helper.references.create_reference_from_body"><code class="name flex">
-<span>def <span class="ident">create_reference_from_body</span></span>(<span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>, body: <a title="pytia.framework.mec_mod_interfaces.body.Body" href="../framework/mec_mod_interfaces/body.html#pytia.framework.mec_mod_interfaces.body.Body">Body</a>) ‑> <a title="pytia.framework.in_interfaces.reference.Reference" href="../framework/in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a></span>
+<span>def <span class="ident">create_reference_from_body</span></span>(<span>part: pycatia.mec_mod_interfaces.part.Part, body: pycatia.mec_mod_interfaces.body.Body) ‑> pycatia.in_interfaces.reference.Reference</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a reference from a body.</p>

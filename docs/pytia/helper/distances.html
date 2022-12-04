@@ -31,14 +31,13 @@
     Helper module for CATIA Distance objects.
 &#34;&#34;&#34;
 
+from pycatia.hybrid_shape_interfaces.hybrid_shape_extremum import HybridShapeExtremum
+from pycatia.hybrid_shape_interfaces.plane import Plane
+from pycatia.in_interfaces.reference import Reference
+from pycatia.mec_mod_interfaces.part import Part
+from pycatia.space_analyses_interfaces.distance import Distance
+
 from pytia.decorators import failsafe
-from pytia.framework.hybrid_shape_interfaces.hybrid_shape_extremum import (
-    HybridShapeExtremum,
-)
-from pytia.framework.hybrid_shape_interfaces.plane import Plane
-from pytia.framework.in_interfaces.reference import Reference
-from pytia.framework.mec_mod_interfaces.part import Part
-from pytia.framework.space_analyses_interfaces.distance import Distance
 from pytia.helper.measurables import get_measurable_from_reference
 
 
@@ -91,7 +90,7 @@ def get_minimum_distance_from_plane_to_extremum(
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="pytia.helper.distances.get_minimum_distance"><code class="name flex">
-<span>def <span class="ident">get_minimum_distance</span></span>(<span>reference: <a title="pytia.framework.in_interfaces.reference.Reference" href="../framework/in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, extremum: <a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extremum.HybridShapeExtremum" href="../framework/hybrid_shape_interfaces/hybrid_shape_extremum.html#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extremum.HybridShapeExtremum">HybridShapeExtremum</a>) ‑> <a title="pytia.framework.space_analyses_interfaces.distance.Distance" href="../framework/space_analyses_interfaces/distance.html#pytia.framework.space_analyses_interfaces.distance.Distance">Distance</a></span>
+<span>def <span class="ident">get_minimum_distance</span></span>(<span>reference: pycatia.in_interfaces.reference.Reference, extremum: pycatia.hybrid_shape_interfaces.hybrid_shape_extremum.HybridShapeExtremum) ‑> pycatia.space_analyses_interfaces.distance.Distance</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns the minimum distance between the given reference and the given extremum.</p>
@@ -135,7 +134,7 @@ def get_minimum_distance(
 </details>
 </dd>
 <dt id="pytia.helper.distances.get_minimum_distance_from_plane_to_extremum"><code class="name flex">
-<span>def <span class="ident">get_minimum_distance_from_plane_to_extremum</span></span>(<span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>, plane: <a title="pytia.framework.hybrid_shape_interfaces.plane.Plane" href="../framework/hybrid_shape_interfaces/plane.html#pytia.framework.hybrid_shape_interfaces.plane.Plane">Plane</a>, extremum: <a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extremum.HybridShapeExtremum" href="../framework/hybrid_shape_interfaces/hybrid_shape_extremum.html#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extremum.HybridShapeExtremum">HybridShapeExtremum</a>) ‑> <a title="pytia.framework.space_analyses_interfaces.distance.Distance" href="../framework/space_analyses_interfaces/distance.html#pytia.framework.space_analyses_interfaces.distance.Distance">Distance</a></span>
+<span>def <span class="ident">get_minimum_distance_from_plane_to_extremum</span></span>(<span>part: pycatia.mec_mod_interfaces.part.Part, plane: pycatia.hybrid_shape_interfaces.plane.Plane, extremum: pycatia.hybrid_shape_interfaces.hybrid_shape_extremum.HybridShapeExtremum) ‑> pycatia.space_analyses_interfaces.distance.Distance</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns the minimum distance between the plane and the extremum.</p>

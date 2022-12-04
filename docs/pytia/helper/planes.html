@@ -31,12 +31,13 @@
     Helper module for CATIA Plane objects.
 &#34;&#34;&#34;
 
+from pycatia.hybrid_shape_interfaces.plane import Plane
+from pycatia.hybrid_shape_interfaces.point import Point
+from pycatia.in_interfaces.reference import Reference
+from pycatia.mec_mod_interfaces.hybrid_body import HybridBody
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.decorators import failsafe
-from pytia.framework.hybrid_shape_interfaces.plane import Plane
-from pytia.framework.hybrid_shape_interfaces.point import Point
-from pytia.framework.in_interfaces.reference import Reference
-from pytia.framework.mec_mod_interfaces.hybrid_body import HybridBody
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.log import log
 
 
@@ -84,7 +85,7 @@ def add_new_plane_as_offset_from_point(
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="pytia.helper.planes.add_new_plane_as_offset_from_point"><code class="name flex">
-<span>def <span class="ident">add_new_plane_as_offset_from_point</span></span>(<span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>, hybrid_body: <a title="pytia.framework.mec_mod_interfaces.hybrid_body.HybridBody" href="../framework/mec_mod_interfaces/hybrid_body.html#pytia.framework.mec_mod_interfaces.hybrid_body.HybridBody">HybridBody</a>, point: <a title="pytia.framework.hybrid_shape_interfaces.point.Point" href="../framework/hybrid_shape_interfaces/point.html#pytia.framework.hybrid_shape_interfaces.point.Point">Point</a>, reference: <a title="pytia.framework.in_interfaces.reference.Reference" href="../framework/in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, name: str = 'Plane') ‑> <a title="pytia.framework.hybrid_shape_interfaces.plane.Plane" href="../framework/hybrid_shape_interfaces/plane.html#pytia.framework.hybrid_shape_interfaces.plane.Plane">Plane</a></span>
+<span>def <span class="ident">add_new_plane_as_offset_from_point</span></span>(<span>part: pycatia.mec_mod_interfaces.part.Part, hybrid_body: pycatia.mec_mod_interfaces.hybrid_body.HybridBody, point: pycatia.hybrid_shape_interfaces.point.Point, reference: pycatia.in_interfaces.reference.Reference, name: str = 'Plane') ‑> pycatia.hybrid_shape_interfaces.plane.Plane</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a new plane as offset through point from reference.</p>

@@ -31,16 +31,13 @@
     Helper module for CATIA HybridShapeExtremum objects.
 &#34;&#34;&#34;
 
+from pycatia.hybrid_shape_interfaces.hybrid_shape_direction import HybridShapeDirection
+from pycatia.hybrid_shape_interfaces.hybrid_shape_extremum import HybridShapeExtremum
+from pycatia.in_interfaces.reference import Reference
+from pycatia.mec_mod_interfaces.hybrid_body import HybridBody
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.decorators import failsafe
-from pytia.framework.hybrid_shape_interfaces.hybrid_shape_direction import (
-    HybridShapeDirection,
-)
-from pytia.framework.hybrid_shape_interfaces.hybrid_shape_extremum import (
-    HybridShapeExtremum,
-)
-from pytia.framework.in_interfaces.reference import Reference
-from pytia.framework.mec_mod_interfaces.hybrid_body import HybridBody
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.log import log
 
 
@@ -85,7 +82,7 @@ def add_extremum_to_hybrid_body(
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="pytia.helper.extremum.add_extremum_to_hybrid_body"><code class="name flex">
-<span>def <span class="ident">add_extremum_to_hybrid_body</span></span>(<span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>, hybrid_body: <a title="pytia.framework.mec_mod_interfaces.hybrid_body.HybridBody" href="../framework/mec_mod_interfaces/hybrid_body.html#pytia.framework.mec_mod_interfaces.hybrid_body.HybridBody">HybridBody</a>, reference: <a title="pytia.framework.in_interfaces.reference.Reference" href="../framework/in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, direction: <a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_direction.HybridShapeDirection" href="../framework/hybrid_shape_interfaces/hybrid_shape_direction.html#pytia.framework.hybrid_shape_interfaces.hybrid_shape_direction.HybridShapeDirection">HybridShapeDirection</a>, min_max: int, name: str = 'Extremum') ‑> <a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_extremum.HybridShapeExtremum" href="../framework/hybrid_shape_interfaces/hybrid_shape_extremum.html#pytia.framework.hybrid_shape_interfaces.hybrid_shape_extremum.HybridShapeExtremum">HybridShapeExtremum</a></span>
+<span>def <span class="ident">add_extremum_to_hybrid_body</span></span>(<span>part: pycatia.mec_mod_interfaces.part.Part, hybrid_body: pycatia.mec_mod_interfaces.hybrid_body.HybridBody, reference: pycatia.in_interfaces.reference.Reference, direction: pycatia.hybrid_shape_interfaces.hybrid_shape_direction.HybridShapeDirection, min_max: int, name: str = 'Extremum') ‑> pycatia.hybrid_shape_interfaces.hybrid_shape_extremum.HybridShapeExtremum</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a new Extremum within the current body.</p>

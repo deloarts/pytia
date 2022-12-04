@@ -33,19 +33,20 @@
 import functools
 from typing import Any, List, Optional, Type
 
+from pycatia.knowledge_interfaces.bool_param import BoolParam
+from pycatia.knowledge_interfaces.dimension import Dimension
+from pycatia.knowledge_interfaces.int_param import IntParam
+from pycatia.knowledge_interfaces.parameter import Parameter
+from pycatia.knowledge_interfaces.parameters import Parameters
+from pycatia.knowledge_interfaces.real_param import RealParam
+from pycatia.knowledge_interfaces.str_param import StrParam
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.exceptions import (
     PytiaParameterExistsError,
     PytiaParameterNotFoundError,
     PytiaParameterTypeError,
 )
-from pytia.framework.knowledge_interfaces.bool_param import BoolParam
-from pytia.framework.knowledge_interfaces.dimension import Dimension
-from pytia.framework.knowledge_interfaces.int_param import IntParam
-from pytia.framework.knowledge_interfaces.parameter import Parameter
-from pytia.framework.knowledge_interfaces.parameters import Parameters
-from pytia.framework.knowledge_interfaces.real_param import RealParam
-from pytia.framework.knowledge_interfaces.str_param import StrParam
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.log import log
 
 LENGTH = &#34;LENGTH&#34;
@@ -149,7 +150,7 @@ class PyPartParameters:
         &#34;&#34;&#34;
         if self.exists(name=name):
             native_value = self._parameters.item(name).value  # type: ignore
-            parameter = self._parameters.item(name)
+            parameter = Parameter(self._parameters.item(name).com_object).com_object
 
             # Return the parameter with its type
             if self.is_bool(parameter) and of_type in [bool, None]:
@@ -416,7 +417,7 @@ class PyPartParameters:
 <dl>
 <dt id="pytia.wrapper.parameters.PyPartParameters"><code class="flex name class">
 <span>class <span class="ident">PyPartParameters</span></span>
-<span>(</span><span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>)</span>
+<span>(</span><span>part: pycatia.mec_mod_interfaces.part.Part)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>The wrapper class for CATIA Parameters and Dimensions (KnowledgeInterfaces Framework)</p>
@@ -526,7 +527,7 @@ class PyPartParameters:
         &#34;&#34;&#34;
         if self.exists(name=name):
             native_value = self._parameters.item(name).value  # type: ignore
-            parameter = self._parameters.item(name)
+            parameter = Parameter(self._parameters.item(name).com_object).com_object
 
             # Return the parameter with its type
             if self.is_bool(parameter) and of_type in [bool, None]:
@@ -784,7 +785,7 @@ class PyPartParameters:
 <h3>Static methods</h3>
 <dl>
 <dt id="pytia.wrapper.parameters.PyPartParameters.is_bool"><code class="name flex">
-<span>def <span class="ident">is_bool</span></span>(<span>parameter: <a title="pytia.framework.knowledge_interfaces.parameter.Parameter" href="../framework/knowledge_interfaces/parameter.html#pytia.framework.knowledge_interfaces.parameter.Parameter">Parameter</a>) ‑> bool</span>
+<span>def <span class="ident">is_bool</span></span>(<span>parameter: pycatia.knowledge_interfaces.parameter.Parameter) ‑> bool</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns True if the given parameter is of type BoolParam.</p>
@@ -817,7 +818,7 @@ def is_bool(parameter: Parameter) -&gt; bool:
 </details>
 </dd>
 <dt id="pytia.wrapper.parameters.PyPartParameters.is_dimension"><code class="name flex">
-<span>def <span class="ident">is_dimension</span></span>(<span>parameter: <a title="pytia.framework.knowledge_interfaces.parameter.Parameter" href="../framework/knowledge_interfaces/parameter.html#pytia.framework.knowledge_interfaces.parameter.Parameter">Parameter</a>) ‑> bool</span>
+<span>def <span class="ident">is_dimension</span></span>(<span>parameter: pycatia.knowledge_interfaces.parameter.Parameter) ‑> bool</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns True if the given parameter is of type Dimension.</p>
@@ -860,7 +861,7 @@ def is_dimension(parameter: Parameter) -&gt; bool:
 </details>
 </dd>
 <dt id="pytia.wrapper.parameters.PyPartParameters.is_int"><code class="name flex">
-<span>def <span class="ident">is_int</span></span>(<span>parameter: <a title="pytia.framework.knowledge_interfaces.parameter.Parameter" href="../framework/knowledge_interfaces/parameter.html#pytia.framework.knowledge_interfaces.parameter.Parameter">Parameter</a>) ‑> bool</span>
+<span>def <span class="ident">is_int</span></span>(<span>parameter: pycatia.knowledge_interfaces.parameter.Parameter) ‑> bool</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns True if the given parameter is of type IntParam.</p>
@@ -893,7 +894,7 @@ def is_int(parameter: Parameter) -&gt; bool:
 </details>
 </dd>
 <dt id="pytia.wrapper.parameters.PyPartParameters.is_real"><code class="name flex">
-<span>def <span class="ident">is_real</span></span>(<span>parameter: <a title="pytia.framework.knowledge_interfaces.parameter.Parameter" href="../framework/knowledge_interfaces/parameter.html#pytia.framework.knowledge_interfaces.parameter.Parameter">Parameter</a>) ‑> bool</span>
+<span>def <span class="ident">is_real</span></span>(<span>parameter: pycatia.knowledge_interfaces.parameter.Parameter) ‑> bool</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns True if the given parameter is of type RealParam.</p>
@@ -936,7 +937,7 @@ def is_real(parameter: Parameter) -&gt; bool:
 </details>
 </dd>
 <dt id="pytia.wrapper.parameters.PyPartParameters.is_str"><code class="name flex">
-<span>def <span class="ident">is_str</span></span>(<span>parameter: <a title="pytia.framework.knowledge_interfaces.parameter.Parameter" href="../framework/knowledge_interfaces/parameter.html#pytia.framework.knowledge_interfaces.parameter.Parameter">Parameter</a>) ‑> bool</span>
+<span>def <span class="ident">is_str</span></span>(<span>parameter: pycatia.knowledge_interfaces.parameter.Parameter) ‑> bool</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns True if the given parameter is of type StrParam.</p>
@@ -987,7 +988,7 @@ def names(self) -&gt; List[str]:
     return output</code></pre>
 </details>
 </dd>
-<dt id="pytia.wrapper.parameters.PyPartParameters.parameters"><code class="name">var <span class="ident">parameters</span> : List[<a title="pytia.framework.knowledge_interfaces.bool_param.BoolParam" href="../framework/knowledge_interfaces/bool_param.html#pytia.framework.knowledge_interfaces.bool_param.BoolParam">BoolParam</a> | <a title="pytia.framework.knowledge_interfaces.int_param.IntParam" href="../framework/knowledge_interfaces/int_param.html#pytia.framework.knowledge_interfaces.int_param.IntParam">IntParam</a> | <a title="pytia.framework.knowledge_interfaces.real_param.RealParam" href="../framework/knowledge_interfaces/real_param.html#pytia.framework.knowledge_interfaces.real_param.RealParam">RealParam</a> | <a title="pytia.framework.knowledge_interfaces.str_param.StrParam" href="../framework/knowledge_interfaces/str_param.html#pytia.framework.knowledge_interfaces.str_param.StrParam">StrParam</a> | <a title="pytia.framework.knowledge_interfaces.dimension.Dimension" href="../framework/knowledge_interfaces/dimension.html#pytia.framework.knowledge_interfaces.dimension.Dimension">Dimension</a>]</code></dt>
+<dt id="pytia.wrapper.parameters.PyPartParameters.parameters"><code class="name">var <span class="ident">parameters</span> : List[pycatia.knowledge_interfaces.bool_param.BoolParam | pycatia.knowledge_interfaces.int_param.IntParam | pycatia.knowledge_interfaces.real_param.RealParam | pycatia.knowledge_interfaces.str_param.StrParam | pycatia.knowledge_interfaces.dimension.Dimension]</code></dt>
 <dd>
 <div class="desc"><p>Returns a list of all parameters.</p></div>
 <details class="source">
@@ -1009,7 +1010,7 @@ def parameters(
 <h3>Methods</h3>
 <dl>
 <dt id="pytia.wrapper.parameters.PyPartParameters.create_angle"><code class="name flex">
-<span>def <span class="ident">create_angle</span></span>(<span>self, name: str, value: float) ‑> <a title="pytia.framework.knowledge_interfaces.dimension.Dimension" href="../framework/knowledge_interfaces/dimension.html#pytia.framework.knowledge_interfaces.dimension.Dimension">Dimension</a></span>
+<span>def <span class="ident">create_angle</span></span>(<span>self, name: str, value: float) ‑> pycatia.knowledge_interfaces.dimension.Dimension</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a CATIA ANGLE parameter in degrees with the given name and value.</p>
@@ -1053,7 +1054,7 @@ def create_angle(self, name: str, value: float) -&gt; Dimension:
 </details>
 </dd>
 <dt id="pytia.wrapper.parameters.PyPartParameters.create_bool"><code class="name flex">
-<span>def <span class="ident">create_bool</span></span>(<span>self, name: str, value: bool) ‑> <a title="pytia.framework.knowledge_interfaces.bool_param.BoolParam" href="../framework/knowledge_interfaces/bool_param.html#pytia.framework.knowledge_interfaces.bool_param.BoolParam">BoolParam</a></span>
+<span>def <span class="ident">create_bool</span></span>(<span>self, name: str, value: bool) ‑> pycatia.knowledge_interfaces.bool_param.BoolParam</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a CATIA boolean parameter.</p>
@@ -1102,7 +1103,7 @@ def create_bool(self, name: str, value: bool) -&gt; BoolParam:
 </details>
 </dd>
 <dt id="pytia.wrapper.parameters.PyPartParameters.create_int"><code class="name flex">
-<span>def <span class="ident">create_int</span></span>(<span>self, name: str, value: int) ‑> <a title="pytia.framework.knowledge_interfaces.int_param.IntParam" href="../framework/knowledge_interfaces/int_param.html#pytia.framework.knowledge_interfaces.int_param.IntParam">IntParam</a></span>
+<span>def <span class="ident">create_int</span></span>(<span>self, name: str, value: int) ‑> pycatia.knowledge_interfaces.int_param.IntParam</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a CATIA integer parameter.</p>
@@ -1151,7 +1152,7 @@ def create_int(self, name: str, value: int) -&gt; IntParam:
 </details>
 </dd>
 <dt id="pytia.wrapper.parameters.PyPartParameters.create_length"><code class="name flex">
-<span>def <span class="ident">create_length</span></span>(<span>self, name: str, value: float) ‑> <a title="pytia.framework.knowledge_interfaces.dimension.Dimension" href="../framework/knowledge_interfaces/dimension.html#pytia.framework.knowledge_interfaces.dimension.Dimension">Dimension</a></span>
+<span>def <span class="ident">create_length</span></span>(<span>self, name: str, value: float) ‑> pycatia.knowledge_interfaces.dimension.Dimension</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a CATIA LENGTH parameter in millimeter with the given name and value.</p>
@@ -1195,7 +1196,7 @@ def create_length(self, name: str, value: float) -&gt; Dimension:
 </details>
 </dd>
 <dt id="pytia.wrapper.parameters.PyPartParameters.create_real"><code class="name flex">
-<span>def <span class="ident">create_real</span></span>(<span>self, name: str, value: float) ‑> <a title="pytia.framework.knowledge_interfaces.real_param.RealParam" href="../framework/knowledge_interfaces/real_param.html#pytia.framework.knowledge_interfaces.real_param.RealParam">RealParam</a></span>
+<span>def <span class="ident">create_real</span></span>(<span>self, name: str, value: float) ‑> pycatia.knowledge_interfaces.real_param.RealParam</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a CATIA real parameter.</p>
@@ -1242,7 +1243,7 @@ def create_real(self, name: str, value: float) -&gt; RealParam:
 </details>
 </dd>
 <dt id="pytia.wrapper.parameters.PyPartParameters.create_string"><code class="name flex">
-<span>def <span class="ident">create_string</span></span>(<span>self, name: str, value: str) ‑> <a title="pytia.framework.knowledge_interfaces.str_param.StrParam" href="../framework/knowledge_interfaces/str_param.html#pytia.framework.knowledge_interfaces.str_param.StrParam">StrParam</a></span>
+<span>def <span class="ident">create_string</span></span>(<span>self, name: str, value: str) ‑> pycatia.knowledge_interfaces.str_param.StrParam</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a CATIA string parameter.</p>
@@ -1324,7 +1325,7 @@ def create_string(self, name: str, value: str) -&gt; StrParam:
 </details>
 </dd>
 <dt id="pytia.wrapper.parameters.PyPartParameters.get"><code class="name flex">
-<span>def <span class="ident">get</span></span>(<span>self, name: str, of_type: Union[Type[bool], Type[int], Type[float], Type[str], ForwardRef(None)] = None) ‑> <a title="pytia.framework.knowledge_interfaces.bool_param.BoolParam" href="../framework/knowledge_interfaces/bool_param.html#pytia.framework.knowledge_interfaces.bool_param.BoolParam">BoolParam</a> | <a title="pytia.framework.knowledge_interfaces.int_param.IntParam" href="../framework/knowledge_interfaces/int_param.html#pytia.framework.knowledge_interfaces.int_param.IntParam">IntParam</a> | <a title="pytia.framework.knowledge_interfaces.real_param.RealParam" href="../framework/knowledge_interfaces/real_param.html#pytia.framework.knowledge_interfaces.real_param.RealParam">RealParam</a> | <a title="pytia.framework.knowledge_interfaces.str_param.StrParam" href="../framework/knowledge_interfaces/str_param.html#pytia.framework.knowledge_interfaces.str_param.StrParam">StrParam</a> | <a title="pytia.framework.knowledge_interfaces.dimension.Dimension" href="../framework/knowledge_interfaces/dimension.html#pytia.framework.knowledge_interfaces.dimension.Dimension">Dimension</a></span>
+<span>def <span class="ident">get</span></span>(<span>self, name: str, of_type: Union[Type[bool], Type[int], Type[float], Type[str], ForwardRef(None)] = None) ‑> pycatia.knowledge_interfaces.bool_param.BoolParam | pycatia.knowledge_interfaces.int_param.IntParam | pycatia.knowledge_interfaces.real_param.RealParam | pycatia.knowledge_interfaces.str_param.StrParam | pycatia.knowledge_interfaces.dimension.Dimension</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns a parameter with the given name.</p>
@@ -1376,7 +1377,7 @@ The type of the parameter. Defaults to None. If None, no type checking will be u
     &#34;&#34;&#34;
     if self.exists(name=name):
         native_value = self._parameters.item(name).value  # type: ignore
-        parameter = self._parameters.item(name)
+        parameter = Parameter(self._parameters.item(name).com_object).com_object
 
         # Return the parameter with its type
         if self.is_bool(parameter) and of_type in [bool, None]:

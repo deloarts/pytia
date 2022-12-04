@@ -3,7 +3,7 @@
 A wrapper for the catia v5 api.
 
 ![state](https://img.shields.io/badge/State-Alpha-brown.svg?style=for-the-badge)
-![version](https://img.shields.io/badge/Version-0.2.5-orange.svg?style=for-the-badge)
+![version](https://img.shields.io/badge/Version-0.3.0-orange.svg?style=for-the-badge)
 
 [![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
 ![catia](https://img.shields.io/badge/CATIA-V5%206R2017-blue.svg?style=for-the-badge)
@@ -21,11 +21,49 @@ Check out the pytia ecosystem:
 - [pytia-bill-of-material](https://github.com/deloarts/pytia-bill-of-material): An app to retrieve the bill of material of a product.
 - [pytia-ui-tools](https://github.com/deloarts/pytia-ui-tools): A toolbox for all pytia apps.
 
+Table of contents:
+
+- [pytia](#pytia)
+  - [1 installation](#1-installation)
+    - [1.1 system requirements](#11-system-requirements)
+    - [1.2 pip](#12-pip)
+      - [1.2.1 access token](#121-access-token)
+      - [1.2.2 ssh](#122-ssh)
+    - [1.3 setup](#13-setup)
+      - [1.3.1 environment variables](#131-environment-variables)
+      - [1.3.2 catia environment file](#132-catia-environment-file)
+  - [2 usage](#2-usage)
+    - [2.1 commands](#21-commands)
+    - [2.2 options](#22-options)
+  - [3 developing](#3-developing)
+    - [3.1 repository](#31-repository)
+      - [3.1.1 cloning](#311-cloning)
+      - [3.1.2 main branch protection](#312-main-branch-protection)
+      - [3.1.3 branch naming convention](#313-branch-naming-convention)
+      - [3.1.4 issues](#314-issues)
+    - [3.2 poetry](#32-poetry)
+      - [3.2.1 setup](#321-setup)
+      - [3.2.2 install](#322-install)
+      - [3.2.3 tests](#323-tests)
+      - [3.2.4 build](#324-build)
+    - [3.3 insides](#33-insides)
+      - [3.3.1 wrapper](#331-wrapper)
+      - [3.3.2 helper](#332-helper)
+      - [3.3.3 utilities](#333-utilities)
+      - [3.3.4 logging](#334-logging)
+      - [3.3.5 exceptions](#335-exceptions)
+    - [3.4 pre-commit hooks](#34-pre-commit-hooks)
+    - [3.5 docs](#35-docs)
+    - [3.6 new revision checklist](#36-new-revision-checklist)
+  - [4 license](#4-license)
+  - [5 changelog](#5-changelog)
+  - [6 to do](#6-to-do)
+
 ## 1 installation
 
 ### 1.1 system requirements
 
-- Windows 10
+- Windows 10, Windows 11
 - CATIA V5 6R-2017 or higher
 - [Python 3.10](https://www.python.org/downloads/)
 
@@ -97,7 +135,7 @@ python -m pytia
 This generates the following output:
 
 ```plain
-PYTIA 0.2.5
+PYTIA 0.3.0
 
 Usage: python -m pytia [OPTIONS] COMMAND [ARGS]...
 
@@ -134,7 +172,7 @@ python -m pytia box
 This will create the following sample output:
 
 ```powershell
-PYTIA 0.2.5
+PYTIA 0.3.0
 
 [ INFO ]  Bounding box of the current part:
           X = 100.0mm
@@ -168,9 +206,9 @@ For developing you would, additionally to the system requirements, need to insta
 - [Poetry](https://python-poetry.org/docs/master/#installation)
 - [Git](https://git-scm.com/downloads) or [GitHub Desktop](https://desktop.github.com/)
 
-> ❗️ Never develop new features and fixes in the main branch!
+### 3.1 repository
 
-### 3.1 clone the repo
+#### 3.1.1 cloning
 
 Clone the repo to your local machine:
 
@@ -182,6 +220,33 @@ git clone git@github.com:deloarts/pytia.git
 ```
 
 Or use GitHub Desktop.
+
+#### 3.1.2 main branch protection
+
+> ❗️ Never develop new features and fixes in the main branch!
+
+The main branch is protected: it's not allowed to make changes directly to it. Create a new branch in order work on issues. The new branch should follow the naming convention from below.
+
+#### 3.1.3 branch naming convention
+
+1. Use grouping tokens at the beginning of your branch names, such as:
+    - feature: A new feature that will be added to the project
+    - fix: For bugfixes
+    - tests: Adding or updating tests
+    - docs: For updating the docs
+    - wip: Work in progress, won't be finished soon
+    - junk: Just for experimenting
+2. Use slashes `/` as delimiter in branch names (`feature/docket-export`)
+3. Avoid long descriptive names, rather refer to an issue
+4. Do not use bare numbers as leading parts (`fix/108` is bad, `fix/issue108` is good)
+
+#### 3.1.4 issues
+
+Use the issue templates for creating an issue. Please don't open a new issue if you haven't met the requirements and add as much information as possible. Further:
+
+- Format your code in an issue correctly with three backticks, see the [markdown guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+- Add the full error trace.
+- Do not add screenshots for code or traces.
 
 ### 3.2 poetry
 
@@ -236,22 +301,18 @@ This exports the module to the [dist](/dist/) folder.
 
 > ⚠️ Make sure not to commit dev-builds (the dist folder isn't ignored, because this package isn't published on pip yet).
 
-## 3.3 insides
+### 3.3 insides
 
-### 3.3.1 framework
-
-The [framework](/pytia/framework/) of this project is based on [pycatia](https://github.com/evereux/pycatia). If you only need basic access to CATIA with Python, without the wrapper and utilities this package provides, you may want to have a look at this repo.
-
-### 3.3.2 wrapper
+#### 3.3.1 wrapper
 
 The [wrapper](/pytia/wrapper/) folder contains wrapping classes for the framework. Those classes provide basic needs, like checking for existing objects, creating objects, ...
 
-### 3.3.3 helper
+#### 3.3.2 helper
 
 The [helper](/pytia/helper/) folder contains mainly helper functions for the wrapper and the utilities.
 > ⚠️ Some helper functions are currently a huge mess
 
-### 3.3.4 utilities
+#### 3.3.3 utilities
 
 The [utilities](/pytia/utilities/) folder provides utility functions which are intended to be used in other projects, like retrieving the bounding box of a part or exporting a bill of material.
 
@@ -261,7 +322,7 @@ Some utilities can be used as keyword arguments. To inspect it:
 python -m pytia --help
 ```
 
-### 3.3.5 logging
+#### 3.3.4 logging
 
 You can use the [log.py](/pytia/log.py) module to log messages directly to the **pytia** logger:
 
@@ -294,7 +355,7 @@ stream_handler.setFormatter(formatter)
 logger.addHandler(formatter)
 ```
 
-### 3.3.6 exceptions
+#### 3.3.5 exceptions
 
 Pytia exceptions are defined in the [exceptions.py](/pytia/exceptions.py) file. All raised exceptions inside pytia have their roots here. All exceptions from this module will be logged to the **pytia** logger as error messages with a traceback.
 
@@ -344,6 +405,7 @@ python -m pdoc --http : pytia
 
 ## 5 changelog
 
+**v0.3.0**: Add dependency [`pycatia`](https://github.com/evereux/pycatia).  
 **v0.2.5**: Remove dependency `py`.  
 **v0.2.4**: Fix `get_tolerances` method.  
 **v0.2.3**: Update mako.  

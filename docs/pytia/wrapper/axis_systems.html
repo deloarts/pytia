@@ -33,10 +33,11 @@
 
 from typing import List
 
+from pycatia.mec_mod_interfaces.axis_system import AxisSystem
+from pycatia.mec_mod_interfaces.axis_systems import AxisSystems
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.exceptions import PytiaAxisSystemExistsError, PytiaAxisSystemNotFoundError
-from pytia.framework.mec_mod_interfaces.axis_system import AxisSystem
-from pytia.framework.mec_mod_interfaces.axis_systems import AxisSystems
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.log import log
 
 
@@ -163,7 +164,7 @@ class PyAxisSystems:
 <dl>
 <dt id="pytia.wrapper.axis_systems.PyAxisSystems"><code class="flex name class">
 <span>class <span class="ident">PyAxisSystems</span></span>
-<span>(</span><span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>)</span>
+<span>(</span><span>part: pycatia.mec_mod_interfaces.part.Part)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>The wrapper class for CATIA AxisSystems (MecModInterfaces Framework)</p>
@@ -285,7 +286,7 @@ class PyAxisSystems:
 </details>
 <h3>Instance variables</h3>
 <dl>
-<dt id="pytia.wrapper.axis_systems.PyAxisSystems.axis_systems"><code class="name">var <span class="ident">axis_systems</span> : List[<a title="pytia.framework.mec_mod_interfaces.axis_system.AxisSystem" href="../framework/mec_mod_interfaces/axis_system.html#pytia.framework.mec_mod_interfaces.axis_system.AxisSystem">AxisSystem</a>]</code></dt>
+<dt id="pytia.wrapper.axis_systems.PyAxisSystems.axis_systems"><code class="name">var <span class="ident">axis_systems</span> : List[pycatia.mec_mod_interfaces.axis_system.AxisSystem]</code></dt>
 <dd>
 <div class="desc"><p>Returns a list of all axis systems in the part.</p>
 <h2 id="returns">Returns</h2>
@@ -343,7 +344,7 @@ def names(self) -&gt; List[str]:
 <h3>Methods</h3>
 <dl>
 <dt id="pytia.wrapper.axis_systems.PyAxisSystems.create"><code class="name flex">
-<span>def <span class="ident">create</span></span>(<span>self, name: str = 'AxisSystem', recycle: bool = False) ‑> <a title="pytia.framework.mec_mod_interfaces.axis_system.AxisSystem" href="../framework/mec_mod_interfaces/axis_system.html#pytia.framework.mec_mod_interfaces.axis_system.AxisSystem">AxisSystem</a></span>
+<span>def <span class="ident">create</span></span>(<span>self, name: str = 'AxisSystem', recycle: bool = False) ‑> pycatia.mec_mod_interfaces.axis_system.AxisSystem</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates an axis system.</p>
@@ -440,7 +441,7 @@ recycle is set to False.</dd>
 </details>
 </dd>
 <dt id="pytia.wrapper.axis_systems.PyAxisSystems.get_by_name"><code class="name flex">
-<span>def <span class="ident">get_by_name</span></span>(<span>self, name: str) ‑> <a title="pytia.framework.mec_mod_interfaces.axis_system.AxisSystem" href="../framework/mec_mod_interfaces/axis_system.html#pytia.framework.mec_mod_interfaces.axis_system.AxisSystem">AxisSystem</a></span>
+<span>def <span class="ident">get_by_name</span></span>(<span>self, name: str) ‑> pycatia.mec_mod_interfaces.axis_system.AxisSystem</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns an axis system by its name.</p>

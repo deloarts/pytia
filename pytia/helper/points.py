@@ -2,11 +2,12 @@
     Helper module for CATIA Point objects.
 """
 
+from pycatia.hybrid_shape_interfaces.point import Point
+from pycatia.mec_mod_interfaces.body import Body
+from pycatia.mec_mod_interfaces.hybrid_body import HybridBody
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.decorators import failsafe
-from pytia.framework.hybrid_shape_interfaces.point import Point
-from pytia.framework.mec_mod_interfaces.body import Body
-from pytia.framework.mec_mod_interfaces.hybrid_body import HybridBody
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.helper.measurables import get_measurable_from_body
 from pytia.log import log
 

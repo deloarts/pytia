@@ -4,10 +4,11 @@
 
 from typing import List
 
+from pycatia.cat_mat_interfaces.material import Material
+from pycatia.mec_mod_interfaces.hybrid_body import HybridBody
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.exceptions import PytiaBodyExistsError
-from pytia.framework.cat_mat_interfaces.material import Material
-from pytia.framework.mec_mod_interfaces.hybrid_body import HybridBody
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.log import log
 from pytia.wrapper.bodies.base import PyBodiesBase
 

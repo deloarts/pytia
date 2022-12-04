@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>pytia.helper.measurables API documentation</title>
-<meta name="description" content="Helper module for CATIA Measurable objects." />
+<title>pytia.framework API documentation</title>
+<meta name="description" content="The framework for interacting with CATIA …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -19,69 +19,79 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>pytia.helper.measurables</code></h1>
+<h1 class="title">Module <code>pytia.framework</code></h1>
 </header>
 <section id="section-intro">
-<p>Helper module for CATIA Measurable objects.</p>
+<p>The framework for interacting with CATIA.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The documentation of the framework can be found inside the <strong>V5automation.chm</strong>
+(/assets/V5Automation.chm) help file.</p>
+</div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">&#34;&#34;&#34;
-    Helper module for CATIA Measurable objects.
+    The framework for interacting with CATIA.
+
+    .. warning::
+        The documentation of the framework can be found inside the **V5automation.chm** 
+        (/assets/V5Automation.chm) help file.
 &#34;&#34;&#34;
 
-from typing import Optional
+import atexit
+import os
 
-from pycatia.in_interfaces.document import Document
-from pycatia.in_interfaces.reference import Reference
-from pycatia.mec_mod_interfaces.body import Body
-from pycatia.mec_mod_interfaces.part import Part
-from pycatia.space_analyses_interfaces.measurable import Measurable
+from psutil import process_iter
+from pycatia.in_interfaces.application import Application
+from win32com.client import CDispatch, Dispatch
 
-from pytia.decorators import failsafe
-from pytia.framework import framework
+from pytia import __version__
+from pytia.exceptions import PytiaApplicationError
 from pytia.log import log
 
 
-@failsafe
-def get_measurable_from_reference(
-    *, reference: Reference, document: Optional[Document] = None
-) -&gt; Measurable:
-    &#34;&#34;&#34;
-    Gets measurements from the given reference. Uses the current active document
-    if no document is provided.
+class Framework:
+    def __init__(self) -&gt; None:
+        &#34;&#34;&#34;Inits the catia application dispatch.&#34;&#34;&#34;
+        if not os.name == &#34;nt&#34;:
+            raise OSError(f&#34;This operating system is not supported.&#34;)
 
-    Args:
-        reference (Reference): The reference object from which the measurable will be returned.
-        document (Optional[Document], optional): The document in which the reference is. \
-            Defaults to None.
+        if &#34;CNEXT.exe&#34; not in (p.name() for p in process_iter()):
+            raise PytiaApplicationError(
+                &#34;Failed connecting to CATIA: Application not running.&#34;
+            )
 
-    Returns:
-        Measurable: The measurable object.
-    &#34;&#34;&#34;
-    doc = document if document else framework.catia.active_document
-    spa_workbench = doc.spa_workbench()
-    log.debug(f&#34;Loaded SPA workbench from {doc.name!r}&#34;)
-    measurable = spa_workbench.get_measurable(reference)
-    return measurable
+        self._dispatch = Dispatch(&#34;CATIA.Application&#34;)
+        self._catia = Application(self._dispatch)
+        self._catia.status_bar = f&#34;Connected to pytia {__version__}&#34;
+
+        atexit.register(self._exit)
+
+        log.info(
+            f&#34;Connected to CATIA V{self._catia.system_configuration.version}-&#34;
+            f&#34;R{self._catia.system_configuration.release} &#34;
+            f&#34;SP{self._catia.system_configuration.service_pack}.&#34;
+        )
+
+    def _exit(self) -&gt; None:
+        &#34;&#34;&#34;Triggered at exit.&#34;&#34;&#34;
+        self._catia.status_bar = &#34;&#34;
+        log.info(&#34;Disconnected from CATIA.&#34;)
+
+    @property
+    def catia(self) -&gt; Application:
+        &#34;&#34;&#34;Returns the catia application.&#34;&#34;&#34;
+        return self._catia
+
+    @property
+    def dispatch(self) -&gt; CDispatch:
+        &#34;&#34;&#34;Returns the catia dispatch.&#34;&#34;&#34;
+        return self._dispatch
 
 
-@failsafe
-def get_measurable_from_body(part: Part, body: Body) -&gt; Measurable:
-    &#34;&#34;&#34;
-    Gets measurements from the given body.
-
-    Args:
-        part (Part): The part that holds the body.
-        body (Body): The body from which the measurable will be returned.
-
-    Returns:
-        Measurable: The measurable object.
-    &#34;&#34;&#34;
-    reference = part.create_reference_from_object(body)
-    measurable = get_measurable_from_reference(reference=reference)
-    return measurable</code></pre>
+framework = Framework()</code></pre>
 </details>
 </section>
 <section>
@@ -89,95 +99,88 @@ def get_measurable_from_body(part: Part, body: Body) -&gt; Measurable:
 <section>
 </section>
 <section>
-<h2 class="section-title" id="header-functions">Functions</h2>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="pytia.helper.measurables.get_measurable_from_body"><code class="name flex">
-<span>def <span class="ident">get_measurable_from_body</span></span>(<span>part: pycatia.mec_mod_interfaces.part.Part, body: pycatia.mec_mod_interfaces.body.Body) ‑> pycatia.space_analyses_interfaces.measurable.Measurable</span>
+<dt id="pytia.framework.Framework"><code class="flex name class">
+<span>class <span class="ident">Framework</span></span>
 </code></dt>
 <dd>
-<div class="desc"><p>Gets measurements from the given body.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>part</code></strong> :&ensp;<code>Part</code></dt>
-<dd>The part that holds the body.</dd>
-<dt><strong><code>body</code></strong> :&ensp;<code>Body</code></dt>
-<dd>The body from which the measurable will be returned.</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><code>Measurable</code></dt>
-<dd>The measurable object.</dd>
-</dl></div>
+<div class="desc"><p>Inits the catia application dispatch.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">@failsafe
-def get_measurable_from_body(part: Part, body: Body) -&gt; Measurable:
-    &#34;&#34;&#34;
-    Gets measurements from the given body.
+<pre><code class="python">class Framework:
+    def __init__(self) -&gt; None:
+        &#34;&#34;&#34;Inits the catia application dispatch.&#34;&#34;&#34;
+        if not os.name == &#34;nt&#34;:
+            raise OSError(f&#34;This operating system is not supported.&#34;)
 
-    Args:
-        part (Part): The part that holds the body.
-        body (Body): The body from which the measurable will be returned.
+        if &#34;CNEXT.exe&#34; not in (p.name() for p in process_iter()):
+            raise PytiaApplicationError(
+                &#34;Failed connecting to CATIA: Application not running.&#34;
+            )
 
-    Returns:
-        Measurable: The measurable object.
-    &#34;&#34;&#34;
-    reference = part.create_reference_from_object(body)
-    measurable = get_measurable_from_reference(reference=reference)
-    return measurable</code></pre>
+        self._dispatch = Dispatch(&#34;CATIA.Application&#34;)
+        self._catia = Application(self._dispatch)
+        self._catia.status_bar = f&#34;Connected to pytia {__version__}&#34;
+
+        atexit.register(self._exit)
+
+        log.info(
+            f&#34;Connected to CATIA V{self._catia.system_configuration.version}-&#34;
+            f&#34;R{self._catia.system_configuration.release} &#34;
+            f&#34;SP{self._catia.system_configuration.service_pack}.&#34;
+        )
+
+    def _exit(self) -&gt; None:
+        &#34;&#34;&#34;Triggered at exit.&#34;&#34;&#34;
+        self._catia.status_bar = &#34;&#34;
+        log.info(&#34;Disconnected from CATIA.&#34;)
+
+    @property
+    def catia(self) -&gt; Application:
+        &#34;&#34;&#34;Returns the catia application.&#34;&#34;&#34;
+        return self._catia
+
+    @property
+    def dispatch(self) -&gt; CDispatch:
+        &#34;&#34;&#34;Returns the catia dispatch.&#34;&#34;&#34;
+        return self._dispatch</code></pre>
 </details>
-</dd>
-<dt id="pytia.helper.measurables.get_measurable_from_reference"><code class="name flex">
-<span>def <span class="ident">get_measurable_from_reference</span></span>(<span>*, reference: pycatia.in_interfaces.reference.Reference, document: Optional[pycatia.in_interfaces.document.Document] = None) ‑> pycatia.space_analyses_interfaces.measurable.Measurable</span>
-</code></dt>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia.framework.Framework.catia"><code class="name">var <span class="ident">catia</span> : pycatia.in_interfaces.application.Application</code></dt>
 <dd>
-<div class="desc"><p>Gets measurements from the given reference. Uses the current active document
-if no document is provided.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>reference</code></strong> :&ensp;<code>Reference</code></dt>
-<dd>The reference object from which the measurable will be returned.</dd>
-<dt><strong><code>document</code></strong> :&ensp;<code>Optional[Document]</code>, optional</dt>
-<dd>The document in which the reference is.
-Defaults to None.</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><code>Measurable</code></dt>
-<dd>The measurable object.</dd>
-</dl></div>
+<div class="desc"><p>Returns the catia application.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">@failsafe
-def get_measurable_from_reference(
-    *, reference: Reference, document: Optional[Document] = None
-) -&gt; Measurable:
-    &#34;&#34;&#34;
-    Gets measurements from the given reference. Uses the current active document
-    if no document is provided.
-
-    Args:
-        reference (Reference): The reference object from which the measurable will be returned.
-        document (Optional[Document], optional): The document in which the reference is. \
-            Defaults to None.
-
-    Returns:
-        Measurable: The measurable object.
-    &#34;&#34;&#34;
-    doc = document if document else framework.catia.active_document
-    spa_workbench = doc.spa_workbench()
-    log.debug(f&#34;Loaded SPA workbench from {doc.name!r}&#34;)
-    measurable = spa_workbench.get_measurable(reference)
-    return measurable</code></pre>
+<pre><code class="python">@property
+def catia(self) -&gt; Application:
+    &#34;&#34;&#34;Returns the catia application.&#34;&#34;&#34;
+    return self._catia</code></pre>
+</details>
+</dd>
+<dt id="pytia.framework.Framework.dispatch"><code class="name">var <span class="ident">dispatch</span> : win32com.client.CDispatch</code></dt>
+<dd>
+<div class="desc"><p>Returns the catia dispatch.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def dispatch(self) -&gt; CDispatch:
+    &#34;&#34;&#34;Returns the catia dispatch.&#34;&#34;&#34;
+    return self._dispatch</code></pre>
 </details>
 </dd>
 </dl>
-</section>
-<section>
+</dd>
+</dl>
 </section>
 </article>
 <nav id="sidebar">
@@ -188,13 +191,18 @@ def get_measurable_from_reference(
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="pytia.helper" href="index.html">pytia.helper</a></code></li>
+<li><code><a title="pytia" href="index.html">pytia</a></code></li>
 </ul>
 </li>
-<li><h3><a href="#header-functions">Functions</a></h3>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia.framework.Framework" href="#pytia.framework.Framework">Framework</a></code></h4>
 <ul class="">
-<li><code><a title="pytia.helper.measurables.get_measurable_from_body" href="#pytia.helper.measurables.get_measurable_from_body">get_measurable_from_body</a></code></li>
-<li><code><a title="pytia.helper.measurables.get_measurable_from_reference" href="#pytia.helper.measurables.get_measurable_from_reference">get_measurable_from_reference</a></code></li>
+<li><code><a title="pytia.framework.Framework.catia" href="#pytia.framework.Framework.catia">catia</a></code></li>
+<li><code><a title="pytia.framework.Framework.dispatch" href="#pytia.framework.Framework.dispatch">dispatch</a></code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

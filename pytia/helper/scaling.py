@@ -2,7 +2,8 @@
     Helper module for scaling.
 """
 
-from pytia.framework.drafting_interfaces.drawing_view import DrawingView
+from pycatia.drafting_interfaces.drawing_view import DrawingView
+
 from pytia.log import log
 
 
