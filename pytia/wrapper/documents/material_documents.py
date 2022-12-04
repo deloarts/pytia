@@ -3,10 +3,11 @@
 """
 from pathlib import Path
 
+from pycatia.cat_mat_interfaces.material_document import MaterialDocument
+
 from pytia import __version__
 from pytia.const import FILE_EXTENSION_MATERIAL
 from pytia.exceptions import PytiaNotImplementedError
-from pytia.framework.cat_mat_interfaces.material_document import MaterialDocument
 from pytia.wrapper.documents.base import PyBaseDocument
 from pytia.wrapper.material_catalogs import PyMaterialCatalog
 

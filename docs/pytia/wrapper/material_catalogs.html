@@ -33,10 +33,11 @@
 
 from typing import Dict, List
 
+from pycatia.cat_mat_interfaces.material import Material
+from pycatia.cat_mat_interfaces.material_document import MaterialDocument
+from pycatia.cat_mat_interfaces.material_family import MaterialFamily
+
 from pytia.exceptions import PytiaMaterialNotFound
-from pytia.framework.cat_mat_interfaces.material import Material
-from pytia.framework.cat_mat_interfaces.material_document import MaterialDocument
-from pytia.framework.cat_mat_interfaces.material_family import MaterialFamily
 
 
 class PyMaterialCatalog:
@@ -147,7 +148,7 @@ class PyMaterialCatalog:
 <dl>
 <dt id="pytia.wrapper.material_catalogs.PyMaterialCatalog"><code class="flex name class">
 <span>class <span class="ident">PyMaterialCatalog</span></span>
-<span>(</span><span>material_document: <a title="pytia.framework.cat_mat_interfaces.material_document.MaterialDocument" href="../framework/cat_mat_interfaces/material_document.html#pytia.framework.cat_mat_interfaces.material_document.MaterialDocument">MaterialDocument</a>)</span>
+<span>(</span><span>material_document: pycatia.cat_mat_interfaces.material_document.MaterialDocument)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>The wrapper class for CATIA Materials (CATMatInterfaces Framework)</p>
@@ -259,7 +260,7 @@ class PyMaterialCatalog:
 </details>
 <h3>Instance variables</h3>
 <dl>
-<dt id="pytia.wrapper.material_catalogs.PyMaterialCatalog.families"><code class="name">var <span class="ident">families</span> : List[<a title="pytia.framework.cat_mat_interfaces.material_family.MaterialFamily" href="../framework/cat_mat_interfaces/material_family.html#pytia.framework.cat_mat_interfaces.material_family.MaterialFamily">MaterialFamily</a>]</code></dt>
+<dt id="pytia.wrapper.material_catalogs.PyMaterialCatalog.families"><code class="name">var <span class="ident">families</span> : List[pycatia.cat_mat_interfaces.material_family.MaterialFamily]</code></dt>
 <dd>
 <div class="desc"><p>Returns a list of all material families in the catalog.</p></div>
 <details class="source">
@@ -285,7 +286,7 @@ def families_str(self) -&gt; List[str]:
     return [f.name for f in self._families]</code></pre>
 </details>
 </dd>
-<dt id="pytia.wrapper.material_catalogs.PyMaterialCatalog.material_document"><code class="name">var <span class="ident">material_document</span> : <a title="pytia.framework.cat_mat_interfaces.material_document.MaterialDocument" href="../framework/cat_mat_interfaces/material_document.html#pytia.framework.cat_mat_interfaces.material_document.MaterialDocument">MaterialDocument</a></code></dt>
+<dt id="pytia.wrapper.material_catalogs.PyMaterialCatalog.material_document"><code class="name">var <span class="ident">material_document</span> : pycatia.cat_mat_interfaces.material_document.MaterialDocument</code></dt>
 <dd>
 <div class="desc"><p>Returns the material document.</p></div>
 <details class="source">
@@ -298,7 +299,7 @@ def material_document(self) -&gt; MaterialDocument:
     return self._material_document</code></pre>
 </details>
 </dd>
-<dt id="pytia.wrapper.material_catalogs.PyMaterialCatalog.materials"><code class="name">var <span class="ident">materials</span> : Dict[<a title="pytia.framework.cat_mat_interfaces.material_family.MaterialFamily" href="../framework/cat_mat_interfaces/material_family.html#pytia.framework.cat_mat_interfaces.material_family.MaterialFamily">MaterialFamily</a>, List[<a title="pytia.framework.cat_mat_interfaces.material.Material" href="../framework/cat_mat_interfaces/material.html#pytia.framework.cat_mat_interfaces.material.Material">Material</a>]]</code></dt>
+<dt id="pytia.wrapper.material_catalogs.PyMaterialCatalog.materials"><code class="name">var <span class="ident">materials</span> : Dict[pycatia.cat_mat_interfaces.material_family.MaterialFamily, List[pycatia.cat_mat_interfaces.material.Material]]</code></dt>
 <dd>
 <div class="desc"><p>Returns a dictionary mapping material families to material objects.</p></div>
 <details class="source">
@@ -334,7 +335,7 @@ def materials_str(self) -&gt; Dict[str, List[str]]:
 <h3>Methods</h3>
 <dl>
 <dt id="pytia.wrapper.material_catalogs.PyMaterialCatalog.get_material"><code class="name flex">
-<span>def <span class="ident">get_material</span></span>(<span>self, name: str) ‑> <a title="pytia.framework.cat_mat_interfaces.material.Material" href="../framework/cat_mat_interfaces/material.html#pytia.framework.cat_mat_interfaces.material.Material">Material</a></span>
+<span>def <span class="ident">get_material</span></span>(<span>self, name: str) ‑> pycatia.cat_mat_interfaces.material.Material</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns a material by its name from the material document.</p>
@@ -382,7 +383,7 @@ the catalog.</dd>
 </details>
 </dd>
 <dt id="pytia.wrapper.material_catalogs.PyMaterialCatalog.material_exists"><code class="name flex">
-<span>def <span class="ident">material_exists</span></span>(<span>self, query: str | <a title="pytia.framework.cat_mat_interfaces.material.Material" href="../framework/cat_mat_interfaces/material.html#pytia.framework.cat_mat_interfaces.material.Material">Material</a>) ‑> bool</span>
+<span>def <span class="ident">material_exists</span></span>(<span>self, query: str | pycatia.cat_mat_interfaces.material.Material) ‑> bool</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns wether the given name exists in the material document.</p>

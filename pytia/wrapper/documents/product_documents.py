@@ -3,12 +3,13 @@
 """
 from pathlib import Path
 
+from pycatia.cat_mat_interfaces.material import Material
+from pycatia.cat_mat_interfaces.material_manager import MaterialManager
+from pycatia.product_structure_interfaces.product import Product
+
 from pytia import __version__
 from pytia.const import FILE_EXTENSION_PRODUCT, GET_ITEM_MATERIAL_MANAGER
 from pytia.exceptions import PytiaDocumentNameConventionError
-from pytia.framework.cat_mat_interfaces.material import Material
-from pytia.framework.cat_mat_interfaces.material_manager import MaterialManager
-from pytia.framework.product_structure_interfaces.product import Product
 from pytia.log import log
 from pytia.wrapper.documents.base import PyBaseDocument
 from pytia.wrapper.properties import PyProperties

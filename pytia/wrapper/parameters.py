@@ -4,19 +4,20 @@
 import functools
 from typing import Any, List, Optional, Type
 
+from pycatia.knowledge_interfaces.bool_param import BoolParam
+from pycatia.knowledge_interfaces.dimension import Dimension
+from pycatia.knowledge_interfaces.int_param import IntParam
+from pycatia.knowledge_interfaces.parameter import Parameter
+from pycatia.knowledge_interfaces.parameters import Parameters
+from pycatia.knowledge_interfaces.real_param import RealParam
+from pycatia.knowledge_interfaces.str_param import StrParam
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.exceptions import (
     PytiaParameterExistsError,
     PytiaParameterNotFoundError,
     PytiaParameterTypeError,
 )
-from pytia.framework.knowledge_interfaces.bool_param import BoolParam
-from pytia.framework.knowledge_interfaces.dimension import Dimension
-from pytia.framework.knowledge_interfaces.int_param import IntParam
-from pytia.framework.knowledge_interfaces.parameter import Parameter
-from pytia.framework.knowledge_interfaces.parameters import Parameters
-from pytia.framework.knowledge_interfaces.real_param import RealParam
-from pytia.framework.knowledge_interfaces.str_param import StrParam
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.log import log
 
 LENGTH = "LENGTH"
@@ -120,7 +121,7 @@ class PyPartParameters:
         """
         if self.exists(name=name):
             native_value = self._parameters.item(name).value  # type: ignore
-            parameter = self._parameters.item(name)
+            parameter = Parameter(self._parameters.item(name).com_object).com_object
 
             # Return the parameter with its type
             if self.is_bool(parameter) and of_type in [bool, None]:

@@ -7,12 +7,11 @@ import tempfile
 from pathlib import Path
 from typing import Optional
 
+from pycatia.product_structure_interfaces.assembly_convertor import AssemblyConvertor
+from pycatia.product_structure_interfaces.product import Product
+
 from pytia.const import ENV_IGNORE_BOM_ERROR, GET_ITEM_BILL_OF_MATERIAL, KNOWN_ERRORS
 from pytia.exceptions import PytiaBOMError, PytiaFileExistsError
-from pytia.framework.product_structure_interfaces.assembly_convertor import (
-    AssemblyConvertor,
-)
-from pytia.framework.product_structure_interfaces.product import Product
 from pytia.helper.verify import verify_folder
 from pytia.log import log
 from pytia.wrapper.documents.product_documents import PyProductDocument
@@ -155,7 +154,7 @@ def export_bom(
     try:
         bom = product.get_item(GET_ITEM_BILL_OF_MATERIAL)
         assembly_convertor = AssemblyConvertor(bom.com_object)
-        assembly_convertor.print("XLS", str(path), product)
+        assembly_convertor.print("XLS", path, product)
         log.info(f"Exported BOM of {product.name!r} as {path!r}")
     except Exception as e:  # pylint: disable=W0703
         if not ENV_IGNORE_BOM_ERROR:

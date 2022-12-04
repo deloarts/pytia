@@ -33,10 +33,11 @@
 import os
 from pathlib import Path
 
+from pycatia.drafting_interfaces.drawing_document import DrawingDocument
+
 from pytia import __version__
 from pytia.const import FILE_EXTENSION_DRAWING
 from pytia.exceptions import PytiaFileExistsError
-from pytia.framework.drafting_interfaces.drawing_document import DrawingDocument
 from pytia.helper.verify import verify_folder
 from pytia.log import log
 from pytia.wrapper.documents.base import PyBaseDocument
@@ -326,7 +327,7 @@ class PyDrawingDocument(PyBaseDocument):
 </ul>
 <h3>Instance variables</h3>
 <dl>
-<dt id="pytia.wrapper.documents.drawing_documents.PyDrawingDocument.drawing_document"><code class="name">var <span class="ident">drawing_document</span> : <a title="pytia.framework.drafting_interfaces.drawing_document.DrawingDocument" href="../../framework/drafting_interfaces/drawing_document.html#pytia.framework.drafting_interfaces.drawing_document.DrawingDocument">DrawingDocument</a></code></dt>
+<dt id="pytia.wrapper.documents.drawing_documents.PyDrawingDocument.drawing_document"><code class="name">var <span class="ident">drawing_document</span> : pycatia.drafting_interfaces.drawing_document.DrawingDocument</code></dt>
 <dd>
 <div class="desc"><p>Returns the DrawingDocument object.</p></div>
 <details class="source">

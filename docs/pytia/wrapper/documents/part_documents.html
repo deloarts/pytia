@@ -33,13 +33,14 @@
 
 from pathlib import Path
 
+from pycatia.cat_mat_interfaces.material import Material
+from pycatia.cat_mat_interfaces.material_manager import MaterialManager
+from pycatia.mec_mod_interfaces.part import Part
+from pycatia.product_structure_interfaces.product import Product
+
 from pytia import __version__
 from pytia.const import FILE_EXTENSION_PART, GET_ITEM_MATERIAL_MANAGER
 from pytia.exceptions import PytiaDocumentNameConventionError
-from pytia.framework.cat_mat_interfaces.material import Material
-from pytia.framework.cat_mat_interfaces.material_manager import MaterialManager
-from pytia.framework.mec_mod_interfaces.part import Part
-from pytia.framework.product_structure_interfaces.product import Product
 from pytia.log import log
 from pytia.wrapper.axis_systems import PyAxisSystems
 from pytia.wrapper.bodies.bodies import PyBodies
@@ -446,7 +447,7 @@ def hybrid_bodies(self) -&gt; PyHybridBodies:
     return self._hybrid_bodies</code></pre>
 </details>
 </dd>
-<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.material"><code class="name">var <span class="ident">material</span> : <a title="pytia.framework.cat_mat_interfaces.material.Material" href="../../framework/cat_mat_interfaces/material.html#pytia.framework.cat_mat_interfaces.material.Material">Material</a></code></dt>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.material"><code class="name">var <span class="ident">material</span> : pycatia.cat_mat_interfaces.material.Material</code></dt>
 <dd>
 <div class="desc"><p>Returns the catia material object of this part.</p></div>
 <details class="source">
@@ -472,7 +473,7 @@ def parameters(self) -&gt; PyPartParameters:
     return self._parameters</code></pre>
 </details>
 </dd>
-<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.part"><code class="name">var <span class="ident">part</span> : <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a></code></dt>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.part"><code class="name">var <span class="ident">part</span> : pycatia.mec_mod_interfaces.part.Part</code></dt>
 <dd>
 <div class="desc"><p>Returns the catia part object for this part.</p></div>
 <details class="source">
@@ -485,7 +486,7 @@ def part(self) -&gt; Part:
     return self._part</code></pre>
 </details>
 </dd>
-<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.product"><code class="name">var <span class="ident">product</span> : <a title="pytia.framework.product_structure_interfaces.product.Product" href="../../framework/product_structure_interfaces/product.html#pytia.framework.product_structure_interfaces.product.Product">Product</a></code></dt>
+<dt id="pytia.wrapper.documents.part_documents.PyPartDocument.product"><code class="name">var <span class="ident">product</span> : pycatia.product_structure_interfaces.product.Product</code></dt>
 <dd>
 <div class="desc"><p>Returns the catia product object for this part.</p></div>
 <details class="source">

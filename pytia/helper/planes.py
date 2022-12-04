@@ -2,12 +2,13 @@
     Helper module for CATIA Plane objects.
 """
 
+from pycatia.hybrid_shape_interfaces.plane import Plane
+from pycatia.hybrid_shape_interfaces.point import Point
+from pycatia.in_interfaces.reference import Reference
+from pycatia.mec_mod_interfaces.hybrid_body import HybridBody
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.decorators import failsafe
-from pytia.framework.hybrid_shape_interfaces.plane import Plane
-from pytia.framework.hybrid_shape_interfaces.point import Point
-from pytia.framework.in_interfaces.reference import Reference
-from pytia.framework.mec_mod_interfaces.hybrid_body import HybridBody
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.log import log
 
 

@@ -4,10 +4,11 @@
 import os
 from pathlib import Path
 
+from pycatia.drafting_interfaces.drawing_document import DrawingDocument
+
 from pytia import __version__
 from pytia.const import FILE_EXTENSION_DRAWING
 from pytia.exceptions import PytiaFileExistsError
-from pytia.framework.drafting_interfaces.drawing_document import DrawingDocument
 from pytia.helper.verify import verify_folder
 from pytia.log import log
 from pytia.wrapper.documents.base import PyBaseDocument

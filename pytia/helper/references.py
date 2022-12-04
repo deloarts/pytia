@@ -1,11 +1,12 @@
 """
     Helper module for CATIA Reference objects.
 """
+from pycatia.in_interfaces.reference import Reference
+from pycatia.mec_mod_interfaces.axis_system import AxisSystem
+from pycatia.mec_mod_interfaces.body import Body
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.decorators import failsafe
-from pytia.framework.in_interfaces.reference import Reference
-from pytia.framework.mec_mod_interfaces.axis_system import AxisSystem
-from pytia.framework.mec_mod_interfaces.body import Body
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.log import log
 
 

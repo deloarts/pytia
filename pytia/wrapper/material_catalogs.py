@@ -4,10 +4,11 @@
 
 from typing import Dict, List
 
+from pycatia.cat_mat_interfaces.material import Material
+from pycatia.cat_mat_interfaces.material_document import MaterialDocument
+from pycatia.cat_mat_interfaces.material_family import MaterialFamily
+
 from pytia.exceptions import PytiaMaterialNotFound
-from pytia.framework.cat_mat_interfaces.material import Material
-from pytia.framework.cat_mat_interfaces.material_document import MaterialDocument
-from pytia.framework.cat_mat_interfaces.material_family import MaterialFamily
 
 
 class PyMaterialCatalog:

@@ -6,6 +6,9 @@ import os
 from pathlib import Path
 from typing import Any, List, Optional
 
+from pycatia.in_interfaces.document import Document
+from pycatia.in_interfaces.selection import Selection
+
 from pytia import __version__
 from pytia.const import VALID_FILE_EXTENSIONS
 from pytia.exceptions import (
@@ -19,8 +22,6 @@ from pytia.exceptions import (
     PytiaWrongDocumentTypeError,
 )
 from pytia.framework import framework
-from pytia.framework.in_interfaces.document import Document
-from pytia.framework.in_interfaces.selection import Selection
 from pytia.helper.verify import verify_folder
 from pytia.log import log
 
@@ -103,7 +104,7 @@ class PyBaseDocument:
             )
 
         try:
-            self.document = self.documents.read(file_name=path)
+            self.document = self.documents.read(file_name=str(path))
         except Exception as e:
             raise PytiaDocumentOperationError(
                 f"Failed opening document from {str(path)!r}: {e}"
@@ -141,7 +142,7 @@ class PyBaseDocument:
             )
 
         try:
-            self.documents.open(path)
+            self.documents.open(str(path))
         except Exception as e:
             raise PytiaDocumentOperationError(
                 f"Failed opening document from {str(path)!r}: {e}"
@@ -223,7 +224,7 @@ class PyBaseDocument:
                 f"Cannot create {self._doctype!r} with name {name!r}: Already exists in session."
             )
 
-        self.documents.new_from(path)
+        self.documents.new_from(str(path))
         self.document = self._framework.catia.active_document
 
         log.info(f"Created new document {self.document.name!r} from {str(path)!r}")

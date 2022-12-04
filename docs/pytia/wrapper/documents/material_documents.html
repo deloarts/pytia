@@ -32,10 +32,11 @@
 &#34;&#34;&#34;
 from pathlib import Path
 
+from pycatia.cat_mat_interfaces.material_document import MaterialDocument
+
 from pytia import __version__
 from pytia.const import FILE_EXTENSION_MATERIAL
 from pytia.exceptions import PytiaNotImplementedError
-from pytia.framework.cat_mat_interfaces.material_document import MaterialDocument
 from pytia.wrapper.documents.base import PyBaseDocument
 from pytia.wrapper.material_catalogs import PyMaterialCatalog
 
@@ -263,7 +264,7 @@ def catalog(self) -&gt; PyMaterialCatalog:
     return self._catalog</code></pre>
 </details>
 </dd>
-<dt id="pytia.wrapper.documents.material_documents.PyMaterialDocument.material_document"><code class="name">var <span class="ident">material_document</span> : <a title="pytia.framework.cat_mat_interfaces.material_document.MaterialDocument" href="../../framework/cat_mat_interfaces/material_document.html#pytia.framework.cat_mat_interfaces.material_document.MaterialDocument">MaterialDocument</a></code></dt>
+<dt id="pytia.wrapper.documents.material_documents.PyMaterialDocument.material_document"><code class="name">var <span class="ident">material_document</span> : pycatia.cat_mat_interfaces.material_document.MaterialDocument</code></dt>
 <dd>
 <div class="desc"><p>Returns the MaterialDocument object.</p></div>
 <details class="source">

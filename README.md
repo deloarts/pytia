@@ -238,20 +238,16 @@ This exports the module to the [dist](/dist/) folder.
 
 ## 3.3 insides
 
-### 3.3.1 framework
-
-The [framework](/pytia/framework/) of this project is based on [pycatia](https://github.com/evereux/pycatia). If you only need basic access to CATIA with Python, without the wrapper and utilities this package provides, you may want to have a look at this repo.
-
-### 3.3.2 wrapper
+### 3.3.1 wrapper
 
 The [wrapper](/pytia/wrapper/) folder contains wrapping classes for the framework. Those classes provide basic needs, like checking for existing objects, creating objects, ...
 
-### 3.3.3 helper
+### 3.3.2 helper
 
 The [helper](/pytia/helper/) folder contains mainly helper functions for the wrapper and the utilities.
 > ⚠️ Some helper functions are currently a huge mess
 
-### 3.3.4 utilities
+### 3.3.3 utilities
 
 The [utilities](/pytia/utilities/) folder provides utility functions which are intended to be used in other projects, like retrieving the bounding box of a part or exporting a bill of material.
 
@@ -261,7 +257,7 @@ Some utilities can be used as keyword arguments. To inspect it:
 python -m pytia --help
 ```
 
-### 3.3.5 logging
+### 3.3.4 logging
 
 You can use the [log.py](/pytia/log.py) module to log messages directly to the **pytia** logger:
 
@@ -294,7 +290,7 @@ stream_handler.setFormatter(formatter)
 logger.addHandler(formatter)
 ```
 
-### 3.3.6 exceptions
+### 3.3.5 exceptions
 
 Pytia exceptions are defined in the [exceptions.py](/pytia/exceptions.py) file. All raised exceptions inside pytia have their roots here. All exceptions from this module will be logged to the **pytia** logger as error messages with a traceback.
 

@@ -34,12 +34,13 @@
 import functools
 from typing import List
 
+from pycatia.knowledge_interfaces.parameters import Parameters
+from pycatia.knowledge_interfaces.str_param import StrParam
+from pycatia.product_structure_interfaces.product import Product
+
 from pytia import __version__
 from pytia.const import ENV_NO_PROPS, PROP_VERSION
 from pytia.exceptions import PytiaPropertyExistsError, PytiaPropertyNotFoundError
-from pytia.framework.knowledge_interfaces.parameters import Parameters
-from pytia.framework.knowledge_interfaces.str_param import StrParam
-from pytia.framework.product_structure_interfaces.product import Product
 from pytia.log import log
 
 
@@ -131,7 +132,7 @@ class PyProperties:
             StrParam: The property.
         &#34;&#34;&#34;
         if self.exists(name=name):
-            return StrParam(self._user_ref_properties.item(name))
+            return StrParam(self._user_ref_properties.item(name).com_object)
 
         raise PytiaPropertyNotFoundError(
             f&#34;Property {name!r} not found in {self._product.name!r}&#34;
@@ -257,7 +258,7 @@ class PyProperties:
 <dl>
 <dt id="pytia.wrapper.properties.PyProperties"><code class="flex name class">
 <span>class <span class="ident">PyProperties</span></span>
-<span>(</span><span>product: <a title="pytia.framework.product_structure_interfaces.product.Product" href="../framework/product_structure_interfaces/product.html#pytia.framework.product_structure_interfaces.product.Product">Product</a>)</span>
+<span>(</span><span>product: pycatia.product_structure_interfaces.product.Product)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>The wrapper class for CATIA UserRefProperties. (ProductStructureInterfaces Framework)</p></div>
@@ -353,7 +354,7 @@ class PyProperties:
             StrParam: The property.
         &#34;&#34;&#34;
         if self.exists(name=name):
-            return StrParam(self._user_ref_properties.item(name))
+            return StrParam(self._user_ref_properties.item(name).com_object)
 
         raise PytiaPropertyNotFoundError(
             f&#34;Property {name!r} not found in {self._product.name!r}&#34;
@@ -485,7 +486,7 @@ def names(self) -&gt; List[str]:
     return output</code></pre>
 </details>
 </dd>
-<dt id="pytia.wrapper.properties.PyProperties.properties"><code class="name">var <span class="ident">properties</span> : List[<a title="pytia.framework.knowledge_interfaces.str_param.StrParam" href="../framework/knowledge_interfaces/str_param.html#pytia.framework.knowledge_interfaces.str_param.StrParam">StrParam</a>]</code></dt>
+<dt id="pytia.wrapper.properties.PyProperties.properties"><code class="name">var <span class="ident">properties</span> : List[pycatia.knowledge_interfaces.str_param.StrParam]</code></dt>
 <dd>
 <div class="desc"><p>Returns a list of all properties.</p></div>
 <details class="source">
@@ -507,7 +508,7 @@ def properties(
 <h3>Methods</h3>
 <dl>
 <dt id="pytia.wrapper.properties.PyProperties.create"><code class="name flex">
-<span>def <span class="ident">create</span></span>(<span>self, name: str, value: str = '') ‑> <a title="pytia.framework.knowledge_interfaces.str_param.StrParam" href="../framework/knowledge_interfaces/str_param.html#pytia.framework.knowledge_interfaces.str_param.StrParam">StrParam</a></span>
+<span>def <span class="ident">create</span></span>(<span>self, name: str, value: str = '') ‑> pycatia.knowledge_interfaces.str_param.StrParam</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a CATIA UserRefProperty of type STRING.</p>
@@ -556,7 +557,7 @@ def create(self, name: str, value: str = &#34;&#34;) -&gt; StrParam:
 </details>
 </dd>
 <dt id="pytia.wrapper.properties.PyProperties.create_multi"><code class="name flex">
-<span>def <span class="ident">create_multi</span></span>(<span>self, names: List[str], skip_existing: bool = True) ‑> List[<a title="pytia.framework.knowledge_interfaces.str_param.StrParam" href="../framework/knowledge_interfaces/str_param.html#pytia.framework.knowledge_interfaces.str_param.StrParam">StrParam</a>]</span>
+<span>def <span class="ident">create_multi</span></span>(<span>self, names: List[str], skip_existing: bool = True) ‑> List[pycatia.knowledge_interfaces.str_param.StrParam]</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates all properties from the given list without a value.</p>
@@ -707,7 +708,7 @@ Returns True if all properties of the given list exists in the product.</p>
 </details>
 </dd>
 <dt id="pytia.wrapper.properties.PyProperties.get_by_name"><code class="name flex">
-<span>def <span class="ident">get_by_name</span></span>(<span>self, name: str) ‑> <a title="pytia.framework.knowledge_interfaces.str_param.StrParam" href="../framework/knowledge_interfaces/str_param.html#pytia.framework.knowledge_interfaces.str_param.StrParam">StrParam</a></span>
+<span>def <span class="ident">get_by_name</span></span>(<span>self, name: str) ‑> pycatia.knowledge_interfaces.str_param.StrParam</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns a UserRefProperty by its name.</p>
@@ -744,7 +745,7 @@ Returns True if all properties of the given list exists in the product.</p>
         StrParam: The property.
     &#34;&#34;&#34;
     if self.exists(name=name):
-        return StrParam(self._user_ref_properties.item(name))
+        return StrParam(self._user_ref_properties.item(name).com_object)
 
     raise PytiaPropertyNotFoundError(
         f&#34;Property {name!r} not found in {self._product.name!r}&#34;

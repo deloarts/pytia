@@ -132,18 +132,21 @@ def test_part_parameter_check_type_false():
 
 def test_part_parameter_type_dimension():
     """"""
+    length_name = test_parameter_name + "_length"
+    angle_name = test_parameter_name + "_angle"
     from pytia.wrapper.documents.part_documents import PyPartDocument
 
     with PyPartDocument() as part_document:
         part_document.open(path=test_path)
         length_param = part_document.parameters.create_length(
-            name=test_parameter_name + "_length", value=10
+            name=length_name, value=10
         )
-        angle_param = part_document.parameters.create_angle(
-            name=test_parameter_name + "_angle", value=20
-        )
+        angle_param = part_document.parameters.create_angle(name=angle_name, value=20)
 
         assert part_document.parameters.is_dimension(length_param)
+        assert part_document.parameters.is_dimension(
+            part_document.parameters.get(length_name)
+        )
         assert length_param.value == 10
 
         assert part_document.parameters.is_dimension(angle_param)
@@ -152,57 +155,57 @@ def test_part_parameter_type_dimension():
 
 def test_part_parameter_type_bool():
     """"""
+    bool_name = test_parameter_name + "_bool"
     from pytia.wrapper.documents.part_documents import PyPartDocument
 
     with PyPartDocument() as part_document:
         part_document.open(path=test_path)
-        param = part_document.parameters.create_bool(
-            name=test_parameter_name + "_bool", value=True
-        )
+        param = part_document.parameters.create_bool(name=bool_name, value=True)
 
         assert part_document.parameters.is_bool(param)
+        assert part_document.parameters.is_bool(part_document.parameters.get(bool_name))
         assert param.value == True
 
 
 def test_part_parameter_type_int():
     """"""
+    int_name = test_parameter_name + "_int"
     from pytia.wrapper.documents.part_documents import PyPartDocument
 
     with PyPartDocument() as part_document:
         part_document.open(path=test_path)
-        param = part_document.parameters.create_int(
-            name=test_parameter_name + "_int", value=30
-        )
+        param = part_document.parameters.create_int(name=int_name, value=30)
 
         assert part_document.parameters.is_int(param)
+        assert part_document.parameters.is_int(part_document.parameters.get(int_name))
         assert param.value == 30
 
 
 def test_part_parameter_type_real():
     """"""
+    real_name = test_parameter_name + "_real"
     from pytia.wrapper.documents.part_documents import PyPartDocument
 
     with PyPartDocument() as part_document:
         part_document.open(path=test_path)
-        param = part_document.parameters.create_real(
-            name=test_parameter_name + "_real", value=40.40
-        )
+        param = part_document.parameters.create_real(name=real_name, value=40.40)
 
         assert part_document.parameters.is_real(param)
+        assert part_document.parameters.is_real(part_document.parameters.get(real_name))
         assert param.value == 40.40
 
 
 def test_part_parameter_type_str():
     """"""
+    str_name = test_parameter_name + "_str"
     from pytia.wrapper.documents.part_documents import PyPartDocument
 
     with PyPartDocument() as part_document:
         part_document.open(path=test_path)
-        param = part_document.parameters.create_string(
-            name=test_parameter_name + "_str", value="foo bar"
-        )
+        param = part_document.parameters.create_string(name=str_name, value="foo bar")
 
         assert part_document.parameters.is_str(param)
+        assert part_document.parameters.is_str(part_document.parameters.get(str_name))
         assert param.value == "foo bar"
 
 
@@ -226,3 +229,8 @@ if __name__ == "__main__":
     test_part_parameter_get_by_name()
     test_part_parameter_check_type_true()
     test_part_parameter_check_type_false()
+    test_part_parameter_type_dimension()
+    test_part_parameter_type_bool()
+    test_part_parameter_type_int()
+    test_part_parameter_type_real()
+    test_part_parameter_type_str()

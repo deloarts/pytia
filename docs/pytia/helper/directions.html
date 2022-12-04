@@ -31,12 +31,11 @@
     Helper module for CATIA HybridShapeDirections objects.
 &#34;&#34;&#34;
 
+from pycatia.hybrid_shape_interfaces.hybrid_shape_direction import HybridShapeDirection
+from pycatia.in_interfaces.reference import Reference
+from pycatia.mec_mod_interfaces.part import Part
+
 from pytia.decorators import failsafe
-from pytia.framework.hybrid_shape_interfaces.hybrid_shape_direction import (
-    HybridShapeDirection,
-)
-from pytia.framework.in_interfaces.reference import Reference
-from pytia.framework.mec_mod_interfaces.part import Part
 from pytia.log import log
 
 
@@ -72,7 +71,7 @@ def add_new_direction(
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="pytia.helper.directions.add_new_direction"><code class="name flex">
-<span>def <span class="ident">add_new_direction</span></span>(<span>part: <a title="pytia.framework.mec_mod_interfaces.part.Part" href="../framework/mec_mod_interfaces/part.html#pytia.framework.mec_mod_interfaces.part.Part">Part</a>, reference: <a title="pytia.framework.in_interfaces.reference.Reference" href="../framework/in_interfaces/reference.html#pytia.framework.in_interfaces.reference.Reference">Reference</a>, name: str = 'Direction') ‑> <a title="pytia.framework.hybrid_shape_interfaces.hybrid_shape_direction.HybridShapeDirection" href="../framework/hybrid_shape_interfaces/hybrid_shape_direction.html#pytia.framework.hybrid_shape_interfaces.hybrid_shape_direction.HybridShapeDirection">HybridShapeDirection</a></span>
+<span>def <span class="ident">add_new_direction</span></span>(<span>part: pycatia.mec_mod_interfaces.part.Part, reference: pycatia.in_interfaces.reference.Reference, name: str = 'Direction') ‑> pycatia.hybrid_shape_interfaces.hybrid_shape_direction.HybridShapeDirection</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a new direction specified by an element within the current body.</p>
