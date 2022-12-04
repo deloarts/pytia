@@ -25,7 +25,7 @@ Check out the pytia ecosystem:
 
 ### 1.1 system requirements
 
-- Windows 10
+- Windows 10, Windows 11
 - CATIA V5 6R-2017 or higher
 - [Python 3.10](https://www.python.org/downloads/)
 
