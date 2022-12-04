@@ -21,6 +21,45 @@ Check out the pytia ecosystem:
 - [pytia-bill-of-material](https://github.com/deloarts/pytia-bill-of-material): An app to retrieve the bill of material of a product.
 - [pytia-ui-tools](https://github.com/deloarts/pytia-ui-tools): A toolbox for all pytia apps.
 
+Table of contents:
+
+- [pytia](#pytia)
+  - [1 installation](#1-installation)
+    - [1.1 system requirements](#11-system-requirements)
+    - [1.2 pip](#12-pip)
+      - [1.2.1 access token](#121-access-token)
+      - [1.2.2 ssh](#122-ssh)
+    - [1.3 setup](#13-setup)
+      - [1.3.1 environment variables](#131-environment-variables)
+      - [1.3.2 catia environment file](#132-catia-environment-file)
+  - [2 usage](#2-usage)
+    - [2.1 commands](#21-commands)
+    - [2.2 options](#22-options)
+  - [3 developing](#3-developing)
+    - [3.1 repository](#31-repository)
+      - [3.1.1 cloning](#311-cloning)
+      - [3.1.2 main branch protection](#312-main-branch-protection)
+      - [3.1.3 branch naming convention](#313-branch-naming-convention)
+      - [3.1.4 issues](#314-issues)
+    - [3.2 poetry](#32-poetry)
+      - [3.2.1 setup](#321-setup)
+      - [3.2.2 install](#322-install)
+      - [3.2.3 tests](#323-tests)
+      - [3.2.4 build](#324-build)
+    - [3.3 insides](#33-insides)
+      - [3.3.1 wrapper](#331-wrapper)
+      - [3.3.2 helper](#332-helper)
+      - [3.3.3 utilities](#333-utilities)
+      - [3.3.4 logging](#334-logging)
+      - [3.3.5 exceptions](#335-exceptions)
+    - [3.4 pre-commit hooks](#34-pre-commit-hooks)
+    - [3.5 docs](#35-docs)
+    - [3.6 new revision checklist](#36-new-revision-checklist)
+  - [4 license](#4-license)
+  - [5 changelog](#5-changelog)
+  - [6 to do](#6-to-do)
+
+
 ## 1 installation
 
 ### 1.1 system requirements
@@ -263,18 +302,18 @@ This exports the module to the [dist](/dist/) folder.
 
 > ⚠️ Make sure not to commit dev-builds (the dist folder isn't ignored, because this package isn't published on pip yet).
 
-## 3.3 insides
+### 3.3 insides
 
-### 3.3.1 wrapper
+#### 3.3.1 wrapper
 
 The [wrapper](/pytia/wrapper/) folder contains wrapping classes for the framework. Those classes provide basic needs, like checking for existing objects, creating objects, ...
 
-### 3.3.2 helper
+#### 3.3.2 helper
 
 The [helper](/pytia/helper/) folder contains mainly helper functions for the wrapper and the utilities.
 > ⚠️ Some helper functions are currently a huge mess
 
-### 3.3.3 utilities
+#### 3.3.3 utilities
 
 The [utilities](/pytia/utilities/) folder provides utility functions which are intended to be used in other projects, like retrieving the bounding box of a part or exporting a bill of material.
 
@@ -284,7 +323,7 @@ Some utilities can be used as keyword arguments. To inspect it:
 python -m pytia --help
 ```
 
-### 3.3.4 logging
+#### 3.3.4 logging
 
 You can use the [log.py](/pytia/log.py) module to log messages directly to the **pytia** logger:
 
@@ -317,7 +356,7 @@ stream_handler.setFormatter(formatter)
 logger.addHandler(formatter)
 ```
 
-### 3.3.5 exceptions
+#### 3.3.5 exceptions
 
 Pytia exceptions are defined in the [exceptions.py](/pytia/exceptions.py) file. All raised exceptions inside pytia have their roots here. All exceptions from this module will be logged to the **pytia** logger as error messages with a traceback.
 
