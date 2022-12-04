@@ -168,9 +168,9 @@ For developing you would, additionally to the system requirements, need to insta
 - [Poetry](https://python-poetry.org/docs/master/#installation)
 - [Git](https://git-scm.com/downloads) or [GitHub Desktop](https://desktop.github.com/)
 
-> ❗️ Never develop new features and fixes in the main branch!
+### 3.1 repository
 
-### 3.1 clone the repo
+#### 3.1.1 cloning
 
 Clone the repo to your local machine:
 
@@ -182,6 +182,33 @@ git clone git@github.com:deloarts/pytia.git
 ```
 
 Or use GitHub Desktop.
+
+#### 3.1.2 main branch protection
+
+> ❗️ Never develop new features and fixes in the main branch!
+
+The main branch is protected: it's not allowed to make changes directly to it. Create a new branch in order work on issues. The new branch should follow the naming convention from below.
+
+#### 3.1.3 branch naming convention
+
+1. Use grouping tokens at the beginning of your branch names, such as:
+    - feature: A new feature that will be added to the project
+    - fix: For bugfixes
+    - tests: Adding or updating tests
+    - docs: For updating the docs
+    - wip: Work in progress, won't be finished soon
+    - junk: Just for experimenting
+2. Use slashes `/` as delimiter in branch names (`feature/docket-export`)
+3. Avoid long descriptive names, rather refer to an issue
+4. Do not use bare numbers as leading parts (`fix/108` is bad, `fix/issue108` is good)
+
+#### 3.1.4 issues
+
+Use the issue templates for creating an issue. Please don't open a new issue if you haven't met the requirements and add as much information as possible. Further:
+
+- Format your code in an issue correctly with three backticks, see the [markdown guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+- Add the full error trace.
+- Do not add screenshots for code or traces.
 
 ### 3.2 poetry
 
