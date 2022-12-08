@@ -10,10 +10,10 @@ from colorama import init as colorama_init
 
 from pytia.const import (
     CONSOLE_GREY,
-    CONSOLE_HEADER,
     CONSOLE_RESET,
     CONSOLE_STATUS_FAIL,
     CONSOLE_STATUS_INFO,
+    CONSOLE_STATUS_OK,
     CONSOLE_STATUS_WARN,
     LOG_FILENAME,
 )
@@ -25,20 +25,24 @@ class Console:
     Main class for handling console output.
     """
 
-    def __init__(self) -> None:
+    def __init__(
+        self, init_msg: str | None = None, show_log_path: bool = False
+    ) -> None:
         """Inits the Console class."""
         colorama_init()
         self.__count_nl = 0
         log_folder = gettempdir()
 
         log.add_file_handler(folder=log_folder, filename=LOG_FILENAME)
-        print(CONSOLE_HEADER)
-        atexit.register(
-            lambda: print(
-                f"\n{CONSOLE_GREY}See the full output in "
-                f"{log_folder}\\{LOG_FILENAME}{CONSOLE_RESET}\n"
+        if init_msg is not None:
+            print(init_msg)
+        if show_log_path:
+            atexit.register(
+                lambda: print(
+                    f"\n{CONSOLE_GREY}See the full output in "
+                    f"{log_folder}\\{LOG_FILENAME}{CONSOLE_RESET}\n"
+                )
             )
-        )
 
     def __clear_last_line(self) -> None:
         """Clears the last line/lines from the __print function."""
@@ -111,5 +115,15 @@ class Console:
             status=CONSOLE_STATUS_INFO, text=text, in_current_line=in_current_line
         )
 
+    def ok(self, text: str, in_current_line: bool = False) -> None:
+        """
+        Prints an ok message to stdout.
 
-console = Console()
+        Args:
+            text (str): The message to print to stdout.
+            in_current_line (bool, optional): Prints the message in the current line if set to \
+                True. Defaults to False.
+        """
+        self.__print(
+            status=CONSOLE_STATUS_OK, text=text, in_current_line=in_current_line
+        )
