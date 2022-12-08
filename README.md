@@ -3,7 +3,7 @@
 A wrapper for the catia v5 api.
 
 ![state](https://img.shields.io/badge/State-Alpha-brown.svg?style=for-the-badge)
-![version](https://img.shields.io/badge/Version-0.3.0-orange.svg?style=for-the-badge)
+![version](https://img.shields.io/badge/Version-0.3.1-orange.svg?style=for-the-badge)
 
 [![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
 ![catia](https://img.shields.io/badge/CATIA-V5%206R2017-blue.svg?style=for-the-badge)
@@ -17,8 +17,10 @@ Check out the pytia ecosystem:
 
 - [pytia](https://github.com/deloarts/pytia): The heart of this project.
 - [pytia-property-manager](https://github.com/deloarts/pytia-property-manager): An app to edit part and product properties.
-- [pytia-bounding-box](https://github.com/deloarts/pytia-bounding-box): An app to retrieve the bounding box of a part.
-- [pytia-bill-of-material](https://github.com/deloarts/pytia-bill-of-material): An app to retrieve the bill of material of a product.
+- [pytia-bounding-box](https://github.com/deloarts/pytia-bounding-box): For retrieving the bounding box of a part.
+- [pytia-bill-of-material](https://github.com/deloarts/pytia-bill-of-material): Exports the bill of material and data of a product.
+- [pytia-title-block](https://github.com/deloarts/pytia-title-block): An app to edit a drawing's title block.
+- [pytia-quick-export](https://github.com/deloarts/pytia-quick-export): Single file export with useful features.
 - [pytia-ui-tools](https://github.com/deloarts/pytia-ui-tools): A toolbox for all pytia apps.
 
 Table of contents:
@@ -135,7 +137,7 @@ python -m pytia
 This generates the following output:
 
 ```plain
-PYTIA 0.3.0
+PYTIA 0.3.1
 
 Usage: python -m pytia [OPTIONS] COMMAND [ARGS]...
 
@@ -172,7 +174,7 @@ python -m pytia box
 This will create the following sample output:
 
 ```powershell
-PYTIA 0.3.0
+PYTIA 0.3.1
 
 [ INFO ]  Bounding box of the current part:
           X = 100.0mm
@@ -405,6 +407,7 @@ python -m pdoc --http : pytia
 
 ## 5 changelog
 
+**v0.3.1**: Update console methods.  
 **v0.3.0**: Add dependency [`pycatia`](https://github.com/evereux/pycatia).  
 **v0.2.5**: Remove dependency `py`.  
 **v0.2.4**: Fix `get_tolerances` method.  

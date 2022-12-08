@@ -36,8 +36,11 @@ from pathlib import Path
 import click
 
 from pytia import __version__
-from pytia.console import console
+from pytia.console import Console
+from pytia.const import CONSOLE_HEADER
 from pytia.log import log
+
+console = Console(init_msg=CONSOLE_HEADER, show_log_path=True)
 
 
 @click.group()
