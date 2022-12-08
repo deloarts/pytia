@@ -4,7 +4,7 @@ classifiers = ["Operating System :: Windows"]
 description = "A wrapper for the catia v5 api."
 name = "pytia"
 readme = "README.md"
-version = "0.3.0"
+version = "0.3.1"
 
 [tool.poetry.dependencies]
 click = "8.1.3"

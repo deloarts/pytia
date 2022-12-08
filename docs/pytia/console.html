@@ -39,10 +39,10 @@ from colorama import init as colorama_init
 
 from pytia.const import (
     CONSOLE_GREY,
-    CONSOLE_HEADER,
     CONSOLE_RESET,
     CONSOLE_STATUS_FAIL,
     CONSOLE_STATUS_INFO,
+    CONSOLE_STATUS_OK,
     CONSOLE_STATUS_WARN,
     LOG_FILENAME,
 )
@@ -54,20 +54,24 @@ class Console:
     Main class for handling console output.
     &#34;&#34;&#34;
 
-    def __init__(self) -&gt; None:
+    def __init__(
+        self, init_msg: str | None = None, show_log_path: bool = False
+    ) -&gt; None:
         &#34;&#34;&#34;Inits the Console class.&#34;&#34;&#34;
         colorama_init()
         self.__count_nl = 0
         log_folder = gettempdir()
 
         log.add_file_handler(folder=log_folder, filename=LOG_FILENAME)
-        print(CONSOLE_HEADER)
-        atexit.register(
-            lambda: print(
-                f&#34;\n{CONSOLE_GREY}See the full output in &#34;
-                f&#34;{log_folder}\\{LOG_FILENAME}{CONSOLE_RESET}\n&#34;
+        if init_msg is not None:
+            print(init_msg)
+        if show_log_path:
+            atexit.register(
+                lambda: print(
+                    f&#34;\n{CONSOLE_GREY}See the full output in &#34;
+                    f&#34;{log_folder}\\{LOG_FILENAME}{CONSOLE_RESET}\n&#34;
+                )
             )
-        )
 
     def __clear_last_line(self) -&gt; None:
         &#34;&#34;&#34;Clears the last line/lines from the __print function.&#34;&#34;&#34;
@@ -140,8 +144,18 @@ class Console:
             status=CONSOLE_STATUS_INFO, text=text, in_current_line=in_current_line
         )
 
+    def ok(self, text: str, in_current_line: bool = False) -&gt; None:
+        &#34;&#34;&#34;
+        Prints an ok message to stdout.
 
-console = Console()</code></pre>
+        Args:
+            text (str): The message to print to stdout.
+            in_current_line (bool, optional): Prints the message in the current line if set to \
+                True. Defaults to False.
+        &#34;&#34;&#34;
+        self.__print(
+            status=CONSOLE_STATUS_OK, text=text, in_current_line=in_current_line
+        )</code></pre>
 </details>
 </section>
 <section>
@@ -155,6 +169,7 @@ console = Console()</code></pre>
 <dl>
 <dt id="pytia.console.Console"><code class="flex name class">
 <span>class <span class="ident">Console</span></span>
+<span>(</span><span>init_msg: str | None = None, show_log_path: bool = False)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Main class for handling console output.</p>
@@ -168,20 +183,24 @@ console = Console()</code></pre>
     Main class for handling console output.
     &#34;&#34;&#34;
 
-    def __init__(self) -&gt; None:
+    def __init__(
+        self, init_msg: str | None = None, show_log_path: bool = False
+    ) -&gt; None:
         &#34;&#34;&#34;Inits the Console class.&#34;&#34;&#34;
         colorama_init()
         self.__count_nl = 0
         log_folder = gettempdir()
 
         log.add_file_handler(folder=log_folder, filename=LOG_FILENAME)
-        print(CONSOLE_HEADER)
-        atexit.register(
-            lambda: print(
-                f&#34;\n{CONSOLE_GREY}See the full output in &#34;
-                f&#34;{log_folder}\\{LOG_FILENAME}{CONSOLE_RESET}\n&#34;
+        if init_msg is not None:
+            print(init_msg)
+        if show_log_path:
+            atexit.register(
+                lambda: print(
+                    f&#34;\n{CONSOLE_GREY}See the full output in &#34;
+                    f&#34;{log_folder}\\{LOG_FILENAME}{CONSOLE_RESET}\n&#34;
+                )
             )
-        )
 
     def __clear_last_line(self) -&gt; None:
         &#34;&#34;&#34;Clears the last line/lines from the __print function.&#34;&#34;&#34;
@@ -252,6 +271,19 @@ console = Console()</code></pre>
         &#34;&#34;&#34;
         self.__print(
             status=CONSOLE_STATUS_INFO, text=text, in_current_line=in_current_line
+        )
+
+    def ok(self, text: str, in_current_line: bool = False) -&gt; None:
+        &#34;&#34;&#34;
+        Prints an ok message to stdout.
+
+        Args:
+            text (str): The message to print to stdout.
+            in_current_line (bool, optional): Prints the message in the current line if set to \
+                True. Defaults to False.
+        &#34;&#34;&#34;
+        self.__print(
+            status=CONSOLE_STATUS_OK, text=text, in_current_line=in_current_line
         )</code></pre>
 </details>
 <h3>Methods</h3>
@@ -318,6 +350,37 @@ True. Defaults to False.</dd>
     )</code></pre>
 </details>
 </dd>
+<dt id="pytia.console.Console.ok"><code class="name flex">
+<span>def <span class="ident">ok</span></span>(<span>self, text: str, in_current_line: bool = False) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Prints an ok message to stdout.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>text</code></strong> :&ensp;<code>str</code></dt>
+<dd>The message to print to stdout.</dd>
+<dt><strong><code>in_current_line</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Prints the message in the current line if set to
+True. Defaults to False.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def ok(self, text: str, in_current_line: bool = False) -&gt; None:
+    &#34;&#34;&#34;
+    Prints an ok message to stdout.
+
+    Args:
+        text (str): The message to print to stdout.
+        in_current_line (bool, optional): Prints the message in the current line if set to \
+            True. Defaults to False.
+    &#34;&#34;&#34;
+    self.__print(
+        status=CONSOLE_STATUS_OK, text=text, in_current_line=in_current_line
+    )</code></pre>
+</details>
+</dd>
 <dt id="pytia.console.Console.warning"><code class="name flex">
 <span>def <span class="ident">warning</span></span>(<span>self, text: str, in_current_line: bool = False) ‑> None</span>
 </code></dt>
@@ -372,6 +435,7 @@ True. Defaults to False.</dd>
 <ul class="">
 <li><code><a title="pytia.console.Console.error" href="#pytia.console.Console.error">error</a></code></li>
 <li><code><a title="pytia.console.Console.info" href="#pytia.console.Console.info">info</a></code></li>
+<li><code><a title="pytia.console.Console.ok" href="#pytia.console.Console.ok">ok</a></code></li>
 <li><code><a title="pytia.console.Console.warning" href="#pytia.console.Console.warning">warning</a></code></li>
 </ul>
 </li>
