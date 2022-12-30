@@ -2,7 +2,7 @@
 
 A wrapper for the catia v5 api.
 
-![state](https://img.shields.io/badge/State-Alpha-brown.svg?style=for-the-badge)
+![state](https://img.shields.io/badge/State-beta-brown.svg?style=for-the-badge)
 ![version](https://img.shields.io/badge/Version-0.3.1-orange.svg?style=for-the-badge)
 
 [![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
