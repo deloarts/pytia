@@ -11,8 +11,6 @@ A wrapper for the catia v5 api.
 
 **pytia** is a wrapper for the CATIA V5 api based on the **V5Automation.chm** help file. It provides some useful utilities and features for interacting with the api and a cli tool. This module only works with Windows.
 
-> 🔒 This is currently a private repo.
-
 Check out the pytia ecosystem:
 
 - [pytia](https://github.com/deloarts/pytia): The heart of this project.
@@ -29,9 +27,8 @@ Table of contents:
   - [1 installation](#1-installation)
     - [1.1 system requirements](#11-system-requirements)
     - [1.2 pip](#12-pip)
-      - [1.2.1 access token](#121-access-token)
+      - [1.2.1 pip from wheel](#121-pip-from-wheel)
       - [1.2.2 ssh](#122-ssh)
-      - [1.2.2 https](#122-https)
     - [1.3 setup](#13-setup)
       - [1.3.1 environment variables](#131-environment-variables)
       - [1.3.2 catia environment file](#132-catia-environment-file)
@@ -72,18 +69,17 @@ Table of contents:
 
 ### 1.2 pip
 
-To pip-install this module you need to have access to this repo (which you obviously have if you can read this README). You have then two options:
+PYTIA isn't available on PyPi, but you still can install it via pip. Here are two options, choose the one you like best:
 
-#### 1.2.1 access token
+#### 1.2.1 pip from wheel
 
-Create a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for pip'ing it.
+If you want to install PYTIA from the published wheel file, use:
 
 ```powershell
-python -m pip install git+https://${GITHUB_TOKEN}@github.com/deloarts/pytia.git@v0.3.1
+python -m pip install https://github.com/deloarts/pytia/releases/download/v0.3.1/pytia-0.3.1-py3-none-any.whl
 ```
 
-Use your access token instead of *${GITHUB_TOKEN}* (Note: this is the syntax to use environment variables: Name your github-access-token-environment-variable- *GITHUB_TOKEN*, so you don't always have to paste it manually).
-You can omit the @version-tag if you want to install the latest version.
+This command installs PYTIA v0.3.1.
 
 #### 1.2.2 ssh
 
@@ -97,22 +93,14 @@ ssh -T git@github.com
 python -m pip install git+ssh://git@github.com/deloarts/pytia.git
 ```
 
+This command installs the latest stable version of PYTIA.
+
 If you're using poetry add this to you **pyproject.toml** file:
 
 ```toml
 [tool.poetry.dependencies]
 pytia = { git = "ssh://git@github.com/deloarts/pytia.git", branch="main" }
 ```
-
-#### 1.2.2 https
-
-As soon as pytia will be open for public use you can install it via pip+https:
-
-```powershell
-python -m pip install git+https://github.com/deloarts/pytia.git@v0.3.1
-```
-
-This installs pytia 0.3.1 the same way as you would install it using the github access token, but without the need for the authentication.
 
 ### 1.3 setup
 
