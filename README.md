@@ -3,7 +3,7 @@
 A wrapper for the catia v5 api.
 
 ![state](https://img.shields.io/badge/State-beta-brown.svg?style=for-the-badge)
-![version](https://img.shields.io/badge/Version-0.3.1-orange.svg?style=for-the-badge)
+![version](https://img.shields.io/badge/Version-0.3.2-orange.svg?style=for-the-badge)
 
 [![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
 ![catia](https://img.shields.io/badge/CATIA-V5%206R2017-blue.svg?style=for-the-badge)
@@ -13,13 +13,13 @@ A wrapper for the catia v5 api.
 
 Check out the pytia ecosystem:
 
-- [pytia](https://github.com/deloarts/pytia): The heart of this project.
-- [pytia-property-manager](https://github.com/deloarts/pytia-property-manager): An app to edit part and product properties.
-- [pytia-bounding-box](https://github.com/deloarts/pytia-bounding-box): For retrieving the bounding box of a part.
-- [pytia-bill-of-material](https://github.com/deloarts/pytia-bill-of-material): Exports the bill of material and data of a product.
-- [pytia-title-block](https://github.com/deloarts/pytia-title-block): An app to edit a drawing's title block.
-- [pytia-quick-export](https://github.com/deloarts/pytia-quick-export): Single file export with useful features.
-- [pytia-ui-tools](https://github.com/deloarts/pytia-ui-tools): A toolbox for all pytia apps.
+- **pytia** ([web](https://pytia.deloarts.com/), [repo](https://github.com/deloarts/pytia)): The heart of this project.
+- **pytia-property-manager** ([web](https://pytia.deloarts.com/property-manager/v0.html), [repo](https://github.com/deloarts/pytia-property-manager)) : An app to edit part and product properties.
+- **pytia-bounding-box** ([web](https://pytia.deloarts.com/bounding-box/v0.html), [repo](https://github.com/deloarts/pytia-bounding-box)): For retrieving the bounding box of a part.
+- **pytia-bill-of-material** ([web](https://pytia.deloarts.com/bill-of-material/v0.html), [repo](https://github.com/deloarts/pytia-bill-of-material)): Exports the bill of material and data of a product.
+- **pytia-title-block** ([web](https://pytia.deloarts.com/title-block/v0.html), [repo](https://github.com/deloarts/pytia-title-block)): An app to edit a drawing's title block.
+- **pytia-quick-export** ([web](https://pytia.deloarts.com/quick-export/v0.html), [repo](https://github.com/deloarts/pytia-quick-export)): Single file export with useful features.
+- **pytia-ui-tools** ([web](https://pytia.deloarts.com/), [repo](https://github.com/deloarts/pytia-ui-tools)): A toolbox for all pytia apps.
 
 Table of contents:
 
@@ -76,10 +76,10 @@ PYTIA isn't available on PyPi, but you still can install it via pip. Here are tw
 If you want to install PYTIA from the published wheel file, use:
 
 ```powershell
-python -m pip install https://github.com/deloarts/pytia/releases/download/v0.3.1/pytia-0.3.1-py3-none-any.whl
+python -m pip install https://github.com/deloarts/pytia/releases/download/v0.3.2/pytia-0.3.2-py3-none-any.whl
 ```
 
-This command installs PYTIA v0.3.1.
+This command installs PYTIA v0.3.2.
 
 #### 1.2.2 ssh
 
@@ -136,7 +136,7 @@ python -m pytia
 This generates the following output:
 
 ```plain
-PYTIA 0.3.1
+PYTIA 0.3.2
 
 Usage: python -m pytia [OPTIONS] COMMAND [ARGS]...
 
@@ -173,7 +173,7 @@ python -m pytia box
 This will create the following sample output:
 
 ```powershell
-PYTIA 0.3.1
+PYTIA 0.3.2
 
 [ INFO ]  Bounding box of the current part:
           X = 100.0mm
@@ -406,6 +406,7 @@ python -m pdoc --http : pytia
 
 ## 5 changelog
 
+**v0.3.2**: Update pywin32 dependency.  
 **v0.3.1**: Update console methods.  
 **v0.3.0**: Add dependency [`pycatia`](https://github.com/evereux/pycatia).  
 **v0.2.5**: Remove dependency `py`.  
