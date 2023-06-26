@@ -3,7 +3,7 @@
 A wrapper for the catia v5 api.
 
 ![state](https://img.shields.io/badge/State-beta-brown.svg?style=for-the-badge)
-![version](https://img.shields.io/badge/Version-0.3.1-orange.svg?style=for-the-badge)
+![version](https://img.shields.io/badge/Version-0.3.2-orange.svg?style=for-the-badge)
 
 [![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
 ![catia](https://img.shields.io/badge/CATIA-V5%206R2017-blue.svg?style=for-the-badge)
@@ -76,10 +76,10 @@ PYTIA isn't available on PyPi, but you still can install it via pip. Here are tw
 If you want to install PYTIA from the published wheel file, use:
 
 ```powershell
-python -m pip install https://github.com/deloarts/pytia/releases/download/v0.3.1/pytia-0.3.1-py3-none-any.whl
+python -m pip install https://github.com/deloarts/pytia/releases/download/v0.3.2/pytia-0.3.2-py3-none-any.whl
 ```
 
-This command installs PYTIA v0.3.1.
+This command installs PYTIA v0.3.2.
 
 #### 1.2.2 ssh
 
@@ -136,7 +136,7 @@ python -m pytia
 This generates the following output:
 
 ```plain
-PYTIA 0.3.1
+PYTIA 0.3.2
 
 Usage: python -m pytia [OPTIONS] COMMAND [ARGS]...
 
@@ -173,7 +173,7 @@ python -m pytia box
 This will create the following sample output:
 
 ```powershell
-PYTIA 0.3.1
+PYTIA 0.3.2
 
 [ INFO ]  Bounding box of the current part:
           X = 100.0mm
@@ -406,6 +406,7 @@ python -m pdoc --http : pytia
 
 ## 5 changelog
 
+**v0.3.2**: Update pywin32 dependency.  
 **v0.3.1**: Update console methods.  
 **v0.3.0**: Add dependency [`pycatia`](https://github.com/evereux/pycatia).  
 **v0.2.5**: Remove dependency `py`.  
