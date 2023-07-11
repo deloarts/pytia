@@ -120,12 +120,21 @@ class PyPartParameters:
         Args:
             name (str): The name of the parameter to check.
 
+        Raises:
+            AttributeError: Raised when the win32com client can&#39;t match the items value.
+
         Returns:
             bool: True if the parameter exists, otherwise False.
         &#34;&#34;&#34;
         for i in range(1, self._parameters.count + 1):
-            if self._parameters.item(i).name == name:
-                return True
+            try:
+                log.debug(
+                    f&#34;Checking parameter at index {i}: {self._parameters.item(i)}&#34;
+                )
+                if self._parameters.item(i).name == name:
+                    return True
+            except AttributeError as e:
+                log.exception(f&#34;Attribute error from parameter index {i}: {e}&#34;)
         return False
 
     def get(
@@ -497,12 +506,21 @@ class PyPartParameters:
         Args:
             name (str): The name of the parameter to check.
 
+        Raises:
+            AttributeError: Raised when the win32com client can&#39;t match the items value.
+
         Returns:
             bool: True if the parameter exists, otherwise False.
         &#34;&#34;&#34;
         for i in range(1, self._parameters.count + 1):
-            if self._parameters.item(i).name == name:
-                return True
+            try:
+                log.debug(
+                    f&#34;Checking parameter at index {i}: {self._parameters.item(i)}&#34;
+                )
+                if self._parameters.item(i).name == name:
+                    return True
+            except AttributeError as e:
+                log.exception(f&#34;Attribute error from parameter index {i}: {e}&#34;)
         return False
 
     def get(
@@ -1299,6 +1317,11 @@ def create_string(self, name: str, value: str) -&gt; StrParam:
 <dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
 <dd>The name of the parameter to check.</dd>
 </dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AttributeError</code></dt>
+<dd>Raised when the win32com client can't match the items value.</dd>
+</dl>
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>bool</code></dt>
@@ -1315,12 +1338,21 @@ def create_string(self, name: str, value: str) -&gt; StrParam:
     Args:
         name (str): The name of the parameter to check.
 
+    Raises:
+        AttributeError: Raised when the win32com client can&#39;t match the items value.
+
     Returns:
         bool: True if the parameter exists, otherwise False.
     &#34;&#34;&#34;
     for i in range(1, self._parameters.count + 1):
-        if self._parameters.item(i).name == name:
-            return True
+        try:
+            log.debug(
+                f&#34;Checking parameter at index {i}: {self._parameters.item(i)}&#34;
+            )
+            if self._parameters.item(i).name == name:
+                return True
+        except AttributeError as e:
+            log.exception(f&#34;Attribute error from parameter index {i}: {e}&#34;)
     return False</code></pre>
 </details>
 </dd>
