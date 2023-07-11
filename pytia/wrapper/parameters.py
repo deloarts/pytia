@@ -91,12 +91,21 @@ class PyPartParameters:
         Args:
             name (str): The name of the parameter to check.
 
+        Raises:
+            AttributeError: Raised when the win32com client can't match the items value.
+
         Returns:
             bool: True if the parameter exists, otherwise False.
         """
         for i in range(1, self._parameters.count + 1):
-            if self._parameters.item(i).name == name:
-                return True
+            try:
+                log.debug(
+                    f"Checking parameter at index {i}: {self._parameters.item(i)}"
+                )
+                if self._parameters.item(i).name == name:
+                    return True
+            except AttributeError as e:
+                log.exception(f"Attribute error from parameter index {i}: {e}")
         return False
 
     def get(
