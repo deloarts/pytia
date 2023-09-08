@@ -3,7 +3,7 @@
 A wrapper for the catia v5 api.
 
 ![state](https://img.shields.io/badge/State-beta-brown.svg?style=for-the-badge)
-![version](https://img.shields.io/badge/Version-0.3.3-orange.svg?style=for-the-badge)
+![version](https://img.shields.io/badge/Version-0.3.4-orange.svg?style=for-the-badge)
 
 [![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
 ![catia](https://img.shields.io/badge/CATIA-V5%206R2017-blue.svg?style=for-the-badge)
@@ -19,6 +19,7 @@ Check out the pytia ecosystem:
 - **pytia-bill-of-material** ([web](https://pytia.deloarts.com/bill-of-material/v0.html), [repo](https://github.com/deloarts/pytia-bill-of-material)): Exports the bill of material and data of a product.
 - **pytia-title-block** ([web](https://pytia.deloarts.com/title-block/v0.html), [repo](https://github.com/deloarts/pytia-title-block)): An app to edit a drawing's title block.
 - **pytia-quick-export** ([web](https://pytia.deloarts.com/quick-export/v0.html), [repo](https://github.com/deloarts/pytia-quick-export)): Single file export with useful features.
+- **pytia-reorder-tree** ([web](https://pytia.deloarts.com/reorder-tree/v0.html), [repo](https://github.com/deloarts/pytia-reorder-tree)): Brings order in your product graph tree.
 - **pytia-ui-tools** ([web](https://pytia.deloarts.com/), [repo](https://github.com/deloarts/pytia-ui-tools)): A toolbox for all pytia apps.
 
 Table of contents:
@@ -76,10 +77,10 @@ PYTIA isn't available on PyPi, but you still can install it via pip. Here are tw
 If you want to install PYTIA from the published wheel file, use:
 
 ```powershell
-python -m pip install https://github.com/deloarts/pytia/releases/download/v0.3.3/pytia-0.3.3-py3-none-any.whl
+python -m pip install https://github.com/deloarts/pytia/releases/download/v0.3.4/pytia-0.3.4-py3-none-any.whl
 ```
 
-This command installs PYTIA v0.3.3.
+This command installs PYTIA v0.3.4.
 
 #### 1.2.2 ssh
 
@@ -136,7 +137,7 @@ python -m pytia
 This generates the following output:
 
 ```plain
-PYTIA 0.3.3
+PYTIA 0.3.4
 
 Usage: python -m pytia [OPTIONS] COMMAND [ARGS]...
 
@@ -173,7 +174,7 @@ python -m pytia box
 This will create the following sample output:
 
 ```powershell
-PYTIA 0.3.3
+PYTIA 0.3.4
 
 [ INFO ]  Bounding box of the current part:
           X = 100.0mm
@@ -397,7 +398,7 @@ python -m pdoc --http : pytia
 4. Check **pylint** output: `poetry run pylint pytia/`
 5. Update the **documentation**: `poetry run pdoc --force --html --output-dir docs pytia`
 6. Update the **lockfile**: `poetry lock`
-7. Update the **requirements.txt**: `poetry export --dev -f requirements.txt -o requirements.txt`
+7. Update the **requirements.txt**: `poetry export --with dev -f requirements.txt -o requirements.txt`
 8. **Build** the package: `poetry build`
 
 ## 4 license
@@ -406,6 +407,7 @@ python -m pdoc --http : pytia
 
 ## 5 changelog
 
+**v0.3.4**: Fix material wrapper.  
 **v0.3.3**: Fix uncaught parameter error.  
 **v0.3.2**: Update pywin32 dependency.  
 **v0.3.1**: Update console methods.  
