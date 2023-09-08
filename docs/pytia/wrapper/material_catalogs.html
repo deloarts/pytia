@@ -53,12 +53,12 @@ class PyMaterialCatalog:
         self._material_document = material_document
         self._families = [
             MaterialFamily(self._material_document.families.item(i).com_object)
-            for i in range(1, self._material_document.families.count)
+            for i in range(1, self._material_document.families.count + 1)
         ]
         self._materials = {}
         for family in self._families:
             self._materials[family] = [
-                family.materials.item(i) for i in range(1, family.materials.count)
+                family.materials.item(i) for i in range(1, family.materials.count + 1)
             ]
 
     @property
@@ -175,12 +175,12 @@ class PyMaterialCatalog:
         self._material_document = material_document
         self._families = [
             MaterialFamily(self._material_document.families.item(i).com_object)
-            for i in range(1, self._material_document.families.count)
+            for i in range(1, self._material_document.families.count + 1)
         ]
         self._materials = {}
         for family in self._families:
             self._materials[family] = [
-                family.materials.item(i) for i in range(1, family.materials.count)
+                family.materials.item(i) for i in range(1, family.materials.count + 1)
             ]
 
     @property
