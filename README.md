@@ -33,6 +33,7 @@ Table of contents:
     - [1.3 setup](#13-setup)
       - [1.3.1 environment variables](#131-environment-variables)
       - [1.3.2 catia environment file](#132-catia-environment-file)
+    - [1.4 troubleshooting](#14-troubleshooting)
   - [2 usage](#2-usage)
     - [2.1 commands](#21-commands)
     - [2.2 options](#22-options)
@@ -125,6 +126,13 @@ For some utilities you may want to setup your CATIA environment file according t
 | | ENV_VAR | ENV_VALUE | Description |
 | --- | --- | --- | --- |
 | 1 | DEACTIVATE_SHEETMETAL_WARNING_AT_PART_OPEN | Yes | If you use a stack export and you have some parts designed in the sheet metal environment you may want to set this variable. Otherwise you will get a warning at every opening of an sheet metal part document. |
+
+### 1.4 troubleshooting
+
+There are some things to be aware of:
+
+- Depending on the version of pytia it may be required to install the Microsoft C++ Build Tools in order to install **pytia**. Check the installation output for more details.
+- If you try to install **pytia** globally it can be required to run the post installation script for the *pywin32* dependency. To do so, navigate to your python installation directory and enter the `Scripts` directory (default: `%LOCALAPPDATA%\Programs\Python\Python310\Scripts\`). Then run the following command with admin rights: `python pywin32_postinstall.py -install`. This isn't necessary if you install pytia in a virtual environment.
 
 ## 2 usage
 
