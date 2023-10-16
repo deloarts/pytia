@@ -7,22 +7,22 @@ readme = "README.md"
 version = "0.3.4"
 
 [tool.poetry.dependencies]
-click = "8.1.3"
-colorama = "0.4.4"
-psutil = "5.9.0"
-pycatia = "0.5.7"
+click = "8.1.7"
+colorama = "0.4.6"
+psutil = "5.9.6"
+pycatia = "0.6.1"
 python = "^3.10"
 pywin32 = "306"
 
 [tool.poetry.dev-dependencies]
-black = "22.10.0"
-coverage = "^6.5.0"
+black = "23.3.0"
+coverage = "^7.3.0"
 pdoc3 = "^0.10.0"
-pre-commit = "^2.19.0"
-pylint = "^2.13.9"
-pytest = "^7.1.1"
-setuptools = "^65.5.1"
-validators = "^0.19.0"
+pre-commit = "^3.5.0"
+pylint = "^3.0.0"
+pytest = "^7.4.0"
+setuptools = "^68.2.0"
+validators = "^0.22.0"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
