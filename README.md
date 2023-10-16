@@ -6,8 +6,8 @@ A wrapper for the catia v5 api.
 ![version](https://img.shields.io/badge/Version-0.3.5-orange.svg?style=for-the-badge)
 
 [![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
-![catia](https://img.shields.io/badge/CATIA-V5%206R2017-blue.svg?style=for-the-badge)
-![OS](https://img.shields.io/badge/OS-WIN10%20|%20WIN11-blue.svg?style=for-the-badge)
+![catia](https://img.shields.io/badge/CATIA-V5%206R2023-blue.svg?style=for-the-badge)
+![OS](https://img.shields.io/badge/OS-WIN11-blue.svg?style=for-the-badge)
 
 **pytia** is a wrapper for the CATIA V5 api based on the **V5Automation.chm** help file. It provides some useful utilities and features for interacting with the api and a cli tool. This module only works with Windows.
 
