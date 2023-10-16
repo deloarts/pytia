@@ -5,11 +5,9 @@ import os
 from pathlib import Path
 from typing import Optional
 
-from pytia.exceptions import (
-    PytiaBodyEmptyError,
-    PytiaBodyNotFoundError,
-    PytiaFileExistsError,
-)
+from pytia.exceptions import PytiaBodyEmptyError
+from pytia.exceptions import PytiaBodyNotFoundError
+from pytia.exceptions import PytiaFileExistsError
 from pytia.helper.symmetries import create_symmetry_of_main_body_zx
 from pytia.helper.verify import verify_folder
 from pytia.log import log

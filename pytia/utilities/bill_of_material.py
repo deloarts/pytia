@@ -10,8 +10,11 @@ from typing import Optional
 from pycatia.product_structure_interfaces.assembly_convertor import AssemblyConvertor
 from pycatia.product_structure_interfaces.product import Product
 
-from pytia.const import ENV_IGNORE_BOM_ERROR, GET_ITEM_BILL_OF_MATERIAL, KNOWN_ERRORS
-from pytia.exceptions import PytiaBOMError, PytiaFileExistsError
+from pytia.const import ENV_IGNORE_BOM_ERROR
+from pytia.const import GET_ITEM_BILL_OF_MATERIAL
+from pytia.const import KNOWN_ERRORS
+from pytia.exceptions import PytiaBOMError
+from pytia.exceptions import PytiaFileExistsError
 from pytia.helper.verify import verify_folder
 from pytia.log import log
 from pytia.wrapper.documents.product_documents import PyProductDocument

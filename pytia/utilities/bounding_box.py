@@ -3,16 +3,16 @@
 """
 
 
-from pytia.exceptions import PytiaBaseError, PytiaBodyEmptyError
+from pytia.exceptions import PytiaBaseError
+from pytia.exceptions import PytiaBodyEmptyError
 from pytia.helper.directions import add_new_direction
 from pytia.helper.distances import get_minimum_distance_from_plane_to_extremum
 from pytia.helper.extremum import add_extremum_to_hybrid_body
 from pytia.helper.planes import add_new_plane_as_offset_from_point
-from pytia.helper.points import create_point_from_point_object, get_center_of_gravity
-from pytia.helper.references import (
-    create_reference_from_axis_system,
-    create_reference_from_body,
-)
+from pytia.helper.points import create_point_from_point_object
+from pytia.helper.points import get_center_of_gravity
+from pytia.helper.references import create_reference_from_axis_system
+from pytia.helper.references import create_reference_from_body
 from pytia.log import log
 from pytia.wrapper.documents.part_documents import PyPartDocument
 

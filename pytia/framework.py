@@ -11,7 +11,8 @@ import os
 
 from psutil import process_iter
 from pycatia.in_interfaces.application import Application
-from win32com.client import CDispatch, Dispatch
+from win32com.client import CDispatch
+from win32com.client import Dispatch
 
 from pytia import __version__
 from pytia.exceptions import PytiaApplicationError
