@@ -2,7 +2,10 @@
     Wrapper module CATIA parameters.
 """
 import functools
-from typing import Any, List, Optional, Type
+from typing import Any
+from typing import List
+from typing import Optional
+from typing import Type
 
 from pycatia.knowledge_interfaces.bool_param import BoolParam
 from pycatia.knowledge_interfaces.dimension import Dimension
@@ -13,11 +16,9 @@ from pycatia.knowledge_interfaces.real_param import RealParam
 from pycatia.knowledge_interfaces.str_param import StrParam
 from pycatia.mec_mod_interfaces.part import Part
 
-from pytia.exceptions import (
-    PytiaParameterExistsError,
-    PytiaParameterNotFoundError,
-    PytiaParameterTypeError,
-)
+from pytia.exceptions import PytiaParameterExistsError
+from pytia.exceptions import PytiaParameterNotFoundError
+from pytia.exceptions import PytiaParameterTypeError
 from pytia.log import log
 
 LENGTH = "LENGTH"

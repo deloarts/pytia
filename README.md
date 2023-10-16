@@ -3,11 +3,11 @@
 A wrapper for the catia v5 api.
 
 ![state](https://img.shields.io/badge/State-beta-brown.svg?style=for-the-badge)
-![version](https://img.shields.io/badge/Version-0.3.4-orange.svg?style=for-the-badge)
+![version](https://img.shields.io/badge/Version-0.3.5-orange.svg?style=for-the-badge)
 
 [![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
-![catia](https://img.shields.io/badge/CATIA-V5%206R2017-blue.svg?style=for-the-badge)
-![OS](https://img.shields.io/badge/OS-WIN10%20|%20WIN11-blue.svg?style=for-the-badge)
+![catia](https://img.shields.io/badge/CATIA-V5%206R2023-blue.svg?style=for-the-badge)
+![OS](https://img.shields.io/badge/OS-WIN11-blue.svg?style=for-the-badge)
 
 **pytia** is a wrapper for the CATIA V5 api based on the **V5Automation.chm** help file. It provides some useful utilities and features for interacting with the api and a cli tool. This module only works with Windows.
 
@@ -33,6 +33,7 @@ Table of contents:
     - [1.3 setup](#13-setup)
       - [1.3.1 environment variables](#131-environment-variables)
       - [1.3.2 catia environment file](#132-catia-environment-file)
+    - [1.4 troubleshooting](#14-troubleshooting)
   - [2 usage](#2-usage)
     - [2.1 commands](#21-commands)
     - [2.2 options](#22-options)
@@ -64,9 +65,11 @@ Table of contents:
 
 ### 1.1 system requirements
 
-- Windows 10, Windows 11
-- CATIA V5 6R-2017 or higher
+- Windows 11
+- CATIA V5 6R-2023
 - [Python 3.10](https://www.python.org/downloads/)
+
+> ✏️ These requirements aren't strict, you can use **pytia** on older or more recent systems, but it isn't tested on these.
 
 ### 1.2 pip
 
@@ -77,10 +80,10 @@ PYTIA isn't available on PyPi, but you still can install it via pip. Here are tw
 If you want to install PYTIA from the published wheel file, use:
 
 ```powershell
-python -m pip install https://github.com/deloarts/pytia/releases/download/v0.3.4/pytia-0.3.4-py3-none-any.whl
+python -m pip install https://github.com/deloarts/pytia/releases/download/v0.3.5/pytia-0.3.5-py3-none-any.whl
 ```
 
-This command installs PYTIA v0.3.4.
+This command installs PYTIA v0.3.5.
 
 #### 1.2.2 ssh
 
@@ -126,6 +129,13 @@ For some utilities you may want to setup your CATIA environment file according t
 | --- | --- | --- | --- |
 | 1 | DEACTIVATE_SHEETMETAL_WARNING_AT_PART_OPEN | Yes | If you use a stack export and you have some parts designed in the sheet metal environment you may want to set this variable. Otherwise you will get a warning at every opening of an sheet metal part document. |
 
+### 1.4 troubleshooting
+
+There are some things to be aware of:
+
+- Depending on the version of pytia it may be required to install the Microsoft C++ Build Tools in order to install **pytia**. Check the installation output for more details.
+- If you try to install **pytia** globally it can be required to run the post installation script for the *pywin32* dependency. To do so, navigate to your python installation directory and enter the `Scripts` directory (default: `%LOCALAPPDATA%\Programs\Python\Python310\Scripts\`). Then run the following command with admin rights: `python pywin32_postinstall.py -install`. This isn't necessary if you install pytia in a virtual environment.
+
 ## 2 usage
 
 Once installed you can use **pytia** as a python module with a cli:
@@ -137,7 +147,7 @@ python -m pytia
 This generates the following output:
 
 ```plain
-PYTIA 0.3.4
+PYTIA 0.3.5
 
 Usage: python -m pytia [OPTIONS] COMMAND [ARGS]...
 
@@ -174,7 +184,7 @@ python -m pytia box
 This will create the following sample output:
 
 ```powershell
-PYTIA 0.3.4
+PYTIA 0.3.5
 
 [ INFO ]  Bounding box of the current part:
           X = 100.0mm
@@ -407,6 +417,7 @@ python -m pdoc --http : pytia
 
 ## 5 changelog
 
+**v0.3.5**: Bump deps version.  
 **v0.3.4**: Fix material wrapper.  
 **v0.3.3**: Fix uncaught parameter error.  
 **v0.3.2**: Update pywin32 dependency.  

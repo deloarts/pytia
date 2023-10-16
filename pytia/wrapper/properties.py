@@ -10,8 +10,10 @@ from pycatia.knowledge_interfaces.str_param import StrParam
 from pycatia.product_structure_interfaces.product import Product
 
 from pytia import __version__
-from pytia.const import ENV_NO_PROPS, PROP_VERSION
-from pytia.exceptions import PytiaPropertyExistsError, PytiaPropertyNotFoundError
+from pytia.const import ENV_NO_PROPS
+from pytia.const import PROP_VERSION
+from pytia.exceptions import PytiaPropertyExistsError
+from pytia.exceptions import PytiaPropertyNotFoundError
 from pytia.log import log
 
 

@@ -2,7 +2,8 @@
     Wrapper module for CATIA materials.
 """
 
-from typing import Dict, List
+from typing import Dict
+from typing import List
 
 from pycatia.cat_mat_interfaces.material import Material
 from pycatia.cat_mat_interfaces.material_document import MaterialDocument

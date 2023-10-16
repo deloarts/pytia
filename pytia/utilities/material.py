@@ -3,9 +3,12 @@
 """
 
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict
+from typing import List
+from typing import Optional
 
-from pytia.exceptions import PytiaMaterialError, PytiaMaterialNotFound
+from pytia.exceptions import PytiaMaterialError
+from pytia.exceptions import PytiaMaterialNotFound
 from pytia.framework import framework
 from pytia.log import log
 from pytia.wrapper.documents.material_documents import PyMaterialDocument

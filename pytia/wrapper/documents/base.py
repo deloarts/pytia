@@ -4,23 +4,23 @@
 
 import os
 from pathlib import Path
-from typing import Any, List, Optional
+from typing import Any
+from typing import List
+from typing import Optional
 
 from pycatia.in_interfaces.document import Document
 from pycatia.in_interfaces.selection import Selection
 
 from pytia import __version__
 from pytia.const import VALID_FILE_EXTENSIONS
-from pytia.exceptions import (
-    PytiaDocumentExistsError,
-    PytiaDocumentNotOpenError,
-    PytiaDocumentNotSavedError,
-    PytiaDocumentOperationError,
-    PytiaFileExistsError,
-    PytiaFileNotFoundError,
-    PytiaNoDocumentOpenError,
-    PytiaWrongDocumentTypeError,
-)
+from pytia.exceptions import PytiaDocumentExistsError
+from pytia.exceptions import PytiaDocumentNotOpenError
+from pytia.exceptions import PytiaDocumentNotSavedError
+from pytia.exceptions import PytiaDocumentOperationError
+from pytia.exceptions import PytiaFileExistsError
+from pytia.exceptions import PytiaFileNotFoundError
+from pytia.exceptions import PytiaNoDocumentOpenError
+from pytia.exceptions import PytiaWrongDocumentTypeError
 from pytia.framework import framework
 from pytia.helper.verify import verify_folder
 from pytia.log import log

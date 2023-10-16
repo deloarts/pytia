@@ -8,7 +8,8 @@ from pycatia.cat_mat_interfaces.material_manager import MaterialManager
 from pycatia.product_structure_interfaces.product import Product
 
 from pytia import __version__
-from pytia.const import FILE_EXTENSION_PRODUCT, GET_ITEM_MATERIAL_MANAGER
+from pytia.const import FILE_EXTENSION_PRODUCT
+from pytia.const import GET_ITEM_MATERIAL_MANAGER
 from pytia.exceptions import PytiaDocumentNameConventionError
 from pytia.log import log
 from pytia.wrapper.documents.base import PyBaseDocument
