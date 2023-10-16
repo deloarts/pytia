@@ -65,9 +65,11 @@ Table of contents:
 
 ### 1.1 system requirements
 
-- Windows 10, Windows 11
-- CATIA V5 6R-2017 or higher
+- Windows 11
+- CATIA V5 6R-2023
 - [Python 3.10](https://www.python.org/downloads/)
+
+> ✏️ These requirements aren't strict, you can use **pytia** on older or more recent systems, but it isn't tested on these.
 
 ### 1.2 pip
 
