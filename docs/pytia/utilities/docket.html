@@ -35,15 +35,19 @@
 from __future__ import annotations
 
 import os
-from dataclasses import dataclass, fields
+from dataclasses import dataclass
+from dataclasses import fields
 from datetime import datetime
 from pathlib import Path
-from typing import List, Tuple
+from typing import List
+from typing import Tuple
 
 from pycatia.drafting_interfaces.drawing_text import DrawingText
 
-from pytia.const import BACKGROUND_VIEW, FOREGROUND_VIEW
-from pytia.exceptions import PytiaFileNotFoundError, PytiaFileOperationError
+from pytia.const import BACKGROUND_VIEW
+from pytia.const import FOREGROUND_VIEW
+from pytia.exceptions import PytiaFileNotFoundError
+from pytia.exceptions import PytiaFileOperationError
 from pytia.helper.scaling import get_view_scale
 from pytia.helper.verify import verify_folder
 from pytia.log import log
