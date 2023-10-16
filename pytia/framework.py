@@ -55,7 +55,7 @@ class Framework:
     @property
     def dispatch(self) -> CDispatch:
         """Returns the catia dispatch."""
-        return self._dispatch
+        return self._dispatch  # type: ignore
 
 
 framework = Framework()
