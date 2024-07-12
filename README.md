@@ -3,13 +3,13 @@
 A wrapper for the catia v5 api.
 
 ![state](https://img.shields.io/badge/State-beta-brown.svg?style=for-the-badge)
-![version](https://img.shields.io/badge/Version-0.3.5-orange.svg?style=for-the-badge)
+![version](https://img.shields.io/github/v/release/deloarts/pytia?style=for-the-badge&color=orange)
 
 [![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
 ![catia](https://img.shields.io/badge/CATIA-V5%206R2023-blue.svg?style=for-the-badge)
 ![OS](https://img.shields.io/badge/OS-WIN11-blue.svg?style=for-the-badge)
 
-**pytia** is a wrapper for the CATIA V5 api based on the **V5Automation.chm** help file. It provides some useful utilities and features for interacting with the api and a cli tool. This module only works with Windows.
+**pytia** is a wrapper for the CATIA V5 api based on the **V5Automation.chm** help file. It provides some useful utilities and features for interacting with the api and a cli tool. More details: <https://pytia.deloarts.com/>.
 
 Check out the pytia ecosystem:
 
@@ -417,20 +417,20 @@ python -m pdoc --http : pytia
 
 ## 5 changelog
 
-**v0.3.5**: Bump deps version.  
-**v0.3.4**: Fix material wrapper.  
-**v0.3.3**: Fix uncaught parameter error.  
-**v0.3.2**: Update pywin32 dependency.  
-**v0.3.1**: Update console methods.  
-**v0.3.0**: Add dependency [`pycatia`](https://github.com/evereux/pycatia).  
-**v0.2.5**: Remove dependency `py`.  
-**v0.2.4**: Fix `get_tolerances` method.  
-**v0.2.3**: Update mako.  
-**v0.2.2**: Use pathlib instead of str.  
-**v0.2.1**: Add docket generator.  
-**v0.2.0**: Add drawing document wrapper.  
-**v0.1.1**: Add `delete` method to the properties wrapper.  
-**v0.1.0**: Initial commit.  
+[**v0.3.5**](https://github.com/deloarts/pytia/releases/tag/v0.3.5): Bump deps version.  
+[**v0.3.4**](https://github.com/deloarts/pytia/releases/tag/v0.3.4): Fix material wrapper.  
+[**v0.3.3**](https://github.com/deloarts/pytia/releases/tag/v0.3.3): Fix uncaught parameter error.  
+[**v0.3.2**](https://github.com/deloarts/pytia/releases/tag/v0.3.2): Update pywin32 dependency.  
+[**v0.3.1**](https://github.com/deloarts/pytia/releases/tag/v0.3.1): Update console methods.  
+[**v0.3.0**](https://github.com/deloarts/pytia/releases/tag/v0.3.0): Add dependency [`pycatia`](https://github.com/evereux/pycatia).  
+[**v0.2.5**](https://github.com/deloarts/pytia/releases/tag/v0.2.5): Remove dependency `py`.  
+[**v0.2.4**](https://github.com/deloarts/pytia/releases/tag/v0.2.4): Fix `get_tolerances` method.  
+[**v0.2.3**](https://github.com/deloarts/pytia/releases/tag/v0.2.3): Update mako.  
+[**v0.2.2**](https://github.com/deloarts/pytia/releases/tag/v0.2.2): Use pathlib instead of str.  
+[**v0.2.1**](https://github.com/deloarts/pytia/releases/tag/v0.2.1): Add docket generator.  
+[**v0.2.0**](https://github.com/deloarts/pytia/releases/tag/v0.2.0): Add drawing document wrapper.  
+[**v0.1.1**](https://github.com/deloarts/pytia/releases/tag/v0.1.1): Add `delete` method to the properties wrapper.  
+[**v0.1.0**](https://github.com/deloarts/pytia/releases/tag/v0.1.0): Initial commit.  
 
 ## 6 to do
 
