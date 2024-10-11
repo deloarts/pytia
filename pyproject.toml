@@ -4,25 +4,25 @@ classifiers = ["Operating System :: Microsoft :: Windows"]
 description = "A wrapper for the catia v5 api."
 name = "pytia"
 readme = "README.md"
-version = "0.3.5"
+version = "0.4.0"
 
 [tool.poetry.dependencies]
 click = "8.1.7"
 colorama = "0.4.6"
-psutil = "5.9.6"
-pycatia = "0.6.1"
+psutil = "6.0.0"
+pycatia = "0.8.0"
 python = "^3.10"
-pywin32 = "306"
+pywin32 = "307"
 
 [tool.poetry.dev-dependencies]
-black = "23.3.0"
+black = "24.8.0"
 coverage = "^7.3.0"
 pdoc3 = "^0.10.0"
-pre-commit = "^3.5.0"
-pylint = "^3.0.0"
-pytest = "^7.4.0"
-setuptools = "^68.2.0"
-validators = "^0.22.0"
+pre-commit = "^4.0.1"
+pylint = "^3.3.1"
+pytest = "^8.3.3"
+setuptools = "^75.1.0"
+validators = "^0.34.0"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"

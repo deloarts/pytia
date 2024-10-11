@@ -166,3 +166,11 @@ class PytiaAbortedByUserError(PytiaBaseError):
 
 class PytiaConvertError(PytiaBaseError):
     """Exception when converting fails."""
+
+
+class PytiaEnvVarNotFound(PytiaBaseError):
+    """Exception for unset env vars."""
+
+
+class PytiaWorkspaceFolderNotFound(PytiaBaseError):
+    """Exception for unset workspace folder."""
