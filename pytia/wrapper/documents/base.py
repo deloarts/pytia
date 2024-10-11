@@ -104,7 +104,7 @@ class PyBaseDocument:
             )
 
         try:
-            self.document = self.documents.read(file_name=str(path))
+            self.document = self.documents.read(file_name=path)
         except Exception as e:
             raise PytiaDocumentOperationError(
                 f"Failed opening document from {str(path)!r}: {e}"
@@ -142,7 +142,7 @@ class PyBaseDocument:
             )
 
         try:
-            self.documents.open(str(path))
+            self.documents.open(path)
         except Exception as e:
             raise PytiaDocumentOperationError(
                 f"Failed opening document from {str(path)!r}: {e}"
@@ -224,7 +224,7 @@ class PyBaseDocument:
                 f"Cannot create {self._doctype!r} with name {name!r}: Already exists in session."
             )
 
-        self.documents.new_from(str(path))
+        self.documents.new_from(path)
         self.document = self._framework.catia.active_document
 
         log.info(f"Created new document {self.document.name!r} from {str(path)!r}")
