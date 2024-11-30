@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-<meta name="generator" content="pdoc 0.10.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.3">
 <title>pytia.wrapper.properties API documentation</title>
-<meta name="description" content="Wrapper module for CATIA properties." />
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
-<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
-<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
-<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<meta name="description" content="Wrapper module for CATIA properties.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
 <style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
-<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
 </head>
 <body>
 <main>
@@ -23,231 +26,6 @@
 </header>
 <section id="section-intro">
 <p>Wrapper module for CATIA properties.</p>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">&#34;&#34;&#34;
-    Wrapper module for CATIA properties.
-&#34;&#34;&#34;
-
-import functools
-from typing import List
-
-from pycatia.knowledge_interfaces.parameters import Parameters
-from pycatia.knowledge_interfaces.str_param import StrParam
-from pycatia.product_structure_interfaces.product import Product
-
-from pytia import __version__
-from pytia.const import ENV_NO_PROPS
-from pytia.const import PROP_VERSION
-from pytia.exceptions import PytiaPropertyExistsError
-from pytia.exceptions import PytiaPropertyNotFoundError
-from pytia.log import log
-
-
-class PyProperties:
-    &#34;&#34;&#34;The wrapper class for CATIA UserRefProperties. (ProductStructureInterfaces Framework)&#34;&#34;&#34;
-
-    def __init__(self, product: Product) -&gt; None:
-        self._product = product
-        self._user_ref_properties = self._product.user_ref_properties
-        self.write_version()
-
-    def __call__(self) -&gt; Parameters:
-        return self._user_ref_properties
-
-    def __repr__(self) -&gt; str:
-        return f&#34;PyProperties({self._product.name})&#34;
-
-    @property
-    def properties(
-        self,
-    ) -&gt; List[StrParam]:
-        &#34;&#34;&#34;Returns a list of all properties.&#34;&#34;&#34;
-        output = []
-        for i in range(1, self._user_ref_properties.count + 1):
-            output.append(self._user_ref_properties.item(i))
-        return output
-
-    @property
-    def names(self) -&gt; List[str]:
-        &#34;&#34;&#34;Returns a list all UserRefProperties names.&#34;&#34;&#34;
-        output = []
-        for i in range(1, self._user_ref_properties.count + 1):
-            output.append(self._user_ref_properties.item(i).name)
-        return output
-
-    @staticmethod
-    def _unique(func):
-        &#34;&#34;&#34;
-        Decorator that makes sure that no properties with the same name are created.
-
-        Raises the PytiaPropertyExistsError if a property with the given name argument
-        already exists.
-        &#34;&#34;&#34;
-
-        @functools.wraps(func)
-        def _unique_wrapper(self, name, *args, **kwargs):
-            if self.exists(name=name):
-                raise PytiaPropertyExistsError(
-                    f&#34;Failed creating property {name!r}: Already exists in {self._product.name!r}&#34;
-                )
-            return func(self, name, *args, **kwargs)
-
-        return _unique_wrapper
-
-    def exists(self, name: str | List[str]) -&gt; bool:
-        &#34;&#34;&#34;
-        Returns True if a property of the given name already exists in the product.
-        Returns True if all properties of the given list exists in the product.
-
-        Args:
-            name (str | List[str]): The name or list of names to check.
-
-        Returns:
-            bool: True if the property exists, false otherwise.
-        &#34;&#34;&#34;
-
-        def name_exists(name):
-            for i in range(1, self._user_ref_properties.count + 1):
-                if self._user_ref_properties.item(i).name == name:
-                    return True
-            return False
-
-        if isinstance(name, str):
-            return name_exists(name)
-
-        return all(name_exists(n) for n in name)
-
-    def get_by_name(self, name: str) -&gt; StrParam:
-        &#34;&#34;&#34;
-        Returns a UserRefProperty by its name.
-
-        Args:
-            name (str): The name of the property to retrieve.
-
-        Raises:
-            PytiaPropertyNotFoundError: Raised if the property does not exist.
-
-        Returns:
-            StrParam: The property.
-        &#34;&#34;&#34;
-        if self.exists(name=name):
-            return StrParam(self._user_ref_properties.item(name).com_object)
-
-        raise PytiaPropertyNotFoundError(
-            f&#34;Property {name!r} not found in {self._product.name!r}&#34;
-        )
-
-    def delete(self, name: str) -&gt; None:
-        &#34;&#34;&#34;
-        Deletes a property by its name.
-
-        Args:
-            name (str): The name of the property to delete.
-
-        Raises:
-            PytiaPropertyNotFoundError: Raised if the property does not exist.
-        &#34;&#34;&#34;
-        if self.exists(name=name):
-            self._user_ref_properties.remove(name)
-            log.info(f&#34;Deleted property {name!r} from {self._product.name!r}&#34;)
-        else:
-            raise PytiaPropertyNotFoundError(
-                f&#34;Cannot delete property {name!r}: Not found in {self._product.name!r}&#34;
-            )
-
-    def set_value(self, name: str, value: str) -&gt; None:
-        &#34;&#34;&#34;
-        Sets the value of an user ref property.
-
-        Args:
-            name (str): The name of the property of which to set the value.
-            value (str): The value.
-        &#34;&#34;&#34;
-        prop = self.get_by_name(name)
-        prop.value = value
-
-    @_unique
-    def create(self, name: str, value: str = &#34;&#34;) -&gt; StrParam:
-        &#34;&#34;&#34;
-        Creates a CATIA UserRefProperty of type STRING.
-
-        Args:
-            name (str): The name of the new property.
-            value (str, optional): The value for the new property. Defaults to &#34;&#34;.
-
-        Returns:
-            StrParam: The newly created property.
-
-        Raises:
-            PytiaPropertyExistsError: Raised if the property already exists.
-        &#34;&#34;&#34;
-        parameter = self._user_ref_properties.create_string(name, value)
-        parameter.rename(name)
-        log.info(
-            f&#34;Created property {name!r} ({value}, STRING) in {self._product.name!r}&#34;
-        )
-        return parameter
-
-    def create_multi(
-        self, names: List[str], skip_existing: bool = True
-    ) -&gt; List[StrParam]:
-        &#34;&#34;&#34;
-        Creates all properties from the given list without a value.
-
-        Raises the PytiaPropertyExistsError at least one property already exists, doesn&#39;t create
-        any Property if the error is raised.
-
-        Doesn&#39;t raise an error if skip_existing is True.
-
-        Args:
-            names (List[str]): The list of property names to create.
-            skip_existing (bool, optional): No error is raised when a property already exists. \
-                Defaults to True.
-
-        Raises:
-            PytiaPropertyExistsError: Raised if any property already exists, omitted if the \
-                skip_existing flag is True.
-
-        Returns:
-            List[StrParam]: A list of the newly created properties.
-        &#34;&#34;&#34;
-        name_list = []
-        props = []
-        for name in names:
-            if self.exists(name):
-                if not skip_existing:
-                    raise PytiaPropertyExistsError(
-                        f&#34;Failed creating property {name!r}: &#34;
-                        f&#34;Already exists in {self._product.name!r}&#34;
-                    )
-            else:
-                name_list.append(name)
-
-        for name in name_list:
-            props.append(self.create(name=name))
-
-        return props
-
-    def write_version(self) -&gt; None:
-        &#34;&#34;&#34;
-        Writes the pytia version as user ref property.
-
-        Omits this if the environment variable `PYTIA_NO_PROPS` is set to 1.
-        &#34;&#34;&#34;
-        if ENV_NO_PROPS:
-            log.info(
-                f&#34;Omitting creation of property {PROP_VERSION!r}:&#34;
-                f&#34;{ENV_NO_PROPS!r} environment variable is set.&#34;
-            )
-        else:
-            if self.exists(name=PROP_VERSION):
-                self.set_value(name=PROP_VERSION, value=__version__)
-            else:
-                self.create(name=PROP_VERSION, value=__version__)</code></pre>
-</details>
 </section>
 <section>
 </section>
@@ -472,7 +250,7 @@ class PyProperties:
 </details>
 <h3>Instance variables</h3>
 <dl>
-<dt id="pytia.wrapper.properties.PyProperties.names"><code class="name">var <span class="ident">names</span> : List[str]</code></dt>
+<dt id="pytia.wrapper.properties.PyProperties.names"><code class="name">prop <span class="ident">names</span> : List[str]</code></dt>
 <dd>
 <div class="desc"><p>Returns a list all UserRefProperties names.</p></div>
 <details class="source">
@@ -488,7 +266,7 @@ def names(self) -&gt; List[str]:
     return output</code></pre>
 </details>
 </dd>
-<dt id="pytia.wrapper.properties.PyProperties.properties"><code class="name">var <span class="ident">properties</span> : List[pycatia.knowledge_interfaces.str_param.StrParam]</code></dt>
+<dt id="pytia.wrapper.properties.PyProperties.properties"><code class="name">prop <span class="ident">properties</span> : List[pycatia.knowledge_interfaces.str_param.StrParam]</code></dt>
 <dd>
 <div class="desc"><p>Returns a list of all properties.</p></div>
 <details class="source">
@@ -531,32 +309,6 @@ def properties(
 <dt><code>PytiaPropertyExistsError</code></dt>
 <dd>Raised if the property already exists.</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@_unique
-def create(self, name: str, value: str = &#34;&#34;) -&gt; StrParam:
-    &#34;&#34;&#34;
-    Creates a CATIA UserRefProperty of type STRING.
-
-    Args:
-        name (str): The name of the new property.
-        value (str, optional): The value for the new property. Defaults to &#34;&#34;.
-
-    Returns:
-        StrParam: The newly created property.
-
-    Raises:
-        PytiaPropertyExistsError: Raised if the property already exists.
-    &#34;&#34;&#34;
-    parameter = self._user_ref_properties.create_string(name, value)
-    parameter.rename(name)
-    log.info(
-        f&#34;Created property {name!r} ({value}, STRING) in {self._product.name!r}&#34;
-    )
-    return parameter</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.properties.PyProperties.create_multi"><code class="name flex">
 <span>def <span class="ident">create_multi</span></span>(<span>self, names: List[str], skip_existing: bool = True) ‑> List[pycatia.knowledge_interfaces.str_param.StrParam]</span>
@@ -585,50 +337,6 @@ skip_existing flag is True.</dd>
 <dt><code>List[StrParam]</code></dt>
 <dd>A list of the newly created properties.</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def create_multi(
-    self, names: List[str], skip_existing: bool = True
-) -&gt; List[StrParam]:
-    &#34;&#34;&#34;
-    Creates all properties from the given list without a value.
-
-    Raises the PytiaPropertyExistsError at least one property already exists, doesn&#39;t create
-    any Property if the error is raised.
-
-    Doesn&#39;t raise an error if skip_existing is True.
-
-    Args:
-        names (List[str]): The list of property names to create.
-        skip_existing (bool, optional): No error is raised when a property already exists. \
-            Defaults to True.
-
-    Raises:
-        PytiaPropertyExistsError: Raised if any property already exists, omitted if the \
-            skip_existing flag is True.
-
-    Returns:
-        List[StrParam]: A list of the newly created properties.
-    &#34;&#34;&#34;
-    name_list = []
-    props = []
-    for name in names:
-        if self.exists(name):
-            if not skip_existing:
-                raise PytiaPropertyExistsError(
-                    f&#34;Failed creating property {name!r}: &#34;
-                    f&#34;Already exists in {self._product.name!r}&#34;
-                )
-        else:
-            name_list.append(name)
-
-    for name in name_list:
-        props.append(self.create(name=name))
-
-    return props</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.properties.PyProperties.delete"><code class="name flex">
 <span>def <span class="ident">delete</span></span>(<span>self, name: str) ‑> None</span>
@@ -645,69 +353,23 @@ skip_existing flag is True.</dd>
 <dt><code>PytiaPropertyNotFoundError</code></dt>
 <dd>Raised if the property does not exist.</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def delete(self, name: str) -&gt; None:
-    &#34;&#34;&#34;
-    Deletes a property by its name.
-
-    Args:
-        name (str): The name of the property to delete.
-
-    Raises:
-        PytiaPropertyNotFoundError: Raised if the property does not exist.
-    &#34;&#34;&#34;
-    if self.exists(name=name):
-        self._user_ref_properties.remove(name)
-        log.info(f&#34;Deleted property {name!r} from {self._product.name!r}&#34;)
-    else:
-        raise PytiaPropertyNotFoundError(
-            f&#34;Cannot delete property {name!r}: Not found in {self._product.name!r}&#34;
-        )</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.properties.PyProperties.exists"><code class="name flex">
-<span>def <span class="ident">exists</span></span>(<span>self, name: Union[str, List[str]]) ‑> bool</span>
+<span>def <span class="ident">exists</span></span>(<span>self, name: str | List[str]) ‑> bool</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns True if a property of the given name already exists in the product.
 Returns True if all properties of the given list exists in the product.</p>
 <h2 id="args">Args</h2>
-<p>name (str | List[str]): The name or list of names to check.</p>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str | List[str]</code></dt>
+<dd>The name or list of names to check.</dd>
+</dl>
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>bool</code></dt>
 <dd>True if the property exists, false otherwise.</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def exists(self, name: str | List[str]) -&gt; bool:
-    &#34;&#34;&#34;
-    Returns True if a property of the given name already exists in the product.
-    Returns True if all properties of the given list exists in the product.
-
-    Args:
-        name (str | List[str]): The name or list of names to check.
-
-    Returns:
-        bool: True if the property exists, false otherwise.
-    &#34;&#34;&#34;
-
-    def name_exists(name):
-        for i in range(1, self._user_ref_properties.count + 1):
-            if self._user_ref_properties.item(i).name == name:
-                return True
-        return False
-
-    if isinstance(name, str):
-        return name_exists(name)
-
-    return all(name_exists(n) for n in name)</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.properties.PyProperties.get_by_name"><code class="name flex">
 <span>def <span class="ident">get_by_name</span></span>(<span>self, name: str) ‑> pycatia.knowledge_interfaces.str_param.StrParam</span>
@@ -729,30 +391,6 @@ Returns True if all properties of the given list exists in the product.</p>
 <dt><code>StrParam</code></dt>
 <dd>The property.</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def get_by_name(self, name: str) -&gt; StrParam:
-    &#34;&#34;&#34;
-    Returns a UserRefProperty by its name.
-
-    Args:
-        name (str): The name of the property to retrieve.
-
-    Raises:
-        PytiaPropertyNotFoundError: Raised if the property does not exist.
-
-    Returns:
-        StrParam: The property.
-    &#34;&#34;&#34;
-    if self.exists(name=name):
-        return StrParam(self._user_ref_properties.item(name).com_object)
-
-    raise PytiaPropertyNotFoundError(
-        f&#34;Property {name!r} not found in {self._product.name!r}&#34;
-    )</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.properties.PyProperties.set_value"><code class="name flex">
 <span>def <span class="ident">set_value</span></span>(<span>self, name: str, value: str) ‑> None</span>
@@ -766,21 +404,6 @@ Returns True if all properties of the given list exists in the product.</p>
 <dt><strong><code>value</code></strong> :&ensp;<code>str</code></dt>
 <dd>The value.</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def set_value(self, name: str, value: str) -&gt; None:
-    &#34;&#34;&#34;
-    Sets the value of an user ref property.
-
-    Args:
-        name (str): The name of the property of which to set the value.
-        value (str): The value.
-    &#34;&#34;&#34;
-    prop = self.get_by_name(name)
-    prop.value = value</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.properties.PyProperties.write_version"><code class="name flex">
 <span>def <span class="ident">write_version</span></span>(<span>self) ‑> None</span>
@@ -788,27 +411,6 @@ Returns True if all properties of the given list exists in the product.</p>
 <dd>
 <div class="desc"><p>Writes the pytia version as user ref property.</p>
 <p>Omits this if the environment variable <code>PYTIA_NO_PROPS</code> is set to 1.</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def write_version(self) -&gt; None:
-    &#34;&#34;&#34;
-    Writes the pytia version as user ref property.
-
-    Omits this if the environment variable `PYTIA_NO_PROPS` is set to 1.
-    &#34;&#34;&#34;
-    if ENV_NO_PROPS:
-        log.info(
-            f&#34;Omitting creation of property {PROP_VERSION!r}:&#34;
-            f&#34;{ENV_NO_PROPS!r} environment variable is set.&#34;
-        )
-    else:
-        if self.exists(name=PROP_VERSION):
-            self.set_value(name=PROP_VERSION, value=__version__)
-        else:
-            self.create(name=PROP_VERSION, value=__version__)</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -816,7 +418,6 @@ Returns True if all properties of the given list exists in the product.</p>
 </section>
 </article>
 <nav id="sidebar">
-<h1>Index</h1>
 <div class="toc">
 <ul></ul>
 </div>
@@ -848,7 +449,7 @@ Returns True if all properties of the given list exists in the product.</p>
 </nav>
 </main>
 <footer id="footer">
-<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.3</a>.</p>
 </footer>
 </body>
 </html>

@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-<meta name="generator" content="pdoc 0.10.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.3">
 <title>pytia.wrapper.documents.base API documentation</title>
-<meta name="description" content="Wrapper module for handling CATIA documents." />
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
-<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
-<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
-<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<meta name="description" content="Wrapper module for handling CATIA documents.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
 <style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
-<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
 </head>
 <body>
 <main>
@@ -23,350 +26,6 @@
 </header>
 <section id="section-intro">
 <p>Wrapper module for handling CATIA documents.</p>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">&#34;&#34;&#34;
-    Wrapper module for handling CATIA documents.
-&#34;&#34;&#34;
-
-import os
-from pathlib import Path
-from typing import Any
-from typing import List
-from typing import Optional
-
-from pycatia.in_interfaces.document import Document
-from pycatia.in_interfaces.selection import Selection
-
-from pytia import __version__
-from pytia.const import VALID_FILE_EXTENSIONS
-from pytia.exceptions import PytiaDocumentExistsError
-from pytia.exceptions import PytiaDocumentNotOpenError
-from pytia.exceptions import PytiaDocumentNotSavedError
-from pytia.exceptions import PytiaDocumentOperationError
-from pytia.exceptions import PytiaFileExistsError
-from pytia.exceptions import PytiaFileNotFoundError
-from pytia.exceptions import PytiaNoDocumentOpenError
-from pytia.exceptions import PytiaWrongDocumentTypeError
-from pytia.framework import framework
-from pytia.helper.verify import verify_folder
-from pytia.log import log
-
-
-class PyBaseDocument:
-    &#34;&#34;&#34;The base class for CATIA Documents (InfInterfaces Framework)&#34;&#34;&#34;
-
-    def __init__(self, doc_type: str) -&gt; None:
-        &#34;&#34;&#34;
-        Inits the Documents object.
-
-        Args:
-            doc_type (str): The type of the document (must be one of the items in the \
-                VALID_FILE_EXTENSIONS list.)
-
-        Raises:
-            PytiaWrongDocumentTypeError: Is raised when the provided document type is not in the \
-                VALID_FILE_EXTENSIONS list.
-        &#34;&#34;&#34;
-        self._framework = framework
-        self._doctype = doc_type
-        self.documents = self._framework.catia.documents
-        self.document: Document = None  # type: ignore
-
-        if doc_type not in VALID_FILE_EXTENSIONS:
-            raise PytiaWrongDocumentTypeError(
-                f&#34;Failed initializing document: Wrong type. Must be {VALID_FILE_EXTENSIONS}, &#34;
-                f&#34;got {doc_type!r}&#34;
-            )
-
-    def __del__(self):
-        &#34;&#34;&#34;
-        Callback on object deletion.
-        &#34;&#34;&#34;
-        # self.close()
-
-    def __enter__(self):
-        &#34;&#34;&#34;
-        Entering the context manager.
-        &#34;&#34;&#34;
-        return self
-
-    def __exit__(self, exc_type, exc_value, exc_tb):
-        &#34;&#34;&#34;
-        Exiting the context manager.
-        &#34;&#34;&#34;
-        self.close()
-
-    def __call__(self) -&gt; Document:
-        &#34;&#34;&#34;Returns the active document.&#34;&#34;&#34;
-        return self.document
-
-    def __repr__(self) -&gt; str:
-        &#34;&#34;&#34;Returns the representation of the object.&#34;&#34;&#34;
-        return f&#34;PyDocuments({self.document.name})&#34;
-
-    def load(self, path: Path) -&gt; Document:
-        &#34;&#34;&#34;
-        Loads the document without creating a window.
-
-        Args:
-            path (Path): The path to the document to load.
-
-        Raises:
-            PytiaFileNotFoundError: Raised if the document does not exist.
-            PytiaWrongDocumentTypeError: Raised if the document is not of the correct type.
-            PytiaDocumentOperationError: Raised if the cannot be opened.
-
-        Returns:
-            Document: _description_
-        &#34;&#34;&#34;
-        if not path.exists():
-            raise PytiaFileNotFoundError(
-                f&#34;Failed loading file {str(path)!r}: Does not exist&#34;
-            )
-
-        if not self._doctype in str(path):
-            raise PytiaWrongDocumentTypeError(
-                f&#34;Failed loading file {str(path)!r}: Not a {self._doctype}&#34;
-            )
-
-        try:
-            self.document = self.documents.read(file_name=str(path))
-        except Exception as e:
-            raise PytiaDocumentOperationError(
-                f&#34;Failed opening document from {str(path)!r}: {e}&#34;
-            ) from e
-
-        log.info(
-            f&#34;Opened document {self.document.name!r} from {self.document.full_name!r} &#34;
-            f&#34;(document is now active).&#34;
-        )
-        return self.document
-
-    def open(self, path: Path) -&gt; Document:
-        &#34;&#34;&#34;
-        Opens the document from the given path.
-
-        Args:
-            path (Path): The path to the document to open.
-
-        Raises:
-            PytiaFileNotFoundError: Raised if the document does not exist.
-            PytiaWrongDocumentTypeError: Raised if the document is not of the correct type.
-            PytiaDocumentOperationError: Raised if the cannot be opened.
-
-        Returns:
-            Document: The opened document.
-        &#34;&#34;&#34;
-        if not path.exists():
-            raise PytiaFileNotFoundError(
-                f&#34;Failed opening file {str(path)!r}: Does not exist&#34;
-            )
-
-        if not self._doctype in str(path):
-            raise PytiaWrongDocumentTypeError(
-                f&#34;Failed opening file {str(path)!r}: Not a {self._doctype}&#34;
-            )
-
-        try:
-            self.documents.open(str(path))
-        except Exception as e:
-            raise PytiaDocumentOperationError(
-                f&#34;Failed opening document from {str(path)!r}: {e}&#34;
-            ) from e
-
-        self.document = self._framework.catia.active_document
-        log.info(
-            f&#34;Opened document {self.document.name!r} from {self.document.full_name!r} &#34;
-            f&#34;(document is now active).&#34;
-        )
-        return self.document
-
-    def current(self) -&gt; Document:
-        &#34;&#34;&#34;
-        Sets the currently open document as ActiveDocument.
-
-        Raises:
-            PytiaNoDocumentOpenError: Raised if no document is open.
-            PytiaWrongDocumentTypeError: Raised if the open document is not of the correct type.
-
-        Returns:
-            Document: The current document object.
-        &#34;&#34;&#34;
-        if not self.anything_open():
-            raise PytiaNoDocumentOpenError(
-                &#34;Failed loading current document: No document open.&#34;
-            )
-
-        self.document = self._framework.catia.active_document
-
-        if not self._doctype in self.document.name:
-            raise PytiaWrongDocumentTypeError(
-                f&#34;Failed loading current document as {self._doctype!r}: Wrong document type.&#34;
-            )
-
-        log.debug(f&#34;{self.document.name!r} is now the ActiveDocument.&#34;)
-        return self.document
-
-    def new(self, name: str) -&gt; Document:
-        &#34;&#34;&#34;
-        Creates a new Document and sets it as ActiveDocument.
-
-        Args:
-            name (str): The name of the new document.
-
-        Raises:
-            PytiaDocumentExistsError: Raised if the name already exists in the session.
-
-        Returns:
-            Document: The newly created document object.
-        &#34;&#34;&#34;
-        if not self.filename_is_unique(f&#34;{name}.{self._doctype}&#34;):
-            raise PytiaDocumentExistsError(
-                f&#34;Cannot create {self._doctype!r} with name {name!r}: Already exists in session.&#34;
-            )
-
-        self.documents.add(self._doctype.split(&#34;CAT&#34;)[-1])
-        self.document = self._framework.catia.active_document
-
-        log.info(f&#34;Created new document {self.document.name!r}&#34;)
-        return self.document
-
-    def new_from(self, path: Path, name: str) -&gt; Document:
-        &#34;&#34;&#34;
-        Creates a new Document from an existing one and sets it as ActiveDocument.
-
-        Args:
-            path (Path): The path to the original document.
-            name (str): The name of the new document.
-
-        Raises:
-            PytiaDocumentExistsError: Raised if the name already exists in the session.
-
-        Returns:
-            Document: The document object.
-        &#34;&#34;&#34;
-        if not self.filename_is_unique(f&#34;{name}.{self._doctype}&#34;):
-            raise PytiaDocumentExistsError(
-                f&#34;Cannot create {self._doctype!r} with name {name!r}: Already exists in session.&#34;
-            )
-
-        self.documents.new_from(str(path))
-        self.document = self._framework.catia.active_document
-
-        log.info(f&#34;Created new document {self.document.name!r} from {str(path)!r}&#34;)
-        return self.document
-
-    def close(self) -&gt; None:
-        &#34;&#34;&#34;Closes the document.&#34;&#34;&#34;
-        if self.document is not None:
-            try:
-                self.document.close()
-                log.info(f&#34;Closed document {self.document.name!r}&#34;)
-            except PytiaDocumentNotOpenError:
-                log.warning(
-                    f&#34;Failed closing document {self.document.name!r}: &#34;
-                    f&#34;Must have already been closed.&#34;
-                )
-
-    def save(self) -&gt; str:
-        &#34;&#34;&#34;
-        Saves the document.
-        Returns the path (folder &amp; filename) of the saved document.
-
-        Raises:
-            PytiaDocumentNotSavedError: Raised if the document cannot be saved due to an unset \
-                destination folder.
-
-        Returns:
-            str: The full path to the saved document with filename and extension.
-        &#34;&#34;&#34;
-        if self.document.name == self.document.full_name:
-            raise PytiaDocumentNotSavedError(
-                &#34;Failed saving document: No folder specified (Use &#39;save as&#39; instead).&#34;
-            )
-
-        if self.document.is_saved:
-            log.info(f&#34;Did not save document {self.document.name!r}: Already saved.&#34;)
-        else:
-            self.document.save()
-            log.info(
-                f&#34;Saved document {self.document.name!r} to {self.document.full_name!r}&#34;
-            )
-        return self.document.full_name
-
-    def save_as(self, folder: Path, overwrite: bool = True) -&gt; Path:
-        &#34;&#34;&#34;
-        Saves the document in the given folder.
-        Overwrites any existing document by default.
-        Returns the path (folder &amp; filename) of the saved document.
-
-        Args:
-            folder (Path): The folder in which the document should be saved.
-            overwrite (bool, optional): Overwrites any existing files. EachDefaults to True.
-
-        Raises:
-            PytiaFileExistsError: Raised if the file already exists and overwrite is False.
-
-        Returns:
-            Path: The full path to the saved document with filename and extension.
-        &#34;&#34;&#34;
-        filepath = Path(verify_folder(folder=folder, absolute=True), self.document.name)
-
-        if os.path.exists(filepath):
-            if overwrite:
-                os.remove(filepath)
-            else:
-                raise PytiaFileExistsError(
-                    f&#34;Failed saving the {self.document.name!r} to {self.document.full_name!r}: &#34;
-                    f&#34;Already exists.&#34;
-                )
-        if not os.path.exists(folder):
-            os.makedirs(folder)
-
-        self.document.save_as(filepath)
-        log.info(
-            f&#34;Saved document {self.document.name!r} to {self.document.full_name!r}&#34;
-        )
-        return Path(self.document.full_name)
-
-    def delete_objects(self, objects: List[Any]) -&gt; None:
-        &#34;&#34;&#34;Deletes all objects of the given list. Uses the documents selection.&#34;&#34;&#34;
-        sel: Selection = self.document.selection
-
-        self.remove_selection(sel)
-        for obj in objects:
-            sel.add(obj)
-            log.info(f&#34;Deleted {obj.name!r} from {self.document.name!r}&#34;)
-        sel.delete()
-        self.remove_selection(sel)
-
-    def anything_open(self) -&gt; bool:
-        &#34;&#34;&#34;Returns True if any document is open.&#34;&#34;&#34;
-        return self.documents.count &gt; 0
-
-    def filename_is_unique(self, filename: str) -&gt; bool:
-        &#34;&#34;&#34;Returns True if the given name is unique in the session.&#34;&#34;&#34;
-        for i in range(self.documents.count):
-            if self.documents[i].name == filename:
-                return False
-        return True
-
-    def remove_selection(self, selection: Optional[Selection] = None) -&gt; None:
-        &#34;&#34;&#34;
-        Removes all objects of the given selection.
-        &#34;&#34;&#34;
-        if not selection:
-            selection = self.document.selection
-
-        selection.clear  # pylint: disable=W0104
-        for _ in range(1, selection.count + 1):
-            selection.remove(1)
-            log.debug(f&#34;Removed {selection.name!r} from {self.document.name}&#34;)
-        selection.clear  # pylint: disable=W0104</code></pre>
-</details>
 </section>
 <section>
 </section>
@@ -478,7 +137,7 @@ VALID_FILE_EXTENSIONS list.</dd>
             )
 
         try:
-            self.document = self.documents.read(file_name=str(path))
+            self.document = self.documents.read(file_name=path)
         except Exception as e:
             raise PytiaDocumentOperationError(
                 f&#34;Failed opening document from {str(path)!r}: {e}&#34;
@@ -516,7 +175,7 @@ VALID_FILE_EXTENSIONS list.</dd>
             )
 
         try:
-            self.documents.open(str(path))
+            self.documents.open(path)
         except Exception as e:
             raise PytiaDocumentOperationError(
                 f&#34;Failed opening document from {str(path)!r}: {e}&#34;
@@ -598,7 +257,7 @@ VALID_FILE_EXTENSIONS list.</dd>
                 f&#34;Cannot create {self._doctype!r} with name {name!r}: Already exists in session.&#34;
             )
 
-        self.documents.new_from(str(path))
+        self.documents.new_from(path)
         self.document = self._framework.catia.active_document
 
         log.info(f&#34;Created new document {self.document.name!r} from {str(path)!r}&#34;)
@@ -726,36 +385,12 @@ VALID_FILE_EXTENSIONS list.</dd>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns True if any document is open.</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def anything_open(self) -&gt; bool:
-    &#34;&#34;&#34;Returns True if any document is open.&#34;&#34;&#34;
-    return self.documents.count &gt; 0</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.close"><code class="name flex">
 <span>def <span class="ident">close</span></span>(<span>self) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Closes the document.</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def close(self) -&gt; None:
-    &#34;&#34;&#34;Closes the document.&#34;&#34;&#34;
-    if self.document is not None:
-        try:
-            self.document.close()
-            log.info(f&#34;Closed document {self.document.name!r}&#34;)
-        except PytiaDocumentNotOpenError:
-            log.warning(
-                f&#34;Failed closing document {self.document.name!r}: &#34;
-                f&#34;Must have already been closed.&#34;
-            )</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.current"><code class="name flex">
 <span>def <span class="ident">current</span></span>(<span>self) ‑> pycatia.in_interfaces.document.Document</span>
@@ -774,77 +409,21 @@ VALID_FILE_EXTENSIONS list.</dd>
 <dt><code>Document</code></dt>
 <dd>The current document object.</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def current(self) -&gt; Document:
-    &#34;&#34;&#34;
-    Sets the currently open document as ActiveDocument.
-
-    Raises:
-        PytiaNoDocumentOpenError: Raised if no document is open.
-        PytiaWrongDocumentTypeError: Raised if the open document is not of the correct type.
-
-    Returns:
-        Document: The current document object.
-    &#34;&#34;&#34;
-    if not self.anything_open():
-        raise PytiaNoDocumentOpenError(
-            &#34;Failed loading current document: No document open.&#34;
-        )
-
-    self.document = self._framework.catia.active_document
-
-    if not self._doctype in self.document.name:
-        raise PytiaWrongDocumentTypeError(
-            f&#34;Failed loading current document as {self._doctype!r}: Wrong document type.&#34;
-        )
-
-    log.debug(f&#34;{self.document.name!r} is now the ActiveDocument.&#34;)
-    return self.document</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.delete_objects"><code class="name flex">
 <span>def <span class="ident">delete_objects</span></span>(<span>self, objects: List[Any]) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Deletes all objects of the given list. Uses the documents selection.</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def delete_objects(self, objects: List[Any]) -&gt; None:
-    &#34;&#34;&#34;Deletes all objects of the given list. Uses the documents selection.&#34;&#34;&#34;
-    sel: Selection = self.document.selection
-
-    self.remove_selection(sel)
-    for obj in objects:
-        sel.add(obj)
-        log.info(f&#34;Deleted {obj.name!r} from {self.document.name!r}&#34;)
-    sel.delete()
-    self.remove_selection(sel)</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.filename_is_unique"><code class="name flex">
 <span>def <span class="ident">filename_is_unique</span></span>(<span>self, filename: str) ‑> bool</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Returns True if the given name is unique in the session.</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def filename_is_unique(self, filename: str) -&gt; bool:
-    &#34;&#34;&#34;Returns True if the given name is unique in the session.&#34;&#34;&#34;
-    for i in range(self.documents.count):
-        if self.documents[i].name == filename:
-            return False
-    return True</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.load"><code class="name flex">
-<span>def <span class="ident">load</span></span>(<span>self, path: pathlib.Path) ‑> pycatia.in_interfaces.document.Document</span>
+<span>def <span class="ident">load</span></span>(<span>self, path: pathlib._local.Path) ‑> pycatia.in_interfaces.document.Document</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Loads the document without creating a window.</p>
@@ -867,48 +446,6 @@ VALID_FILE_EXTENSIONS list.</dd>
 <dt><code>Document</code></dt>
 <dd><em>description</em></dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def load(self, path: Path) -&gt; Document:
-    &#34;&#34;&#34;
-    Loads the document without creating a window.
-
-    Args:
-        path (Path): The path to the document to load.
-
-    Raises:
-        PytiaFileNotFoundError: Raised if the document does not exist.
-        PytiaWrongDocumentTypeError: Raised if the document is not of the correct type.
-        PytiaDocumentOperationError: Raised if the cannot be opened.
-
-    Returns:
-        Document: _description_
-    &#34;&#34;&#34;
-    if not path.exists():
-        raise PytiaFileNotFoundError(
-            f&#34;Failed loading file {str(path)!r}: Does not exist&#34;
-        )
-
-    if not self._doctype in str(path):
-        raise PytiaWrongDocumentTypeError(
-            f&#34;Failed loading file {str(path)!r}: Not a {self._doctype}&#34;
-        )
-
-    try:
-        self.document = self.documents.read(file_name=str(path))
-    except Exception as e:
-        raise PytiaDocumentOperationError(
-            f&#34;Failed opening document from {str(path)!r}: {e}&#34;
-        ) from e
-
-    log.info(
-        f&#34;Opened document {self.document.name!r} from {self.document.full_name!r} &#34;
-        f&#34;(document is now active).&#34;
-    )
-    return self.document</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.new"><code class="name flex">
 <span>def <span class="ident">new</span></span>(<span>self, name: str) ‑> pycatia.in_interfaces.document.Document</span>
@@ -930,37 +467,9 @@ VALID_FILE_EXTENSIONS list.</dd>
 <dt><code>Document</code></dt>
 <dd>The newly created document object.</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def new(self, name: str) -&gt; Document:
-    &#34;&#34;&#34;
-    Creates a new Document and sets it as ActiveDocument.
-
-    Args:
-        name (str): The name of the new document.
-
-    Raises:
-        PytiaDocumentExistsError: Raised if the name already exists in the session.
-
-    Returns:
-        Document: The newly created document object.
-    &#34;&#34;&#34;
-    if not self.filename_is_unique(f&#34;{name}.{self._doctype}&#34;):
-        raise PytiaDocumentExistsError(
-            f&#34;Cannot create {self._doctype!r} with name {name!r}: Already exists in session.&#34;
-        )
-
-    self.documents.add(self._doctype.split(&#34;CAT&#34;)[-1])
-    self.document = self._framework.catia.active_document
-
-    log.info(f&#34;Created new document {self.document.name!r}&#34;)
-    return self.document</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.new_from"><code class="name flex">
-<span>def <span class="ident">new_from</span></span>(<span>self, path: pathlib.Path, name: str) ‑> pycatia.in_interfaces.document.Document</span>
+<span>def <span class="ident">new_from</span></span>(<span>self, path: pathlib._local.Path, name: str) ‑> pycatia.in_interfaces.document.Document</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Creates a new Document from an existing one and sets it as ActiveDocument.</p>
@@ -981,38 +490,9 @@ VALID_FILE_EXTENSIONS list.</dd>
 <dt><code>Document</code></dt>
 <dd>The document object.</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def new_from(self, path: Path, name: str) -&gt; Document:
-    &#34;&#34;&#34;
-    Creates a new Document from an existing one and sets it as ActiveDocument.
-
-    Args:
-        path (Path): The path to the original document.
-        name (str): The name of the new document.
-
-    Raises:
-        PytiaDocumentExistsError: Raised if the name already exists in the session.
-
-    Returns:
-        Document: The document object.
-    &#34;&#34;&#34;
-    if not self.filename_is_unique(f&#34;{name}.{self._doctype}&#34;):
-        raise PytiaDocumentExistsError(
-            f&#34;Cannot create {self._doctype!r} with name {name!r}: Already exists in session.&#34;
-        )
-
-    self.documents.new_from(str(path))
-    self.document = self._framework.catia.active_document
-
-    log.info(f&#34;Created new document {self.document.name!r} from {str(path)!r}&#34;)
-    return self.document</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.open"><code class="name flex">
-<span>def <span class="ident">open</span></span>(<span>self, path: pathlib.Path) ‑> pycatia.in_interfaces.document.Document</span>
+<span>def <span class="ident">open</span></span>(<span>self, path: pathlib._local.Path) ‑> pycatia.in_interfaces.document.Document</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Opens the document from the given path.</p>
@@ -1035,72 +515,12 @@ VALID_FILE_EXTENSIONS list.</dd>
 <dt><code>Document</code></dt>
 <dd>The opened document.</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def open(self, path: Path) -&gt; Document:
-    &#34;&#34;&#34;
-    Opens the document from the given path.
-
-    Args:
-        path (Path): The path to the document to open.
-
-    Raises:
-        PytiaFileNotFoundError: Raised if the document does not exist.
-        PytiaWrongDocumentTypeError: Raised if the document is not of the correct type.
-        PytiaDocumentOperationError: Raised if the cannot be opened.
-
-    Returns:
-        Document: The opened document.
-    &#34;&#34;&#34;
-    if not path.exists():
-        raise PytiaFileNotFoundError(
-            f&#34;Failed opening file {str(path)!r}: Does not exist&#34;
-        )
-
-    if not self._doctype in str(path):
-        raise PytiaWrongDocumentTypeError(
-            f&#34;Failed opening file {str(path)!r}: Not a {self._doctype}&#34;
-        )
-
-    try:
-        self.documents.open(str(path))
-    except Exception as e:
-        raise PytiaDocumentOperationError(
-            f&#34;Failed opening document from {str(path)!r}: {e}&#34;
-        ) from e
-
-    self.document = self._framework.catia.active_document
-    log.info(
-        f&#34;Opened document {self.document.name!r} from {self.document.full_name!r} &#34;
-        f&#34;(document is now active).&#34;
-    )
-    return self.document</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.remove_selection"><code class="name flex">
-<span>def <span class="ident">remove_selection</span></span>(<span>self, selection: Optional[pycatia.in_interfaces.selection.Selection] = None) ‑> None</span>
+<span>def <span class="ident">remove_selection</span></span>(<span>self, selection: pycatia.in_interfaces.selection.Selection | None = None) ‑> None</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Removes all objects of the given selection.</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def remove_selection(self, selection: Optional[Selection] = None) -&gt; None:
-    &#34;&#34;&#34;
-    Removes all objects of the given selection.
-    &#34;&#34;&#34;
-    if not selection:
-        selection = self.document.selection
-
-    selection.clear  # pylint: disable=W0104
-    for _ in range(1, selection.count + 1):
-        selection.remove(1)
-        log.debug(f&#34;Removed {selection.name!r} from {self.document.name}&#34;)
-    selection.clear  # pylint: disable=W0104</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.save"><code class="name flex">
 <span>def <span class="ident">save</span></span>(<span>self) ‑> str</span>
@@ -1119,39 +539,9 @@ destination folder.</dd>
 <dt><code>str</code></dt>
 <dd>The full path to the saved document with filename and extension.</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def save(self) -&gt; str:
-    &#34;&#34;&#34;
-    Saves the document.
-    Returns the path (folder &amp; filename) of the saved document.
-
-    Raises:
-        PytiaDocumentNotSavedError: Raised if the document cannot be saved due to an unset \
-            destination folder.
-
-    Returns:
-        str: The full path to the saved document with filename and extension.
-    &#34;&#34;&#34;
-    if self.document.name == self.document.full_name:
-        raise PytiaDocumentNotSavedError(
-            &#34;Failed saving document: No folder specified (Use &#39;save as&#39; instead).&#34;
-        )
-
-    if self.document.is_saved:
-        log.info(f&#34;Did not save document {self.document.name!r}: Already saved.&#34;)
-    else:
-        self.document.save()
-        log.info(
-            f&#34;Saved document {self.document.name!r} to {self.document.full_name!r}&#34;
-        )
-    return self.document.full_name</code></pre>
-</details>
 </dd>
 <dt id="pytia.wrapper.documents.base.PyBaseDocument.save_as"><code class="name flex">
-<span>def <span class="ident">save_as</span></span>(<span>self, folder: pathlib.Path, overwrite: bool = True) ‑> pathlib.Path</span>
+<span>def <span class="ident">save_as</span></span>(<span>self, folder: pathlib._local.Path, overwrite: bool = True) ‑> pathlib._local.Path</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Saves the document in the given folder.
@@ -1174,45 +564,6 @@ Returns the path (folder &amp; filename) of the saved document.</p>
 <dt><code>Path</code></dt>
 <dd>The full path to the saved document with filename and extension.</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def save_as(self, folder: Path, overwrite: bool = True) -&gt; Path:
-    &#34;&#34;&#34;
-    Saves the document in the given folder.
-    Overwrites any existing document by default.
-    Returns the path (folder &amp; filename) of the saved document.
-
-    Args:
-        folder (Path): The folder in which the document should be saved.
-        overwrite (bool, optional): Overwrites any existing files. EachDefaults to True.
-
-    Raises:
-        PytiaFileExistsError: Raised if the file already exists and overwrite is False.
-
-    Returns:
-        Path: The full path to the saved document with filename and extension.
-    &#34;&#34;&#34;
-    filepath = Path(verify_folder(folder=folder, absolute=True), self.document.name)
-
-    if os.path.exists(filepath):
-        if overwrite:
-            os.remove(filepath)
-        else:
-            raise PytiaFileExistsError(
-                f&#34;Failed saving the {self.document.name!r} to {self.document.full_name!r}: &#34;
-                f&#34;Already exists.&#34;
-            )
-    if not os.path.exists(folder):
-        os.makedirs(folder)
-
-    self.document.save_as(filepath)
-    log.info(
-        f&#34;Saved document {self.document.name!r} to {self.document.full_name!r}&#34;
-    )
-    return Path(self.document.full_name)</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -1220,7 +571,6 @@ Returns the path (folder &amp; filename) of the saved document.</p>
 </section>
 </article>
 <nav id="sidebar">
-<h1>Index</h1>
 <div class="toc">
 <ul></ul>
 </div>
@@ -1255,7 +605,7 @@ Returns the path (folder &amp; filename) of the saved document.</p>
 </nav>
 </main>
 <footer id="footer">
-<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.3</a>.</p>
 </footer>
 </body>
 </html>
