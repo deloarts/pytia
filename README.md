@@ -80,10 +80,10 @@ PYTIA isn't available on PyPi, but you still can install it via pip. Here are tw
 If you want to install PYTIA from the published wheel file, use:
 
 ```powershell
-python -m pip install https://github.com/deloarts/pytia/releases/download/v0.4.0/pytia-0.4.0-py3-none-any.whl
+python -m pip install https://github.com/deloarts/pytia/releases/download/v0.4.1/pytia-0.4.1-py3-none-any.whl
 ```
 
-This command installs PYTIA v0.4.0.
+This command installs PYTIA v0.4.1.
 
 #### 1.2.2 ssh
 
@@ -147,7 +147,7 @@ python -m pytia
 This generates the following output:
 
 ```plain
-PYTIA 0.4.0
+PYTIA 0.4.1
 
 Usage: python -m pytia [OPTIONS] COMMAND [ARGS]...
 
@@ -184,7 +184,7 @@ python -m pytia box
 This will create the following sample output:
 
 ```powershell
-PYTIA 0.4.0
+PYTIA 0.4.1
 
 [ INFO ]  Bounding box of the current part:
           X = 100.0mm
@@ -417,6 +417,7 @@ python -m pdoc --http : pytia
 
 ## 5 changelog
 
+[**v0.4.1**](https://github.com/deloarts/pytia/releases/tag/v0.4.1): Update minimum python version to 3.13.  
 [**v0.4.0**](https://github.com/deloarts/pytia/releases/tag/v0.4.0): Add path utils.  
 [**v0.3.5**](https://github.com/deloarts/pytia/releases/tag/v0.3.5): Bump deps version.  
 [**v0.3.4**](https://github.com/deloarts/pytia/releases/tag/v0.3.4): Fix material wrapper.  
