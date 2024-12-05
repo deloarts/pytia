@@ -5,7 +5,7 @@ A wrapper for the catia v5 api.
 ![state](https://img.shields.io/badge/State-beta-brown.svg?style=for-the-badge)
 ![version](https://img.shields.io/github/v/release/deloarts/pytia?style=for-the-badge&color=orange)
 
-[![python](https://img.shields.io/badge/Python-3.13-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
+[![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
 ![catia](https://img.shields.io/badge/CATIA-V5%206R2023-blue.svg?style=for-the-badge)
 ![OS](https://img.shields.io/badge/OS-WIN11-blue.svg?style=for-the-badge)
 
@@ -67,7 +67,7 @@ Table of contents:
 
 - Windows 11
 - CATIA V5 6R-2023
-- [Python 3.13](https://www.python.org/downloads/)
+- [Python 3.10](https://www.python.org/downloads/)
 
 > ✏️ These requirements aren't strict, you can use **pytia** on older or more recent systems, but it isn't tested on these.
 
