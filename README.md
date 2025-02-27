@@ -2,14 +2,16 @@
 
 A wrapper for the catia v5 api.
 
-![state](https://img.shields.io/badge/State-beta-brown.svg?style=for-the-badge)
+![state](https://img.shields.io/badge/State-archived-brown.svg?style=for-the-badge)
 ![version](https://img.shields.io/github/v/release/deloarts/pytia?style=for-the-badge&color=orange)
 
 [![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
 ![catia](https://img.shields.io/badge/CATIA-V5%206R2023-blue.svg?style=for-the-badge)
 ![OS](https://img.shields.io/badge/OS-WIN11-blue.svg?style=for-the-badge)
 
-**pytia** is a wrapper for the CATIA V5 api based on the **V5Automation.chm** help file. It provides some useful utilities and features for interacting with the api and a cli tool. More details: <https://pytia.deloarts.com/>.
+**pytia** is a wrapper for the CATIA V5 api based on the **V5Automation.chm** help file. It provides some useful utilities and features for interacting with the api and a cli tool.
+
+> ⚠️ Due to the lack of a CATIA License I'm no longer able to develop this app. I leave it here for others to use, but keep in mind that I can't provide updates or fixes.
 
 Check out the pytia ecosystem:
 
